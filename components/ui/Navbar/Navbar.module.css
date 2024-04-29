@@ -1,0 +1,39 @@
+.navbarContainer {
+  position: absolute;
+  z-index: 30;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+
+.navbar {
+  width: 72rem;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+}
+
+.navbarMiddle {
+  display: flex;
+  align-items: center;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-size: 32px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
