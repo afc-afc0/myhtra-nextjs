@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Rubik } from "next/font/google"
 import "./globals.css"
 import { ClientSideContextProviders } from "../../contexts/ClientSideContextProviders/ClientSideContextProviders"
 import { Navbar } from "@/components/ui/Navbar/Navbar"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Rubik({ subsets: ["latin"]})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ClientSideContextProviders>
           <Navbar />
-          <main>
-            {children}
-          </main>
+          {children}
         </ClientSideContextProviders>
       </body>
     </html>

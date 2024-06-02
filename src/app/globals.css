@@ -1,62 +1,41 @@
 :root {
-  --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --primary-color: #001B2E;
-  --primary-color-tint-90: #002240;
-  --primary-color-tint-80: #002F54;
-  --primary-color-tint-70: #003C68;
-  --primary-color-tint-60: #00497C;
-  --primary-color-tint-50: #005690;
-  --primary-color-tint-40: #0066A3;
-  --primary-color-tint-30: #0074B6;
-  --primary-color-tint-20: #0090DC;
-  --primary-color-tint-10: #009EEF;
-  --primary-color-tint-5: #00B3FF;
-  --primary-color-tint-2: #00CCFF;
-  --primary-color-tint-1: #00E6FF;
+  --font-size-s : 15px;
+  --font-size-m : 17px;
+  --font-size-l : 20px;
+  --font-size-xl : 24px;
+  --font-size-xxl : 32px;
+  --font-size-xxxl : 48px;
 
-  --primary-bg: #afb3b2;
-  --primary-bg-tint-90: #9fa3a2;
-  --primary-bg-tint-80: #8f9392;
-  --primary-bg-tint-70: #7f8392;
-  --primary-bg-tint-60: #6f7382;
-  --primary-bg-tint-50: #5f6372;
-  --primary-bg-tint-40: #4f5362;
-  --primary-bg-tint-30: #3f4352;
-  --primary-bg-tint-20: #2f3342;
-  --primary-bg-tint-10: #1f2332;
-  --primary-bg-tint-5: #0f1322;  
-}
+  --border-radius: 12px;
+  --border-size: 2px; 
 
-[data-theme='dark'] {
-  --primary-color: #00E6FF;
-  --primary-color-tint-90: #00CCFF;
-  --primary-color-tint-80: #00B3FF;
-  --primary-color-tint-70: #009EEF;
-  --primary-color-tint-60: #0090DC;
-  --primary-color-tint-50: #0074B6;
-  --primary-color-tint-40: #0066A3;
-  --primary-color-tint-30: #005690;
-  --primary-color-tint-20: #00497C;
-  --primary-color-tint-10: #003C68;
-  --primary-color-tint-5: #002F54;
-  --primary-color-tint-2: #002240;
-  --primary-color-tint-1: #001B2E;
+  --padding-small: 0.5rem;
+  --padding-medium: 1rem;
+  --padding-large: 2rem;
 
-  --primary-bg: #0f1322; 
-  --primary-bg-tint-90: #1f2332; 
-  --primary-bg-tint-80: #2f3342; 
-  --primary-bg-tint-70: #3f4352; 
-  --primary-bg-tint-60: #4f5362; 
-  --primary-bg-tint-50: #5f6372; 
-  --primary-bg-tint-40: #6f7382;
-  --primary-bg-tint-30: #7f8392;
-  --primary-bg-tint-20: #8f9392;
-  --primary-bg-tint-10: #9fa3a2;
-  --primary-bg-tint-5: #afb3b2;
+  --margin-small: 0.5rem;
+  --margin-medium: 1rem;
+  --margin-large: 2rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --primary-color: #D4C9FF;
+  --secondary-color: #9B93ED;
+  --tertiary-color: #6461B5;
+
+  --primary-bg: #1D0009;
+  --white: white;
+  --black: black;
+
+  --navbar-height: 5rem;
 }
 
 * {
@@ -72,4 +51,3 @@ body {
   overflow-x: hidden;
   background-color: var(--primary-bg);
 }
-

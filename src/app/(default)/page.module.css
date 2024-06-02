@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.middleSectionContainer{
+  box-shadow: 
+    20px 0px 15px -20px var(--tertiary-color),
+    -20px 0px 15px -20px var(--tertiary-color);
+  width: 70rem; 
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.introductionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: var(--margin-large);
+  padding-right: var(--margin-large);
+}
+
