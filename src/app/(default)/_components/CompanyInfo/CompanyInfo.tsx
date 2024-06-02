@@ -2,7 +2,7 @@ import Image from "next/image"
 import { FlexContainer } from "@/components/ui/Layout/Layout"
 import { Text } from '@/components/ui/Text/Text'
 
-import HeaderIllustration from '@/public/pngs/HeaderIllustration5.jpg'
+import HeaderIllustration from '@/public/pngs/HeaderIllustration.jpg'
 import BulletPointIcon from '@/public/icons/company-info-bullet-point-icon.svg'
 
 import styles from './CompanyInfo.module.css'
