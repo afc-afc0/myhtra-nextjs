@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import { ThemeSwitch } from '@/components/ui/ThemeSwitch/ThemeSwitch';
+import Image from 'next/image'
 import MythraLogo from '@/public/pngs/Logo.png'
 
-import styles from './Navbar.module.css'; 
+import styles from './Navbar.module.css'
 
 export const Navbar = ({}) => {
   return (
@@ -12,10 +11,10 @@ export const Navbar = ({}) => {
           <Logo />
         </div>
         <div className={styles.navbarMiddle}>
-          <Label label='Myhtra Studios' />
+          
         </div>
         <div className={styles.navbarRight}>
-          <ThemeSwitch />
+        
         </div>
       </nav>
     </div>
@@ -30,17 +29,5 @@ const Logo = () => {
       width={48}
       height={48}
     />
-  )
-}
-
-interface LabelProps {
-  label: string
-}
-
-const Label = ({ label }: LabelProps) => {
-  return (
-    <label className={styles.label}>
-      { label }
-    </label>
   )
 }
