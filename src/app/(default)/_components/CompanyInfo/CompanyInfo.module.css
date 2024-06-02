@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  gap: 1rem;
+  height: 620px;
+  padding: var(--padding-large);
+}
+
+.textsContainer {
+  margin-left: var(--margin-medium);
+  width: 68%;
+}
+
+.imageContainer {
+  width: 30%;
+  border-radius: var(--border-radius); 
+  box-shadow: 20px 0px 15px -20px var(--tertiary-color),
+    -20px 0px 15px -20px var(--tertiary-color);
+  overflow: hidden;
+}
+
+.bulletPointContainer {
+  width: 100%;
+  margin-bottom: var(--margin-small);
+}
+
+.bulletPointIconContainer {
+  width: 10%;
+}
+
+.bulletPointTextsContainer {
+  width: 90%;
+}
+
+.image {
+  border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: 2000px;
+    padding: 0;
+  }
+
+  .textsContainer {
+    width: 95%;
+    margin-left: 0px;
+  }
+
+  .bulletPointIconContainer {
+    width: 20%;
+  }
+
+  .bulletPointTextsContainer {
+    width: 80%;
+  }
+
+  .imageContainer {
+    display: none;   
+ /* width: 100%; */
+  }
+}
