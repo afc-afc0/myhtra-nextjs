@@ -1,8 +1,8 @@
 .container {
   width: 100%;
   gap: 1rem;
-  height: 620px;
-  padding: var(--padding-large);
+  height: 950px;
+  padding: var(--padding-l);
 }
 
 .textsContainer {
@@ -13,8 +13,9 @@
 .imageContainer {
   width: 30%;
   border-radius: var(--border-radius); 
-  box-shadow: 20px 0px 15px -20px var(--tertiary-color),
-    -20px 0px 15px -20px var(--tertiary-color);
+  box-shadow:
+     20px 0px 15px -20px var(--secondary-color),
+    -20px 0px 15px -20px var(--secondary-color);
   overflow: hidden;
 }
 

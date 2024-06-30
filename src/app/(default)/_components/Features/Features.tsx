@@ -1,13 +1,7 @@
 import Image from 'next/image'
 import { Text } from '@/components/ui/Text/Text'
-import { FlexContainer } from '@/components/ui/Layout/Layout'
-
-import GameDevIcon from '@/public/icons/features-game-dev.svg'
-import CloudIcon from '@/public/icons/features-cloud.svg'
-import AuthIcon from '@/public/icons/features-auth.svg'
-import ArchitectureIcon from '@/public/icons/features-architecture.svg'
-import DockerIcon from '@/public/icons/features-docker.svg'
-import WebDevIcon from '@/public/icons/features-web-dev.svg'
+import { FlexContainer } from '@/components/ui/Layout/FlexContainer/FlexContainer'
+import { ArchitectureSVG, AuthSVG, CloudSVG, DockerSVG, GameDevSVG, WebDevSVG } from '@/components/ui/SVG/SVG'
 
 import styles from './Features.module.css'
 
@@ -16,32 +10,32 @@ export const Features = () => {
     <Container>
       <FlexContainer paddingSize='l' gapSize='s'>
         <Feature
-          iconSrc={WebDevIcon}
+          svg={<WebDevSVG />}
           text='Web'
           description='We create scalable and innovative web applications designed for optimal performance and tailored to unique client needs'
         />
         <Feature
-          iconSrc={CloudIcon}
+          svg={<CloudSVG />}
           text='Cloud'
           description='Expert in Terraform, providing scalable cloud solutions with Azure, GCP, and AWS to enhance business efficiency'        
         />
         <Feature
-          iconSrc={AuthIcon}
+          svg={<AuthSVG />}
           text='Authentication'
           description='Implementing secure authentication with OAuth2, OIDC, ensuring robust protection and seamless user access'
         />
         <Feature
-          iconSrc={ArchitectureIcon}
+          svg={<ArchitectureSVG />}
           text='Software Architecture'
           description='We focus on creating scalable and high-performance architectures, emphasizing efficiency and robust design to meet diverse business needs'
         />
         <Feature
-          iconSrc={DockerIcon}
+          svg={<DockerSVG />}
           text='Containerization'
           description='Our expertise in Docker and Kubernetes enables us to build and manage scalable, containerized applications with precision and reliability'
         />
         <Feature 
-          iconSrc={GameDevIcon} 
+          svg={<GameDevSVG />}
           text='Game Dev' 
           description='At the heart of our diverse tech endeavors, making games is our way of embracing the fun side of technology' 
         />
@@ -61,16 +55,18 @@ const Container = ({ children } : { children: React.ReactNode }) => {
 interface FeatureProps {
   text: string,
   description: string,
-  iconSrc: any
+  svg: JSX.Element
 }
 
-const Feature = ({ text, description, iconSrc } : FeatureProps) => {
+const Feature = ({ text, description, svg } : FeatureProps) => {
   return (
     <FeatureContainer>
       <FlexContainer marginSize='none'>
-        <IconContainer>
-          <Icon iconSrc={iconSrc} />
-        </IconContainer>
+        <SVGContainer>
+          <SVG>
+            { svg }
+          </SVG>
+        </SVGContainer>
         <TextsContainer>
           <FlexContainer marginSize='none'>
             <Text text={text} fontSize='xl' fontWeight='bold' />
@@ -90,17 +86,17 @@ const FeatureContainer = ({ children } : { children: React.ReactNode }) => {
   )
 }
 
-const Icon = ({ iconSrc } : { iconSrc: string }) => {
+export const SVG = ({ children } : { children: React.ReactNode }) => {
   return (
-    <div className={styles.icon}>
-      <Image src={iconSrc} alt='feature star icon' width={40} height={40}  />
+    <div className={styles.svg}>
+      { children }
     </div>
   )
 }
 
-const IconContainer = ({ children } : { children: React.ReactNode }) => {
+const SVGContainer = ({ children } : { children: React.ReactNode }) => {
   return (
-    <div className={styles.iconContainer}>
+    <div className={styles.svgContainer}>
       { children }
     </div>
   )

@@ -1,11 +1,13 @@
 import Image from "next/image"
-import { FlexContainer } from "@/components/ui/Layout/Layout"
+import { FlexContainer } from "@/components/ui/Layout/FlexContainer/FlexContainer"
 import { Text } from '@/components/ui/Text/Text'
 
 import HeaderIllustration from '@/public/pngs/HeaderIllustration.jpg'
-import BulletPointIcon from '@/public/icons/company-info-bullet-point-icon.svg'
+import BulletPointIcon from '@/public/svgs/check.svg'
 
 import styles from './CompanyInfo.module.css'
+import { CheckSVG } from "@/components/ui/SVG/SVG"
+import { SVG } from "../Features/Features"
 
 export const CompanyInfo = () => {
   return (
@@ -15,7 +17,7 @@ export const CompanyInfo = () => {
           <Image className={styles.image} src={HeaderIllustration} alt='Header Illustration' style={{ width: '100%', height: 'auto' }} />
         </CompanyInfoImageContainer>
         <TextsContainer>
-          <FlexContainer marginSize='s' gapSize="l">
+          <FlexContainer gapSize="l">
             <Text fontSize='m' fontWeight='light' text='At Mythra Studios, perfection is our goal, ensuring exceptional results in every project. Our dynamic team of tech enthusiasts excels in DevOps, cloud solutions, and web development. We aim to revolutionize the tech industry with efficient and perfectly functioning applications. By eliminating unnecessary complexity, we create robust and user-friendly software. Our expertise includes scalable web applications, Terraform cloud solutions, secure authentication with OAuth2 and OIDC, and high-performance software architectures. We also embrace the fun side of technology through game development' />
             <FlexContainer gapSize='s'>            
               <BulletPoint header='Pursuit of Perfection' text='For us, every project is a testament to our dedication with the goal of achieving perfection and delivering exceptional results' />
@@ -40,7 +42,9 @@ const BulletPoint = ({ text, header } : BulletPointProps) => {
     <BulletPointContainer>
       <FlexContainer>
         <BulletPointIconContainer>
-          <Image src={BulletPointIcon} height={32} width={32} alt='Bullet Point Icon' />
+          <SVG>
+            <CheckSVG />
+          </SVG>
         </BulletPointIconContainer>
         <BullerPointTextsContainer>
           <FlexContainer gapSize='s'>

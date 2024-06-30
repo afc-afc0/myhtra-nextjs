@@ -7,13 +7,13 @@
   width: 28%;
 }
 
-.iconContainer {
+.svgContainer {
   width: 25%;
 }
 
-.icon {
+.svg {
   border-radius: var(--border-radius);
-  background-color: var(--tertiary-color);
+  background-color: var(--secondary-color);
   display: flex;
   width: 60px;
   height: 60px;
@@ -34,7 +34,7 @@
     width: 100%;
   }
 
-  .iconContainer {
+  .svgContainer {
     width: 20%;
   }
 }

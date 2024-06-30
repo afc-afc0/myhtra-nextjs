@@ -9,7 +9,7 @@
   user-select: none;
   touch-action: manipulation;
   will-change: transform;
-  color: var(--white);
+  color: var(--text-color);
   padding: var(--padding-vertical) var(--padding-horizontal);
   
   height: 2.4rem;
@@ -19,7 +19,7 @@
   font-size: 15px;
   font-weight: 600;
 
-  border: var(--border-size) solid var(--tertiary-color);
+  border: var(--border-size-l) solid var(--secondary-color);
   border-radius: var(--border-radius);
 
   transition: all 300ms ease;

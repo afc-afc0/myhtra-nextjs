@@ -1,5 +1,5 @@
 .text {
-  color: var(--white);
+  color: var(--text-color);
   text-align: start;
 }
 

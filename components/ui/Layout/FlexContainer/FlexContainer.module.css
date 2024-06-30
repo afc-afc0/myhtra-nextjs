@@ -7,9 +7,11 @@
   height: 100%;
 }
 
-.flexContainer[data-padding-size="s"] { padding: var(--padding-small); }
-.flexContainer[data-padding-size="m"] { padding: var(--padding-medium); }
-.flexContainer[data-padding-size="l"] { padding: var(--padding-large); }
+.flexContainer[data-padding-size="xs"] { padding: var(--padding-xs); }
+.flexContainer[data-padding-size="s"] { padding: var(--padding-s); }
+.flexContainer[data-padding-size="m"] { padding: var(--padding-m); }
+.flexContainer[data-padding-size="l"] { padding: var(--padding-l); }
+.flexContainer[data-padding-size="xl"] { padding: var(--padding-xl); }
 
 .flexContainer[data-margin-size="s"] { margin: var(--margin-small); }
 .flexContainer[data-margin-size="m"] { margin: var(--margin-medium); }

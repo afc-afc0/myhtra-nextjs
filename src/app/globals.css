@@ -11,15 +11,29 @@
   --font-size-xxxl : 48px;
 
   --border-radius: 12px;
-  --border-size: 2px; 
+  --border-radius-s: 4px;
 
-  --padding-small: 0.5rem;
-  --padding-medium: 1rem;
-  --padding-large: 2rem;
+  --border-size-xs: 1px;
+  --border-size-s: 1.5px;
+  --border-size-m: 2px;
+  --border-size-l: 2.5px; 
+
+  --padding-xss: 0.25rem;
+  --padding-xs: 0.4rem;
+  --padding-s: 0.5rem;
+  --padding-m: 1rem;
+  --padding-l: 2rem;
+  --padding-xl: 4rem;
 
   --margin-small: 0.5rem;
   --margin-medium: 1rem;
   --margin-large: 2rem;
+
+  --button-size-xs: 24px;
+  --button-size-s: 28px;
+  --button-size-m: 32px;
+  --button-size-l: 40px;
+  --button-size-xl: 48px;
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -27,15 +41,31 @@
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
-  --primary-color: #D4C9FF;
-  --secondary-color: #9B93ED;
-  --tertiary-color: #6461B5;
+  --background-color: hsl(0, 0%, 0%); 
+  --primary-color: hsl(231, 58%, 50%); 
+  --secondary-color: hsl(230, 73%, 30%); 
 
-  --primary-bg: #1D0009;
-  --white: white;
-  --black: black;
+  --border-color: hsl(250 10.1% 32.7%);
+  --focus-border-color: var(--primary-color);
+
+  --shadow-color: rgba(189, 189, 189, 0.5);
+
+  --text-color: hsl(0, 0%, 100%); 
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
 
   --navbar-height: 5rem;
+}
+
+[data-theme="light"] {
+  --background-color: hsl(0, 0%, 100%); 
+  --primary-color: hsl(203, 66%, 46%); 
+  --secondary-color: hsl(204, 84%, 72%);
+
+  --text-color: hsl(0, 0%, 0%);
+  --border-color: hsl(240 1.8% 15.9%);
+  --focus-border-color: var(--primary-color);
+  --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -49,5 +79,5 @@ body {
   width: 100dvw;
   height: 100dvh;
   overflow-x: hidden;
-  background-color: var(--primary-bg);
+  background-color: var(--background-color);
 }
