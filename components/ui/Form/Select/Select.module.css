@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .disabled {
@@ -30,7 +31,6 @@
   border-radius: var(--border-radius-s);
   background-color: var(--background-color);
   box-shadow: var(--shadow-color);
-  cursor: default;
 }
 
 .viewport {
@@ -43,115 +43,32 @@
   min-width: var(--radix-select-trigger-width);
 }
 
-.content[data-side="bottom"] {
-  animation: slideInFromTop 0.2s;
-}
-
-.content[data-side="left"] {
-  animation: slideInFromRight 0.2s;
-}
-
-.content[data-side="right"] {
-  animation: slideInFromLeft 0.2s;
-}
-
-.content[data-side="top"] {
-  animation: slideInFromBottom 0.2s;
-}
-
-.content.popper[data-side="bottom"] {
-  transform: translateY(0.25rem); 
-}
-
-.content.popper[data-side="left"] {
-  transform: translateX(-0.25rem);
-}
-
-.content.popper[data-side="right"] {
-  transform: translateX(0.25rem); 
-}
-
-.content.popper[data-side="top"] {
-  transform: translateY(-0.25rem); 
-}
-
 .content[data-state="open"] {
-  animation: fadeIn 0.2s, zoomIn 0.2s;
+  animation: enter 0.25s;
 }
 
 .content[data-state="closed"] {
-  animation: fadeOut 0.2s, zoomOut 0.2s;
+  animation: exit 0.25;
 }
 
-@keyframes fadeIn {
+@keyframes enter {
   from {
     opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.92, 0.92, 0.92) rotate(0);
   }
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0);
   }
 }
 
-@keyframes fadeOut {
+@keyframes exit {
   from {
     opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0);
   }
   to {
     opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.92, 0.92, 0.92) rotate(0);
   }
 }
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.95);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(0.95);
-  }
-}
-
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-0.5rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(0.5rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-0.5rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromBottom {
-  from {
-    transform: translateY(0.5rem);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
