@@ -40,7 +40,7 @@ export const SelectContent = React.forwardRef<
           ref={ref} 
           className={clsx(
             styles.content,
-            position === 'popper' ? styles.popper : ''
+            position === 'popper' && styles.popper 
           )}
           position={position}
           {...props}
@@ -48,7 +48,7 @@ export const SelectContent = React.forwardRef<
           <SelectPrimitive.Viewport 
             className={clsx(
               styles.viewport,
-              position === 'popper' ? styles.popper : ''
+              position === 'popper' && styles.popper 
             )}
           >
             {children}
