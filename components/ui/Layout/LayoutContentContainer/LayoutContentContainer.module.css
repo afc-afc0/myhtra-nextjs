@@ -1,12 +1,10 @@
-.container{
-  box-shadow: 
-    20px 0px 15px -20px var(--shadow-color),
-    -20px 0px 15px -20px var(--shadow-color);
+.container {
   height: 100%; 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 1920px) {
