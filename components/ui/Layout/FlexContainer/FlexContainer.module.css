@@ -1,10 +1,6 @@
 .flexContainer {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
   width: 100%;
-  height: 100%;
 }
 
 .flexContainer[data-padding-size="xs"] { padding: var(--padding-xs); }
@@ -13,13 +9,25 @@
 .flexContainer[data-padding-size="l"] { padding: var(--padding-l); }
 .flexContainer[data-padding-size="xl"] { padding: var(--padding-xl); }
 
-.flexContainer[data-margin-size="s"] { margin: var(--margin-small); }
-.flexContainer[data-margin-size="m"] { margin: var(--margin-medium); }
-.flexContainer[data-margin-size="l"] { margin: var(--margin-large); }
-
 .flexContainer[data-gap-size="s"] { gap: var(--margin-small); }
 .flexContainer[data-gap-size="m"] { gap: var(--margin-medium); }
 .flexContainer[data-gap-size="l"] { gap: var(--margin-large); }
+
+.flexContainer[data-flex-direction="row"] { flex-direction: row; }
+.flexContainer[data-flex-direction="column"] { flex-direction: column; }
+
+.flexContainer[data-height="100%"] { height: 100%; }
+.flexContainer[data-height="auto"] { height: auto; }
+
+.flexContainer[data-justify-content="flex-start"] { justify-content: flex-start; }
+.flexContainer[data-justify-content="flex-end"] { justify-content: flex-end; }
+.flexContainer[data-justify-content="center"] { justify-content: center; }
+.flexContainer[data-justify-content="space-between"] { justify-content: space-between; }
+.flexContainer[data-justify-content="space-around"] { justify-content: space-around; }
+
+.flexContainer[data-align-items="flex-start"] { align-items: flex-start; }
+.flexContainer[data-align-items="flex-end"] { align-items: flex-end; }
+.flexContainer[data-align-items="center"] { align-items: center; }
 
 @media screen and (max-width: 1024px) {
   .flexContainer[data-padding-size="s"] { padding: 0; }

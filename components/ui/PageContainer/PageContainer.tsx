@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import styles from './PageContainer.module.css'
 
 interface PageContainerProps {
@@ -7,7 +8,7 @@ interface PageContainerProps {
 
 export const PageContainer = ({ removeNavbarPadding = false, children } : PageContainerProps) => {
   return (
-    <main className={`${styles.container} ${removeNavbarPadding && styles.removePadding}`}>
+    <main className={clsx(styles.container, removeNavbarPadding && styles.removePadding)}>
       { children }
     </main>
   )
