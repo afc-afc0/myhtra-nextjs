@@ -12,10 +12,10 @@ import { SVG } from "../Features/Features"
 export const CompanyInfo = () => {
   return (
     <Container>
-      <FlexContainer>
-        <CompanyInfoImageContainer>
+      <FlexContainer flexDirection='row'>
+        {/* <CompanyInfoImageContainer>
           <Image className={styles.image} src={HeaderIllustration} alt='Header Illustration' style={{ width: '100%', height: 'auto' }} />
-        </CompanyInfoImageContainer>
+        </CompanyInfoImageContainer> */}
         <TextsContainer>
           <FlexContainer gapSize="l">
             <Text fontSize='m' fontWeight='light' text='At Mythra Studios, perfection is our goal, ensuring exceptional results in every project. Our dynamic team of tech enthusiasts excels in DevOps, cloud solutions, and web development. We aim to revolutionize the tech industry with efficient and perfectly functioning applications. By eliminating unnecessary complexity, we create robust and user-friendly software. Our expertise includes scalable web applications, Terraform cloud solutions, secure authentication with OAuth2 and OIDC, and high-performance software architectures. We also embrace the fun side of technology through game development' />
@@ -37,10 +37,10 @@ interface BulletPointProps {
   header: string
 }
 
-const BulletPoint = ({ text, header } : BulletPointProps) => {
+export const BulletPoint = ({ text, header } : BulletPointProps) => {
   return (
     <BulletPointContainer>
-      <FlexContainer>
+      <FlexContainer flexDirection='row'>
         <BulletPointIconContainer>
           <SVG>
             <CheckSVG />

@@ -4,7 +4,7 @@ import styles from './Label.module.css'
 
 interface LabelProps {
   label: string,
-  htmlFor: string
+  htmlFor?: string
 }
 
 export const Label = ({ label, htmlFor } : LabelProps) => {

@@ -9,16 +9,21 @@
   --font-size-xl : 24px;
   --font-size-xxl : 32px;
   --font-size-xxxl : 48px;
+  --font-size-xxxxl : 64px;
 
-  --border-radius: 12px;
+  --border-radius-xs: 2x;
   --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 12px;
+  --border-radius-xl: 16px;
 
-  --border-size-xs: 1px;
-  --border-size-s: 1.5px;
-  --border-size-m: 2px;
-  --border-size-l: 2.5px; 
+  --border-width-xs: 1px;
+  --border-width-s: 1.5px;
+  --border-width-m: 2px;
+  --border-width-l: 2.5px; 
+  --border-width-xl: 3px;
 
-  --padding-xss: 0.25rem;
+  --padding-xss: 0.25;
   --padding-xs: 0.4rem;
   --padding-s: 0.5rem;
   --padding-m: 1rem;
@@ -49,6 +54,10 @@
   --focus-border-color: var(--primary-color);
 
   --shadow-color: rgba(189, 189, 189, 0.5);
+
+  --shadow-size-s: 0 0 6px 3px var(--shadow-color);
+  --shadow-size-m: 0 0 10px 5px var(--shadow-color);
+  --shadow-size-l: 0 0 16px 8px var(--shadow-color);
 
   --text-color: hsl(0, 0%, 100%); 
   --white: hsl(0, 0%, 100%);

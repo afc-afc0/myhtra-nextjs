@@ -61,14 +61,14 @@ interface FeatureProps {
 const Feature = ({ text, description, svg } : FeatureProps) => {
   return (
     <FeatureContainer>
-      <FlexContainer marginSize='none'>
+      <FlexContainer>
         <SVGContainer>
           <SVG>
             { svg }
           </SVG>
         </SVGContainer>
         <TextsContainer>
-          <FlexContainer marginSize='none'>
+          <FlexContainer>
             <Text text={text} fontSize='xl' fontWeight='bold' />
             <Text text={description} fontSize='m' fontWeight='light' />
           </FlexContainer>
