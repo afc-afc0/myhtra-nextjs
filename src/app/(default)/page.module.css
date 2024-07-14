@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding-left: var(--margin-large);
-  padding-right: var(--margin-large);
+  padding-left: var(--margin-l);
+  padding-right: var(--margin-l);
 }
 

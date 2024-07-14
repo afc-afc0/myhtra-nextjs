@@ -1,0 +1,17 @@
+.cardContainer {
+  width: 220px;
+  height: 320px;
+  background-color: var(--border-color);  
+  border-radius: var(--border-radius-m);
+  box-shadow: inset 0 0 0 10px var(--border-color);
+  padding: var(--padding-s);
+}
+
+.innderCardBorderContainer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color); 
+  border-radius: var(--border-radius-m); 
+  box-sizing: border-box;
+  padding: var(--padding-m); 
+}

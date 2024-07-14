@@ -1,6 +1,8 @@
 .text {
   color: var(--text-color);
   text-align: start;
+  text-wrap: wrap;
+  text-overflow: clip;
 }
 
 .text[data-size="s"] { font-size: var(--font-size-s); }

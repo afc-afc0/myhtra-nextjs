@@ -6,18 +6,20 @@ import { CompanyHeader } from "./_components/CompanyHeader/CompanyHeader"
 
 import styles from "./page.module.css"
 import { AboutUs } from "./_components/AboutUs/AboutUs"
+import { Card } from "./_components/Cards/Card/Card"
 
 export default function Home() {
   return (
     <>
-      <CompanyHeader />
-      <AboutUs />
-      <PageContainer>
+      <Card borderColor="" cardColor="" />
+      {/* <CompanyHeader /> */}
+      {/* <AboutUs /> */}
+      {/* <PageContainer>
         <LayoutContentContainer>
           <CompanyInfo />
           <Features />
         </LayoutContentContainer>
-      </PageContainer>
+      </PageContainer> */}
     </>
   )
 }

@@ -23,16 +23,18 @@
   --border-width-l: 2.5px; 
   --border-width-xl: 3px;
 
-  --padding-xss: 0.25;
+  --padding-xss: 0.25rem;
   --padding-xs: 0.4rem;
   --padding-s: 0.5rem;
   --padding-m: 1rem;
   --padding-l: 2rem;
   --padding-xl: 4rem;
 
-  --margin-small: 0.5rem;
-  --margin-medium: 1rem;
-  --margin-large: 2rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 1rem;
+  --margin-m: 2rem;
+  --margin-l: 4rem;
+  --margin-xl: 6rem;
 
   --button-size-xs: 24px;
   --button-size-s: 28px;
@@ -55,9 +57,9 @@
 
   --shadow-color: rgba(189, 189, 189, 0.5);
 
-  --shadow-size-s: 0 0 6px 3px var(--shadow-color);
-  --shadow-size-m: 0 0 10px 5px var(--shadow-color);
-  --shadow-size-l: 0 0 16px 8px var(--shadow-color);
+  --shadow-size-s: 0 0 10px 0px var(--shadow-color);
+  --shadow-size-m: 0 0 15px 1px var(--shadow-color);
+  --shadow-size-l: 0 0 15px 2px var(--shadow-color);
 
   --text-color: hsl(0, 0%, 100%); 
   --white: hsl(0, 0%, 100%);
