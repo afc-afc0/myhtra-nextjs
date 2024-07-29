@@ -1,0 +1,8 @@
+.cardContainer {
+  width: 22rem;
+  height: 32rem;
+}
+
+.profileImage {
+  border-radius: var(--padding-s);
+}

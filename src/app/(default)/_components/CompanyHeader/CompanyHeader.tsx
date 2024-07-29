@@ -9,8 +9,8 @@ export const CompanyHeader = () => {
   return (
     <FlexContainer height='100%' alignItems='center' justifyContent='center'>
       <ContentContainer>
-        <FlexContainer height='100%' flexDirection='column' gapSize='s' justifyContent='space-between'>
-          <FlexContainer>
+        <FlexContainer shadowSize='m' paddingSize='m' height='auto' width='inherit' flexDirection='column' gapSize='s'>
+          <FlexContainer marginBottom='m'>
             <Text fontWeight='bold' fontSize='xxxxl' text='Mythra Studios' />
             <Text fontWeight='light' fontSize='xxl' text='Pursuing Perfection, Project by Project' />
           </FlexContainer>

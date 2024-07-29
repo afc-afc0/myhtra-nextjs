@@ -1,21 +1,16 @@
 import Image from "next/image"
 import { FlexContainer } from "@/components/ui/Layout/FlexContainer/FlexContainer"
 import { Text } from '@/components/ui/Text/Text'
-
-import HeaderIllustration from '@/public/pngs/HeaderIllustration.jpg'
-import BulletPointIcon from '@/public/svgs/check.svg'
-
-import styles from './CompanyInfo.module.css'
 import { CheckSVG } from "@/components/ui/SVG/SVG"
 import { SVG } from "../Features/Features"
 
+import styles from './CompanyInfo.module.css'
+
 export const CompanyInfo = () => {
   return (
-    <Container>
-      <FlexContainer flexDirection='row'>
-        {/* <CompanyInfoImageContainer>
-          <Image className={styles.image} src={HeaderIllustration} alt='Header Illustration' style={{ width: '100%', height: 'auto' }} />
-        </CompanyInfoImageContainer> */}
+    <FlexContainer height='100%' alignItems='center' justifyContent='center'>
+      <Container>
+        
         <TextsContainer>
           <FlexContainer gapSize="l">
             <Text fontSize='m' fontWeight='light' text='At Mythra Studios, perfection is our goal, ensuring exceptional results in every project. Our dynamic team of tech enthusiasts excels in DevOps, cloud solutions, and web development. We aim to revolutionize the tech industry with efficient and perfectly functioning applications. By eliminating unnecessary complexity, we create robust and user-friendly software. Our expertise includes scalable web applications, Terraform cloud solutions, secure authentication with OAuth2 and OIDC, and high-performance software architectures. We also embrace the fun side of technology through game development' />
@@ -27,8 +22,8 @@ export const CompanyInfo = () => {
             </FlexContainer>
           </FlexContainer>
         </TextsContainer>
-      </FlexContainer>
-    </Container>
+      </Container>
+    </FlexContainer>
   )
 }
 

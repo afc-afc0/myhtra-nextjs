@@ -9,7 +9,8 @@ interface FlexContainerProps {
   paddingSize?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',  
   gapSize?: 'none' | 's' | 'm' | 'l',
   marginBottom?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
-  height?: 'none' | '100%' | 'auto',
+  height?: 'none' | '100%' | 'auto' | 'inherit',
+  width?: 'none' | '100%' | 'auto' | 'inherit',
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around',
   alignItems?: 'flex-start' | 'flex-end' | 'center',
   style?: React.CSSProperties,  
@@ -28,6 +29,7 @@ export const FlexContainer = ({
   gapSize = 'none', 
   marginBottom = 'none',
   height = 'auto', 
+  width = 'auto',
   justifyContent = 'flex-start',
   alignItems = 'flex-start',
   borderWidth = 'none',
@@ -43,6 +45,7 @@ export const FlexContainer = ({
       data-margin-bottom={marginBottom}
       data-flex-direction={flexDirection}
       data-height={height}
+      data-width={width}
       data-justify-content={justifyContent}
       data-align-items={alignItems}
       data-border-width={borderWidth} 
