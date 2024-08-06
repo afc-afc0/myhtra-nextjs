@@ -2,6 +2,8 @@ import AhmetImage from '@/public/pngs/profileImages/Ahmet.jpeg'
 import Image from 'next/image'
 import { FlexContainer } from '@/components/ui/Layout/FlexContainer/FlexContainer'
 import { Text } from '@/components/ui/Text/Text'
+import { Button } from '@/components/ui/Button/Button'
+import { EyeSVG } from '@/components/ui/SVG/SVG'
 
 import styles from './ProfileCards.module.css'
 
@@ -44,6 +46,13 @@ const Card = ({ name, position, info } : CardProps) => {
             fontWeight='light'
           />
         </FlexContainer>
+        <FlexContainer width='100%' justifyContent='flex-end' alignItems='flex-start' height='100%'>
+          <Button
+            size='m'
+            text='View'
+            icon={<EyeSVG />}
+          />
+        </FlexContainer>
       </FlexContainer>
     </CardContainer>
   )
@@ -76,4 +85,3 @@ const ProfileImage = ({  } : {  }) => {
     />
   )
 }
-

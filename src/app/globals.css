@@ -30,6 +30,7 @@
   --padding-l: 2rem;
   --padding-xl: 4rem;
 
+  --margin-xss: 0.25rem;
   --margin-xs: 0.5rem;
   --margin-s: 1rem;
   --margin-m: 2rem;
@@ -49,10 +50,12 @@
   --font-weight-black: 900;
 
   --background-color: hsl(0, 0%, 0%); 
-  --primary-color: hsl(231, 58%, 50%); 
-  --secondary-color: hsl(230, 73%, 30%); 
+  --primary-color: hsl(230, 73%, 30%);
 
-  --border-color: hsl(250 10.1% 32.7%);
+  --action-color:  hsl(231, 58%, 50%); 
+  --action-color-transition: hsl(51, 58%, 50%);
+
+  --border-color: hsl(0, 0%, 52%);
   --focus-border-color: var(--primary-color);
 
   --shadow-color: rgba(189, 189, 189, 0.5);
@@ -61,19 +64,20 @@
   --shadow-size-m: 0 0 15px 1px var(--shadow-color);
   --shadow-size-l: 0 0 15px 2px var(--shadow-color);
 
-  --text-color: hsl(0, 0%, 100%); 
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+  --text-color: hsl(0, 0%, 100%);
+  --text-color-secondary: hsl(0, 0%, 0%);  
 
   --navbar-height: 5rem;
 }
 
 [data-theme="light"] {
   --background-color: hsl(0, 0%, 100%); 
-  --primary-color: hsl(203, 66%, 46%); 
-  --secondary-color: hsl(204, 84%, 72%);
+  --primary-color: hsl(203, 66%, 46%);
+  --action-color: hsl(204, 84%, 72%); 
 
   --text-color: hsl(0, 0%, 0%);
+  --text-color-secondary: hsl(0, 0%, 100%);
+
   --border-color: hsl(240 1.8% 15.9%);
   --focus-border-color: var(--primary-color);
   --shadow-color: rgba(0, 0, 0, 0.15);

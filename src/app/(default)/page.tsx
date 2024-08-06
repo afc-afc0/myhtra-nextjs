@@ -11,8 +11,8 @@ import styles from "./page.module.css"
 export default function Home() {
   return (
     <>
-      <CompanyHeader />
-      <AboutUs />
+      {/* <CompanyHeader /> */}
+      {/* <AboutUs /> */}
       <ProfileCards />
       {/* <PageContainer>
         <LayoutContentContainer>
