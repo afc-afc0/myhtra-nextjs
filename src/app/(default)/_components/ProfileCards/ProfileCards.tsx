@@ -58,14 +58,6 @@ const Card = ({ name, position, info } : CardProps) => {
   )
 }
 
-const ProfileImageContainer = ({ children } : { children: React.ReactNode }) => {
-  return (
-    <div className={styles.profileImageContainer}>
-      { children }
-    </div>
-  )
-}
-
 const CardContainer = ({ children } : { children: React.ReactNode }) => {
   return (
     <div className={styles.cardContainer}>
