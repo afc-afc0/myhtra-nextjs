@@ -37,3 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 To Do: 
 1. Need to create the resume section for expanded Card
+2. Need to start screen size updates so we don't get carried away
