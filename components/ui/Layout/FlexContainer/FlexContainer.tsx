@@ -4,6 +4,7 @@ import styles from './FlexContainer.module.css'
 interface FlexContainerProps {
   children: React.ReactNode,
   className?: string,
+  id?: string,
   // Layout
   flexDirection?: 'row' | 'column',
   paddingSize?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',  
@@ -24,6 +25,7 @@ interface FlexContainerProps {
 export const FlexContainer = ({ 
   children, 
   className,
+  id,
   flexDirection = 'column', 
   paddingSize = 'none', 
   gapSize = 'none', 
@@ -39,7 +41,8 @@ export const FlexContainer = ({
 } : FlexContainerProps) => {
   return (
     <div 
-      className={clsx(styles.flexContainer, className)} 
+      className={clsx(styles.flexContainer, className)}
+      id={id} 
       data-padding-size={paddingSize} 
       data-gap-size={gapSize} 
       data-margin-bottom={marginBottom}

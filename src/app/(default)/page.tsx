@@ -9,10 +9,11 @@ import { ProfileCards } from "./_components/ProfileCards/ProfileCards"
 import styles from "./page.module.css"
 
 export default function Home() {
+
   return (
     <>
-      {/* <CompanyHeader /> */}
-      {/* <AboutUs /> */}
+      <CompanyHeader />
+      <AboutUs />
       <ProfileCards />
       {/* <PageContainer>
         <LayoutContentContainer>
@@ -23,12 +24,3 @@ export default function Home() {
     </>
   )
 }
-
-const Container = ({ children } : { children: React.ReactNode }) => {
-  return (
-    <div className={styles.container}>
-      { children }
-    </div>
-  )
-}
-

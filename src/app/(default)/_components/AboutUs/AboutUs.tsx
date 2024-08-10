@@ -3,10 +3,11 @@ import { FlexContainer } from '@/components/ui/Layout/FlexContainer/FlexContaine
 import { CloudSVG, KubernetesSVG, WebDevSVG } from '@/components/ui/SVG/SVG'
 
 import styles from './AboutUs.module.css'
+import { FocusOnViewButton } from '../CompanyHeader/CompanyHeader'
 
 export const AboutUs = () => {
   return (
-    <FlexContainer height='100%' alignItems='center' justifyContent='center'>
+    <FlexContainer id='aboutUs' height='100%' alignItems='center' justifyContent='center'>
       <Container>
         <FlexContainer width='inherit' flexDirection='column' borderWidth='m' paddingSize='m' shadowSize='s'>
           <FlexContainer flexDirection='column' gapSize='m' justifyContent='flex-start' marginBottom='m'>
@@ -30,13 +31,16 @@ export const AboutUs = () => {
                     Using infrastructure as code, we configure and optimize
                     cloud environments for reliable performance across various platforms.' 
             />
-            <SummaryCard 
+            <SummaryCard
               header='Kubernetes'
               svg={<KubernetesSVG style={{width: '3.5rem', height: '3.5rem'}}/>} 
               text='We focus on deploying and managing Kubernetes clusters for scalable and
                     efficient container orchestration, while implementing advanced
                     security measures to protect your infrastructure and data.' 
             />
+          </FlexContainer>
+          <FlexContainer width='100%' justifyContent='flex-end' alignItems='flex-end' paddingSize='s'>
+            <FocusOnViewButton elementId='profileCards' />
           </FlexContainer>
         </FlexContainer>
       </Container>

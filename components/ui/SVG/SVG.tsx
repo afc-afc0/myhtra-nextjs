@@ -104,6 +104,41 @@ export const ChevronDownSVG = ({ ...props }) => {
   )
 }
 
+export const DownArrowSVG = ({ ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={styles.svg}
+    viewBox="0 -960 960 960"
+    {...props}
+  >
+    <path d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+  </svg>
+)
+
+export const ExpandSVG = ({ ...props }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={styles.svg}
+      viewBox="0 -960 960 960"
+      {...props}
+    >
+      <path d="M74-74v-376h136v144l444-444H510v-136h376v376H750v-144L306-210h144v136H74Z" />
+    </svg>
+  )
+}
+
+export const DownsizeSVG = ({ ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#e8eaed"
+    viewBox="0 -960 960 960"
+    {...props}
+  >
+    <path d="m129-34-95-95 215-215H114v-136h366v366H344v-135L129-34Zm351-446v-366h136v135l215-215 95 95-215 215h135v136H480Z" />
+  </svg>
+)
+
 export const KubernetesSVG = ({ ...props }) => {
   return (
     <svg 

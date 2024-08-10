@@ -41,8 +41,11 @@
   fill: var(--text-color-secondary);
 }
 
-.text {
-  margin-right: var(--margin-xss); 
+.marginRight {
+  margin-right: var(--margin-xss);
+}
+
+.text { 
   letter-spacing: 0.03em;
 }
 

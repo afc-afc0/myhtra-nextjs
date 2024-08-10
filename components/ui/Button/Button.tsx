@@ -1,10 +1,11 @@
 import clsx from 'clsx'
 import { ConditionalDisplay } from '../ConditionalDisplay/ConditionalDisplay'
+
 import styles from './Button.module.css'
 
 interface ButtonProps {
   text?: string
-  onClick?: () => void
+  onClick?: (e: any) => any
   disabled?: boolean
   size?: 's' | 'm' | 'l'
   icon?: React.ReactNode
@@ -18,7 +19,8 @@ export const Button = ({ text, icon, size = 'm', onClick, disabled = false } : B
       onClick={onClick} 
       data-size={size}
     >
-      <span className={clsx(text && styles.text)}>
+      {/* we are only enabling marginRight when we have an icon */}
+      <span className={clsx(text && styles.text, icon && text && styles.marginRight)}>
         { text }
       </span>
       <ConditionalDisplay condition={icon != null}>
@@ -39,5 +41,27 @@ const IconContainer = ({ children } : IconContainerProps) => {
     <span className={styles.iconContainer} >
       { children }
     </span>
+  )
+}
+
+interface IconButtonProps {
+  icon: React.ReactNode
+  onClick: (e: any) => any
+  disabled?: boolean
+  size?: 's' | 'm' | 'l'
+}
+
+export const IconButton = ({ icon, onClick, disabled = false, size = 'm' } : IconButtonProps) => {
+  return (
+    <button 
+      className={styles.iconButton} 
+      disabled={disabled}
+      onClick={onClick} 
+      data-size={size}
+    >
+      <IconContainer>
+        { icon }
+      </IconContainer>
+    </button>
   )
 }
