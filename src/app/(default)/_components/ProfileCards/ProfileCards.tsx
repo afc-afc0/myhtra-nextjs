@@ -31,6 +31,7 @@ export const ProfileCards = () => {
     </FlexContainer>
   )
 }
+
 interface CardProps {
   name: string,
   position: string,
