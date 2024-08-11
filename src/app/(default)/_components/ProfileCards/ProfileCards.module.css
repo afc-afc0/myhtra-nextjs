@@ -11,3 +11,15 @@
 .profileImage {
   border-radius: var(--padding-s);
 }
+
+@media screen and (max-width: 1024px) {
+  .cardContainer {
+    width: 22rem;
+    height: auto;
+  }
+
+  .cardContainerExpanded {
+    width: 98%;
+    height: auto;
+  }
+}

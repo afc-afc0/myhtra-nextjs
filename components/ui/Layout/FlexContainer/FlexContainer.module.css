@@ -57,11 +57,6 @@
 .flexContainer[data-shadow-size="l"] { box-shadow: var(--shadow-size-l); }
 
 @media screen and (max-width: 1024px) {
-  .flexContainer[data-padding-size="s"] { padding: 0; }
-  .flexContainer[data-padding-size="m"] { padding: 0; }
-  .flexContainer[data-padding-size="l"] { padding: 0; }
-}
-
-@media screen and (max-width: 1024px) {
-  .flexContainer { width: 100%; }
+  .flexContainer[data-responsive-flex-direction="column"] { flex-direction: column; }
+  .flexContainer[data-responsive-flex-direction="row"] { flex-direction: row; }
 }

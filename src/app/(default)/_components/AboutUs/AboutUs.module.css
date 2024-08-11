@@ -1,8 +1,9 @@
-.container {
-  width: 65rem;
+.pageContainer {
+  height: 100%;
+  width: 100%;
 }
 
-.cardWidth {
+.container {
   width: 65rem;
 }
 
@@ -17,7 +18,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .cardWidth {
+  .pageContainer {
+    height: auto;
+  }
+
+  .container {
+    width: 98%;
+  }
+
+  .summaryCardContainer {
     width: 100%;
+    height: auto;
   }
 }

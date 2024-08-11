@@ -6,9 +6,9 @@ import { Text } from '@/components/ui/Text/Text'
 import { Button } from '@/components/ui/Button/Button'
 import { DownsizeSVG, ExpandSVG } from '@/components/ui/SVG/SVG'
 import { ExpandableContainer, useExpandable } from '@/components/ui/Expandable/Expandable'
+import { ConditionalDisplay } from '@/components/ui/ConditionalDisplay/ConditionalDisplay'
 
 import styles from './ProfileCards.module.css'
-import { ConditionalDisplay } from '@/components/ui/ConditionalDisplay/ConditionalDisplay'
 
 export const ProfileCards = () => {
   const { isExpanded, toggle } = useExpandable({ initialState: false })
@@ -66,14 +66,6 @@ const Card = ({ name, position, info, isExpanded, toggleExpanded  } : CardProps)
         />
       </FlexContainer>
     </FlexContainer>
-  )
-}
-
-const CardContainer = ({ children } : { children: React.ReactNode }) => {
-  return (
-    <div className={styles.cardContainer}>
-      { children }
-    </div>
   )
 }
 

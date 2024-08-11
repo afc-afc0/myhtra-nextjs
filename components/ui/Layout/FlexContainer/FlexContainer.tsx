@@ -7,6 +7,8 @@ interface FlexContainerProps {
   id?: string,
   // Layout
   flexDirection?: 'row' | 'column',
+  responsiveFlexDirection?: 'none' | 'row' | 'column',
+
   paddingSize?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',  
   gapSize?: 'none' | 's' | 'm' | 'l',
   marginBottom?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
@@ -26,11 +28,12 @@ export const FlexContainer = ({
   children, 
   className,
   id,
-  flexDirection = 'column', 
+  flexDirection = 'column',
+  responsiveFlexDirection = 'none', 
   paddingSize = 'none', 
   gapSize = 'none', 
   marginBottom = 'none',
-  height = 'auto', 
+  height = 'auto',
   width = 'auto',
   justifyContent = 'flex-start',
   alignItems = 'flex-start',
@@ -54,6 +57,7 @@ export const FlexContainer = ({
       data-border-width={borderWidth} 
       data-border-radius={borderRadius} 
       data-shadow-size={shadowSize}
+      data-responsive-flex-direction={responsiveFlexDirection}
       style={style}
     >
       { children }

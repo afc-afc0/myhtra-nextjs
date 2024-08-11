@@ -40,7 +40,7 @@ export const FocusOnViewButton = ({ elementId } : { elementId: string }) => {
 
 const Container = ({ children } : { children: React.ReactNode }) => {
   return (
-    <div className={styles.contentContainer}>
+    <div className={styles.container}>
       { children }
     </div>
   )
