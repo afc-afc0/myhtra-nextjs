@@ -1,5 +1,3 @@
-
-
 export const focusOnView = ({ event, elementId }: { event: React.MouseEvent, elementId: string }) => {
   event.preventDefault()
   const element = document.getElementById(elementId)

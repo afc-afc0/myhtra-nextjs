@@ -32,12 +32,14 @@
   pointer-events: none;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   color: var(--text-color-secondary);
   background-color: var(--action-color-transition);
 }
 
-.button:hover svg {
+.button:hover svg,
+.button:focus svg {
   fill: var(--text-color-secondary);
 }
 

@@ -96,3 +96,8 @@ body {
   overflow-x: hidden;
   background-color: var(--background-color);
 }
+
+/* For removing underline decorations */
+a {
+  text-decoration: none;
+}

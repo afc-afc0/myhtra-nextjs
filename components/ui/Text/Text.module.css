@@ -18,3 +18,5 @@
 .text[data-font-weight="medium"] { font-weight: var(--font-weight-medium); }
 .text[data-font-weight="bold"] { font-weight: var(--font-weight-bold); }
 .text[data-font-weight="black"] { font-weight: var(--font-weight-black); }
+
+.text[data-type="link"] { color: var(--action-color); }
