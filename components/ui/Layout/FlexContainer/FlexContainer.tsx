@@ -38,7 +38,7 @@ export const FlexContainer = ({
   justifyContent = 'flex-start',
   alignItems = 'flex-start',
   borderWidth = 'none',
-  borderRadius = 's',
+  borderRadius = 'none',
   shadowSize = 'none',
   style,
 } : FlexContainerProps) => {

@@ -48,6 +48,7 @@
 .flexContainer[data-margin-bottom="l"] { margin-bottom: var(--margin-l); }
 .flexContainer[data-margin-bottom="xl"] { margin-bottom: var(--margin-xl); }
 
+.flexContainer[data-border-radius="none"] { border-radius: 0; }
 .flexContainer[data-border-radius="s"] { border-radius: var(--border-radius-s); }
 .flexContainer[data-border-radius="m"] { border-radius: var(--border-radius-m); }
 .flexContainer[data-border-radius="l"] { border-radius: var(--border-radius-l); }
