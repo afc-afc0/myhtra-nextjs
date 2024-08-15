@@ -1,0 +1,105 @@
+.accordion {
+  width: 100%;
+}
+
+.item {
+  border: none;
+}
+
+.item:not(:first-child) {
+  border-top: var(--border-width-s) dashed var(--border-color);
+}
+
+.trigger {
+  height: 2.5rem;
+  background-color: var(--action-color);
+  width: 100%;
+  transition: all var(--transition-duration) ease;
+}
+
+.trigger:hover, .trigger:focus {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: var(--action-color-transition);
+  color: var(--text-color-secondary);
+}
+
+/* For making <Text /> change color */
+.trigger:hover div, .trigger:focus div {
+  color: var(--text-color-secondary);
+}
+
+/* For making <SVG /> component color change */
+.trigger:hover svg, .trigger:focus svg {
+  fill: var(--text-color-secondary);
+}
+ 
+.trigger svg {
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.trigger[data-state="open"] svg {
+  animation: rotateDown var(--transition-duration) forwards;
+}
+
+.trigger[data-state="closed"] svg {
+  animation: rotateUp var(--transition-duration) forwards;
+}
+
+.item:first-child .trigger {
+  border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;
+}
+
+.item:last-child .trigger {
+  border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
+}
+
+@keyframes rotateDown {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotateUp {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+.content {
+  overflow: hidden;
+  font-size: 0.875rem; 
+  transition: height var(--transition-duration) ease-out;
+}
+
+.content[data-state="open"] {
+  animation: accordionDown var(--transition-duration) ease-out forwards;
+}
+
+.content[data-state="closed"] {
+  animation: accordionUp var(--transition-duration) ease-out forwards;
+}
+
+@keyframes accordionDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordionUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
