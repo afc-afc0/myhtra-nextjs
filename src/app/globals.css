@@ -11,7 +11,7 @@
   --font-size-xxxl : 48px;
   --font-size-xxxxl : 64px;
 
-  --border-radius-xs: 2x;
+  --border-radius-xs: 2px;
   --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 12px;
@@ -68,12 +68,15 @@
   --text-color-secondary: hsl(0, 0%, 0%);  
 
   --navbar-height: 5rem;
+
+  --transition-duration: 0.25s;
 }
 
 [data-theme="light"] {
   --background-color: hsl(0, 0%, 100%); 
   --primary-color: hsl(203, 66%, 46%);
   --action-color: hsl(204, 84%, 72%); 
+  --action-color-transition: hsl(204, 84%, 62%);
 
   --text-color: hsl(0, 0%, 0%);
   --text-color-secondary: hsl(0, 0%, 100%);
@@ -100,4 +103,23 @@ body {
 /* For removing underline decorations */
 a {
   text-decoration: none;
+}
+
+button {
+  all: unset;
+}
+
+pre::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #999;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #999;
 }

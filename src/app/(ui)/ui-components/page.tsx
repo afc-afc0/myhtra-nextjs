@@ -7,6 +7,7 @@ import { ThemeSwitch } from '@/components/ui/ThemeSwitch/ThemeSwitch'
 import { useState } from 'react'
 import { LayoutContentContainer } from '@/components/ui/Layout/LayoutContentContainer/LayoutContentContainer'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/Form/Select/Select'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion/Accordion'
 
 import styles from './page.module.css'
 
@@ -37,6 +38,30 @@ export default function Home() {
           <ThemeSwitch />
         </Container>
       </LayoutContentContainer>
+      <FlexContainer width='100%' height='100%'>
+        <Accordion type='single' collapsible> 
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It comes with default styles that matches the other
+              components&apos; aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </FlexContainer>
     </PageContainer>
   )
 }

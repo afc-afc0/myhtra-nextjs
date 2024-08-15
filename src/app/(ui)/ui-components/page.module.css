@@ -7,3 +7,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.accordion {
+  width: 100%;
+}

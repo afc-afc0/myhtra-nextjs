@@ -1,5 +1,6 @@
 .text {
   color: var(--text-color);
+  display: inline;
   text-align: start;
   text-wrap: wrap;
   text-overflow: clip;
@@ -19,4 +20,12 @@
 .text[data-font-weight="bold"] { font-weight: var(--font-weight-bold); }
 .text[data-font-weight="black"] { font-weight: var(--font-weight-black); }
 
-.text[data-type="link"] { color: var(--action-color); }
+.text[data-type="link"] { 
+  color: var(--action-color); 
+  transition: color var(--transition-duration) ease-in-out; 
+}
+
+.text:hover[data-type="link"], 
+.text:focus[data-type="link"] { 
+  color: var(--action-color-transition); 
+}

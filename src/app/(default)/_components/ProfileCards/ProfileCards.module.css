@@ -5,7 +5,7 @@
 
 .cardContainerExpanded {
   width: 40rem;
-  height: 60rem;
+  height: auto;
 }
 
 .profileImage {

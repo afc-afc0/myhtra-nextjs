@@ -1,3 +1,4 @@
 .container {
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width var(--transition-duration) ease-in-out, var(--transition-duration) ease-in-out;
+  overflow: auto;
 }
