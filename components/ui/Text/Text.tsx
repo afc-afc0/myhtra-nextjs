@@ -11,12 +11,13 @@ interface TextProps {
   fontSize?: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl'
   fontWeight?: 'light' | 'normal' | 'medium' | 'bold' | 'black'
   fontColorTint?: '' | '90' | '80' | '70' | '60' | '50' | '40' | '30' | '20' | '10' | '5' | '2' | '1'
+  display?: 'block' | 'inline'
   type?: TextType
 }
 
-export const Text = ({ text, fontSize = 'm', fontWeight = 'medium', type = TextType.TEXT } : TextProps) => {
+export const Text = ({ text, fontSize = 'm', fontWeight = 'medium', type = TextType.TEXT, display = 'block' } : TextProps) => {
   return (
-    <div className={clsx(styles.text)} data-size={fontSize} data-font-weight={fontWeight} data-type={type}>
+    <div className={clsx(styles.text)} data-size={fontSize} data-font-weight={fontWeight} data-type={type} data-display={display}>
       { text }
     </div>
   )

@@ -133,27 +133,163 @@ const CardExpended = ({} : CardExpendedProps) => {
                 <Text text='Key Achievements' />
               </AccordionTrigger>
               <AccordionContent>
-                <Text text='▪Created and maintained a custom form and workflow management application 
-                  currently used by over 100,000 students and faculty members across various US colleges.'
-                  fontSize='s'
-                  fontWeight='light'
-                />
-                <Text text='▪Directed the transition of 20 .NET Framework applications by adopting .NET 6/8
-                  and Node.js APIs for the backend, and integrating the UI with Next.js. 
-                  Deployed these applications to Kubernetes and Azure App Service environments,
-                  resulting in substantial improvements in both performance, user interaction 
-                  and better maintenance.'
-                  fontSize='s'
-                  fontWeight='light'
-                />
-                <Text text='▪Developed and implemented a robust vulnerability detection system for Kubernetes
-                  clusters for a leading Canadian professional services firm. The system scanned 
-                  over 1000 pods, identified and prioritized vulnerabilities by severity, 
-                  automated alert notifications, and isolated over 200 critical-risk pods, 
-                  resulting in a 30% increase in security incident response efficiency.'
-                  fontSize='s'
-                  fontWeight='light'
-                />
+                <div>
+                  <Text 
+                    text='▪Created and maintained a custom form and workflow management application 
+                           currently used by over '
+                    display='inline'
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    text={'100,000 '}
+                    display='inline'
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text=' students and faculty members across various US colleges.'
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                </div>
+                <div>
+                  <Text 
+                    display='inline'
+                    text='▪Directed the transition of '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'20 .NET Framework '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='applications by adopting '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'.NET 6/8 '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='and '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'Node.js '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='APIs for the backend, and integrating the UI with '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'Next.js. '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='Deployed these applications to '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'Kubernetes '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='and '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'Azure App Service '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='environments, resulting in substantial improvements in both performance, user interaction and better maintenance.'
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                </div>
+                <div>
+                  <Text 
+                    display='inline'
+                    text='▪Developed and implemented a robust vulnerability detection system for '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'Kubernetes '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='clusters for a leading Canadian professional services firm. The system scanned over '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'1000 '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='pods, identified and prioritized vulnerabilities by severity, automated alert notifications, and isolated over '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'200 '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='critical-risk pods, resulting in a '
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                  <Text 
+                    display='inline'
+                    text={'30% '}
+                    fontSize='s'
+                    fontWeight='medium'
+                  />
+                  <Text 
+                    display='inline'
+                    text='increase in security incident response efficiency.'
+                    fontSize='s'
+                    fontWeight='light'
+                  />
+                </div>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value='Experience'>

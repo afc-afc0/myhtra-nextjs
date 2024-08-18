@@ -1,10 +1,11 @@
 .text {
   color: var(--text-color);
-  display: inline;
   text-align: start;
   text-wrap: wrap;
   text-overflow: clip;
 }
+
+.text[data-display="inline"] { display: inline; }
 
 .text[data-size="s"] { font-size: var(--font-size-s); }
 .text[data-size="m"] { font-size: var(--font-size-m); }
