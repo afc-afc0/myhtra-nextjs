@@ -100,7 +100,6 @@ body {
   background-color: var(--background-color);
 }
 
-/* For removing underline decorations */
 a {
   text-decoration: none;
 }
@@ -109,7 +108,6 @@ button {
   all: unset;
 }
 
-/* Firefox */
 * {
   scrollbar-width: 10px;
   scrollbar-color: #999;
@@ -124,19 +122,13 @@ div::selection {
   height: 3px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px transparent;
   border-radius: 5px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--border-color);
   border-radius: 5px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--action-color);
-}
