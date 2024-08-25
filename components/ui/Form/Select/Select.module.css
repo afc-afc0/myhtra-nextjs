@@ -28,10 +28,9 @@
   max-height: 24rem; 
   min-width: 8rem;
   overflow: hidden;
-  border: var(--border-size-xs) solid var(--border-color);
+  border: var(--border-width-xs) solid var(--border-color);
   border-radius: var(--border-radius-s);
   background-color: var(--background-color);
-  box-shadow: var(--shadow-color);
 }
 
 .viewport {

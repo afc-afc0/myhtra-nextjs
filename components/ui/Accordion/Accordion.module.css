@@ -7,7 +7,7 @@
 }
 
 .item:not(:first-child) {
-  border-top: var(--border-width-s) dashed var(--border-color);
+  border-top: var(--border-width-xs) solid var(--border-color);
 }
 
 .trigger {

@@ -22,7 +22,7 @@ export const CompanyHeader = () => {
               <Button size='m' text='About Us' onClick={(e) => focusOnView({ event: e, elementId: 'aboutUs'})} />
               {/* <Button size='m' text='Projects' /> */}
               {/* <Button size='m' text='Blog' /> */}
-              <Button size='m' text='Developers' onClick={(e) => focusOnView({ event: e, elementId: 'profileCards'})} />
+              <Button size='m' text='Portfolio' onClick={(e) => focusOnView({ event: e, elementId: 'profileCards'})} />
             </FlexContainer>
             <FocusOnViewButton elementId='aboutUs' />
           </FlexContainer>
