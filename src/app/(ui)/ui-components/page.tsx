@@ -66,7 +66,7 @@ export default function Home() {
   )
 }
 
-export const Container = ({ children } : { children: React.ReactNode }) => {
+const Container = ({ children } : { children: React.ReactNode }) => {
   return (
     <div className={styles.container}>
       { children }
