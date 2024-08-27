@@ -13,7 +13,7 @@ metadata:
   resourceVersion: "967630"
   uid: acf9aa44-742d-42a4-852d-7b4925fd2337
 spec:
-  ingressClassName: nginx
+  ingressClassName: webapprouting.kubernetes.azure.com
   rules:
   - host: myhtra.co
     http:

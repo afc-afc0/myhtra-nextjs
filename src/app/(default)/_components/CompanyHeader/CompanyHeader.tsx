@@ -1,11 +1,11 @@
 'use client'
-import { Text } from '@/components/ui/Text/Text'
-import { FlexContainer } from '@/components/ui/Layout/FlexContainer/FlexContainer'
-import { Button } from '@/components/ui/Button/Button'
+import { Text } from '@/src/components/ui/Text/Text'
+import { FlexContainer } from '@/src/components/ui/Layout/FlexContainer/FlexContainer'
+import { Button } from '@/src/components/ui/Button/Button'
 import { focusOnView } from '@/src/utils/utilityFunctions'
 
 import styles from './CompanyHeader.module.css'
-import { DownArrowSVG } from '@/components/ui/SVG/SVG'
+import { DownArrowSVG } from '@/src/components/ui/SVG/SVG'
 
 // Bad Name?
 export const CompanyHeader = () => {
