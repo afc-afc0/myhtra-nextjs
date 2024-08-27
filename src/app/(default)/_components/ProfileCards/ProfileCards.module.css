@@ -12,6 +12,10 @@
   border-radius: var(--padding-s);
 }
 
+.inlineTextContainer {
+  margin-bottom: var(--margin-s);
+}
+
 @media screen and (max-width: 1024px) {
   .cardContainer {
     width: 22rem;
@@ -23,3 +27,4 @@
     height: auto;
   }
 }
+

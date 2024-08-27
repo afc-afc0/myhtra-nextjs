@@ -14,7 +14,7 @@ export const CompanyHeader = () => {
       <Container>
         <FlexContainer shadowSize='s' paddingSize='m' borderWidth='m' height='auto' width='inherit' flexDirection='column' gapSize='s'>
           <FlexContainer marginBottom='s'>
-            <Text fontWeight='bold' fontSize='xxxxl' text='Mythra Studios' />
+            <Text fontWeight='bold' fontSize='xxxxl' text='Myhtra Studios' />
             <Text fontWeight='light' fontSize='xxl' text='Pursuing Perfection, Project by Project' />
           </FlexContainer>
           <FlexContainer height='auto' width='100%' flexDirection='row' justifyContent='space-between'>

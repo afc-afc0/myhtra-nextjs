@@ -7,10 +7,10 @@ import { Button } from '@/components/ui/Button/Button'
 import { DownsizeSVG, ExpandSVG } from '@/components/ui/SVG/SVG'
 import { ExpandableContainer, useExpandable } from '@/components/ui/Expandable/Expandable'
 import { ConditionalDisplay } from '@/components/ui/ConditionalDisplay/ConditionalDisplay'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion/Accordion'
+import Link from 'next/link'
 
 import styles from './ProfileCards.module.css'
-import Link from 'next/link'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/Accordion/Accordion'
 
 export const ProfileCards = () => {
   const { isExpanded, toggle } = useExpandable({ initialState: false })
@@ -133,7 +133,7 @@ const CardExpended = ({} : CardExpendedProps) => {
                 <Text text='Key Achievements' />
               </AccordionTrigger>
               <AccordionContent>
-                <div>
+                <InlineTextContainer>
                   <Text 
                     text='▪Created and maintained a custom form and workflow management application 
                            currently used by over '
@@ -153,8 +153,8 @@ const CardExpended = ({} : CardExpendedProps) => {
                     fontSize='s'
                     fontWeight='light'
                   />
-                </div>
-                <div>
+                </InlineTextContainer>
+                <InlineTextContainer>
                   <Text 
                     display='inline'
                     text='▪Directed the transition of '
@@ -233,8 +233,8 @@ const CardExpended = ({} : CardExpendedProps) => {
                     fontSize='s'
                     fontWeight='light'
                   />
-                </div>
-                <div>
+                </InlineTextContainer>
+                <InlineTextContainer>
                   <Text 
                     display='inline'
                     text='▪Developed and implemented a robust vulnerability detection system for '
@@ -289,7 +289,7 @@ const CardExpended = ({} : CardExpendedProps) => {
                     fontSize='s'
                     fontWeight='light'
                   />
-                </div>
+                </InlineTextContainer>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -310,5 +310,13 @@ const ExpendedCardSocialLinks = ({ href, text } : { href: string, text: string }
     <Link target='_blank' rel='noopener noreferrer' href={href}>
       <Text type={TextType.LINK} text={text} fontWeight='medium' />
     </Link>
+  )
+}
+
+const InlineTextContainer = ({ children } : { children: React.ReactNode }) => {
+  return (
+    <div className={styles.inlineTextContainer}>
+      { children }
+    </div>
   )
 }

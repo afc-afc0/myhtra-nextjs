@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import MythraLogo from '@/public/pngs/Logo.png'
+import MyhtraLogo from '@/public/pngs/Logo.png'
 
 import styles from './Navbar.module.css'
 
@@ -8,7 +8,6 @@ export const Navbar = ({}) => {
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>
         <div className={styles.navbarLeft}>
-          <Logo />
         </div>
         <div className={styles.navbarMiddle}>
           
@@ -24,8 +23,8 @@ export const Navbar = ({}) => {
 const Logo = () => {
   return (
     <Image
-      alt='Mythra Logo'
-      src={MythraLogo}
+      alt='Myhtra Logo'
+      src={MyhtraLogo}
       width={48}
       height={48}
     />

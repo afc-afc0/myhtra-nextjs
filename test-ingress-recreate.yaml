@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    meta.helm.sh/release-name: myhtra
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2024-08-27T03:00:20Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: myhtra-ingress
+  namespace: default
+  resourceVersion: "967630"
+  uid: acf9aa44-742d-42a4-852d-7b4925fd2337
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: myhtra.co
+    http:
+      paths:
+      - backend:
+          service:
+            name: myhtra-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - myhtra.co
+    secretName: myhtra-nextjs-tls
+status:
+  loadBalancer: {}

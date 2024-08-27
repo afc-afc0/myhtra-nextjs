@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  containerName: nextjs
+  repository: icanjump/myhtra-nextjs
+  pullPolicy: IfNotPresent
+  tag: "latest"  
+  containerPort: 3000
+
+service:
+  type: LoadBalancer 
+  port: 80
+
+resources: {}
+
+deployment:
+  replicas: 1
+  strategy: Recreate
+  name: myhtra-deployment
+  labels:
+    app: myhtra
+    type: frontend
+
+service:
+  name: myhtra-service
+  port: 80
+  type: LoadBalancer
+
+ingress:
+  name: myhtra-ingress
+  secretName: myhtra-nextjs-tls
