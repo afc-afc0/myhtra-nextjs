@@ -10,7 +10,7 @@ export const AboutUs = () => {
     <PageContainer>
       <FlexContainer id='aboutUs' height='inherit' alignItems='center' justifyContent='center'>
         <Container>
-          <FlexContainer width='inherit' flexDirection='column' borderWidth='m' paddingSize='m' shadowSize='s'>
+          <FlexContainer width='inherit' flexDirection='column' borderWidth='m' borderRadius='m' paddingSize='s'>
             <FlexContainer flexDirection='column' gapSize='m' justifyContent='flex-start' marginBottom='m'>
               <Text fontWeight='medium' fontSize='xxxl' text='Pursuing Perfection, Project by Project.' />
               <Text fontWeight='light' fontSize='xl' text='Transforming every layer of technology, from foundational infrastructure to user-friendly interfaces, creating powerful and reliable solutions that drive innovation.' />

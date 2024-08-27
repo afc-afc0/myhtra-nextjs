@@ -1,12 +1,11 @@
-import { PageContainer } from "@/src/components/ui/PageContainer/PageContainer"
-import { Features } from "./_components/Features/Features"
-import { CompanyInfo } from "./_components/CompanyInfo/CompanyInfo"
-import { LayoutContentContainer } from "@/src/components/ui/Layout/LayoutContentContainer/LayoutContentContainer"
 import { CompanyHeader } from "./_components/CompanyHeader/CompanyHeader"
 import { AboutUs } from "./_components/AboutUs/AboutUs"
 import { ProfileCards } from "./_components/ProfileCards/ProfileCards"
 
-import styles from "./page.module.css"
+export const metadata = {
+  title: 'Myhtra',
+  description: 'Myhtra Studios',
+}
 
 export default function Home() {
 
@@ -15,12 +14,6 @@ export default function Home() {
       <CompanyHeader />
       <AboutUs />
       <ProfileCards />
-      {/* <PageContainer>
-        <LayoutContentContainer>
-          <CompanyInfo />
-          <Features />
-        </LayoutContentContainer>
-      </PageContainer> */}
     </>
   )
 }
