@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import MyhtraLogo from '@/public/pngs/Logo.png'
+import MyhtraLogo from '@public/pngs/Logo.png'
 
 import styles from './Navbar.module.css'
 

@@ -1,13 +1,14 @@
 'use client'
-import AhmetImage from '@/public/pngs/profileImages/Ahmet.jpeg'
+import AhmetImage from '@public/pngs/profileImages/Ahmet.jpeg'
 import Image from 'next/image'
-import { FlexContainer } from '@/src/components/ui/Layout/FlexContainer/FlexContainer'
-import { Text, TextType } from '@/src/components/ui/Text/Text'
-import { Button } from '@/src/components/ui/Button/Button'
-import { DownsizeSVG, ExpandSVG } from '@/src/components/ui/SVG/SVG'
-import { ExpandableContainer, useExpandable } from '@/src/components/ui/Expandable/Expandable'
-import { ConditionalDisplay } from '@/src/components/ui/ConditionalDisplay/ConditionalDisplay'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/src/components/ui/Accordion/Accordion'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { Text, TextType } from '@components/ui/Text/Text'
+import { Button } from '@components/ui/Button/Button'
+import { DownsizeSVG, ExpandSVG } from '@components/ui/SVG/SVG'
+import { Footer } from '@components/ui/Footer/Footer'
+import { ExpandableContainer, useExpandable } from '@components/ui/Expandable/Expandable'
+import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui/Accordion/Accordion'
 import Link from 'next/link'
 
 import styles from './ProfileCards.module.css'
@@ -16,23 +17,28 @@ export const ProfileCards = () => {
   const { isExpanded, toggle } = useExpandable({ initialState: false })
   
   return (
-    <FlexContainer id='profileCards' height='100%' alignItems='center' justifyContent='center'>
-      <ExpandableContainer isExpanded={isExpanded} initialSize={styles.cardContainer} transitionSize={styles.cardContainerExpanded}>
-        <ConditionalDisplay condition={!isExpanded}>
-          <Card
-            name='Ahmet Cengiz'
-            position='Full Stack Developer'
-            info='Passionate developer with over half a decade of diverse experience, 
-                  creating secure web APIs and user-centric applications. 
-                  Proven ability to develop scalable, well-tested apps used by 100,000+ users.'
-            isExpanded={isExpanded}
-            toggleExpanded={toggle}
-          />
-        </ConditionalDisplay>
-        <ConditionalDisplay condition={isExpanded}>
-          <CardExpended />
-        </ConditionalDisplay>
-      </ExpandableContainer>
+    <FlexContainer id='profileCards' height='100%' alignItems='center' justifyContent='space-between' flexDirection='column'>
+      <FlexContainer className={styles.flexGrow} justifyContent='center' alignItems='center'>
+        <ExpandableContainer isExpanded={isExpanded} initialSize={styles.cardContainer} transitionSize={styles.cardContainerExpanded}>
+          <ConditionalDisplay condition={!isExpanded}>
+            <Card
+              name='Ahmet Cengiz'
+              position='Full Stack Developer'
+              info='Passionate developer with over half a decade of diverse experience, 
+              creating secure web APIs and user-centric applications. 
+              Proven ability to develop scalable, well-tested apps used by 100,000+ users.'
+              isExpanded={isExpanded}
+              toggleExpanded={toggle}
+              />
+          </ConditionalDisplay>
+          <ConditionalDisplay condition={isExpanded}>
+            <CardExpended />
+          </ConditionalDisplay>
+        </ExpandableContainer>
+      </FlexContainer>
+      <FlexContainer justifyContent='center' alignItems='center'>
+        <Footer />
+      </FlexContainer>
     </FlexContainer>
   )
 }

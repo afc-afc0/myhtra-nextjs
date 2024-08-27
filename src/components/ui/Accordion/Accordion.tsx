@@ -1,11 +1,11 @@
 'use client'
-import React, { ComponentProps, ComponentPropsWithoutRef } from 'react'
+import React from 'react'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ChevronRightSVG } from '../SVG/SVG'
-
-import styles from './Accordion.module.css'
 import clsx from 'clsx'
 import { FlexContainer } from '../Layout/FlexContainer/FlexContainer'
+
+import styles from './Accordion.module.css'
 
 
 export const Accordion = React.forwardRef<

@@ -1,7 +1,7 @@
 import { Rubik } from "next/font/google"
 import "./globals.css"
-import { Navbar } from "@/src/components/ui/Navbar/Navbar"
-import { ClientSideContextProviders } from "@/src/contexts/ClientSideContextProviders/ClientSideContextProviders"
+import { Navbar } from "@components/ui/Navbar/Navbar"
+import { ClientSideContextProviders } from "@contexts/ClientSideContextProviders/ClientSideContextProviders"
 
 const inter = Rubik({ subsets: ["latin"]})
 

@@ -1,6 +1,6 @@
-import { FlexContainer } from "@/src/components/ui/Layout/FlexContainer/FlexContainer"
-import { Text } from '@/src/components/ui/Text/Text'
-import { CheckSVG } from "@/src/components/ui/SVG/SVG"
+import { FlexContainer } from "@components/ui/Layout/FlexContainer/FlexContainer"
+import { Text } from '@components/ui/Text/Text'
+import { CheckSVG } from "@components/ui/SVG/SVG"
 import { SVG } from "../Features/Features"
 
 import styles from './CompanyInfo.module.css'

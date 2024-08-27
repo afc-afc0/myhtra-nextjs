@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ConditionalDisplay } from '../ConditionalDisplay/ConditionalDisplay'
+import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
 
 import styles from './Button.module.css'
 

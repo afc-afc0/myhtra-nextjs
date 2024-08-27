@@ -1,7 +1,6 @@
-import Image from 'next/image'
-import { Text } from '@/src/components/ui/Text/Text'
-import { FlexContainer } from '@/src/components/ui/Layout/FlexContainer/FlexContainer'
-import { ArchitectureSVG, AuthSVG, CloudSVG, DockerSVG, GameDevSVG, WebDevSVG } from '@/src/components/ui/SVG/SVG'
+import { Text } from '@components/ui/Text/Text'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { ArchitectureSVG, AuthSVG, CloudSVG, DockerSVG, GameDevSVG, WebDevSVG } from '@components/ui/SVG/SVG'
 
 import styles from './Features.module.css'
 

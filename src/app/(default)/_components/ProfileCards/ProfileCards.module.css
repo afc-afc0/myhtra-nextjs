@@ -16,6 +16,10 @@
   margin-bottom: var(--margin-s);
 }
 
+.flexGrow {
+  flex-grow: 1;
+}
+
 @media screen and (max-width: 1024px) {
   .cardContainer {
     width: 22rem;
