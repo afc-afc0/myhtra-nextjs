@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   containerName: nextjs
   repository: icanjump/myhtra-nextjs
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "latest"  
   containerPort: 3000
 
