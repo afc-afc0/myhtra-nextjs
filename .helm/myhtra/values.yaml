@@ -24,8 +24,13 @@ deployment:
 service:
   name: myhtra-service
   port: 80
-  type: LoadBalancer
 
 ingress:
   name: myhtra-ingress
-  secretName: myhtra-nextjs-tls
+  secretName: www-tls
+
+podLabels:
+  azure.workload.identity/use: "true"
+serviceAccount:
+  labels:
+    azure.workload.identity/use: "true"
