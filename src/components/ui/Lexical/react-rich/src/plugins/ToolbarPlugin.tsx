@@ -17,7 +17,7 @@ import styles from '../Lexical.module.css';
 
 import clsx from 'clsx';
 import { Button } from '@components/ui/Button/Button';
-import { BoldSVG, ItalicSVG, RedoSVG, StrikeThroughSVG, UnderlineSVG, UndoSVG } from '@components/ui/SVG/SVG';
+import { BoldSVG, ItalicSVG, RedoSVG, StrikeThroughSVG, TextAlignCenterSVG, TextAlignJustifySVG, TextAlignLeftSVG, TextAlignRightSVG, UnderlineSVG, UndoSVG } from '@components/ui/SVG/SVG';
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer';
 import { Toggle } from '@components/ui/Toggle/Toggle';
 
@@ -89,34 +89,19 @@ export default function ToolbarPlugin() {
         onClick={() => {
           editor.dispatchCommand(UNDO_COMMAND, undefined);
         }}
-        // disabled={!canUndo}
+        disabled={!canUndo}
         aria-label={'Undo'}
         size='xs'
       />
-      {/* <button
-        disabled={!canUndo}
-        className={clsx(styles['toolbar-item'], styles['spaced'])}  
-        aria-label="Undo">
-        <i className={styles['undo']} />
-      </button> */}
       <Button
         icon={<RedoSVG />}
         onClick={() => {
           editor.dispatchCommand(REDO_COMMAND, undefined);
         }}
-        // disabled={!canRedo}
+        disabled={!canRedo}
         aria-label={'Redo'}
         size='xs'
       />
-      {/* <button
-        disabled={!canRedo}
-        onClick={() => {
-          editor.dispatchCommand(REDO_COMMAND, undefined);
-        }}
-        className={styles['toolbar-item']} 
-        aria-label="Redo">
-        <i className={styles['redo']} />
-      </button> */}
       <Divider />
       <Toggle
         icon={<BoldSVG />}
@@ -155,39 +140,38 @@ export default function ToolbarPlugin() {
         size='xs'
       />
       <Divider />
-
-      <button
+      <Button
+        icon={<TextAlignLeftSVG />}
         onClick={() => {
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'left');
         }}
-        className={clsx(styles['toolbar-item'], styles['spaced'])}
-        aria-label="Left Align">
-        <i className={styles['left-align']} />
-      </button>
-      <button
+        aria-label="Left Align"
+        size='xs'
+      />
+      <Button
+        icon={<TextAlignCenterSVG />}
         onClick={() => {
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'center');
         }}
-        className={clsx(styles['toolbar-item'], styles['spaced'])}
-        aria-label="Center Align">
-        <i className={styles['center-align']} />
-      </button>
-      <button
+        aria-label="Center Align"
+        size='xs'
+      />
+      <Button
+        icon={<TextAlignRightSVG />}
         onClick={() => {
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'right');
         }}
-        className={clsx(styles['toolbar-item'], styles['spaced'])}
-        aria-label="Right Align">
-        <i className={styles['right-align']} />
-      </button>
-      <button
+        aria-label="Right Align"  
+        size='xs'
+      />
+      <Button
+        icon={<TextAlignJustifySVG />}
         onClick={() => {
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'justify');
         }}
-        className={styles['toolbar-item']}
-        aria-label="Justify Align">
-        <i className={styles['justify-align']} />
-      </button>{' '}
+        aria-label="Justify Align"
+        size='xs'
+      />
     </FlexContainer>
   );
 }

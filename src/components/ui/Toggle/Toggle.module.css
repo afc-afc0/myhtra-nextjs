@@ -12,6 +12,11 @@
   transition: all var(--transition-duration) ease;
 }
 
+.toggle:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .toggle[data-size="xs"] {
   padding: var(--padding-xss);
   height: var(--button-size-xs);
@@ -67,11 +72,13 @@
   height: var(--icon-size-xl);
 }
 
-.toggle:hover {
+.toggle:hover,
+.toggle:focus {
   background-color: var(--action-color-transition);
 }
 
-.toggle:hover svg {
+.toggle:hover svg,
+.toggle:focus svg {
   fill: var(--text-color-secondary);
 }
 
