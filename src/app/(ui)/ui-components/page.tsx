@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { LayoutContentContainer } from '@components/ui/Layout/LayoutContentContainer/LayoutContentContainer'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@components/ui/Form/Select/Select'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui/Accordion/Accordion'
+import { LexicalRichText } from '@components/ui/Lexical/react-rich/src/LexicalRichText'
 
 import styles from './page.module.css'
 
@@ -61,6 +62,7 @@ export default function Home() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        <LexicalRichText />
       </FlexContainer>
     </PageContainer>
   )
