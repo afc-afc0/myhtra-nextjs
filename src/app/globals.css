@@ -3,6 +3,7 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
+  --font-size-xs : 12px;
   --font-size-s : 15px;
   --font-size-m : 17px;
   --font-size-l : 20px;
@@ -37,11 +38,17 @@
   --margin-l: 4rem;
   --margin-xl: 6rem;
 
-  --button-size-xs: 24px;
-  --button-size-s: 28px;
-  --button-size-m: 32px;
-  --button-size-l: 40px;
-  --button-size-xl: 48px;
+  --button-size-xs: 1.5rem;
+  --button-size-s: 1.6rem;
+  --button-size-m: 1.8rem;
+  --button-size-l: 2rem;
+  --button-size-xl: 2.4rem;
+
+  --icon-size-xs: 1rem;
+  --icon-size-s: 1.1rem;
+  --icon-size-m: 1.2rem;
+  --icon-size-l: 1.5rem;
+  --icon-size-xl: 1.7rem;
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
