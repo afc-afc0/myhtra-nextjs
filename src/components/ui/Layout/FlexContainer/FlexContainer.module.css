@@ -10,6 +10,7 @@
 .flexContainer[data-padding-size="l"] { padding: var(--padding-l); }
 .flexContainer[data-padding-size="xl"] { padding: var(--padding-xl); }
 
+.flexContainer[data-gap-size="xs"] { gap: var(--margin-xs); }
 .flexContainer[data-gap-size="s"] { gap: var(--margin-s); }
 .flexContainer[data-gap-size="m"] { gap: var(--margin-m); }
 .flexContainer[data-gap-size="l"] { gap: var(--margin-l); }

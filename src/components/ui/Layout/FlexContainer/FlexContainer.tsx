@@ -1,4 +1,6 @@
+import React from 'react'
 import clsx from 'clsx'
+
 import styles from './FlexContainer.module.css'
 
 interface FlexContainerProps {
@@ -8,23 +10,21 @@ interface FlexContainerProps {
   // Layout
   flexDirection?: 'row' | 'column',
   responsiveFlexDirection?: 'none' | 'row' | 'column',
-
   paddingSize?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',  
-  gapSize?: 'none' | 's' | 'm' | 'l',
+  gapSize?: 'none' | 'xs'| 's' | 'm' | 'l',
   marginBottom?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
   height?: 'none' | '100%' | 'auto' | 'inherit',
   width?: 'none' | '100%' | 'auto' | 'inherit',
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around',
   alignItems?: 'flex-start' | 'flex-end' | 'center',
   style?: React.CSSProperties,  
-
   // Effects
   borderWidth?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
   borderRadius?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
   shadowSize?: 'none' | 's' | 'm' | 'l',
 }
 
-export const FlexContainer = ({ 
+export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps>(({ 
   children, 
   className,
   id,
@@ -41,9 +41,10 @@ export const FlexContainer = ({
   borderRadius = 'none',
   shadowSize = 'none',
   style,
-} : FlexContainerProps) => {
+}, ref) => {
   return (
     <div 
+      ref={ref}
       className={clsx(styles.flexContainer, className)}
       id={id} 
       data-padding-size={paddingSize} 
@@ -63,6 +64,6 @@ export const FlexContainer = ({
       { children }
     </div>
   )
-}
+})
 
-
+FlexContainer.displayName = 'FlexContainer'
