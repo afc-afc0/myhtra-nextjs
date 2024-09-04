@@ -1,0 +1,85 @@
+.toggle {
+  background-color: var(--action-color);
+  box-sizing: border-box;
+  color: var(--text-color);
+  border-radius: var(--border-radius-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  cursor: pointer;
+
+  transition: all var(--transition-duration) ease;
+}
+
+.toggle[data-size="xs"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-xs);
+  width: var(--button-size-xs);
+}
+
+.toggle[data-size="s"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-s);
+  width: var(--button-size-s);
+}
+
+.toggle[data-size="m"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-m);
+  width: var(--button-size-m);
+}
+
+.toggle[data-size="l"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-l);
+  width: var(--button-size-l);
+}
+
+.toggle[data-size="xl"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-xl);
+  width: var(--button-size-xl);
+}
+
+.toggle[data-size="xs"] svg {
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
+}
+
+.toggle[data-size="s"] svg {
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
+}
+
+.toggle[data-size="m"] svg {
+  width: var(--icon-size-m);
+  height: var(--icon-size-m);
+}
+
+.toggle[data-size="l"] svg {
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
+}
+
+.toggle[data-size="xl"] svg {
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
+}
+
+.toggle:hover {
+  background-color: var(--action-color-transition);
+}
+
+.toggle:hover svg {
+  fill: var(--text-color-secondary);
+}
+
+.toggle[data-state='on'] {
+  background-color: var(--action-color-transition);
+  color: var(--text-color-secondary);
+}
+
+.toggle[data-state='on'] svg {
+  fill: var(--text-color-secondary);
+}

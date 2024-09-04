@@ -1,23 +1,17 @@
 .button {
   background-color: var(--action-color);
   box-sizing: border-box;
-  cursor: pointer;  
+  cursor: pointer;
   display: flex;
   justify-content: center;  
   align-items: center;
   line-height: normal;
-  outline: none;
-  user-select: none;
-  touch-action: manipulation;
-  will-change: transform;
   color: var(--text-color);
-  padding: var(--padding-s);
-  
+
   text-align: center;
   text-decoration: none;
-
   font-weight: var(--font-weight-regular);
-
+  
   border-radius: var(--border-radius-s);
 
   transition: all var(--transition-duration) ease;
@@ -50,50 +44,62 @@
   letter-spacing: 0.03em;
 }
 
+.button[data-icon-only="true"] {
+  aspect-ratio: 1 / 1;
+  padding: 0;
+}
+
+.button[data-size="xs"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-xs);
+  font-size: var(--font-size-xs);
+}
+
 .button[data-size="s"] {
   padding: var(--padding-xss);
-  height: 1.6rem;
-  font-size: 14px;
+  height: var(--button-size-s);
+  font-size: var(--font-size-s);
 }
 
 .button[data-size="m"] {
   padding: var(--padding-xss);
-  height: 2rem;
-  font-size: 15px;
+  height: var(--button-size-m);
+  font-size: var(--font-size-s);
 }
 
 .button[data-size="l"] {
-  padding: var(--padding-xs);
-  height: 2.4rem;
-  font-size: 18px;
+  padding: var(--padding-xss);
+  height: var(--button-size-l);
+  font-size: var(--font-size-m);
+}
+
+.button[data-size="xl"] {
+  padding: var(--padding-xss);
+  height: var(--button-size-xl);
+  font-size: var(--font-size-l);
+}
+
+.button[data-size="xs"] svg {
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
 }
 
 .button[data-size="s"] svg {
-  width: 1rem;
-  height: 1rem;
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
 }
 
 .button[data-size="m"] svg {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: var(--icon-size-m);
+  height: var(--icon-size-m);
 }
 
 .button[data-size="l"] svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
 }
 
-.button[data-size="s"] .iconContainer{
-  position: relative; 
-  top: 2px;
-}
-
-.button[data-size="m"] .iconContainer {
-  position: relative; 
-  top: 2px;
-}
-
-.button[data-size="l"] .iconContainer {
-  position: relative;
-  top: 2px;
+.button[data-size="xl"] svg {
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
 }
