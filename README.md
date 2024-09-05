@@ -36,4 +36,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 To Do: 
-1. Need to create the resume section for expanded 
+1. Lexical Rich extent it with Select, Code, Points, Header(BlockFormatDropdown in )
