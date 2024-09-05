@@ -1,5 +1,6 @@
 .shared {
   all: unset;
+  box-sizing: border-box;
   position: relative;
   padding: var(--padding-s);
   border: var(--border-width-m) solid var(--border-color);
@@ -7,9 +8,9 @@
   background-color: var(--background-color);
   font-size: var(--font-size-s);
   width: 100%;
-  height: 1.65rem;
+  height: var(--shared-form-input-height);
 }
 
 .shared:focus {
-  border-color: var(--focus-border-color);
+  border-color: var(--action-color);
 }

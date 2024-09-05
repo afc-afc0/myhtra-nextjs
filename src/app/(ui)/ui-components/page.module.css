@@ -1,13 +1,10 @@
 /* Flex container for each row will have two columns with 50% width */
 /* Left align the items */
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 .accordion {
   width: 100%;
+}
+
+.container {
+  width: 60rem;
 }

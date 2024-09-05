@@ -18,10 +18,18 @@
 .flexContainer[data-flex-direction="row"] { flex-direction: row; }
 .flexContainer[data-flex-direction="column"] { flex-direction: column; }
 
+.flexContainer[data-width="25%"] { width: 25%; }
+.flexContainer[data-width="33%"] { width: calc(100% / 3); } 
+.flexContainer[data-width="50%"] { width: 50%; }
 .flexContainer[data-width="100%"] { width: 100%; }
 .flexContainer[data-width="auto"] { width: auto; }
 .flexContainer[data-width="inherit"] { width: inherit; }
 
+.flexContainer[data-box-sizing="border-box"] { box-sizing: border-box; }
+
+.flexContainer[data-height="25%"] { height: 25%; }
+.flexContainer[data-height="33%"] { height: calc(100% / 3); }
+.flexContainer[data-height="50%"] { height: 50%; }
 .flexContainer[data-height="100%"] { height: 100%; }
 .flexContainer[data-height="auto"] { height: auto; }
 .flexContainer[data-height="inherit"] { height: inherit; }
@@ -57,6 +65,16 @@
 .flexContainer[data-shadow-size="s"] { box-shadow: var(--shadow-size-s); }
 .flexContainer[data-shadow-size="m"] { box-shadow: var(--shadow-size-m); }
 .flexContainer[data-shadow-size="l"] { box-shadow: var(--shadow-size-l); }
+
+.flexContainer[data-flex-basis="%0"] { flex-basis: 0%; }
+.flexContainer[data-flex-basis="%25"] { flex-basis: 25%; }
+.flexContainer[data-flex-basis="%50"] { flex-basis: 50%; }
+.flexContainer[data-flex-basis="%75"] { flex-basis: 75%; }
+.flexContainer[data-flex-basis="%100"] { flex-basis: 100%; }
+
+.flexContainer[data-flex-grow="1"] { flex-grow: 1; }
+
+.flexContainer[data-flex-shrink="1"] { flex-shrink: 1; }
 
 @media screen and (max-width: 1024px) {
   .flexContainer[data-responsive-flex-direction="column"] { flex-direction: column; }
