@@ -35,47 +35,30 @@ h1 {
   text-align: right;
 }
 
-.editor-container {
-  margin: 20px auto 20px auto;
-  border-radius: 2px;
-  max-width: 600px;
-  color: #000;
-  position: relative;
-  line-height: 20px;
-  font-weight: 400;
-  text-align: left;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
 .editor-inner {
   background: #fff;
   position: relative;
 }
 
 .editor-input {
-  min-height: 150px;
-  resize: none;
-  font-size: 15px;
-  caret-color: rgb(5, 5, 5);
+  outline: none;
   position: relative;
-  tab-size: 1;
-  outline: 0;
-  padding: 15px 10px;
-  caret-color: #444;
+  padding: var(--padding-s);
+  width: 100%;
+  min-height: 15rem;
 }
 
-.editor-placeholder {
-  color: #999;
-  overflow: hidden;
-  position: absolute;
-  text-overflow: ellipsis;
-  top: 15px;
-  left: 10px;
-  font-size: 15px;
-  user-select: none;
-  display: inline-block;
-  pointer-events: none;
+.toolbarContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  gap: var(--padding-xs);
+  padding: var(--padding-xs);
+  border-bottom: var(--border-width-m) solid var(--border-color);
+  border-top-left-radius: var(--border-radius-m);
+  border-top-right-radius: var(--border-radius-m);
 }
 
 .editor-text-bold {
@@ -381,40 +364,4 @@ h1 {
   margin-right: 8px;
   line-height: 16px;
   background-size: contain;
-}
-
-i.redo {
-  background-image: url(/public/icons/arrow-clockwise.svg);
-}
-
-i.bold {
-  background-image: url(/public/icons/type-bold.svg);
-}
-
-i.italic {
-  background-image: url(/public/icons/type-italic.svg);
-}
-
-i.underline {
-  background-image: url(/public/icons/type-underline.svg);
-}
-
-i.strikethrough {
-  background-image: url(/public/icons/type-strikethrough.svg);
-}
-
-i.left-align {
-  background-image: url(/public/icons/text-left.svg);
-}
-
-i.center-align {
-  background-image: url(/public/icons/text-center.svg);
-}
-
-i.right-align {
-  background-image: url(/public/icons/text-right.svg);
-}
-
-i.justify-align {
-  background-image: url(/public/icons/justify.svg);
 }

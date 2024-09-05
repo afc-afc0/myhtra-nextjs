@@ -1,57 +1,55 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin';
-import {LexicalComposer} from '@lexical/react/LexicalComposer';
-import {ContentEditable} from '@lexical/react/LexicalContentEditable';
-import {LexicalErrorBoundary} from '@lexical/react/LexicalErrorBoundary';
-import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin';
-import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin';
-import TreeViewPlugin from './plugins/TreeViewPlugin';
-import ToolbarPlugin from './plugins/ToolbarPlugin';
+import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin'
+import {LexicalComposer} from '@lexical/react/LexicalComposer'
+import {ContentEditable} from '@lexical/react/LexicalContentEditable'
+import {LexicalErrorBoundary} from '@lexical/react/LexicalErrorBoundary'
+import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin'
+import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin'
+import TreeViewPlugin from './plugins/TreeViewPlugin'
+import ToolbarPlugin from './plugins/ToolbarPlugin'
 
 import styles from './Lexical.module.css'
-import { LexicalStyles } from './LexicalStyles';
+import { LexicalStyles } from './LexicalStyles'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 
-const placeholder = 'Enter some rich text...';
+import { HeadingNode, QuoteNode } from '@lexical/rich-text'
+import { ListNode, ListItemNode } from '@lexical/list'
+import { CodeNode } from '@lexical/code'
+
 
 const editorConfig = {
-  namespace: 'React.js Demo',
-  nodes: [],
-  // Handling of errors during update
+  namespace: 'Myhtra Editor',
+  nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode],
   onError(error: Error) {
-    throw error;
+    throw error
   },
   theme: LexicalStyles,
-};
+}
 
 export function LexicalRichText() {
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <div className={styles['editor-container']}>
+      <FlexContainer width='100%' borderWidth='m' borderRadius='m'>
         <ToolbarPlugin />
-        <div className={styles['editor-inner']}>
+        <FlexContainer width='100%'>
           <RichTextPlugin
-            contentEditable={
-              <ContentEditable
-                className={styles['editor-input']}
-                aria-placeholder={placeholder}
-                placeholder={
-                  <div className={styles["editor-placeholder"]}>{placeholder}</div>
-                }
-              />
-            }
+            contentEditable={<Content />}
             ErrorBoundary={LexicalErrorBoundary}
           />
           <HistoryPlugin />
-          <AutoFocusPlugin />
-          <TreeViewPlugin />
-        </div>
-      </div>
+          {/* <AutoFocusPlugin /> */}
+          {/* <TreeViewPlugin /> */}
+        </FlexContainer>
+      </FlexContainer>
     </LexicalComposer>
-  );
+  )
+}
+
+const Content = () => {
+  return (
+    <FlexContainer width='100%'>
+      <ContentEditable
+        className={styles['editor-input']}
+      />
+    </FlexContainer>
+  )
 }
