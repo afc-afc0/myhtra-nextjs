@@ -52,31 +52,31 @@
 
 .button[data-size="xs"] {
   padding: var(--padding-xss);
-  height: var(--button-size-xs);
+  height: var(--border-box-height-xs);
   font-size: var(--font-size-xs);
 }
 
 .button[data-size="s"] {
   padding: var(--padding-xss);
-  height: var(--button-size-s);
+  height: var(--border-box-height-s);
   font-size: var(--font-size-s);
 }
 
 .button[data-size="m"] {
   padding: var(--padding-xss);
-  height: var(--button-size-m);
+  height: var(--border-box-height-m);
   font-size: var(--font-size-s);
 }
 
 .button[data-size="l"] {
   padding: var(--padding-xss);
-  height: var(--button-size-l);
+  height: var(--border-box-height-l);
   font-size: var(--font-size-m);
 }
 
 .button[data-size="xl"] {
   padding: var(--padding-xss);
-  height: var(--button-size-xl);
+  height: var(--border-box-height-xl);
   font-size: var(--font-size-l);
 }
 

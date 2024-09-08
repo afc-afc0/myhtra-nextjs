@@ -1,11 +1,11 @@
 .other h2 {
   font-size: 18px;
-  color: #444;
+  color: var(--text-color);
   margin-bottom: 7px;
 }
 
 .other a {
-  color: #777;
+  color: var(--text-color);
   text-decoration: underline;
   font-size: 14px;
 }
@@ -96,7 +96,7 @@ h1 {
 .tree-view-output {
   display: block;
   background: #222;
-  color: #fff;
+  color: var(--text-color);
   padding: 5px;
   font-size: 12px;
   white-space: pre-wrap;
@@ -146,7 +146,7 @@ h1 {
   font-size: 10px;
   text-transform: uppercase;
   position: absolute;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
 }
 
 .editor-tokenComment {
@@ -193,7 +193,7 @@ h1 {
 
 .editor-heading-h1 {
   font-size: 24px;
-  color: rgb(5, 5, 5);
+  color: var(--text-color);
   font-weight: 400;
   margin: 0;
   margin-bottom: 12px;
@@ -202,7 +202,7 @@ h1 {
 
 .editor-heading-h2 {
   font-size: 15px;
-  color: rgb(101, 103, 107);
+  color: var(--text-color);
   font-weight: 700;
   margin: 0;
   margin-top: 10px;
@@ -214,8 +214,8 @@ h1 {
   margin: 0;
   margin-left: 20px;
   font-size: 15px;
-  color: rgb(101, 103, 107);
-  border-left-color: rgb(206, 208, 212);
+  color: var(--text-color);
+  border-left-color: var(--action-color);
   border-left-width: 4px;
   border-left-style: solid;
   padding-left: 16px;
@@ -338,7 +338,7 @@ h1 {
 
 .divider {
   width: var(--border-width-xs);
-  height: var(--button-size-xs);
+  height: var(--border-box-height-xs);
   background-color: var(--border-color);
 }
 
@@ -364,4 +364,9 @@ h1 {
   margin-right: 8px;
   line-height: 16px;
   background-size: contain;
+}
+
+.toolbarSelectContainer {
+  width: 10rem;
+  
 }

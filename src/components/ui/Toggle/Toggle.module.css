@@ -19,32 +19,32 @@
 
 .toggle[data-size="xs"] {
   padding: var(--padding-xss);
-  height: var(--button-size-xs);
-  width: var(--button-size-xs);
+  height: var(--border-box-height-xs);
+  width: var(--border-box-height-xs);
 }
 
 .toggle[data-size="s"] {
   padding: var(--padding-xss);
-  height: var(--button-size-s);
-  width: var(--button-size-s);
+  height: var(--border-box-height-s);
+  width: var(--border-box-height-s);
 }
 
 .toggle[data-size="m"] {
   padding: var(--padding-xss);
-  height: var(--button-size-m);
-  width: var(--button-size-m);
+  height: var(--border-box-height-m);
+  width: var(--border-box-height-m);
 }
 
 .toggle[data-size="l"] {
   padding: var(--padding-xss);
-  height: var(--button-size-l);
-  width: var(--button-size-l);
+  height: var(--border-box-height-l);
+  width: var(--border-box-height-l);
 }
 
 .toggle[data-size="xl"] {
   padding: var(--padding-xss);
-  height: var(--button-size-xl);
-  width: var(--button-size-xl);
+  height: var(--border-box-height-xl);
+  width: var(--border-box-height-xl);
 }
 
 .toggle[data-size="xs"] svg {

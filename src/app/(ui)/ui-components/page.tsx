@@ -19,7 +19,7 @@ export default function Home() {
     <FlexContainer width='100%' alignItems='center' paddingSize='l'>
       <Container> 
         <FlexContainer width='inherit' height='auto' borderRadius='m' borderWidth='m' paddingSize='s' gapSize='s'>
-        <ThemeSwitch /> 
+          {/* <ThemeSwitch />  */}
           <FlexContainer width='100%' flexDirection='row' flexGrow={1} flexBasis='%0' gapSize='s'>
             <FlexContainer width='50%'>
               <Label label='Input text' htmlFor='inputText' />

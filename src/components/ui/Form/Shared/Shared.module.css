@@ -8,7 +8,7 @@
   background-color: var(--background-color);
   font-size: var(--font-size-s);
   width: 100%;
-  height: var(--shared-form-input-height);
+  height: var(--border-box-height-m);
 }
 
 .shared:focus {

@@ -7,27 +7,36 @@ import { ChevronDownSVG } from '../../SVG/SVG'
 import sharedStyles from '../Shared/Shared.module.css'
 import styles from './Select.module.css'
 
-
 export const Select = SelectPrimitive.Root
 
 export const SelectGroup = SelectPrimitive.Group
 
 export const SelectValue = SelectPrimitive.Value
 
+interface SelectTriggerProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
+}
+
 export const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ children, ...props }, ref) => {
+  SelectTriggerProps
+>(({ children, size = 'm', ...props }, ref) => {
   return (
-    <SelectPrimitive.Trigger ref={ref} className={`${sharedStyles.shared} ${styles.trigger}`} {...props}>
+    <SelectPrimitive.Trigger
+      ref={ref}
+      className={`${sharedStyles.shared} ${styles.trigger}`}
+      data-size={size}
+      {...props}
+    >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownSVG style={{width: '32px', height: '32px'}} />
-      </SelectPrimitive.Icon>     
+        <ChevronDownSVG />
+      </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
-  )
-})
-SelectTrigger.displayName = 'SelectTrigger'
+  );
+});
+
+SelectTrigger.displayName = 'SelectTrigger';
 
 export const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>, 

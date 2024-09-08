@@ -44,6 +44,12 @@
   --button-size-l: 2rem;
   --button-size-xl: 2.4rem;
 
+  --border-box-height-xs: 1.5rem;
+  --border-box-height-s: 1.7rem;
+  --border-box-height-m: 2rem;
+  --border-box-height-l: 2.5rem;
+  --border-box-height-xl: 3rem;
+
   --icon-size-xs: 1rem;
   --icon-size-s: 1.1rem;
   --icon-size-m: 1.2rem;
@@ -75,8 +81,6 @@
   --text-color-secondary: hsl(0, 0%, 0%);  
 
   --navbar-height: 5rem;
-
-  --shared-form-input-height: 2.6rem;
 
   --transition-duration: 0.25s;
 }
