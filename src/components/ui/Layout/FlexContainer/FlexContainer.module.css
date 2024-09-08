@@ -76,6 +76,10 @@
 
 .flexContainer[data-flex-shrink="1"] { flex-shrink: 1; }
 
+.flexContainer[data-position='absolute'] { position: absolute; }
+.flexContainer[data-position='relative'] { position: relative; }
+.flexContainer[data-position='fixed'] { position: fixed; }
+
 @media screen and (max-width: 1024px) {
   .flexContainer[data-responsive-flex-direction="column"] { flex-direction: column; }
   .flexContainer[data-responsive-flex-direction="row"] { flex-direction: row; }

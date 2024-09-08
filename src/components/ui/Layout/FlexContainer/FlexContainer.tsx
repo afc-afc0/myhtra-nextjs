@@ -20,6 +20,7 @@ interface FlexContainerProps {
   flexGrow?: 1,
   flexShrink?: 1,
   boxSizing?: 'content-box' | 'border-box',
+  position?: 'relative' | 'absolute' | 'fixed',
   style?: React.CSSProperties,
   // Effects
   borderWidth?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl',
@@ -49,6 +50,7 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
   borderRadius = 'none',
   borderTopRadius = 'none',
   shadowSize = 'none',
+  position,
   style,
 }, ref) => {
   return (
@@ -73,6 +75,7 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
       data-shadow-size={shadowSize}
       data-box-sizing={boxSizing}
       data-responsive-flex-direction={responsiveFlexDirection}
+      data-position={position}
       style={style}
     >
       {children}
