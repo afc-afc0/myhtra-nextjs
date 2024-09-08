@@ -12,7 +12,7 @@ interface ButtonProps {
   active?: boolean
 }
 
-export const Button = ({ text, icon, size = 'm', onClick, disabled = false, active } : ButtonProps) => {
+export const Button = ({ text, icon, size = 'm', onClick, disabled = false, active, ...props } : ButtonProps) => {
   return (
     <button 
       className={clsx(styles.button, active && styles.active)} 
@@ -20,6 +20,7 @@ export const Button = ({ text, icon, size = 'm', onClick, disabled = false, acti
       onClick={onClick} 
       data-size={size}
       data-icon-only={icon != null && text == null}
+      {...props}
     >
       <ConditionalDisplay condition={text != null}>
         <span className={clsx(text && styles.text, icon && text && styles.marginRight)}>
