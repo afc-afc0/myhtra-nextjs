@@ -44,6 +44,7 @@ h1 {
   outline: none;
   position: relative;
   padding: var(--padding-s);
+  padding-left: var(--padding-l);
   width: 100%;
   min-height: 15rem;
 }

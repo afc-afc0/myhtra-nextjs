@@ -1,12 +1,22 @@
 'use client'
-import {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin'
-import {LexicalComposer} from '@lexical/react/LexicalComposer'
-import {ContentEditable} from '@lexical/react/LexicalContentEditable'
-import {LexicalErrorBoundary} from '@lexical/react/LexicalErrorBoundary'
-import {HistoryPlugin} from '@lexical/react/LexicalHistoryPlugin'
-import {RichTextPlugin} from '@lexical/react/LexicalRichTextPlugin'
+import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
+import { LexicalComposer } from '@lexical/react/LexicalComposer'
+import { ContentEditable } from '@lexical/react/LexicalContentEditable'
+import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
+import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
+import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { ListPlugin } from '@lexical/react/LexicalListPlugin'
 import { CheckListPlugin } from '@lexical/react/LexicalCheckListPlugin'
+
+import { LexicalStyles } from './LexicalStyles'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { HeadingNode, QuoteNode } from '@lexical/rich-text'
+import { ListNode, ListItemNode } from '@lexical/list'
+import { CodeNode, CodeHighlightNode } from '@lexical/code'
+import { forwardRef, ReactElement, useEffect, useState } from 'react'
+import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
+import { CAN_USE_DOM } from './plugins/shared/canUseDOM'
+import { useLexicalEditable } from '@lexical/react/useLexicalEditable';
 
 import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin/ListMaxIndentLevelPlugin'
 import TreeViewPlugin from './plugins/TreeViewPlugin/TreeViewPlugin'
@@ -15,16 +25,6 @@ import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 import DraggableBlockPlugin from './plugins/DraggableBlockPlugin/DraggableBlockPlugin'
 
 import styles from './Lexical.module.css'
-import { LexicalStyles } from './LexicalStyles'
-import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
-
-import { HeadingNode, QuoteNode } from '@lexical/rich-text'
-import { ListNode, ListItemNode } from '@lexical/list'
-import { CodeNode, CodeHighlightNode } from '@lexical/code'
-import { useEffect, useState } from 'react'
-import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
-import { CAN_USE_DOM } from './plugins/shared/canUseDOM'
-import {useLexicalEditable} from '@lexical/react/useLexicalEditable';
 
 const editorConfig = {
   namespace: 'Myhtra Editor',
@@ -36,7 +36,14 @@ const editorConfig = {
 }
 
 export function LexicalRichText() {
+  return (
+    <LexicalComposer initialConfig={editorConfig}>
+      <Editor />
+    </LexicalComposer>
+  )
+}
 
+const Editor = () => {
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
@@ -66,36 +73,42 @@ export function LexicalRichText() {
   }, [isSmallWidthViewport]);
 
   return (
-    <LexicalComposer initialConfig={editorConfig}>
-      <FlexContainer width='100%' borderWidth='m' borderRadius='m'>
-        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
-        <FlexContainer width='100%'>
-          <RichTextPlugin
-            contentEditable={<Content />}
-            ErrorBoundary={LexicalErrorBoundary}
-          />
-          <HistoryPlugin />
-          <CodeHighlightPlugin />
-          <ListPlugin />
-          <CheckListPlugin />
-          <ListMaxIndentLevelPlugin maxDepth={7} />
-          <ConditionalDisplay condition={floatingAnchorElem != null && !isSmallWidthViewport}>
-            <DraggableBlockPlugin anchorElem={floatingAnchorElem || undefined} />
-          </ConditionalDisplay>
-          {/* <AutoFocusPlugin /> */}
-          {/* <TreeViewPlugin /> */}
-        </FlexContainer>
+    <FlexContainer width='100%' borderWidth='m' borderRadius='m'>
+      <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
+      <FlexContainer width='100%'>
+        <RichTextPlugin
+          contentEditable={<Content ref={onRef} />}
+          ErrorBoundary={LexicalErrorBoundary}
+        />
+        <HistoryPlugin />
+        <CodeHighlightPlugin />
+        <ListPlugin />
+        <CheckListPlugin />
+        <ListMaxIndentLevelPlugin maxDepth={7} />
+        <ConditionalDisplay condition={floatingAnchorElem != null && !isSmallWidthViewport}>
+          <DraggableBlockPlugin anchorElem={floatingAnchorElem || undefined} />
+        </ConditionalDisplay>
+        {/* <AutoFocusPlugin /> */}
+        {/* <TreeViewPlugin /> */}
       </FlexContainer>
-    </LexicalComposer>
+    </FlexContainer>
   )
 }
 
-const Content = () => {
+type ContentRef = HTMLDivElement; 
+
+interface ContentProps {}
+
+const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement => {
   return (
-    <FlexContainer width='100%'>
+    <FlexContainer ref={ref} width='100%'>
       <ContentEditable
         className={styles['editor-input']}
       />
     </FlexContainer>
-  )
-}
+  );
+});
+
+Content.displayName = 'Content'; // This helps with debugging
+
+export default Content;
