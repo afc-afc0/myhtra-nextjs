@@ -1,14 +1,12 @@
 'use client'
+import { DragHandleSVG } from '@components/ui/SVG/SVG';
 import styles from './DraggableBlock.module.css';
 
 import {DraggableBlockPlugin_EXPERIMENTAL} from '@lexical/react/LexicalDraggableBlockPlugin';
-import clsx from 'clsx';
 import {useRef} from 'react';
 
-const DRAGGABLE_BLOCK_MENU_CLASSNAME = styles['draggable-block-menu'];
-
 function isOnMenu(element: HTMLElement): boolean {
-  return !!element.closest(`.${DRAGGABLE_BLOCK_MENU_CLASSNAME}`);
+  return !!element.closest(`.${styles['draggable-block-menu']}`);
 }
 
 export default function DraggableBlockPlugin({
@@ -25,8 +23,8 @@ export default function DraggableBlockPlugin({
       menuRef={menuRef}
       targetLineRef={targetLineRef}
       menuComponent={
-        <div ref={menuRef} className={clsx(styles.icon, styles['draggable-block-menu'])}>
-          <div className={styles.icon} />
+        <div ref={menuRef} className={styles['draggable-block-menu']}>
+          <DragHandleSVG />
         </div>
       }
       targetLineComponent={

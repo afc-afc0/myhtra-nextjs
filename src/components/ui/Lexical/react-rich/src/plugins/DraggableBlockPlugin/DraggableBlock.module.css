@@ -9,24 +9,23 @@
   will-change: transform;
 }
 
-.draggable-block-menu .icon {
-  width: 16px;
-  height: 16px;
-  opacity: 0.3;
-  /* background-image: url(../../images/icons/draggable-block-menu.svg); */
+.draggable-block-menu svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--action-color);
 }
 
 .draggable-block-menu:active {
   cursor: grabbing;
 }
 
-.draggable-block-menu:hover {
-  background-color: #efefef;
+.draggable-block-menu:hover svg {
+  fill: var(--action-color-transition);
 }
 
 .draggable-block-target-line {
   pointer-events: none;
-  background: deepskyblue;
+  background: var(--action-color-transition);
   height: 4px;
   position: absolute;
   left: 0;
