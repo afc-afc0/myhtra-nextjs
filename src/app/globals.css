@@ -89,7 +89,7 @@
   --background-color: hsl(0, 0%, 100%); 
   --primary-color: hsl(203, 66%, 46%);
   --action-color: hsl(204, 84%, 72%); 
-  --action-color-transition: hsl(204, 84%, 62%);
+  --action-color-transition: hsl(204, 84%, 42%);
 
   --text-color: hsl(0, 0%, 0%);
   --text-color-secondary: hsl(0, 0%, 100%);
