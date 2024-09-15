@@ -3,27 +3,30 @@ import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/Conditiona
 
 import styles from './Button.module.css'
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string
-  onClick?: (e: any) => any
-  disabled?: boolean
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
   icon?: React.ReactNode
   active?: boolean
+  loading?: boolean
 }
 
-export const Button = ({ text, icon, size = 'm', onClick, disabled = false, active, ...props } : ButtonProps) => {
+export const Button = ({ text, loading, icon, size = 'm', onClick, disabled = false, active, ...props } : ButtonProps) => {
   return (
     <button 
-      className={clsx(styles.button, active && styles.active)} 
-      disabled={disabled}
+      className={clsx(styles.button, active && styles.active, loading && styles.loading)} 
+      disabled={disabled || loading}
       onClick={onClick} 
       data-size={size}
       data-icon-only={icon != null && text == null}
       {...props}
     >
       <ConditionalDisplay condition={text != null}>
-        <span className={clsx(text && styles.text, icon && text && styles.marginRight)}>
+        <span className={clsx(
+          text && styles.text, 
+          icon && text && styles.marginRight
+          )}
+        >
         { text }
         </span>
       </ConditionalDisplay>
