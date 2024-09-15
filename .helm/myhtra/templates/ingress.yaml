@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt  
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
