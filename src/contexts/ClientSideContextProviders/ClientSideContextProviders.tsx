@@ -1,5 +1,6 @@
 'use client'
 import { ThemeProvider } from "next-themes"
+import { SessionProvider } from 'next-auth/react';
 
 interface ClientSideContextProvidersProps {
   children: React.ReactNode
@@ -9,7 +10,9 @@ export const ClientSideContextProviders = ({ children } : ClientSideContextProvi
   return (
     <>
       <ThemeProvider>
-        {children}
+        <SessionProvider>
+          {children}
+        </SessionProvider>
       </ThemeProvider>
     </>
   )

@@ -26,6 +26,7 @@
       "@contexts/*": ["./src/contexts/*"],
       "@utils/*": ["./src/utils/*"],
       "@public/*": ["./public/*"],
+      "@api/*": ["./src/app/api/*"],
     },
     "target": "ES2017"
   },

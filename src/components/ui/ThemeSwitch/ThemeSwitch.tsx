@@ -1,19 +1,23 @@
-'use client'
+import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
-import styles from './ThemeSwitch.module.css'
-
-export const ThemeSwitch = () => {
+export function ThemeSwitch() {
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-  
-  const handleThemeChange = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
   }
 
   return (
-    <div>
-      Current Theme: { theme }
-      <input type='checkbox' onClick={handleThemeChange} />
-    </div>
+    <select value={theme} onChange={e => setTheme(e.target.value)}>
+      <option value="system">System</option>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
   )
 }

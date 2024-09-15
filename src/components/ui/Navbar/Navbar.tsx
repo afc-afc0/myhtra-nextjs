@@ -8,6 +8,7 @@ export const Navbar = ({}) => {
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>
         <div className={styles.navbarLeft}>
+          <Logo />
         </div>
         <div className={styles.navbarMiddle}>
           
@@ -20,13 +21,13 @@ export const Navbar = ({}) => {
   )
 }
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <Image
       alt='Myhtra Logo'
       src={MyhtraLogo}
-      width={48}
-      height={48}
+      width={280}
+      height={280}
     />
   )
 }
