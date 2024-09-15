@@ -28,6 +28,16 @@ import { sanitizeUrl } from '../shared/url';
 import { setFloatingElemPositionForLinkEditor } from '../shared/setFloatingElemPositionForLinkEditor';
 
 import styles from './FloatingLinkEditorPlugin.module.css';
+import lexicalStyles from '../../Lexical.module.css';
+
+
+import { Input } from '@components/ui/Form/Input/Input';
+import { Button } from '@components/ui/Button/Button';
+import { CancelSVG, CheckSVG, DeleteSVG, EditSVG } from '@components/ui/SVG/SVG';
+import { size } from '../../../../../../../../node_modules/lib0/object.d';
+import Link from 'next/link';
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer';
+import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay';
 
 function FloatingLinkEditor({
   editor,
@@ -177,9 +187,6 @@ function FloatingLinkEditor({
     if (event.key === 'Enter') {
       event.preventDefault();
       handleLinkSubmission();
-    } else if (event.key === 'Escape') {
-      event.preventDefault();
-      setIsLinkEditMode(false);
     }
   };
 
@@ -208,70 +215,62 @@ function FloatingLinkEditor({
   };
 
   return (
-    <div ref={editorRef} className={styles["link-editor"]}>
-      {!isLink ? null : isLinkEditMode ? (
-        <>
-          <input
+    <ConditionalDisplay condition={isLink}>
+      <FlexContainer paddingSize='s' alignItems='center' justifyContent='space-between' width='100%' borderRadius='s' flexDirection='row' borderWidth='s' position='absolute' ref={editorRef} className={styles["link-editor"]}>
+        <ConditionalDisplay condition={isLinkEditMode}>
+          <Input
+            className={styles.link}
+            size='xs'
             ref={inputRef}
-            className={styles["link-input"]}
             value={editedLinkUrl}
-            onChange={(event) => {
-              setEditedLinkUrl(event.target.value);
-            }}
-            onKeyDown={(event) => {
-              monitorInputInteraction(event);
-            }}
+            onChange={(event) => { setEditedLinkUrl(event.target.value); }}
+            onKeyDown={monitorInputInteraction}
           />
-          <div>
-            <div
-              className={styles["link-cancel"]}
-              role="button"
-              tabIndex={0}
+          <FlexContainer flexDirection='row' gapSize='xs'>
+            <Button
+              icon={<CancelSVG />}
+              onClick={() => { setIsLinkEditMode(false); }}
               onMouseDown={(event) => event.preventDefault()}
-              onClick={() => {
-                setIsLinkEditMode(false);
-              }}
+              size='xs'
             />
-
-            <div
-              className={styles["link-confirm"]}
-              role="button"
-              tabIndex={0}
-              onMouseDown={(event) => event.preventDefault()}
+            <Button
+              icon={<CheckSVG />}
               onClick={handleLinkSubmission}
+              onMouseDown={(event) => event.preventDefault()}
+              size='xs'
             />
-          </div>
-        </>
-      ) : (
-        <div className={styles["link-view"]}>
-          <a
+          </FlexContainer>
+        </ConditionalDisplay>
+        <ConditionalDisplay condition={!isLinkEditMode}>
+          <Link
+            className={styles.link}
             href={sanitizeUrl(linkUrl)}
             target="_blank"
-            rel="noopener noreferrer">
-            {linkUrl}
-          </a>
-          <div
-            className={styles["link-edit"]}
-            role="button"
-            tabIndex={0}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => {
-              setEditedLinkUrl(linkUrl);
-              setIsLinkEditMode(true);
-            }}
-          />
-          <div
-            className={styles["link-trash"]}
-            role="button"
-            tabIndex={0}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => {
-              editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-            }}
-          />
-        </div>
-      )}
-    </div>
+            rel="noopener noreferrer"
+          >
+            {linkUrl}  
+          </Link>
+          <FlexContainer flexDirection='row' gapSize='xs'>
+            <Button
+              icon={<EditSVG />}
+              onClick={() => {
+                setEditedLinkUrl(linkUrl);
+                setIsLinkEditMode(true);
+              }}
+              size='xs'
+            />
+            <Button
+              icon={<DeleteSVG />}
+              onClick={() => {
+                editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+              }}
+              onMouseDown={(event) => event.preventDefault()}
+              size='xs'
+            />  
+          </FlexContainer>
+        </ConditionalDisplay>
+      </FlexContainer>
+    </ConditionalDisplay>
   );
 }
 

@@ -4,9 +4,11 @@ import { LexicalComposer } from '@lexical/react/LexicalComposer'
 import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
+import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin'
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin'
 import { ListPlugin } from '@lexical/react/LexicalListPlugin'
 import { CheckListPlugin } from '@lexical/react/LexicalCheckListPlugin'
+import { AutoLinkNode, LinkNode } from '@lexical/link'
 
 import { LexicalStyles } from './LexicalStyles'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
@@ -22,28 +24,32 @@ import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin/ListMax
 import TreeViewPlugin from './plugins/TreeViewPlugin/TreeViewPlugin'
 import ToolbarPlugin from './plugins/ToolbarPlugin/ToolbarPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
-import DraggableBlockPlugin from './plugins/DraggableBlockPlugin/DraggableBlockPlugin'
 
 import styles from './Lexical.module.css'
+import LinkPlugin from './plugins/LinkPlugin/LinkPlugin'
+import LexicalAutoLinkPlugin from './plugins/AutoLinkPlugin/AutoLinkPlugin'
+import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin/FloatingLinkEditorPlugin'
+import CodeActionMenuPlugin from './plugins/CodeActionMenuPlugin/CodeActionMenuPlugin'
+import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
 
 const editorConfig = {
   namespace: 'Myhtra Editor',
-  nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode],
+  nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode],
   onError(error: Error) {
     throw error
   },
   theme: LexicalStyles,
 }
 
-export function LexicalRichText() {
+export const LexicalRichText = ({ onChange }: { onChange?: any }) => {
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <Editor />
+      <Editor onChange={onChange} />
     </LexicalComposer>
   )
 }
 
-const Editor = () => {
+const Editor = ({ onChange }: { onChange?: any }) => {
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
@@ -80,16 +86,24 @@ const Editor = () => {
           contentEditable={<Content ref={onRef} />}
           ErrorBoundary={LexicalErrorBoundary}
         />
+        <OnChangePlugin onChange={onChange} />
+        <ClearEditorPlugin />
         <HistoryPlugin />
         <CodeHighlightPlugin />
         <ListPlugin />
         <CheckListPlugin />
         <ListMaxIndentLevelPlugin maxDepth={7} />
+        <LinkPlugin />
+        <LexicalAutoLinkPlugin />
         <ConditionalDisplay condition={floatingAnchorElem != null && !isSmallWidthViewport}>
-          <DraggableBlockPlugin anchorElem={floatingAnchorElem || undefined} />
+          <CodeActionMenuPlugin anchorElem={floatingAnchorElem || undefined} />
+          <FloatingLinkEditorPlugin
+            anchorElem={floatingAnchorElem || undefined}
+            isLinkEditMode={isLinkEditMode}
+            setIsLinkEditMode={setIsLinkEditMode}
+          />
         </ConditionalDisplay>
         {/* <AutoFocusPlugin /> */}
-        {/* <TreeViewPlugin /> */}
       </FlexContainer>
     </FlexContainer>
   )
@@ -101,7 +115,7 @@ interface ContentProps {}
 
 const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement => {
   return (
-    <FlexContainer ref={ref} width='100%'>
+    <FlexContainer position='relative' ref={ref} width='100%'>
       <ContentEditable
         className={styles['editor-input']}
       />

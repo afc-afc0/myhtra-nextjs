@@ -32,7 +32,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import useLayoutEffect from 'shared/useLayoutEffect';
+import useLayoutEffectImpl from './useLayoutEffect';
 
 export type MenuTextMatch = {
   leadOffset: number;
@@ -330,7 +330,7 @@ export function LexicalMenu<TOption extends MenuOption>({
     };
   }, [editor]);
 
-  useLayoutEffect(() => {
+  useLayoutEffectImpl(() => {
     if (options === null) {
       setHighlightedIndex(null);
     } else if (selectedIndex === null) {
