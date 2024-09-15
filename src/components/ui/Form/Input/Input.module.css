@@ -2,3 +2,29 @@
   
 }
 
+.input[data-size="xs"] {
+  font-size: var(--font-size-xs);
+  height: var(--border-box-height-xs);
+}
+
+.input[data-size="s"] {
+  font-size: var(--font-size-s);
+  height: var(--border-box-height-s);
+}
+
+.input[data-size="m"] {
+  font-size: var(--font-size-m);
+  height: var(--border-box-height-m);
+}
+
+.input[data-size="l"] {
+  font-size: var(--font-size-l);
+  height: var(--border-box-height-l);
+}
+
+.input[data-size="xl"] {
+  font-size: var(--font-size-xl);
+  height: var(--border-box-height-xl);
+}
+
+
