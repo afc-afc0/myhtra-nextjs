@@ -39,7 +39,7 @@ import { $findMatchingParent, $getNearestBlockElementAncestorOrThrow, $getNeares
 
 import clsx from 'clsx';
 import { Button } from '@components/ui/Button/Button';
-import { BoldSVG, ItalicSVG, RedoSVG, StrikeThroughSVG, TextAlignCenterSVG, TextAlignJustifySVG, TextAlignLeftSVG, TextAlignRightSVG, UnderlineSVG, UndoSVG } from '@components/ui/SVG/SVG';
+import { BoldSVG, ClearFormattionSVG, InsertLinkSVG, ItalicSVG, RedoSVG, StrikeThroughSVG, TextAlignCenterSVG, TextAlignJustifySVG, TextAlignLeftSVG, TextAlignRightSVG, UnderlineSVG, UndoSVG } from '@components/ui/SVG/SVG';
 import { Toggle } from '@components/ui/Toggle/Toggle';
 import { $isListNode, INSERT_CHECK_LIST_COMMAND, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND, ListNode } from '@lexical/list';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@components/ui/Form/Select/Select';
@@ -300,7 +300,6 @@ export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode
         const focus = selection.focus;
         const nodes = selection.getNodes();
         const extractedNodes = selection.extract();
-
         if (anchor.key === focus.key && anchor.offset === focus.offset) {
           return;
         }
@@ -309,7 +308,6 @@ export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode
           // We split the first and last node by the selection
           // So that we don't format unselected text inside those nodes
           if ($isTextNode(node)) {
-            // Use a separate variable to ensure TS does not lose the refinement
             let textNode = node;
             if (idx === 0 && anchor.offset !== 0) {
               textNode = textNode.splitText(anchor.offset)[1] || textNode;
@@ -317,14 +315,7 @@ export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode
             if (idx === nodes.length - 1) {
               textNode = textNode.splitText(focus.offset)[0] || textNode;
             }
-            /**
-             * If the selected text has one format applied
-             * selecting a portion of the text, could
-             * clear the format to the wrong portion of the text.
-             *
-             * The cleared text is based on the length of the selected text.
-             */
-            // We need this in case the selected text only has one format
+            
             const extractedTextNode = extractedNodes[0];
             if (nodes.length === 1 && $isTextNode(extractedTextNode)) {
               textNode = extractedTextNode;
@@ -497,6 +488,19 @@ export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode
             editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'justify');
           }}
           aria-label="Justify Align"
+          size='xs'
+        />
+        <Toggle
+          icon={<InsertLinkSVG />}
+          isPressed={isLink}
+          onClick={insertLink}
+          aria-label="Insert Link"
+          size='xs'
+        />
+        <Button
+          icon={<ClearFormattionSVG />}
+          onClick={clearFormatting}
+          aria-label="Clear Formatting"
           size='xs'
         />
       </ConditionalDisplay>
