@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-
+// Test secret key for build is needed to complete the build process with dockerfile
 const secretKey = process.env.NEXTAUTH_SECRET ?? 'test-secret-key-for-build'
 const key = crypto.scryptSync(secretKey, 'salt', 32)
 const algorithm = 'aes-256-cbc'
