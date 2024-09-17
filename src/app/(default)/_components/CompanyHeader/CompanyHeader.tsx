@@ -1,9 +1,12 @@
 'use client'
+
 import { Text } from '@components/ui/Text/Text'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { Button } from '@components/ui/Button/Button'
 import { focusOnView } from '@utils/utilityFunctions'
 import { DownArrowSVG } from '@components/ui/SVG/SVG'
+import Image from 'next/image'
+import Logo from '@public/svgs/Logo.svg'
 
 import styles from './CompanyHeader.module.css'
 
@@ -13,9 +16,17 @@ export const CompanyHeader = () => {
     <FlexContainer id='companyHeader' height='100%' alignItems='center' justifyContent='center'>
       <Container>
         <FlexContainer paddingSize='s' borderWidth='l' borderRadius='m' height='auto' width='inherit' flexDirection='column' gapSize='s'>
-          <FlexContainer marginBottom='s'>
-            <Text fontWeight='bold' fontSize='xxxxl' text='Myhtra Studios' />
-            <Text fontWeight='light' fontSize='xxl' text='Pursuing Perfection, Project by Project' />
+          <FlexContainer width='100%' flexDirection='row' justifyContent='space-between'>
+            <FlexContainer marginBottom='s'>
+              <Text fontWeight='bold' fontSize='xxxxl' text='Myhtra Studios' />
+              <Text fontWeight='light' fontSize='xxl' text='Pursuing Perfection, Project by Project' />
+            </FlexContainer>
+            <Image
+              src={Logo}
+              alt='Logo'
+              width={100}
+              height={120}
+            />
           </FlexContainer>
           <FlexContainer height='auto' width='100%' flexDirection='row' justifyContent='space-between'>
             <FlexContainer height='auto' flexDirection='row' justifyContent='flex-start'  gapSize='s'>

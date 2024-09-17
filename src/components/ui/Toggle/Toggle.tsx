@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as TogglePrimitive from '@radix-ui/react-toggle'
 
 import styles from './Toggle.module.css'
+import clsx from 'clsx'
 
 interface ToggleProps {
   icon?: React.ReactNode
@@ -16,7 +17,7 @@ export const Toggle = React.forwardRef<
 >(({ className, disabled, size = 'm', icon, isPressed, onClick, ...props }, ref) => (
   <TogglePrimitive.Root
     ref={ref}
-    className={styles.toggle}
+    className={clsx(styles.toggle, className)}
     disabled={disabled}
     data-size={size}
     onClick={onClick}
@@ -26,5 +27,4 @@ export const Toggle = React.forwardRef<
     {icon}
   </TogglePrimitive.Root>
 ))
-
 Toggle.displayName = 'Toggle'

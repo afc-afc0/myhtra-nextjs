@@ -1,0 +1,40 @@
+.content {  
+  z-index: 50;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: var(--border-radius-s);
+  border: var(--border-width-m) solid var(--border-color);
+  background-color: var(--background-color);
+  padding: var(--padding-xss);
+  color: var(--text-color);
+}
+
+.content[data-state="open"] {
+  animation: enter 0.25s ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: exit 0.25s ease-in;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.92, 0.92, 0.92) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0);
+  }
+}
+
+@keyframes exit {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.92, 0.92, 0.92) rotate(0);
+  }
+}

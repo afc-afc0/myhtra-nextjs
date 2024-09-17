@@ -10,13 +10,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@c
 import { LexicalRichText } from '@components/ui/Lexical/react-rich/src/LexicalRichText'
 import { useLexical } from '@components/ui/Lexical/react-rich/src/plugins/shared/useOnChange'
 import { Button } from '@components/ui/Button/Button'
-import { signIn, signOut, useSession } from 'next-auth/react'
-
-import styles from './page.module.css'
-import { LoginButton } from '@components/ui/Login/LoginButton/LoginButton'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@components/ui/DropdownMenu/DropdownMenu'
 import { ChevronRightSVG } from '@components/ui/SVG/SVG'
 import { Text } from '@components/ui/Text/Text'
+import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/Popover/Popover'
+import { AuthController } from '@components/ui/Auth/AuthController/AuthController'
+import Logo from '@public/svgs/Logo.svg'
+
+import styles from './page.module.css'
+import Image from 'next/image'
 
 export default function Home() {
   const [inputTextValue, setInputTextValue] = useState<string>('')
@@ -26,7 +28,7 @@ export default function Home() {
   return (
     <FlexContainer width='100%' alignItems='center' paddingSize='l'>
       <Container> 
-        <FlexContainer width='inherit' height='auto' borderRadius='m' borderWidth='m' paddingSize='s' gapSize='s'>
+        <FlexContainer width='inherit' height='auto' borderRadius='m' borderWidth='m' paddingSize='s' gapSize='s'>          
           <FlexContainer width='100%' flexDirection='row' flexGrow={1} flexBasis='%0' gapSize='s'>
             <FlexContainer width='50%'>
               <Label label='Input text' htmlFor='inputText' />
@@ -62,14 +64,12 @@ export default function Home() {
             <LexicalRichText onChange={onChange} />
           </FlexContainer>
           <FlexContainer width='100%' height='auto'>
-            <LoginButton />
-          </FlexContainer>
-          <FlexContainer width='100%' height='auto'>
             <Button
               text='Button'
             />
           </FlexContainer>
           <FlexContainer width='100%' height='auto'>
+            <Text text='Droddown Menu currently in testing' />
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Button
@@ -112,6 +112,21 @@ export default function Home() {
                 <SelectItem value='3'>Option 3</SelectItem>
               </SelectContent>
             </Select>
+          </FlexContainer>
+          <FlexContainer width='100%' height='auto'>
+            <Text text='Popover' />
+            <Popover>
+              <PopoverTrigger>
+                <Button text='Click me' />
+              </PopoverTrigger>
+              <PopoverContent>
+
+              </PopoverContent>
+            </Popover>
+          </FlexContainer>
+          <FlexContainer width='100%' height='auto'>
+            <Text text='Auth Controller' />
+            <AuthController />
           </FlexContainer>
         </FlexContainer>
       </Container>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import MyhtraLogo from '@public/pngs/Logo.png'
+import { AuthController } from '../Auth/AuthController/AuthController'
+import MyhtraLogo from '@public/svgs/Logo.svg'
 
 import styles from './Navbar.module.css'
 
@@ -14,7 +15,7 @@ export const Navbar = ({}) => {
           
         </div>
         <div className={styles.navbarRight}>
-        
+          <AuthController />        
         </div>
       </nav>
     </div>
@@ -26,8 +27,8 @@ export const Logo = () => {
     <Image
       alt='Myhtra Logo'
       src={MyhtraLogo}
-      width={280}
-      height={280}
+      width={55}
+      height={70}
     />
   )
 }

@@ -12,8 +12,7 @@
   width: 72rem;
   display: flex;
   justify-content: space-between;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: var(--padding-l);
 }
 
 .navbarRight {

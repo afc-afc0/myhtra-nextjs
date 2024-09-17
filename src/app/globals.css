@@ -80,7 +80,7 @@
   --text-color: hsl(0, 0%, 100%);
   --text-color-secondary: hsl(0, 0%, 0%);  
 
-  --navbar-height: 5rem;
+  --navbar-height: 6rem;
 
   --transition-duration: 0.25s;
 }
