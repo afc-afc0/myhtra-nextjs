@@ -4,7 +4,8 @@ image:
   pullPolicy: Always
   tag: "latest"  
   containerPort: 3000
-
+  secretName: myhtra-nextjs-environment
+  
 service:
   type: LoadBalancer 
   port: 80

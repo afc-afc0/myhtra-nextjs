@@ -27,11 +27,11 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
 
 export const authOptions  = {
   providers: [
-      KeyCloakProvider({
-          clientId: `${process.env.KEYCLOAK_CLIENT_ID}`,
-          clientSecret: `${process.env.KEYCLOAK_CLIENT_SECRET}`,
-          issuer: `${ process.env.KEYCLOAK_REALM_URL}`,
-      })
+    KeyCloakProvider({
+      clientId: `${process.env.KEYCLOAK_CLIENT_ID}`,
+      clientSecret: `${process.env.KEYCLOAK_CLIENT_SECRET}`,
+      issuer: `${ process.env.KEYCLOAK_REALM_URL}`,
+    })
   ],
   callbacks: {
       async jwt({ token, account }: { token: any, account: any }) {

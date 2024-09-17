@@ -29,7 +29,7 @@ export const AuthController = () => {
   } else {
     return (
       <Button
-        text='Log In/Up'
+        text='Sign In/Up'
         onClick={() => signIn("keycloak")}
         size='l'
         loading={status === 'loading'}

@@ -676,10 +676,8 @@ const BlockFormatDropDown =({
 
         if (selection !== null) {
           if (selection.isCollapsed()) {
-            console.log('isCollapsed');
             $setBlocksType(selection, () => $createCodeNode());
           } else {
-            console.log('not isCollapsed');
             const textContent = selection.getTextContent();
             const codeNode = $createCodeNode();
             selection.insertNodes([codeNode]);

@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-const secretKey = process.env.NEXTAUTH_SECRET
+const secretKey = process.env.NEXTAUTH_SECRET ?? 'test-secret-key-for-build'
 const key = crypto.scryptSync(secretKey, 'salt', 32)
 const algorithm = 'aes-256-cbc'
 

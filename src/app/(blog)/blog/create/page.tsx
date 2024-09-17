@@ -10,7 +10,6 @@ import { Button } from "@components/ui/Button/Button"
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
 export default function Home() {
-  console.log('api = ', api)
   const { lexicalContent, canSubmit, onChange } = useLexical()
 
   const submitLexicalContent = async () => {
@@ -30,7 +29,6 @@ export default function Home() {
       }
 
       const data = await response.json()
-      console.log('response = ', data)
     } catch (error) {
       console.error(error)
     }
