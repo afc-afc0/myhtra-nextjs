@@ -13,9 +13,9 @@ import styles from './AuthController.module.css'
 
 const keycloakSessionLogOut = async () => {
   try {
-    await fetch(`/api/auth/logout`, { method: "GET" });
+    await fetch(`/api/auth/logout`, { method: "GET" })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 
@@ -59,6 +59,8 @@ export const ProfilePopover = () => {
 const ProfilePopoverContent = () => {
   const { data: session, status } = useSession()
   
+  console.log('session = ', session)
+
   const handleSignOut = async () => {
     await keycloakSessionLogOut()
     await signOut({ callbackUrl: "/" })
