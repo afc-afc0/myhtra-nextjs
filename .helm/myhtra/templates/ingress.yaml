@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.ingress.name }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
