@@ -22,7 +22,9 @@ const keycloakSessionLogOut = async () => {
 export const AuthController = () => {
   const { data: session, status } = useSession()
 
-  if (status === 'authenticated' && session.user) {
+  if (status === 'loading') {
+    return 
+  } else if (status === 'authenticated') {
     return (
       <ProfilePopover />
     )
@@ -32,7 +34,6 @@ export const AuthController = () => {
         text='Sign In/Up'
         onClick={() => signIn("keycloak")}
         size='l'
-        loading={status === 'loading'}
       />
     )
   }
@@ -58,8 +59,6 @@ export const ProfilePopover = () => {
 
 const ProfilePopoverContent = () => {
   const { data: session, status } = useSession()
-  
-  console.log('session = ', session)
 
   const handleSignOut = async () => {
     await keycloakSessionLogOut()
