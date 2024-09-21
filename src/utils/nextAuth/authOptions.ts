@@ -32,7 +32,9 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
     method: "POST",
   })
   const refreshToken = await resp.json()
-  if (!resp.ok) throw refreshToken
+  if (!resp.ok) {
+    throw refreshToken
+  }
   return {
     ...token,
     access_token: refreshToken.access_token,

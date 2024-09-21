@@ -3,19 +3,10 @@ import { useEffect } from 'react';
 
 export const useClientSideToken = () => {
   const { data: session, status, update } = useSession()
-  console.log('session', session)
-
-   useEffect(() => {
-    const interval = setInterval(() => update(), 1000 * 60 * 60)
-    return () => clearInterval(interval)
-  }, [update])
 
   useEffect(() => {
-    const visibilityHandler = () =>
-      document.visibilityState === "visible" && update()
-    window.addEventListener("visibilitychange", visibilityHandler, false)
-    return () =>
-      window.removeEventListener("visibilitychange", visibilityHandler, false)
+    const interval = setInterval(() => update(), 1000 * 60 * 5)
+    return () => clearInterval(interval)
   }, [update])
 
   const getAccessToken = () => {
@@ -27,7 +18,7 @@ export const useClientSideToken = () => {
       return
     }
 
-    return session?.access_token
+    return session?.client_access_token
   }
 
   return { getAccessToken }

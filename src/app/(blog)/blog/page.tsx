@@ -1,6 +1,5 @@
 'use client'
 
-import { useSession } from "next-auth/react"
 import { useEffect } from "react"
 import { useClientSideToken } from '../../../hooks/useClientSideToken';
 
@@ -14,7 +13,7 @@ export default function Home() {
       
       const accessToken = getAccessToken()
       console.log('accessToken = ', accessToken)
-      const response = await fetch(`api/Post`, {
+      const response = await fetch(`${api}/Post`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
