@@ -19,7 +19,12 @@ declare module "next-auth" {
   }
 }
 
+const AuthErrors = {
+  RefreshAccessTokenError: 'RefreshAccessTokenError'
+}
+
 const refreshAccessToken = async (token: { refresh_token: any; }) => {
+  console.log("refreshToken = ", token.refresh_token)
   const resp = await fetch(`${process.env.KEYCLOAK_REFRESH_TOKEN_URL}`, {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -33,7 +38,7 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
   })
   const refreshToken = await resp.json()
   if (!resp.ok) {
-    throw refreshToken
+    throw new Error("Failed to refresh token = " + refreshToken.error)
   }
   return {
     ...token,
@@ -41,7 +46,7 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
     decoded: jwtDecode(refreshToken.access_token),
     id_token: refreshToken.id_token,
     expires_at: Math.floor(Date.now() / 1000) + refreshToken.expires_in,
-    refresh_token: refreshToken.refresh_token,
+    refresh_token: refreshToken.refresh_token ?? token.refresh_token,
   }
 }
 
@@ -78,16 +83,15 @@ export const authOptions  = {
           const refreshedToken = await refreshAccessToken(token)
           return refreshedToken;
         } catch (error) {
-          return { ...token, error: "RefreshAccessTokenError" }
+          return { ...token, error: AuthErrors.RefreshAccessTokenError }
         }
       }
     },
     async session({ session, token }: { session: Session, token: any }) {
-      if (token.error === "RefreshAccessTokenError") {
-        console.log("RefreshAccessTokenError")
+      if (token.error === AuthErrors.RefreshAccessTokenError) {
         return {
           expires: session.expires,
-          error: "RefreshAccessTokenError"
+          error: AuthErrors.RefreshAccessTokenError
         }
       }
 

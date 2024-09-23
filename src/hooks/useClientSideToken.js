@@ -1,8 +1,23 @@
-import { signIn, useSession } from 'next-auth/react';
+'use client'
+
+import { keycloakSessionLogOut } from '@components/ui/Auth/AuthController/AuthController';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 
 export const useClientSideToken = () => {
   const { data: session, status, update } = useSession()
+
+  useEffect(() => {
+    const handleSignOut = async () => {
+      await keycloakSessionLogOut()
+      await signOut({ callbackUrl: "/" })
+    }
+
+    // Should be in sync between backen AuthErrors
+    if (session?.error === 'RefreshAccessTokenError') {
+      handleSignOut() 
+    }
+  }, [session])
 
   useEffect(() => {
     const interval = setInterval(() => update(), 1000 * 60 * 5)

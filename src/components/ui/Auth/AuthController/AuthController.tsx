@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 import styles from './AuthController.module.css'
 
-const keycloakSessionLogOut = async () => {
+export const keycloakSessionLogOut = async () => {
   try {
     await fetch(`/api/auth/logout`, { method: "GET" })
   } catch (err) {
