@@ -24,6 +24,7 @@ service:
   name: myhtra-service
   port: 80
 
+# Does cert issuer handles this
 ingress:
   name: myhtra-ingress
   secretName: www-tls

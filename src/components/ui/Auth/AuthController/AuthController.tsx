@@ -58,7 +58,7 @@ export const ProfilePopover = () => {
 }
 
 const ProfilePopoverContent = () => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   const handleSignOut = async () => {
     await keycloakSessionLogOut()

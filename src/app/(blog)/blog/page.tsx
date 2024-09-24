@@ -12,7 +12,10 @@ export default function Home() {
     const fetchData = async () => {
       
       const accessToken = getAccessToken()
-      console.log('accessToken = ', accessToken)
+      if (!accessToken) {
+        return
+      }
+
       const response = await fetch(`${api}/Post`, {
         method: 'GET',
         headers: {
@@ -21,10 +24,19 @@ export default function Home() {
         }
       })
 
+      if (!response.ok) {
+        throw new Error('Failed to fetch error: ' + response.statusText)
+      }
+
       const data = await response.json()
     }
 
-    fetchData()
+    try {
+      fetchData()
+    }
+    catch (error) {
+      console.error(error)
+    }
   }, [getAccessToken])
 
   return (  

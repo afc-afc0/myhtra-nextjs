@@ -1,8 +1,8 @@
 'use client'
 
-import { keycloakSessionLogOut } from '@components/ui/Auth/AuthController/AuthController';
-import { signIn, signOut, useSession } from 'next-auth/react';
-import { useEffect } from 'react';
+import { keycloakSessionLogOut } from '@components/ui/Auth/AuthController/AuthController'
+import { signOut, useSession } from 'next-auth/react'
+import { useEffect } from 'react'
 
 export const useClientSideToken = () => {
   const { data: session, status, update } = useSession()
@@ -10,10 +10,10 @@ export const useClientSideToken = () => {
   useEffect(() => {
     const handleSignOut = async () => {
       await keycloakSessionLogOut()
-      await signOut({ callbackUrl: "/" })
+      await signOut({ redirect: false, callbackUrl: "/" })
     }
 
-    // Should be in sync between backen AuthErrors
+    // 'RefreshAccessTokenError' should be in sync between backend AuthErrors
     if (session?.error === 'RefreshAccessTokenError') {
       handleSignOut() 
     }
@@ -27,7 +27,6 @@ export const useClientSideToken = () => {
   const getAccessToken = () => {
     if (status === 'unauthenticated') {
       console.warn('user is not authenticated sign in again')
-      signIn("keycloak")
     } else if (status === 'loading') {
       console.warn('loading')
       return
