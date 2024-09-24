@@ -27,6 +27,7 @@ export const useClientSideToken = () => {
   const getAccessToken = () => {
     if (status === 'unauthenticated') {
       console.warn('user is not authenticated sign in again')
+      return
     } else if (status === 'loading') {
       console.warn('loading')
       return
