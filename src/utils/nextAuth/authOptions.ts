@@ -24,7 +24,6 @@ const AuthErrors = {
 }
 
 const refreshAccessToken = async (token: { refresh_token: any; }) => {
-  console.log("refreshToken = ", token.refresh_token)
   const resp = await fetch(`${process.env.KEYCLOAK_REFRESH_TOKEN_URL}`, {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -96,7 +95,6 @@ export const authOptions  = {
       }
 
       session.access_token = encrypt(token.access_token)
-      session.client_access_token = token.access_token
       session.id_token = encrypt(token.id_token)
       session.roles = token.decoded.realm_access.roles
       session.resource_roles = token.decoded.resource_access?.['myhtra-frontend']?.roles || []

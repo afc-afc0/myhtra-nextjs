@@ -1,9 +1,9 @@
 'use client'
 
 import { ThemeProvider } from "next-themes"
-import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useState } from "react"
+import { AuthSessionProvider } from "@contexts/AuthSessionProvider/AuthSessionProvider"
 
 interface ClientSideContextProvidersProps {
   children: React.ReactNode
@@ -15,11 +15,11 @@ export const ClientSideContextProviders = ({ children } : ClientSideContextProvi
   return (
     <>
       <ThemeProvider>
-        <SessionProvider>
+        <AuthSessionProvider>
           <QueryClientProvider client={queryClient}>
             {children}
           </QueryClientProvider>
-        </SessionProvider>
+        </AuthSessionProvider>
       </ThemeProvider>
     </>
   )

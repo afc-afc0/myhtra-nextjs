@@ -1,47 +1,36 @@
 'use client'
 
-import { useEffect } from "react"
-import { useClientSideToken } from '../../../hooks/useClientSideToken';
+import { PageContainer } from '@components/ui/PageContainer/PageContainer'
+import { useQuery } from '@tanstack/react-query'
+import { useSession } from 'next-auth/react'
+import { Posts } from '../_components/Posts/Posts'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
 export default function Home() {
-  const { getAccessToken } = useClientSideToken()
+  const { data: session } = useSession()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      
-      const accessToken = getAccessToken()
-      if (!accessToken) {
-        return
+  const fetchAllPosts = async () => {  
+    const response = await fetch(`/api/Post`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
       }
-
-      const response = await fetch(`${api}/Post`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}`
-        }
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch error: ' + response.statusText)
-      }
-
-      const data = await response.json()
+    })
+  
+    if (!response.ok) {
+      throw new Error('Failed to fetch error: ' + response.statusText)
     }
+  
+    const data = await response.json()
+    return data ?? []
+  }
 
-    try {
-      fetchData()
-    }
-    catch (error) {
-      console.error(error)
-    }
-  }, [getAccessToken])
+  const { data } = useQuery({ queryKey: ['posts'], queryFn: fetchAllPosts, enabled: !!session })
 
-  return (  
-    <>
-
-    </>
+  return (
+    <PageContainer> 
+      <Posts posts={data?.posts ?? []} />
+    </PageContainer>
   )
 }
