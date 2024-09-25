@@ -18,11 +18,11 @@
   --border-radius-l: 12px;
   --border-radius-xl: 16px;
 
-  --border-width-xs: 1px;
-  --border-width-s: 1.5px;
-  --border-width-m: 2px;
-  --border-width-l: 2.5px; 
-  --border-width-xl: 3px;
+  --border-width-xs: 0.5px;
+  --border-width-s: 1px;
+  --border-width-m: 1.5px;
+  --border-width-l: 2px; 
+  --border-width-xl: 2.5px;
 
   --padding-xss: 0.25rem;
   --padding-xs: 0.4rem;
@@ -68,7 +68,7 @@
   --action-color:  hsl(231, 58%, 50%); 
   --action-color-transition: hsl(51, 58%, 50%);
 
-  --border-color: hsl(0, 0%, 52%);
+  --border-color: hsl(0, 0%, 44%);
   --focus-border-color: var(--primary-color);
 
   --shadow-color: rgba(189, 189, 189, 0.5);
