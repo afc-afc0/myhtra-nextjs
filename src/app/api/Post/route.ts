@@ -1,21 +1,14 @@
 export const dynamic = (request: Request) => {
   return request.method === 'GET' ? 'force-static' : 'force-dynamic';
 }
-import { getServerSession } from "next-auth"
-import { authOptions } from "@utils/nextAuth/authOptions"
-import { getAccessToken } from "@utils/nextAuth/sessionTokenAccessor"
+
+import { getAccessToken } from "@utils/nextAuth/getAccessToken";
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
-export async function GET() {
+export async function GET(req: any) {
   try {
-    const session = await getServerSession(authOptions)
-
-    if (!session) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 })
-    }
-  
-    let accessToken = await getAccessToken()
+    const accessToken = await getAccessToken({ req })
 
     const res = await fetch(`${api}/Post`, {
       headers: {
@@ -39,15 +32,10 @@ export async function GET() {
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(req: any) {
   try {
-    const session = await getServerSession(authOptions)
-
-    if (!session) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 })
-    }
-
-    let accessToken = await getAccessToken()
+    const accessToken = await getAccessToken({ req })
+    
     const json = await req.json()
 
     const res = await fetch(`${api}/Post`, {
@@ -59,7 +47,6 @@ export async function POST(req: Request) {
       body: JSON.stringify(json), // Stringify the parsed body
     })
     
-
     if (!res.ok) {
       const error = await res.text()
       throw new Error("Failed to fetch error: " + error)

@@ -1,5 +1,5 @@
 import { authOptions } from '@utils/nextAuth/authOptions'
-import { getIdToken } from '@utils/nextAuth/sessionTokenAccessor'
+import { getIdToken } from '@utils/nextAuth/getAccessToken'
 import { getServerSession } from "next-auth"
 
 export async function GET() {
