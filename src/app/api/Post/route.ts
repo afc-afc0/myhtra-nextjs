@@ -3,6 +3,12 @@ export const dynamic = (request: Request) => {
 }
 
 import { getAccessToken } from "@utils/nextAuth/getAccessToken";
+import fetch from 'node-fetch'
+import https from 'https'
+
+const agent = process.env.NODE_ENV === 'development'
+  ? new https.Agent({ rejectUnauthorized: false })
+  : https.globalAgent
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
@@ -16,6 +22,7 @@ export async function GET(req: any) {
         Authorization: `Bearer ${accessToken}`,
       },
       method: "GET",
+      agent: agent
     })
 
     if (!res.ok) {
@@ -44,7 +51,8 @@ export async function POST(req: any) {
         Authorization: `Bearer ${accessToken}`,
       },
       method: "POST",
-      body: JSON.stringify(json), // Stringify the parsed body
+      body: JSON.stringify(json),
+      agent: agent
     })
     
     if (!res.ok) {
