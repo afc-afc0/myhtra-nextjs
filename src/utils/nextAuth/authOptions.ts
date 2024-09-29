@@ -1,21 +1,14 @@
 import KeyCloakProvider from "next-auth/providers/keycloak";
-import { encrypt } from '@utils/nextAuth/encryption'
-import { jwtDecode } from "jwt-decode";
 import { DefaultSession, Session } from "next-auth";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    // access_token: { iv: string; encryptedData: string }
-    // client_access_token: string
-    // id_token: { iv: string; encryptedData: string }
-    // roles: string[]
-    // resource_roles: string[]
     user: {
       given_name: string
       family_name: string
       id: string
     } & DefaultSession["user"]
-    // error?: string
+    error?: string
   }
 }
 
@@ -42,7 +35,7 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
   return {
     ...token,
     access_token: refreshToken.access_token,
-    decoded: jwtDecode(refreshToken.access_token),
+    // decoded: jwtDecode(refreshToken.access_token),
     id_token: refreshToken.id_token,
     expires_at: Math.floor(Date.now() / 1000) + refreshToken.expires_in,
     refresh_token: refreshToken.refresh_token ?? token.refresh_token,
@@ -63,9 +56,7 @@ export const authOptions  = {
     async jwt({ token, account }: { token: any, account: any }) {
       const nowTimeStamp = Math.floor(Date.now() / 1000)
 
-      // First time access token is returned
       if (account) {
-        // token.decoded = account.access_token
         token.access_token = account.access_token
         token.id_token = account.id_token
         token.expires_at = account.expires_at
@@ -94,14 +85,8 @@ export const authOptions  = {
         }
       }
 
-      // session.access_token = encrypt(token.access_token)
-      // session.id_token = encrypt(token.id_token)
-      // session.roles = token.decoded.realm_access.roles
-      // session.resource_roles = token.decoded.resource_access?.['myhtra-frontend']?.roles || []
-      // session.user.given_name = token.decoded.given_name
-      // session.user.family_name = token.decoded.family_name
-      // session.user.id = token.decoded.sub
       return session
     }
   }
 }
+
