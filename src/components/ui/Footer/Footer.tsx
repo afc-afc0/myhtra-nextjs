@@ -8,7 +8,7 @@ export const Footer = ({}) => {
       <Text 
         fontSize='s' 
         fontWeight='light' 
-        text='Powered by Next.js 14, deployed on Azure Kubernetes Service | Myhtra Studios.'
+        text='Powered by Next.js 14, deployed on Azure Kubernetes Service | Myhtra Studios'
       />
     </FlexContainer>
   )
