@@ -1,14 +1,6 @@
-export const dynamic = (request: Request) => {
-  return request.method === 'GET' ? 'force-static' : 'force-dynamic';
-}
-
+import { agent } from "@utils/http/nodeFetchAgent";
 import { getAccessToken } from "@utils/nextAuth/getAccessToken";
 import fetch from 'node-fetch'
-import https from 'https'
-
-export const agent = process.env.NODE_ENV === 'development'
-  ? new https.Agent({ rejectUnauthorized: false })
-  : https.globalAgent
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
