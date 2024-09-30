@@ -33,7 +33,7 @@ export const AuthController = () => {
       <Button
         text='Sign In/Up'
         onClick={() => signIn("keycloak")}
-        size='l'
+        size='m'
       />
     )
   }

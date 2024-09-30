@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { AuthController } from '../Auth/AuthController/AuthController'
 import MyhtraLogo from '@public/svgs/Logo.svg'
@@ -5,10 +7,13 @@ import { Text } from '@components/ui/Text/Text'
 import Link from 'next/link'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { ThemeSwitch } from '@components/ui/ThemeSwitch/ThemeSwitch'
+import { useSession } from 'next-auth/react'
 
 import styles from './Navbar.module.css'
 
 export const Navbar = ({}) => {
+  const { status } = useSession()
+
   return (
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>
@@ -20,9 +25,11 @@ export const Navbar = ({}) => {
         </div>
         <div className={styles.navbarRight}>
           <FlexContainer flexDirection='row' alignItems='center' gapSize='xs'>
-            <Link href='/blog/myPosts'>
-              <Text fontWeight='medium' fontSize='m' text='My Posts' />
-            </Link>
+            { status === 'authenticated' && 
+              <Link href='/blog/myPosts'>
+                <Text fontWeight='medium' fontSize='m' text='My Posts' />
+              </Link>
+            }
             <AuthController />
             <ThemeSwitch />
           </FlexContainer>        
