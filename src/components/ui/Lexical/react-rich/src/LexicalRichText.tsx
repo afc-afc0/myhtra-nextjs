@@ -18,7 +18,7 @@ import { CodeNode, CodeHighlightNode } from '@lexical/code'
 import { forwardRef, ReactElement, useEffect, useState } from 'react'
 import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
 import { CAN_USE_DOM } from './plugins/shared/canUseDOM'
-import { useLexicalEditable } from '@lexical/react/useLexicalEditable';
+import { useLexicalEditable } from '@lexical/react/useLexicalEditable'
 
 import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin/ListMaxIndentLevelPlugin'
 import TreeViewPlugin from './plugins/TreeViewPlugin/TreeViewPlugin'
@@ -32,55 +32,59 @@ import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin/Floatin
 import CodeActionMenuPlugin from './plugins/CodeActionMenuPlugin/CodeActionMenuPlugin'
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
 
-const editorConfig = {
-  namespace: 'Myhtra Editor',
-  nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode],
-  onError(error: Error) {
-    throw error
-  },
-  theme: LexicalStyles,
-}
-
-export const LexicalRichText = ({ onChange }: { onChange?: any }) => {
+export const LexicalRichText = ({ onChange, readonly = false, initialContent = undefined }: { onChange?: any, readonly?: boolean, initialContent?: any }) => {
+  
+  const editorConfig = {
+    namespace: 'Myhtra Editor',
+    nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode],
+    onError(error: Error) {
+      throw error
+    },
+    theme: LexicalStyles,
+    editorState: initialContent,
+  }
+  
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <Editor onChange={onChange} />
+      <Editor onChange={onChange} readonly={readonly} />
     </LexicalComposer>
   )
 }
 
-const Editor = ({ onChange }: { onChange?: any }) => {
-  const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
-  const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
-  const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false);
-  const isEditable = useLexicalEditable();
+const Editor = ({ onChange, readonly }: { onChange?: any, readonly?: boolean }) => {
+  const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false)
+  const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null)
+  const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false)
+  const isEditable = useLexicalEditable()
   
   const onRef = (_floatingAnchorElem: HTMLDivElement) => {
     if (_floatingAnchorElem !== null) {
-      setFloatingAnchorElem(_floatingAnchorElem);
+      setFloatingAnchorElem(_floatingAnchorElem)
     }
-  };
+  }
 
   useEffect(() => {
     const updateViewPortWidth = () => {
       const isNextSmallWidthViewport =
-        CAN_USE_DOM && window.matchMedia('(max-width: 1025px)').matches;
+        CAN_USE_DOM && window.matchMedia('(max-width: 1025px)').matches
 
       if (isNextSmallWidthViewport !== isSmallWidthViewport) {
-        setIsSmallWidthViewport(isNextSmallWidthViewport);
+        setIsSmallWidthViewport(isNextSmallWidthViewport)
       }
-    };
-    updateViewPortWidth();
-    window.addEventListener('resize', updateViewPortWidth);
+    }
+    updateViewPortWidth()
+    window.addEventListener('resize', updateViewPortWidth)
 
     return () => {
-      window.removeEventListener('resize', updateViewPortWidth);
-    };
-  }, [isSmallWidthViewport]);
+      window.removeEventListener('resize', updateViewPortWidth)
+    }
+  }, [isSmallWidthViewport])
 
   return (
     <FlexContainer width='100%' borderWidth='m' borderRadius='m'>
-      <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
+      <ConditionalDisplay condition={readonly == false}>
+        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
+      </ConditionalDisplay>
       <FlexContainer width='100%'>
         <RichTextPlugin
           contentEditable={<Content ref={onRef} />}
@@ -109,7 +113,7 @@ const Editor = ({ onChange }: { onChange?: any }) => {
   )
 }
 
-type ContentRef = HTMLDivElement; 
+type ContentRef = HTMLDivElement 
 
 interface ContentProps {}
 
@@ -120,9 +124,9 @@ const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement 
         className={styles['editor-input']}
       />
     </FlexContainer>
-  );
-});
+  )
+})
 
-Content.displayName = 'Content'; // This helps with debugging
+Content.displayName = 'Content' // This helps with debugging
 
-export default Content;
+export default Content
