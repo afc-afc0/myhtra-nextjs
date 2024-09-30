@@ -9,15 +9,17 @@ interface InputTextProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
   autoComplete?: string
   className?: string
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  disabled?: boolean
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input = forwardRef<HTMLInputElement, InputTextProps>(
-  ({ id, value, className, size, autoComplete = 'off', onChange, ...props }, ref) => {
+  ({ id, value, disabled, className, size, autoComplete = 'off', onChange, ...props }, ref) => {
     return (
       <input
         ref={ref}
         id={id}
+        disabled={disabled}
         className={clsx(styles.input, sharedStyles.shared, className)}
         autoComplete={autoComplete}
         value={value}

@@ -2,6 +2,12 @@
   
 }
 
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
 .input[data-size="xs"] {
   font-size: var(--font-size-xs);
   height: var(--border-box-height-xs);
