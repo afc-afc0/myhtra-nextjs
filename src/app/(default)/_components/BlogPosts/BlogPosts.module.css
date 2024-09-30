@@ -1,0 +1,15 @@
+.container {
+  width: 60rem;
+  height: 40rem;
+}
+
+.overflow {
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 98%;
+    height: 100%;
+  }  
+}
