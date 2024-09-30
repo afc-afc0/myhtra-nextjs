@@ -1,22 +1,16 @@
-export const dynamic = (request: Request) => {
-  return request.method === 'GET' ? 'force-static' : 'force-dynamic';
-}
-
 import { getAccessToken } from "@utils/nextAuth/getAccessToken";
 import fetch from 'node-fetch'
-import https from 'https'
-
-const agent = process.env.NODE_ENV === 'development'
-  ? new https.Agent({ rejectUnauthorized: false })
-  : https.globalAgent
+import { agent } from "../route";
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
-export async function GET(req: any) {
+export async function GET(request: Request, { params }: { params: any }) {
   try {
-    const accessToken = await getAccessToken({ req })
+    const id = params.id
 
-    const res = await fetch(`${api}/Post`, {
+    const accessToken = await getAccessToken({ req: request })
+
+    const res = await fetch(`${api}/Post/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
@@ -26,35 +20,37 @@ export async function GET(req: any) {
     })
 
     if (!res.ok) {
-      const error = await res.text() 
+      const error = await res.text()
       throw new Error("Failed to fetch error: " + error)
     }
-    
+
     const data = await res.json()
     return Response.json(data, { status: res.status })
-  }
+  } 
   catch (error) {
     console.error(error)
     return Response.json({ error: "Internal Server Error" }, { status: 500 })
   }
 }
 
-export async function POST(req: any) {
+export async function PUT(request: Request, { params }: { params: any }) {
   try {
-    const accessToken = await getAccessToken({ req })
-    
-    const json = await req.json()
+    const id = params.id
+    console.log('request.body', request.body)
+    const accessToken = await getAccessToken({ req: request })
 
-    const res = await fetch(`${api}/Post`, {
+    const jsonBody = await request.json()
+
+    const res = await fetch(`${api}/Post/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
-      method: "POST",
-      body: JSON.stringify(json),
+      method: "PUT",
+      body: JSON.stringify(jsonBody),
       agent: agent
     })
-    
+
     if (!res.ok) {
       const error = await res.text()
       throw new Error("Failed to fetch error: " + error)
@@ -62,7 +58,7 @@ export async function POST(req: any) {
 
     const data = await res.json()
     return Response.json(data, { status: res.status })
-  }
+  } 
   catch (error) {
     console.error(error)
     return Response.json({ error: "Internal Server Error" }, { status: 500 })
