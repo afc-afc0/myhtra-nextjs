@@ -12,13 +12,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@c
 import Link from 'next/link'
 
 import styles from './ProfileCards.module.css'
+import { FocusOnViewButton } from '../CompanyHeader/CompanyHeader'
 
 export const ProfileCards = () => {
   const { isExpanded, toggle } = useExpandable({ initialState: false })
   
   return (
     <FlexContainer id='profileCards' height='100%' alignItems='center' justifyContent='space-between' flexDirection='column'>
-      <FlexContainer className={styles.flexGrow} justifyContent='center' alignItems='center'>
+      <FlexContainer flexGrow={1} justifyContent='center' alignItems='center'>
         <ExpandableContainer isExpanded={isExpanded} initialSize={styles.cardContainer} transitionSize={styles.cardContainerExpanded}>
           <ConditionalDisplay condition={!isExpanded}>
             <Card
@@ -29,15 +30,12 @@ export const ProfileCards = () => {
               Proven ability to develop scalable, well-tested apps used by 100,000+ users.'
               isExpanded={isExpanded}
               toggleExpanded={toggle}
-              />
+            />
           </ConditionalDisplay>
           <ConditionalDisplay condition={isExpanded}>
             <CardExpended />
           </ConditionalDisplay>
         </ExpandableContainer>
-      </FlexContainer>
-      <FlexContainer justifyContent='center' alignItems='center'>
-        <Footer />
       </FlexContainer>
     </FlexContainer>
   )
@@ -69,12 +67,13 @@ const Card = ({ name, position, info, isExpanded, toggleExpanded  } : CardProps)
           fontWeight='light'
         />
       </FlexContainer>
-      <FlexContainer width='100%' justifyContent='flex-end' alignItems='flex-end' height='100%'>
+      <FlexContainer width='100%' justifyContent='flex-end' alignItems='flex-end' height='100%' gapSize='s' flexDirection='row'>
         <Button
           size='l'
           icon={!isExpanded ? <ExpandSVG /> : <DownsizeSVG />}
           onClick={toggleExpanded}
         />
+        <FocusOnViewButton elementId='blogPosts' />
       </FlexContainer>
     </FlexContainer>
   )

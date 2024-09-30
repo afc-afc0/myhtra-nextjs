@@ -1,6 +1,6 @@
 import { FlexContainer } from "@components/ui/Layout/FlexContainer/FlexContainer"
 import { Text } from '@components/ui/Text/Text'
-import { CheckSVG } from "@components/ui/SVG/SVG"
+import { CheckWithCircleSVG } from "@components/ui/SVG/SVG"
 import { SVG } from "../Features/Features"
 
 import styles from './CompanyInfo.module.css'
@@ -36,7 +36,7 @@ export const BulletPoint = ({ text, header } : BulletPointProps) => {
       <FlexContainer flexDirection='row'>
         <BulletPointIconContainer>
           <SVG>
-            <CheckSVG />
+            <CheckWithCircleSVG />
           </SVG>
         </BulletPointIconContainer>
         <BullerPointTextsContainer>

@@ -7,11 +7,15 @@ import { focusOnView } from '@utils/utilityFunctions'
 import { DownArrowSVG } from '@components/ui/SVG/SVG'
 import Image from 'next/image'
 import Logo from '@public/svgs/Logo.svg'
+import Link from 'next/link'
 
 import styles from './CompanyHeader.module.css'
+import { useRouter } from 'next/navigation'
 
-// Bad Name?
 export const CompanyHeader = () => {
+
+  const router = useRouter()
+
   return (
     <FlexContainer id='companyHeader' height='100%' alignItems='center' justifyContent='center'>
       <Container>
@@ -32,6 +36,7 @@ export const CompanyHeader = () => {
             <FlexContainer height='auto' flexDirection='row' justifyContent='flex-start'  gapSize='s'>
               <Button size='m' text='About Us' onClick={(e) => focusOnView({ event: e, elementId: 'aboutUs'})} />
               <Button size='m' text='Portfolio' onClick={(e) => focusOnView({ event: e, elementId: 'profileCards'})} />
+              <Button size='m' text='Blog' onClick={(e) => focusOnView({ event: e, elementId: 'blogPosts'})} />
             </FlexContainer>
             <FocusOnViewButton elementId='aboutUs' />
           </FlexContainer>
