@@ -42,7 +42,8 @@ const refreshAccessToken = async (token: { refresh_token: any; }) => {
   }
 }
 
-export const authOptions  = {
+// default export below
+const authOptions = {
   providers: [
     KeyCloakProvider({
       clientId: `${process.env.KEYCLOAK_CLIENT_ID}`,
@@ -90,3 +91,4 @@ export const authOptions  = {
   }
 }
 
+export default authOptions;
