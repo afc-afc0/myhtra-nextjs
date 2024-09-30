@@ -42,6 +42,7 @@ export const LexicalRichText = ({ onChange, readonly = false, initialContent = u
     },
     theme: LexicalStyles,
     editorState: initialContent,
+    editable: !readonly,
   }
   
   return (
