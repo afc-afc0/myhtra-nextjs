@@ -3,14 +3,14 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --font-size-xs : 12px;
-  --font-size-s : 15px;
-  --font-size-m : 17px;
-  --font-size-l : 20px;
-  --font-size-xl : 24px;
-  --font-size-xxl : 32px;
-  --font-size-xxxl : 48px;
-  --font-size-xxxxl : 64px;
+  --font-size-xs: 0.75rem;    
+  --font-size-s: 0.9375rem;  
+  --font-size-m: 1.0625rem;
+  --font-size-l: 1.25rem;    
+  --font-size-xl: 1.5rem;     
+  --font-size-xxl: 2rem;      
+  --font-size-xxxl: 3rem;      
+  --font-size-xxxxl: 4rem;      
 
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
@@ -77,10 +77,10 @@
   --shadow-size-m: 0 0 15px 1px var(--shadow-color);
   --shadow-size-l: 0 0 15px 2px var(--shadow-color);
 
-  --text-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 78%);
   --text-color-secondary: hsl(0, 0%, 0%);  
 
-  --navbar-height: 6rem;
+  --navbar-height: 5.2rem;
 
   --transition-duration: 0.25s;
 }
@@ -91,6 +91,7 @@
   --action-color: hsl(204, 84%, 72%); 
   --action-color-transition: hsl(204, 84%, 42%);
 
+  --font-weight-light: 400;
   --text-color: hsl(0, 0%, 0%);
   --text-color-secondary: hsl(0, 0%, 100%);
 
