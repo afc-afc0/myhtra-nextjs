@@ -1,4 +1,4 @@
-import { authOptions } from '@utils/nextAuth/authOptions'
+import authOptions from '@utils/nextAuth/authOptions'
 import { getIdToken } from '@utils/nextAuth/getAccessToken'
 import { getServerSession } from "next-auth"
 
