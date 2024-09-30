@@ -27,6 +27,7 @@
       "@utils/*": ["./src/utils/*"],
       "@public/*": ["./public/*"],
       "@api/*": ["./src/app/api/*"],
+      "@hooks/*": ["./src/hooks/*"],
     },
     "target": "ES2017"
   },
