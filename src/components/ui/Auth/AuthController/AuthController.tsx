@@ -44,11 +44,11 @@ export const ProfilePopover = () => {
 
   return (
     <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
-      <PopoverTrigger>
+      <PopoverTrigger asChild>
         <Toggle
           isPressed={isPopoverOpen}
           icon={<AvatarSVG />}
-          size='l'
+          size='m'
           aria-label='Profile'
         />
       </PopoverTrigger>
@@ -67,16 +67,14 @@ const ProfilePopoverContent = () => {
   
   return (
     <PopoverContent>
-      {/* <ProfilePopoverContainer> */}
-        <FlexContainer width='auto' height='auto' gapSize='xs'>
-          <Text text={session?.user?.name || ''} />
-          <Text text={session?.user?.email || ''} />
-          <Button
-            text='Log Out'
-            onClick={handleSignOut}
-          />  
-        </FlexContainer>
-      {/* </ProfilePopoverContainer> */}
+      <FlexContainer width='auto' height='auto' gapSize='s'>
+        <Text text={session?.user?.name || ''} />
+        <Text text={session?.user?.email || ''} />
+        <Button
+          text='Log Out'
+          onClick={handleSignOut}
+        />
+      </FlexContainer>
     </PopoverContent>
   )
 }
