@@ -8,7 +8,7 @@ export enum TextType {
 
 interface TextProps {
   text: string
-  fontSize?: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl'
+  fontSize?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl'
   fontWeight?: 'light' | 'normal' | 'medium' | 'bold' | 'black'
   fontColorTint?: '' | '90' | '80' | '70' | '60' | '50' | '40' | '30' | '20' | '10' | '5' | '2' | '1'
   display?: 'block' | 'inline'

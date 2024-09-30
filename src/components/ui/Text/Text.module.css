@@ -7,6 +7,7 @@
 
 .text[data-display="inline"] { display: inline; }
 
+.text[data-size="xs"] { font-size: var(--font-size-xs); }
 .text[data-size="s"] { font-size: var(--font-size-s); }
 .text[data-size="m"] { font-size: var(--font-size-m); }
 .text[data-size="l"] { font-size: var(--font-size-l); }
