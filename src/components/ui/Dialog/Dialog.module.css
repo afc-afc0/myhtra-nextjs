@@ -1,0 +1,166 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.overlay[data-state="open"] {
+  animation: fadeIn 0.25 ease-out;
+}
+
+.overlay[data-state="closed"] {
+  animation: fadeOut 0.25s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  display: grid;
+  width: 100%;
+  max-width: 32rem;
+  transform: translate(-50%, -50%);
+  gap: var(--padding-s); 
+  border: var(--border-width-s) solid var(--border-color);
+  background-color: var(--background-color);
+  padding: var(--padding-s); 
+  /* Might need to set shadow color */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+  transition-duration: 200ms;
+}
+
+.content[data-state="open"] {
+  animation: fadeInZoomIn 200ms ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: fadeOutZoomOut 200ms ease-in;
+}
+
+@media (min-width: 640px) {
+  .content {
+    border-radius: 0.5rem; /* sm:rounded-lg in Tailwind */
+  }
+}
+
+@keyframes fadeInZoomIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeOutZoomOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translate(-50%, -52%) scale(0.95);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -52%) scale(0.95);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: var(--padding-m);
+  border-bottom: var(--border-width-xs) solid var(--border-color);
+}
+
+.header > * + * {
+  margin-top: var(--margin-xss); 
+}
+
+@media (min-width: 640px) {
+  .header {
+    text-align: left;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .footer > * + * {
+    margin-left: 0.5rem; /* Equivalent to space-x-2 in Tailwind */
+  }
+}
+
+.mutedText {
+  font-size: var(--font-size-xs);
+  /* this color might need new color for muted */
+  color: var(--text-color);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.closeButton {
+  position: absolute;
+  right: var(--padding-s);
+  top: var(--padding-s);
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+.closeButton:focus {
+  outline: none;
+}
+
+.closeButton:disabled {
+  pointer-events: none;
+}

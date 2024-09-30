@@ -52,6 +52,7 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
   shadowSize = 'none',
   position,
   style,
+  ...props
 }, ref) => {
   return (
     <div
@@ -77,6 +78,7 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
       data-responsive-flex-direction={responsiveFlexDirection}
       data-position={position}
       style={style}
+      {...props}
     >
       {children}
     </div>
