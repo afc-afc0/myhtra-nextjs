@@ -19,7 +19,7 @@ import {useDebounce} from '../../utils';
 
 import styles from '../../CodeActionMenuPlugin.module.css'
 import { Button } from '@components/ui/Button/Button';
-import { CheckSVG, CopyContentSVG } from '@components/ui/SVG/SVG';
+import { CheckWithCircleSVG, CopyContentSVG } from '@components/ui/SVG/SVG';
 import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay';
 
 interface Props {
@@ -77,7 +77,7 @@ const CopyIcon = ({isCopyCompleted}: {isCopyCompleted: boolean}) => {
   return (
     <>
       <ConditionalDisplay condition={isCopyCompleted}>
-        <CheckSVG />
+        <CheckWithCircleSVG />
       </ConditionalDisplay>
       <ConditionalDisplay condition={!isCopyCompleted}>
         <CopyContentSVG />
