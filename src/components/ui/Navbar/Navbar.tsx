@@ -1,6 +1,10 @@
 import Image from 'next/image'
 import { AuthController } from '../Auth/AuthController/AuthController'
 import MyhtraLogo from '@public/svgs/Logo.svg'
+import { Text } from '@components/ui/Text/Text'
+import Link from 'next/link'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { ThemeSwitch } from '@components/ui/ThemeSwitch/ThemeSwitch'
 
 import styles from './Navbar.module.css'
 
@@ -15,7 +19,13 @@ export const Navbar = ({}) => {
           
         </div>
         <div className={styles.navbarRight}>
-          <AuthController />        
+          <FlexContainer flexDirection='row' alignItems='center' gapSize='xs'>
+            <Link href='/blog/myPosts'>
+              <Text fontWeight='medium' fontSize='m' text='My Posts' />
+            </Link>
+            <AuthController />
+            <ThemeSwitch />
+          </FlexContainer>        
         </div>
       </nav>
     </div>
@@ -24,11 +34,13 @@ export const Navbar = ({}) => {
 
 export const Logo = () => {
   return (
-    <Image
-      alt='Myhtra Logo'
-      src={MyhtraLogo}
-      width={55}
-      height={70}
-    />
+    <Link href='/'>
+      <Image
+        alt='Myhtra Logo'
+        src={MyhtraLogo}
+        width={44}
+        height={56}
+      />
+    </Link>
   )
 }

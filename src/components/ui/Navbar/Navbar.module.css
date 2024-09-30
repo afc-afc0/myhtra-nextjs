@@ -1,18 +1,22 @@
 .navbarContainer {
-  position: absolute;
-  z-index: 30;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: var(--navbar-height);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  /* small shador at  bttom */
+  box-shadow: 0 1px 16px 0 var(--border-color);
 }
 
 .navbar {
   width: 72rem;
   display: flex;
   justify-content: space-between;
-  padding: var(--padding-l);
 }
 
 .navbarRight {
