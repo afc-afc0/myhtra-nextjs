@@ -1,11 +1,13 @@
 'use client'
 
-import { SessionProvider } from "next-auth/react"
+import React, { createContext, useContext, useEffect } from 'react'
+import { SessionProvider, useSession, signOut } from "next-auth/react"
+import { useQuery } from "@tanstack/react-query"
 import { keycloakSessionLogOut } from '@components/ui/Auth/AuthController/AuthController'
-import { signOut, useSession } from 'next-auth/react'
-import { useEffect, useState } from 'react'
 
-export const AuthSessionProvider = ({ children } : { children: React.ReactNode }) => {
+const UserInfoContext = createContext<any>(null)
+
+export const AuthSessionProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <SessionProvider refetchInterval={12 * 60} refetchOnWindowFocus>
       <GlobalSessionHandler>
@@ -15,13 +17,29 @@ export const AuthSessionProvider = ({ children } : { children: React.ReactNode }
   )
 }
 
-// Logics for handling global session and what will happen when we got an error
-const GlobalSessionHandler = ({ children } : { children: React.ReactNode }) => {
+const GlobalSessionHandler = ({ children }: { children: React.ReactNode }) => {
   const { data: session, status } = useSession()
+
+  const fetchUserInfo = async () => {
+    const response = await fetch('/api/user')
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch user info')
+    }
+
+    const data = await response.json()
+    return data
+  }
+
+  const { data: userInfo } = useQuery({ 
+    queryKey: ['userInfo', session?.user?.id], 
+    queryFn: fetchUserInfo,
+    enabled: !!session
+  })
 
   useEffect(() => {
     const handleSignOut = async () => {
-      await keycloakSessionLogOut() // Make sure this function is imported or defined
+      await keycloakSessionLogOut()
       await signOut({ redirect: false })
     }
 
@@ -30,5 +48,18 @@ const GlobalSessionHandler = ({ children } : { children: React.ReactNode }) => {
     }
   }, [session, status])
 
-  return children
+  return (
+    <UserInfoContext.Provider value={userInfo}>
+      {children}
+    </UserInfoContext.Provider>
+  )
+}
+
+// Custom hook to use the user info
+export const useUserInfo = () => {
+  const context = useContext(UserInfoContext)
+  if (context === undefined) {
+    throw new Error('useUserInfo must be used within a AuthSessionProvider')
+  }
+  return context
 }

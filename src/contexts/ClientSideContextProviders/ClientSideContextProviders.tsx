@@ -15,11 +15,11 @@ export const ClientSideContextProviders = ({ children } : ClientSideContextProvi
   return (
     <>
       <ThemeProvider>
-        <AuthSessionProvider>
-          <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <AuthSessionProvider>
             {children}
-          </QueryClientProvider>
-        </AuthSessionProvider>
+          </AuthSessionProvider>
+        </QueryClientProvider>
       </ThemeProvider>
     </>
   )
