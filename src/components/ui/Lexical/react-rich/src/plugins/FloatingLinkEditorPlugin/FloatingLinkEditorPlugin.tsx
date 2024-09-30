@@ -33,7 +33,7 @@ import lexicalStyles from '../../Lexical.module.css';
 
 import { Input } from '@components/ui/Form/Input/Input';
 import { Button } from '@components/ui/Button/Button';
-import { CancelSVG, CheckSVG, DeleteSVG, EditSVG } from '@components/ui/SVG/SVG';
+import { CancelSVG, CheckWithCircleSVG, DeleteSVG, EditSVG } from '@components/ui/SVG/SVG';
 import { size } from '../../../../../../../../node_modules/lib0/object.d';
 import Link from 'next/link';
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer';
@@ -234,7 +234,7 @@ function FloatingLinkEditor({
               size='xs'
             />
             <Button
-              icon={<CheckSVG />}
+              icon={<CheckWithCircleSVG />}
               onClick={handleLinkSubmission}
               onMouseDown={(event) => event.preventDefault()}
               size='xs'
