@@ -5,13 +5,10 @@ import { Text } from '@components/ui/Text/Text'
 import { formatDate } from '@utils/format/format'
 import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
-import { useSession } from 'next-auth/react'
 
 import styles from './Posts.module.css'
 
 export const Posts = () => {
-  const { data: session } = useSession()
-
   const fetchAllPosts = async () => {  
     const response = await fetch(`/api/post`, {
       method: 'GET',
@@ -28,7 +25,7 @@ export const Posts = () => {
     return data ?? []
   }
 
-  const { data: posts } = useQuery({ queryKey: ['posts'], queryFn: fetchAllPosts, initialData: [], enabled: !!session })
+  const { data: posts } = useQuery({ queryKey: ['posts'], queryFn: fetchAllPosts, initialData: [] })
 
   return (
     <FlexContainer width='100%' height='auto' gapSize='s'>

@@ -6,12 +6,9 @@ const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
 export async function GET(req: any) {
   try {
-    const accessToken = await getAccessToken({ req })
-
     const res = await fetch(`${api}/Post`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
       },
       method: "GET",
       agent: agent
