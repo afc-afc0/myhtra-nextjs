@@ -43,9 +43,10 @@ export const DialogContent = React.forwardRef<
         className={styles.content}
       >
         { children }
-        <DialogPrimitive.Close className={styles.closeButton}>
-          <Button size='s' icon={<CloseSVG />} />
-          <span className={styles.srOnly}>Close</span>
+        <DialogPrimitive.Close asChild>
+          <Button className={styles.closeButton} size='s' icon={<CloseSVG />} >
+            <span className={styles.srOnly}>Close</span>
+          </Button>
         </DialogPrimitive.Close>
       </DialogPrimitive.Content>
     </DialogPortal>
