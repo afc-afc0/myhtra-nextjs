@@ -2,6 +2,7 @@ import "./globals.css"
 import { Rubik } from "next/font/google"
 import { Navbar } from "@components/ui/Navbar/Navbar"
 import { ClientSideContextProviders } from "@contexts/ClientSideContextProviders/ClientSideContextProviders"
+import { Toaster } from "@components/ui/Toast/Toaster/Toaster"
 
 const inter = Rubik({ subsets: ["latin"]})
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <ClientSideContextProviders>
           <Navbar />
           { children }
+          <Toaster />
         </ClientSideContextProviders>
       </body>
     </html>
