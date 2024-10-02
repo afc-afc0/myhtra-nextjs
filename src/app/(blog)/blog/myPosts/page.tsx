@@ -4,7 +4,7 @@ import { PageContainer } from "@components/ui/PageContainer/PageContainer";
 import { useQuery } from '@tanstack/react-query'
 import { Post } from "../../../../components/ui/Posts/Posts";
 import { FlexContainer } from "@components/ui/Layout/FlexContainer/FlexContainer";
-import { CreatePostDialog } from "../../_components/CreatePostDialog/CreatePostDialog";
+import { CreatePostDialog } from "../../../../components/ui/Posts/CreatePostDialog/CreatePostDialog";
 
 export default function Home() {
   

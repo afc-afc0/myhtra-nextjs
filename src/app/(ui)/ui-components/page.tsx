@@ -8,7 +8,6 @@ import { useState } from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@components/ui/Form/Select/Select'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui/Accordion/Accordion'
 import { LexicalRichText } from '@components/ui/Lexical/react-rich/src/LexicalRichText'
-import { useLexical } from '@components/ui/Lexical/react-rich/src/plugins/shared/useOnChange'
 import { Button } from '@components/ui/Button/Button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@components/ui/DropdownMenu/DropdownMenu'
 import { ChevronRightSVG } from '@components/ui/SVG/SVG'
@@ -16,14 +15,18 @@ import { Text } from '@components/ui/Text/Text'
 import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/Popover/Popover'
 import { AuthController } from '@components/ui/Auth/AuthController/AuthController'
 import { DialogHeader, DialogContent, Dialog, DialogTrigger, DialogFooter } from '@components/ui/Dialog/Dialog'
+import { signIn } from 'next-auth/react';
 
 import styles from './page.module.css'
 import { PageContainer } from '@components/ui/PageContainer/PageContainer'
 import { Checkbox } from '@components/ui/Form/Checkbox/Checkbox'
+import { useToast } from '@hooks/useToast'
+import { ToastAction } from '@components/ui/Toast/Toast'
 
 export default function Home() {
   const [inputTextValue, setInputTextValue] = useState<string>('')
   const [selectValue, setSelectValue] = useState<string>('')
+  const { toast } = useToast()
 
   return (
     <PageContainer>
@@ -94,7 +97,7 @@ export default function Home() {
             <FlexContainer width='100%' height='auto'>
               <Text text='Droddown Menu currently in testing' />
               <DropdownMenu>
-                <DropdownMenuTrigger>
+                <DropdownMenuTrigger asChild>
                   <Button
                     icon={<ChevronRightSVG />}
                   />
@@ -139,7 +142,7 @@ export default function Home() {
             <FlexContainer width='100%' height='auto'>
               <Text text='Popover' />
               <Popover>
-                <PopoverTrigger>
+                <PopoverTrigger asChild>
                   <Button text='Click me' />
                 </PopoverTrigger>
                 <PopoverContent>
@@ -154,6 +157,18 @@ export default function Home() {
             <FlexContainer width='100%' height='auto'>
               <Text text='Checkbox' />
               <Checkbox size='xs' />
+            </FlexContainer>
+            <FlexContainer width='100%' height='auto'> 
+              <Button 
+                text='Toast'
+                onClick={
+                  () => toast({
+                    title: <Text text='Please sign in to create post' fontSize='xl' />,
+                    description: <Text text='description' />,
+                    action: <Button onClick={() => signIn('keycloak')} />,
+                  })
+                }
+              />
             </FlexContainer>
           </FlexContainer>
         </Container>
