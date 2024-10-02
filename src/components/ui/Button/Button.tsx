@@ -6,6 +6,7 @@ import styles from './Button.module.css'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string
+  className?: string
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
   icon?: React.ReactNode
   active?: boolean
@@ -14,10 +15,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ text, loading, icon, size = 'm', onClick, asChild = false, disabled = false, active, ...props }: ButtonProps, ref) => {
+  ({ text, className, loading, icon, size = 'm', onClick, asChild = false, disabled = false, active, ...props }: ButtonProps, ref) => {
     return (
       <button 
-        className={clsx(styles.button, active && styles.active, loading && styles.loading)} 
+        className={clsx(styles.button, active && styles.active, loading && styles.loading, className)} 
         disabled={disabled || loading}
         onClick={onClick} 
         data-size={size}
