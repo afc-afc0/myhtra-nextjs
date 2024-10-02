@@ -1,0 +1,174 @@
+.viewport {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  max-height: 100vh;
+  width: 100%;
+  flex-direction: column-reverse;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .viewport {
+    bottom: 0;
+    right: 0;
+    top: auto;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .viewport {
+    max-width: 420px;
+  }
+}
+
+.title {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+}
+
+.toast {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  border: var(--border-width-s) solid var(--border-color);
+  border-radius: var(--border-radius-s);
+  padding: var(--padding-s);
+  padding-right: var(--padding-l);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toast > *:first-child {
+  margin-right: auto;
+}
+
+.toast > *:nth-last-child(-n+2) {
+  margin-left: var(--padding-s);
+}
+
+.toast:global([data-swipe='cancel']) {
+  transform: translateX(0);
+}
+
+.toast:global([data-swipe='end']) {
+  transform: translateX(var(--radix-toast-swipe-end-x));
+}
+
+.toast:global([data-swipe='move']) {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+  transition: none;
+}
+
+.toast:global([data-state='open']) {
+  animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast:global([data-state='closed']) {
+  animation: fadeOut 100ms ease-in;
+}
+
+.toast:global([data-swipe='end'][data-state='closed']) {
+  animation: swipeOut 100ms ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    transform: translateX(var(--radix-toast-swipe-end-x));
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (min-width: 640px) {
+  .toast:global([data-state='open']) {
+    animation-name: slideInBottom;
+  }
+
+  @keyframes slideInBottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+.description {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-light);
+}
+
+.toastAction {
+  display: inline-flex;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-xs);
+  border-width: var(--border-width-xs);
+  background-color: transparent;
+  padding-left: var(--padding-xs);
+  padding-right: var(--padding-xs);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.toastAction:hover {
+  background-color: var(--secondary-color);
+}
+
+.toastAction:focus {
+  outline: none;
+}
+
+.toastAction:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* For destructive toasts */
+/* :global(.destructive) .toastAction {
+  border-color: rgba(var(--muted-color), 0.4);
+}
+
+:global(.destructive) .toastAction:hover {
+  border-color: rgba(var(--destructive-color), 0.3);
+  background-color: var(--destructive-color);
+  color: var(--destructive-foreground-color);
+}
+
+:global(.destructive) .toastAction:focus {
+  ring-color: var(--destructive-color);
+} */
