@@ -34,7 +34,7 @@ const GlobalSessionHandler = ({ children }: { children: React.ReactNode }) => {
   const { data: userInfo } = useQuery({ 
     queryKey: ['userInfo', session?.user?.id], 
     queryFn: fetchUserInfo,
-    enabled: !!session
+    enabled: status === 'authenticated'
   })
 
   useEffect(() => {
