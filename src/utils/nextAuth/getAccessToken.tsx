@@ -23,3 +23,9 @@ export const getIdToken = async ({ req } : { req: any }) => {
 
   return id_token
 }
+
+export const getTokenIfExist = async ({ req } : { req: any }) => {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET }) as any;
+
+  return token?.access_token 
+}
