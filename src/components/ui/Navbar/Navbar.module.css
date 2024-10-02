@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  margin-bottom: var(--padding-s);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -9,7 +10,6 @@
   height: var(--navbar-height);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  /* small shador at  bttom */
   box-shadow: 0 1px 16px 0 var(--border-color);
 }
 
@@ -38,5 +38,12 @@
   font-size: 32px;
   color: var(--text-color);
   font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    padding: 0 var(--padding-m);
+  }
 }
 

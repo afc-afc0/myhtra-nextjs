@@ -1,5 +1,5 @@
 import { agent } from "@utils/http/nodeFetchAgent";
-import { getAccessToken } from "@utils/nextAuth/getAccessToken";
+import { getAccessToken, getTokenIfExist } from "@utils/nextAuth/getAccessToken";
 import fetch from 'node-fetch'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
@@ -8,12 +8,12 @@ export async function GET(request: Request, { params }: { params: any }) {
   try {
     const id = params.id
 
-    const accessToken = await getAccessToken({ req: request })
+    const accessToken = await getTokenIfExist({ req: request })
 
     const res = await fetch(`${api}/Post/${id}`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        ...(accessToken && { Authorization: `Bearer ${accessToken}` })
       },
       method: "GET",
       agent: agent

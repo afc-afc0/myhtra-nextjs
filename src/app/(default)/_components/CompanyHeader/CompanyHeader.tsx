@@ -7,15 +7,10 @@ import { focusOnView } from '@utils/utilityFunctions'
 import { DownArrowSVG } from '@components/ui/SVG/SVG'
 import Image from 'next/image'
 import Logo from '@public/svgs/Logo.svg'
-import Link from 'next/link'
 
 import styles from './CompanyHeader.module.css'
-import { useRouter } from 'next/navigation'
 
 export const CompanyHeader = () => {
-
-  const router = useRouter()
-
   return (
     <FlexContainer id='companyHeader' height='100%' alignItems='center' justifyContent='center'>
       <Container>
