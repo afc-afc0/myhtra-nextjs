@@ -102,14 +102,13 @@ export const ToastTitle = React.forwardRef<
 ToastTitle.displayName = 'ToastTitle'
 
 interface ToastDescriptionProps {
-  text: string;
+  // text: string;
 }
 
 export const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> & ToastDescriptionProps
->(({ className, text, ...props }, ref) => {
-  console.log('text = ', text)
+>(({ className, ...props }, ref) => {
   return (
     <ToastPrimitives.Description
       ref={ref}
