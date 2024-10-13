@@ -1,3 +1,5 @@
+# Next. js is built on top of React and runs on top of Node.js, 
+# hence we will use the Node.js image as the base image.
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
@@ -42,6 +44,7 @@ ENV NODE_ENV=production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+# Security best practices: create a non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
@@ -49,6 +52,13 @@ COPY --from=builder /app/public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
+
+# Needed because: By changing the ownership of the .next directory, we are ensuring that the nextjs
+# user has the necessary permissions to read from and write to this directory.
+# This is needed for because Next.js needs to access and potentially modify files in this directory during runtime.
+# Also: Setting the correct ownership helps maintain the principle of least privilege. 
+# The application runs as the nextjs user, so it should only have access to the directories 
+# and files it needs to function.
 RUN chown nextjs:nodejs .next
 
 # Automatically leverage output traces to reduce image size
