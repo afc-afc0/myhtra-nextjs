@@ -3,16 +3,15 @@
 import React, { useState, useRef } from 'react'
 import styles from './SimpleFlow.module.css'
 import { CanvasProvider, useCanvas } from './context/CanvasContext'
+import { Node } from './components/Node/Node'
+import { Position } from './types/types'
+import { Draggable } from './components/Draggable/Draggable'
 
 export const SimpleFlow = ({}) => {
   
   return (
     <CanvasContainer>
-      <Canvas>
-        <Node position={{ x: 150, y: 150 }}>
-          Node
-        </Node>
-      </Canvas>
+      <Canvas />
     </CanvasContainer>
   )
 }
@@ -25,12 +24,12 @@ const CanvasContainer = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const Canvas = ({ children }: { children: React.ReactNode }) => {
+const Canvas = ({ children }: { children?: React.ReactNode }) => {
   const ref = useRef(null)
-  const [canvas, setCanvas] = useState()
-  const { viewport, setViewport } = useCanvas()
+  const { viewport, setViewport, nodes, addNode } = useCanvas()
+
   const [isDraggingCanvas, setIsDraggingCanvas] = useState(false)
-  const [dragStartPosition, setDragStartPosition] = useState({ x: 0, y: 0 })
+  const [dragStartPosition, setDragStartPosition] = useState<Position>({ x: 0, y: 0 })
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
@@ -39,10 +38,18 @@ const Canvas = ({ children }: { children: React.ReactNode }) => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     const { offsetX, offsetY } = e.nativeEvent
-    const payload = e.dataTransfer.getData('text/plain')
-    console.log('payload', JSON.parse(payload))
-    console.log('e', e)
-    console.log('handle drop', offsetX, offsetY)
+
+    if (e.dataTransfer.getData('text/plain') === '') return
+
+    const payload = JSON.parse(e.dataTransfer.getData('text/plain'))
+  
+    addNode({
+      position: {
+        x: offsetX - viewport.x,
+        y: offsetY - viewport.y
+      },
+      payload
+    })
   }
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -55,7 +62,6 @@ const Canvas = ({ children }: { children: React.ReactNode }) => {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDraggingCanvas) {
-      // Calculate new viewport position
       setViewport({
         x: e.clientX - dragStartPosition.x,
         y: e.clientY - dragStartPosition.y,
@@ -68,45 +74,41 @@ const Canvas = ({ children }: { children: React.ReactNode }) => {
     setIsDraggingCanvas(false)
   }
 
-  return (
-    <div 
-      ref={ref} 
-      className={styles.canvas}
-      onDragOver={handleDragOver}
-      onDrop={e => handleDrop(e)}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      style={{
-        translate: `translate(${viewport.x}px, ${viewport.y}px)`,
-        transition: isDraggingCanvas ? 'none' : 'transform 0.1s ease-out',
-      }}
-    >
-      { children }
-    </div>
-  )
-}
-
-interface NodeProps {
-  children: React.ReactNode
-  position: {
-    x: number
-    y: number
+  const handleMouseLeave = () => {
+    setIsDraggingCanvas(false)
   }
-}
 
-const Node = ({ position, children }: NodeProps) => {  
-  const { viewport } = useCanvas()
-
-  const getTransform = () => {
-    const screenX = (position.x + viewport.x) * viewport.zoom
-    const screenY = (position.y + viewport.y) * viewport.zoom
-    return `translate(${screenX}px, ${screenY}px) scale(${viewport.zoom})`
-  }
-  
   return (
-    <div className={styles.node} style={{transform: getTransform(), transformOrigin: '0 0'}}>
-      { children }
-    </div>
+    <>
+      <Draggable
+        id="circle" 
+        payload={{ type: 'circle', data: { radius: 50 } }}
+      >
+        Circle
+      </Draggable>
+      <div 
+        ref={ref} 
+        className={styles.canvas}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          position: 'relative',
+          translate: `translate(${viewport.x}px, ${viewport.y}px)`,
+          transition: isDraggingCanvas ? 'none' : 'transform 0.1s ease-out',
+          zIndex: 1
+        }}
+      >
+        {Object.values(nodes).map((node) => (
+          <Node id={node.id} key={node.id} position={node.position}>
+            Node
+          </Node>
+        ))}
+        { children }
+      </div>
+    </>
   )
 }

@@ -6,8 +6,3 @@
   background-color: white;
   border-color: var(--border-color);
 }
-
-.node {
-  position: absolute;
-  background-color: black;
-}

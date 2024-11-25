@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from 'react'
+import { AddNodeProps, updateNodePositionProps, useNodes } from '../hooks/useNodes'
 
 interface Viewport {
   x: number
@@ -9,6 +10,9 @@ interface Viewport {
 interface CanvasContextType {
   viewport: Viewport
   setViewport: (viewport: Viewport) => void
+  nodes: object
+  addNode: (node: AddNodeProps) => void,
+  updateNodePosition: (props: updateNodePositionProps) => void
 }
 
 const CanvasContext = createContext<CanvasContextType | undefined>(undefined)
@@ -18,12 +22,15 @@ interface CanvasProviderProps {
 }
 
 export function CanvasProvider({ children }: CanvasProviderProps) {
-  
+  const { nodes, addNode, updateNodePosition } = useNodes()
   const [viewport, setViewport] = useState<Viewport>({ x: 0, y: 0, zoom: 1 })
 
-  const value = {
+  const value = { 
     viewport,
     setViewport,
+    nodes,
+    addNode,
+    updateNodePosition
   }
 
   return (

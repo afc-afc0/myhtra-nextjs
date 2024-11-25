@@ -1,5 +1,7 @@
 'use client'
 
+import { useCanvas } from "@components/simpleflow/context/CanvasContext"
+
 interface DraggableProps {
   id: string,
   children: React.ReactNode,
@@ -7,18 +9,14 @@ interface DraggableProps {
 }
 
 export const Draggable = ({ id, children, payload }: DraggableProps) => {
+  const { addNode } = useCanvas()
   
   const handleDragStart = (e: React.DragEvent) => {
-    const dragData = {
-      id: id,
-      payload: payload
-    }
-
-    e.dataTransfer.setData('text/plain', JSON.stringify(dragData))
+    e.dataTransfer.setData('text/plain', JSON.stringify(payload))
   }
   
   return (
-    <div 
+    <div
       key={id}
       draggable 
       onDragStart={handleDragStart}

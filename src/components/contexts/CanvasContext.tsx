@@ -1,20 +1,24 @@
+import { Position } from "@components/simpleflow/types/types"
 import { createContext, useState, Dispatch, SetStateAction } from "react"
 
 interface Viewport {
-  x: number;
-  y: number;
-  zoom: number;
+  position: Position
+  zoom: number
 }
 
 interface CanvasContextType {
-  viewport: Viewport;
-  setViewport: Dispatch<SetStateAction<Viewport>>;
+  viewport: Viewport
+  setViewport: Dispatch<SetStateAction<Viewport>>
 }
 
 export const CanvasContext = createContext<CanvasContextType | undefined>(undefined)
 
-export const CanvasProvider: React.FC = ({ children }) => {
-  const [viewport, setViewport] = useState({ x: 0, y: 0, zoom: 1 })
+interface CanvasProviderProps {
+  children: React.ReactNode
+}
+
+export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
+  const [viewport, setViewport] = useState<Viewport>({ position: { x: 0, y: 0 }, zoom: 1 })
 
   return (
     <CanvasContext.Provider value={{ viewport, setViewport }}>
