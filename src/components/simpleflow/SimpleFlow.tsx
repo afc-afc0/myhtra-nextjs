@@ -112,3 +112,19 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
     </>
   )
 }
+
+// I want to have a structure where I can define the Component that needs to be created when we drag the object,
+// Current we are depending on type of the draggable, but what I want is maybe having it like this, I want to control this with just one
+// component, but drag and drop api is working with payload, maybe define a structure like below for centralized control
+
+// another approach is maybe giving the component directly problem is we want to centralize the logic, and also make it flexible as possible(meaning code needs to be written)
+// 
+
+// const draggables = {
+//   circle: {
+//     component: <SomeComponent />,
+
+//   }
+// }
+
+
