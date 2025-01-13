@@ -2,22 +2,19 @@
 
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
-
-export interface Position {
-  x: number
-  y: number
-}
+import { Position } from "../types/types"
 
 export interface AddNodeProps {
   position: Position
-  payload?: any
+  type: string
+  payload?: object
 }
 
-export interface Node extends AddNodeProps {
+export interface NodeProps extends AddNodeProps {
   id: string
 }
 
-export type NodesState = Record<string, Node>
+export type NodesState = Record<string, NodeProps>
 
 export interface updateNodePositionProps {
   id: string
@@ -27,9 +24,10 @@ export interface updateNodePositionProps {
 export const useNodes = () => {
   const [nodes, setNodes] = useState<NodesState>({})
   
-  const addNode = ({ position, payload }: AddNodeProps) => {
-    const newNode: Node = {
+  const addNode = ({ position, type, payload }: AddNodeProps) => {
+    const newNode: NodeProps = {
       id: uuidv4(),
+      type,
       position,
       payload
     }

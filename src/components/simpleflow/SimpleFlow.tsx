@@ -3,12 +3,11 @@
 import React, { useState, useRef } from 'react'
 import styles from './SimpleFlow.module.css'
 import { CanvasProvider, useCanvas } from './context/CanvasContext'
-import { Node } from './components/Node/Node'
 import { Position } from './types/types'
 import { Draggable } from './components/Draggable/Draggable'
+import { NodeRenderer } from './components/NodeRenderer/NodeRenderer'
 
 export const SimpleFlow = ({}) => {
-  
   return (
     <CanvasContainer>
       <Canvas />
@@ -48,6 +47,7 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
         x: offsetX - viewport.x,
         y: offsetY - viewport.y
       },
+      type: payload.type,
       payload
     })
   }
@@ -102,29 +102,10 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
           zIndex: 1
         }}
       >
-        {Object.values(nodes).map((node) => (
-          <Node id={node.id} key={node.id} position={node.position}>
-            Node
-          </Node>
-        ))}
+        <NodeRenderer nodes={nodes} />
         { children }
       </div>
     </>
   )
 }
-
-// I want to have a structure where I can define the Component that needs to be created when we drag the object,
-// Current we are depending on type of the draggable, but what I want is maybe having it like this, I want to control this with just one
-// component, but drag and drop api is working with payload, maybe define a structure like below for centralized control
-
-// another approach is maybe giving the component directly problem is we want to centralize the logic, and also make it flexible as possible(meaning code needs to be written)
-// 
-
-// const draggables = {
-//   circle: {
-//     component: <SomeComponent />,
-
-//   }
-// }
-
 

@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from 'react'
-import { AddNodeProps, updateNodePositionProps, useNodes } from '../hooks/useNodes'
+import { AddNodeProps, NodesState, updateNodePositionProps, useNodes } from '../hooks/useNodes'
 
 interface Viewport {
   x: number
@@ -10,7 +10,7 @@ interface Viewport {
 interface CanvasContextType {
   viewport: Viewport
   setViewport: (viewport: Viewport) => void
-  nodes: object
+  nodes: NodesState
   addNode: (node: AddNodeProps) => void,
   updateNodePosition: (props: updateNodePositionProps) => void
 }

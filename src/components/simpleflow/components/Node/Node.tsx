@@ -13,6 +13,7 @@ interface NodeProps {
 }
 
 export const Node = ({ id, position, children }: NodeProps) => {
+
   const { viewport, updateNodePosition } = useCanvas()
   const [isDragging, setIsDragging] = useState(false)
   const dragStartRef = useRef<Position>({ x: 0, y: 0 })
