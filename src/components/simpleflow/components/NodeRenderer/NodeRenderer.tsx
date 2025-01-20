@@ -14,9 +14,8 @@ export const NodeRenderer = ({ nodes }: { nodes: NodesState }) => {
 
 const RenderNode = ({ id, type, position, payload }: NodeProps) => {
   
-  
-  
-  
+  console.log('Render Node', id, type, position, payload)
+
   return (
     <Node id={id} key={id} position={position}>
       Node

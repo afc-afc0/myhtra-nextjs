@@ -80,12 +80,6 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
 
   return (
     <>
-      <Draggable
-        id="circle" 
-        payload={{ type: 'circle', data: { radius: 50 } }}
-      >
-        Circle
-      </Draggable>
       <div 
         ref={ref} 
         className={styles.canvas}

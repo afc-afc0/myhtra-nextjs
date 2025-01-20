@@ -1,5 +1,5 @@
 import { Draggable } from "../../Draggable/Draggable"
-import { DragAndDropConfig, NodeProps } from "../../types/types"
+import { BaseNodePayload, BaseDragAndDropConfig, BaseNodeProps } from "../../types/baseTypes"
 import { Node } from "../../Node/Node"
 
 export const Drag = () => {
@@ -13,7 +13,10 @@ export const Drag = () => {
   )
 }
 
-export const CircleNode = ({ id, position }: NodeProps) => {
+export const CircleNode = ({ id, position, data }: CircleNodeProps) => {
+  
+  console.log('Circle Node', id, position, data)
+
   return (
     <Node id={id} key={id} position={position}>
       Drop Circle
@@ -23,12 +26,21 @@ export const CircleNode = ({ id, position }: NodeProps) => {
 
 const type = 'circle'
 
-export const config : DragAndDropConfig = { 
-  type,
-  drag: <Drag />,
-  drop: <CircleNode id='0' position={{ x: 0, y: 0 }} />,
-  payload: { type, data: { radius: 50 } }
+interface CircleData {
+  radius: number
 }
 
-// TO Continue: Finishing up creation logic for the Circle component
-// And have the logic for this stabilized
+interface CircleNodeProps extends BaseNodeProps {
+  data: CircleData
+}
+
+interface CirclePayload extends BaseNodePayload {
+  data: CircleData
+}
+
+export const config : BaseDragAndDropConfig<CirclePayload> = { 
+  type,
+  panelComponent: Drag,
+  canvasComponent: CircleNode,
+  payload: { type, data: { radius: 50 } }
+}
