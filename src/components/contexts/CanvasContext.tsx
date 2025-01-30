@@ -1,4 +1,4 @@
-import { Position } from "@components/simpleflow/types/types"
+import { Position } from "@components/simpleflow/shared/shared"
 import { createContext, useState, Dispatch, SetStateAction } from "react"
 
 interface Viewport {

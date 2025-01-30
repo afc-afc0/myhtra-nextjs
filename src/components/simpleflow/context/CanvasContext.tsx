@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, ReactNode } from 'react'
-import { AddNodeProps, NodesState, updateNodePositionProps, useNodes } from '../hooks/useNodes'
+import { NodesState, UpdateNodePositionProps, useNodes } from '@simpleflow/hooks/useNodes'
+import { NodeData, BaseNodePayload } from '@components/simpleflow/shared/shared'
 
 interface Viewport {
   x: number
@@ -7,25 +8,25 @@ interface Viewport {
   zoom: number
 }
 
-interface CanvasContextType {
+interface CanvasContextType<T extends NodeData> {
   viewport: Viewport
   setViewport: (viewport: Viewport) => void
-  nodes: NodesState
-  addNode: (node: AddNodeProps) => void,
-  updateNodePosition: (props: updateNodePositionProps) => void
+  nodes: NodesState<T>
+  addNode: (payload: BaseNodePayload<T>) => void
+  updateNodePosition: (props: UpdateNodePositionProps) => void
 }
 
-const CanvasContext = createContext<CanvasContextType | undefined>(undefined)
+const CanvasContext = createContext<CanvasContextType<NodeData> | undefined>(undefined)
 
 interface CanvasProviderProps {
   children: ReactNode
 }
 
 export function CanvasProvider({ children }: CanvasProviderProps) {
-  const { nodes, addNode, updateNodePosition } = useNodes()
+  const { nodes, addNode, updateNodePosition } = useNodes<NodeData>()
   const [viewport, setViewport] = useState<Viewport>({ x: 0, y: 0, zoom: 1 })
 
-  const value = { 
+  const value: CanvasContextType<NodeData> = { 
     viewport,
     setViewport,
     nodes,
@@ -40,7 +41,7 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
   )
 }
 
-export function useCanvas(): CanvasContextType {
+export function useCanvas(): CanvasContextType<NodeData> {
   const context = useContext(CanvasContext)
   
   if (context === undefined) {

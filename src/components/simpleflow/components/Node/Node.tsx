@@ -1,7 +1,7 @@
 'use client'
 
 import { useCanvas } from "@components/simpleflow/context/CanvasContext"
-import { Position } from "@components/simpleflow/types/types"
+import { Position } from "@components/simpleflow/shared/shared"
 import { useState, useRef } from "react"
 
 import styles from './Node.module.css'

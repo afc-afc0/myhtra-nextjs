@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
-import styles from './SimpleFlow.module.css'
-import { CanvasProvider, useCanvas } from './context/CanvasContext'
-import { Position } from './types/types'
-import { Draggable } from './components/Draggable/Draggable'
-import { NodeRenderer } from './components/NodeRenderer/NodeRenderer'
+import styles from '@simpleflow/SimpleFlow.module.css'
+import { CanvasProvider, useCanvas } from '@simpleflow/context/CanvasContext'
+import { BaseNodePayload, NodeData, Position } from '@simpleflow/shared/shared'
+import { Nodes } from '@simpleflow/components/NodeRenderer/NodeRenderer'
+import { DraggableCircle } from '@simpleflow/components/DragDropElements/Circle/Circle'
 
 export const SimpleFlow = ({}) => {
   return (
@@ -37,19 +37,26 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     const { offsetX, offsetY } = e.nativeEvent
-
-    if (e.dataTransfer.getData('text/plain') === '') return
-
-    const payload = JSON.parse(e.dataTransfer.getData('text/plain'))
   
-    addNode({
-      position: {
-        x: offsetX - viewport.x,
-        y: offsetY - viewport.y
-      },
-      type: payload.type,
-      payload
-    })
+    if (e.dataTransfer.getData('text/plain') === '') return
+  
+    try {
+      const draggedPayload = JSON.parse(e.dataTransfer.getData('text/plain'))
+      
+      // Ensure the payload has the required structure
+      if ('type' in draggedPayload && 'data' in draggedPayload) {
+        addNode({
+          type: draggedPayload.type,
+          position: {
+            x: offsetX - viewport.x,
+            y: offsetY - viewport.y
+          },
+          data: draggedPayload.data
+        } as BaseNodePayload<NodeData>)
+      }
+    } catch (error) {
+      console.error('Invalid payload data:', error)
+    }
   }
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -80,6 +87,7 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
 
   return (
     <>
+      <DraggableCircle />
       <div 
         ref={ref} 
         className={styles.canvas}
@@ -96,7 +104,7 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
           zIndex: 1
         }}
       >
-        <NodeRenderer nodes={nodes} />
+        <Nodes nodes={nodes} />
         { children }
       </div>
     </>

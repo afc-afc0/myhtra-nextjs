@@ -28,6 +28,7 @@
       "@public/*": ["./public/*"],
       "@api/*": ["./src/app/api/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@simpleflow/*": ["./src/components/simpleflow/*"]
     },
     "target": "ES2017"
   },
