@@ -5,7 +5,7 @@ import {
   BaseNodePayload, 
   BaseNodeProps,
   NodeData 
-} from "@components/simpleflow/shared/shared"
+} from "@components/simpleflow/shared/types"
 
 export type NodesState<T extends NodeData> = Record<string, BaseNodeProps<T>>
 

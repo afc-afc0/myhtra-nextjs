@@ -2,6 +2,8 @@ import { agent } from "@utils/http/nodeFetchAgent"
 import { getAccessToken } from "@utils/nextAuth/getAccessToken"
 import fetch from "node-fetch"
 
+export const dynamic = 'force-dynamic'
+
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
 export async function GET(req: any) {

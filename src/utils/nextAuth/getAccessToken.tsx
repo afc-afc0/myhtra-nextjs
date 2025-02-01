@@ -1,6 +1,6 @@
-import { getServerSession, Session } from "next-auth";
-import authOptions from "./authOptions";
-import { getToken } from "next-auth/jwt";
+import { getServerSession, Session } from "next-auth"
+import authOptions from "./authOptions"
+import { getToken } from "next-auth/jwt"
 
 export const getAccessToken = async ({ req } : { req: any }) => {
   const session = await getServerSession(authOptions) as Session | null

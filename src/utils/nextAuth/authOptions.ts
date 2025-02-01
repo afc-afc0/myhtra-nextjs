@@ -1,5 +1,5 @@
-import KeyCloakProvider from "next-auth/providers/keycloak";
-import { DefaultSession, Session } from "next-auth";
+import KeyCloakProvider from "next-auth/providers/keycloak"
+import { DefaultSession, Session } from "next-auth"
 
 declare module "next-auth" {
   interface Session extends DefaultSession {

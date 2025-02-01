@@ -3,9 +3,10 @@
 import React, { useState, useRef } from 'react'
 import styles from '@simpleflow/SimpleFlow.module.css'
 import { CanvasProvider, useCanvas } from '@simpleflow/context/CanvasContext'
-import { BaseNodePayload, NodeData, Position } from '@simpleflow/shared/shared'
+import { BaseNodePayload, NodeData, Position } from '@components/simpleflow/shared/types'
 import { Nodes } from '@simpleflow/components/NodeRenderer/NodeRenderer'
-import { DraggableCircle } from '@simpleflow/components/DragDropElements/Circle/Circle'
+import { CircleDraggable } from '@simpleflow/components/DragDropElements/Circle/Circle'
+import { StartDraggable } from './components/DragDropElements/Start/Start'
 
 export const SimpleFlow = ({}) => {
   return (
@@ -87,7 +88,8 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
 
   return (
     <>
-      <DraggableCircle />
+      <CircleDraggable />
+      <StartDraggable />
       <div 
         ref={ref} 
         className={styles.canvas}

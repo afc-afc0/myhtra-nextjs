@@ -1,4 +1,5 @@
-import { CircleData } from "../components/DragDropElements/Circle/Circle"
+import { CircleData } from "@simpleflow/components/DragDropElements/Circle/Circle"
+import { StartData } from "../components/DragDropElements/Start/Start"
 
 export interface Position {
   x: number
@@ -7,7 +8,7 @@ export interface Position {
 
 export const defaultPosition: Position = { x: 0, y: 0 }
 
-export type NodeData = CircleData 
+export type NodeData = CircleData | StartData
 
 export interface BaseNodePayload<T extends NodeData> {
   position: Position

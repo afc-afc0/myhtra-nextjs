@@ -36,7 +36,6 @@ export async function GET(request: Request, { params }: { params: any }) {
 export async function PUT(request: Request, { params }: { params: any }) {
   try {
     const id = params.id
-    console.log('request.body', request.body)
     const accessToken = await getAccessToken({ req: request })
 
     const jsonBody = await request.json()

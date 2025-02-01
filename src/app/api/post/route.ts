@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
-export async function GET(req: any) {
+export async function GET() {
   try {
     const res = await fetch(`${api}/Post`, {
       headers: {

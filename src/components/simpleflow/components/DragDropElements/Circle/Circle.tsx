@@ -1,8 +1,8 @@
 import { Draggable } from "@simpleflow/components/Draggable/Draggable"
-import { BaseNodePayload, BaseDragAndDropConfig, BaseNodeProps, defaultPosition } from "@components/simpleflow/shared/shared"
+import { BaseNodePayload, BaseDragAndDropConfig, BaseNodeProps, defaultPosition } from "@components/simpleflow/shared/types"
 import { Node } from "@simpleflow/components/Node/Node"
 
-export const DraggableCircle = () => {
+export const CircleDraggable = () => {
   return (
     <Draggable
       id="circle"
@@ -31,11 +31,7 @@ export type CirclePayload = BaseNodePayload<CircleData>
 
 export const config: BaseDragAndDropConfig<CircleData> = {
   type,
-  draggableComponent: DraggableCircle,
+  draggableComponent: CircleDraggable,
   nodeComponent: CircleNode,
-  payload: {
-    type,
-    data: { radius: 50 },
-    position: defaultPosition
-  }
+  payload: { type, data: { radius: 50 }, position: defaultPosition }
 }

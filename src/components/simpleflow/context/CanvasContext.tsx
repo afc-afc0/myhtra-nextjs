@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, ReactNode } from 'react'
 import { NodesState, UpdateNodePositionProps, useNodes } from '@simpleflow/hooks/useNodes'
-import { NodeData, BaseNodePayload } from '@components/simpleflow/shared/shared'
+import { NodeData, BaseNodePayload } from '@components/simpleflow/shared/types'
 
 interface Viewport {
   x: number
