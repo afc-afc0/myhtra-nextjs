@@ -39,7 +39,7 @@ To Do:
 
 1. Lexical Rich extent it with Select, Code, Points, Header(BlockFormatDropdown in )
 
-For Updating the site for now:
+For Updating the site for now, should create a script for this:
 
 1. sudo docker build . -t icanjump/myhtra-nextjs
 2. sudo docker push icanjump/myhtra-nextjs
