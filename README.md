@@ -35,5 +35,14 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-To Do: 
+To Do:
+
 1. Lexical Rich extent it with Select, Code, Points, Header(BlockFormatDropdown in )
+
+For Updating the site for now:
+
+1. sudo docker build . -t icanjump/myhtra-nextjs
+2. sudo docker push icanjump/myhtra-nextjs
+3. k rollout restart deployment myhtra-deployment
+
+Jun 16: Updated next.config because there was an issue with CSS order on deployment

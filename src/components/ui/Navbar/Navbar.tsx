@@ -20,19 +20,17 @@ export const Navbar = ({}) => {
         <div className={styles.navbarLeft}>
           <Logo />
         </div>
-        <div className={styles.navbarMiddle}>
-          
-        </div>
+        <div className={styles.navbarMiddle}></div>
         <div className={styles.navbarRight}>
-          <FlexContainer flexDirection='row' alignItems='center' gapSize='xs'>
-            { status === 'authenticated' && 
-              <Link href='/blog/myPosts'>
-                <Text fontWeight='medium' fontSize='m' text='My Posts' />
+          <FlexContainer flexDirection="row" alignItems="center" gapSize="xs">
+            {status === 'authenticated' && (
+              <Link href="/blog/myPosts">
+                <Text fontWeight="medium" fontSize="m" text="My Posts" />
               </Link>
-            }
+            )}
             <AuthController />
             <ThemeSwitch />
-          </FlexContainer>        
+          </FlexContainer>
         </div>
       </nav>
     </div>
@@ -41,13 +39,8 @@ export const Navbar = ({}) => {
 
 export const Logo = () => {
   return (
-    <Link href='/'>
-      <Image
-        alt='Myhtra Logo'
-        src={MyhtraLogo}
-        width={44}
-        height={56}
-      />
+    <Link href="/">
+      <Image alt="Myhtra Logo" src={MyhtraLogo} width={44} height={56} />
     </Link>
   )
 }
