@@ -45,4 +45,4 @@ For Updating the site for now:
 2. sudo docker push icanjump/myhtra-nextjs
 3. k rollout restart deployment myhtra-deployment
 
-Jun 16: Updated next.config because there was an issue with CSS order on deployment
+Jun 16: Updated next.config because there was an issue with CSS order on deployment: https://github.com/vercel/next.js/issues/64921
