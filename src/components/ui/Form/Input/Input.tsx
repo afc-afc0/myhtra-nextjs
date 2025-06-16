@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import sharedStyles from '../Shared/Shared.module.css'
 import styles from './Input.module.css'
 import clsx from 'clsx'
 
@@ -20,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputTextProps>(
         ref={ref}
         id={id}
         disabled={disabled}
-        className={clsx(styles.input, sharedStyles.shared, className)}
+        className={clsx(styles.input, 'sharedFormComponent', className)}
         autoComplete={autoComplete}
         value={value}
         onChange={onChange}

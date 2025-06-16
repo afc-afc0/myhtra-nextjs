@@ -20,7 +20,7 @@ interface SelectTriggerProps extends React.ComponentPropsWithoutRef<typeof Selec
 export const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
   ({ children, size = 'm', ...props }, ref) => {
     return (
-      <SelectPrimitive.Trigger ref={ref} className={clsx(sharedStyles.shared, styles.trigger)} data-size={size} {...props}>
+      <SelectPrimitive.Trigger ref={ref} className={clsx('sharedFormComponent', styles.trigger)} data-size={size} {...props}>
         {children}
         <SelectPrimitive.Icon asChild>
           <ChevronDownSVG />

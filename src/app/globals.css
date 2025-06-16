@@ -1,16 +1,16 @@
 :root {
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono:
+    ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --font-size-xs: 0.75rem;    
-  --font-size-s: 0.9375rem;  
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.9375rem;
   --font-size-m: 1.0625rem;
-  --font-size-l: 1.25rem;    
-  --font-size-xl: 1.5rem;     
-  --font-size-xxl: 2rem;      
-  --font-size-xxxl: 3rem;      
-  --font-size-xxxxl: 4rem;      
+  --font-size-l: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-xxxl: 3rem;
+  --font-size-xxxxl: 4rem;
 
   --border-radius-xs: 2px;
   --border-radius-s: 4px;
@@ -21,7 +21,7 @@
   --border-width-xs: 0.5px;
   --border-width-s: 1px;
   --border-width-m: 1.5px;
-  --border-width-l: 2px; 
+  --border-width-l: 2px;
   --border-width-xl: 2.5px;
 
   --padding-xss: 0.25rem;
@@ -62,10 +62,10 @@
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
-  --background-color: hsl(0, 0%, 0%); 
+  --background-color: hsl(0, 0%, 0%);
   --primary-color: hsl(230, 73%, 30%);
 
-  --action-color:  hsl(231, 58%, 50%); 
+  --action-color: hsl(231, 58%, 50%);
   --action-color-transition: hsl(51, 58%, 50%);
 
   --border-color: hsl(0, 0%, 44%);
@@ -78,17 +78,17 @@
   --shadow-size-l: 0 0 15px 2px var(--shadow-color);
 
   --text-color: hsl(0, 0%, 78%);
-  --text-color-secondary: hsl(0, 0%, 0%);  
+  --text-color-secondary: hsl(0, 0%, 0%);
 
   --navbar-height: 5.2rem;
 
   --transition-duration: 0.25s;
 }
 
-[data-theme="light"] {
-  --background-color: hsl(0, 0%, 100%); 
+[data-theme='light'] {
+  --background-color: hsl(0, 0%, 100%);
   --primary-color: hsl(203, 66%, 46%);
-  --action-color: hsl(204, 84%, 72%); 
+  --action-color: hsl(204, 84%, 72%);
   --action-color-transition: hsl(204, 84%, 42%);
 
   --font-weight-light: 400;
@@ -128,7 +128,7 @@ button {
 }
 
 div::selection {
-  background-color: var(--shadow-color); 
+  background-color: var(--shadow-color);
 }
 
 ::-webkit-scrollbar {
@@ -146,3 +146,20 @@ div::selection {
   border-radius: 5px;
 }
 
+/* Check readme on why this is here :( */
+.sharedFormComponent {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--padding-s);
+  border: var(--border-width-m) solid var(--border-color);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-color);
+  font-size: var(--font-size-s);
+  width: 100%;
+  height: var(--border-box-height-m);
+}
+
+.sharedFormComponent:focus {
+  border-color: var(--action-color);
+}
