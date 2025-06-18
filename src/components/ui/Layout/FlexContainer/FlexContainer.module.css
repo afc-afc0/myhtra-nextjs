@@ -4,83 +4,271 @@
   border-color: var(--border-color);
 }
 
-.flexContainer[data-padding-size="xs"] { padding: var(--padding-xs); }
-.flexContainer[data-padding-size="s"] { padding: var(--padding-s); }
-.flexContainer[data-padding-size="m"] { padding: var(--padding-m); }
-.flexContainer[data-padding-size="l"] { padding: var(--padding-l); }
-.flexContainer[data-padding-size="xl"] { padding: var(--padding-xl); }
+.flexContainer[data-padding-size='xs'] {
+  padding: var(--padding-xs);
+}
+.flexContainer[data-padding-size='s'] {
+  padding: var(--padding-s);
+}
+.flexContainer[data-padding-size='m'] {
+  padding: var(--padding-m);
+}
+.flexContainer[data-padding-size='l'] {
+  padding: var(--padding-l);
+}
+.flexContainer[data-padding-size='xl'] {
+  padding: var(--padding-xl);
+}
 
-.flexContainer[data-gap-size="xs"] { gap: var(--margin-xs); }
-.flexContainer[data-gap-size="s"] { gap: var(--margin-s); }
-.flexContainer[data-gap-size="m"] { gap: var(--margin-m); }
-.flexContainer[data-gap-size="l"] { gap: var(--margin-l); }
+.flexContainer[data-padding-top='xs'] {
+  padding-top: var(--padding-xs);
+}
+.flexContainer[data-padding-top='s'] {
+  padding-top: var(--padding-s);
+}
+.flexContainer[data-padding-top='m'] {
+  padding-top: var(--padding-m);
+}
+.flexContainer[data-padding-top='l'] {
+  padding-top: var(--padding-l);
+}
+.flexContainer[data-padding-top='xl'] {
+  padding-top: var(--padding-xl);
+}
 
-.flexContainer[data-flex-direction="row"] { flex-direction: row; }
-.flexContainer[data-flex-direction="column"] { flex-direction: column; }
+.flexContainer[data-padding-right='xs'] {
+  padding-right: var(--padding-xs);
+}
+.flexContainer[data-padding-right='s'] {
+  padding-right: var(--padding-s);
+}
+.flexContainer[data-padding-right='m'] {
+  padding-right: var(--padding-m);
+}
+.flexContainer[data-padding-right='l'] {
+  padding-right: var(--padding-l);
+}
+.flexContainer[data-padding-right='xl'] {
+  padding-right: var(--padding-xl);
+}
 
-.flexContainer[data-width="25%"] { width: 25%; }
-.flexContainer[data-width="33%"] { width: calc(100% / 3); } 
-.flexContainer[data-width="50%"] { width: 50%; }
-.flexContainer[data-width="100%"] { width: 100%; }
-.flexContainer[data-width="auto"] { width: auto; }
-.flexContainer[data-width="inherit"] { width: inherit; }
+.flexContainer[data-padding-bottom='xs'] {
+  padding-bottom: var(--padding-xs);
+}
+.flexContainer[data-padding-bottom='s'] {
+  padding-bottom: var(--padding-s);
+}
+.flexContainer[data-padding-bottom='m'] {
+  padding-bottom: var(--padding-m);
+}
+.flexContainer[data-padding-bottom='l'] {
+  padding-bottom: var(--padding-l);
+}
+.flexContainer[data-padding-bottom='xl'] {
+  padding-bottom: var(--padding-xl);
+}
 
-.flexContainer[data-box-sizing="border-box"] { box-sizing: border-box; }
+.flexContainer[data-padding-left='xs'] {
+  padding-left: var(--padding-xs);
+}
+.flexContainer[data-padding-left='s'] {
+  padding-left: var(--padding-s);
+}
+.flexContainer[data-padding-left='m'] {
+  padding-left: var(--padding-m);
+}
+.flexContainer[data-padding-left='l'] {
+  padding-left: var(--padding-l);
+}
+.flexContainer[data-padding-left='xl'] {
+  padding-left: var(--padding-xl);
+}
 
-.flexContainer[data-height="25%"] { height: 25%; }
-.flexContainer[data-height="33%"] { height: calc(100% / 3); }
-.flexContainer[data-height="50%"] { height: 50%; }
-.flexContainer[data-height="100%"] { height: 100%; }
-.flexContainer[data-height="auto"] { height: auto; }
-.flexContainer[data-height="inherit"] { height: inherit; }
+.flexContainer[data-gap-size='xs'] {
+  gap: var(--margin-xs);
+}
+.flexContainer[data-gap-size='s'] {
+  gap: var(--margin-s);
+}
+.flexContainer[data-gap-size='m'] {
+  gap: var(--margin-m);
+}
+.flexContainer[data-gap-size='l'] {
+  gap: var(--margin-l);
+}
 
-.flexContainer[data-justify-content="flex-start"] { justify-content: flex-start; }
-.flexContainer[data-justify-content="flex-end"] { justify-content: flex-end; }
-.flexContainer[data-justify-content="center"] { justify-content: center; }
-.flexContainer[data-justify-content="space-between"] { justify-content: space-between; }
-.flexContainer[data-justify-content="space-around"] { justify-content: space-around; }
+.flexContainer[data-flex-direction='row'] {
+  flex-direction: row;
+}
+.flexContainer[data-flex-direction='column'] {
+  flex-direction: column;
+}
 
-.flexContainer[data-align-items="flex-start"] { align-items: flex-start; }
-.flexContainer[data-align-items="flex-end"] { align-items: flex-end; }
-.flexContainer[data-align-items="center"] { align-items: center; }
+.flexContainer[data-width='25%'] {
+  width: 25%;
+}
+.flexContainer[data-width='33%'] {
+  width: calc(100% / 3);
+}
+.flexContainer[data-width='50%'] {
+  width: 50%;
+}
+.flexContainer[data-width='100%'] {
+  width: 100%;
+}
+.flexContainer[data-width='auto'] {
+  width: auto;
+}
+.flexContainer[data-width='inherit'] {
+  width: inherit;
+}
 
-.flexContainer[data-border-width="none"] { border-style: none }
-.flexContainer[data-border-width="xs"] { border-width: var(--border-width-xs); }
-.flexContainer[data-border-width="s"] { border-width: var(--border-width-s); }
-.flexContainer[data-border-width="m"] { border-width: var(--border-width-m); }
-.flexContainer[data-border-width="l"] { border-width: var(--border-width-l); }
-.flexContainer[data-border-width="xl"] { border-width: var(--border-width-xl); }
+.flexContainer[data-box-sizing='border-box'] {
+  box-sizing: border-box;
+}
 
-.flexContainer[data-margin-bottom="xs"] { margin-bottom: var(--margin-xs); }
-.flexContainer[data-margin-bottom="s"] { margin-bottom: var(--margin-s); }
-.flexContainer[data-margin-bottom="m"] { margin-bottom: var(--margin-m); }
-.flexContainer[data-margin-bottom="l"] { margin-bottom: var(--margin-l); }
-.flexContainer[data-margin-bottom="xl"] { margin-bottom: var(--margin-xl); }
+.flexContainer[data-height='25%'] {
+  height: 25%;
+}
+.flexContainer[data-height='33%'] {
+  height: calc(100% / 3);
+}
+.flexContainer[data-height='50%'] {
+  height: 50%;
+}
+.flexContainer[data-height='100%'] {
+  height: 100%;
+}
+.flexContainer[data-height='auto'] {
+  height: auto;
+}
+.flexContainer[data-height='inherit'] {
+  height: inherit;
+}
 
-.flexContainer[data-border-radius="none"] { border-radius: 0; }
-.flexContainer[data-border-radius="s"] { border-radius: var(--border-radius-s); }
-.flexContainer[data-border-radius="m"] { border-radius: var(--border-radius-m); }
-.flexContainer[data-border-radius="l"] { border-radius: var(--border-radius-l); }
+.flexContainer[data-justify-content='flex-start'] {
+  justify-content: flex-start;
+}
+.flexContainer[data-justify-content='flex-end'] {
+  justify-content: flex-end;
+}
+.flexContainer[data-justify-content='center'] {
+  justify-content: center;
+}
+.flexContainer[data-justify-content='space-between'] {
+  justify-content: space-between;
+}
+.flexContainer[data-justify-content='space-around'] {
+  justify-content: space-around;
+}
 
-.flexContainer[data-shadow-size="s"] { box-shadow: var(--shadow-size-s); }
-.flexContainer[data-shadow-size="m"] { box-shadow: var(--shadow-size-m); }
-.flexContainer[data-shadow-size="l"] { box-shadow: var(--shadow-size-l); }
+.flexContainer[data-align-items='flex-start'] {
+  align-items: flex-start;
+}
+.flexContainer[data-align-items='flex-end'] {
+  align-items: flex-end;
+}
+.flexContainer[data-align-items='center'] {
+  align-items: center;
+}
 
-.flexContainer[data-flex-basis="%0"] { flex-basis: 0%; }
-.flexContainer[data-flex-basis="%25"] { flex-basis: 25%; }
-.flexContainer[data-flex-basis="%50"] { flex-basis: 50%; }
-.flexContainer[data-flex-basis="%75"] { flex-basis: 75%; }
-.flexContainer[data-flex-basis="%100"] { flex-basis: 100%; }
+.flexContainer[data-border-width='none'] {
+  border-style: none;
+}
+.flexContainer[data-border-width='xs'] {
+  border-width: var(--border-width-xs);
+}
+.flexContainer[data-border-width='s'] {
+  border-width: var(--border-width-s);
+}
+.flexContainer[data-border-width='m'] {
+  border-width: var(--border-width-m);
+}
+.flexContainer[data-border-width='l'] {
+  border-width: var(--border-width-l);
+}
+.flexContainer[data-border-width='xl'] {
+  border-width: var(--border-width-xl);
+}
 
-.flexContainer[data-flex-grow="1"] { flex-grow: 1; }
+.flexContainer[data-margin-bottom='xs'] {
+  margin-bottom: var(--margin-xs);
+}
+.flexContainer[data-margin-bottom='s'] {
+  margin-bottom: var(--margin-s);
+}
+.flexContainer[data-margin-bottom='m'] {
+  margin-bottom: var(--margin-m);
+}
+.flexContainer[data-margin-bottom='l'] {
+  margin-bottom: var(--margin-l);
+}
+.flexContainer[data-margin-bottom='xl'] {
+  margin-bottom: var(--margin-xl);
+}
 
-.flexContainer[data-flex-shrink="1"] { flex-shrink: 1; }
+.flexContainer[data-border-radius='none'] {
+  border-radius: 0;
+}
+.flexContainer[data-border-radius='s'] {
+  border-radius: var(--border-radius-s);
+}
+.flexContainer[data-border-radius='m'] {
+  border-radius: var(--border-radius-m);
+}
+.flexContainer[data-border-radius='l'] {
+  border-radius: var(--border-radius-l);
+}
 
-.flexContainer[data-position='absolute'] { position: absolute; }
-.flexContainer[data-position='relative'] { position: relative; }
-.flexContainer[data-position='fixed'] { position: fixed; }
+.flexContainer[data-shadow-size='s'] {
+  box-shadow: var(--shadow-size-s);
+}
+.flexContainer[data-shadow-size='m'] {
+  box-shadow: var(--shadow-size-m);
+}
+.flexContainer[data-shadow-size='l'] {
+  box-shadow: var(--shadow-size-l);
+}
+
+.flexContainer[data-flex-basis='%0'] {
+  flex-basis: 0%;
+}
+.flexContainer[data-flex-basis='%25'] {
+  flex-basis: 25%;
+}
+.flexContainer[data-flex-basis='%50'] {
+  flex-basis: 50%;
+}
+.flexContainer[data-flex-basis='%75'] {
+  flex-basis: 75%;
+}
+.flexContainer[data-flex-basis='%100'] {
+  flex-basis: 100%;
+}
+
+.flexContainer[data-flex-grow='1'] {
+  flex-grow: 1;
+}
+
+.flexContainer[data-flex-shrink='1'] {
+  flex-shrink: 1;
+}
+
+.flexContainer[data-position='absolute'] {
+  position: absolute;
+}
+.flexContainer[data-position='relative'] {
+  position: relative;
+}
+.flexContainer[data-position='fixed'] {
+  position: fixed;
+}
 
 @media screen and (max-width: 1024px) {
-  .flexContainer[data-responsive-flex-direction="column"] { flex-direction: column; }
-  .flexContainer[data-responsive-flex-direction="row"] { flex-direction: row; }
+  .flexContainer[data-responsive-flex-direction='column'] {
+    flex-direction: column;
+  }
+  .flexContainer[data-responsive-flex-direction='row'] {
+    flex-direction: row;
+  }
 }
