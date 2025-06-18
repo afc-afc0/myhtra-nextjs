@@ -3,12 +3,7 @@ import styles from './SVG.module.css'
 
 export const CheckSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
     </svg>
   )
@@ -16,12 +11,7 @@ export const CheckSVG = ({ ...props }) => {
 
 export const CheckWithCircleSVG = ({ ...props }) => {
   return (
-    <svg
-      className={styles.svg}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" {...props}>
       <path d="M480-64.17q-87.72 0-163.74-32.06-76.01-32.06-131.99-88.04-55.98-55.98-88.04-131.99Q64.17-392.28 64.17-480q0-87.43 32.06-163.26 32.06-75.83 88.04-131.99 55.98-56.17 131.99-88.56Q392.28-896.2 480-896.2q51.86 0 101.16 13.35 49.3 13.36 94 39.26 16.1 7.33 20.59 25 4.48 17.66-6.07 32.39-10.55 15.29-28.76 19.36t-35.4-3.26q-33.01-18.48-70.11-28.03-37.09-9.55-75.41-9.55-138.55 0-233.12 94.28-94.56 94.28-94.56 233.4t94.56 233.4q94.57 94.28 233.12 94.28 137.99 0 232.83-94 94.85-94 94.85-231.8 0-11.56-.88-22.39-.89-10.82-3.32-21.43-1.62-19.42 8.03-35.03 9.66-15.61 28.04-19.36 18.52-4.24 33.91 6.26 15.4 10.49 17.4 29.01 2.39 14.8 3.87 29.98 1.47 15.18 1.47 31.08 0 87.72-32.39 163.74-32.39 76.01-88.56 131.99-56.16 55.98-131.99 88.04Q567.43-64.17 480-64.17Zm-59.32-347.55 382.89-383.6q12.68-12.3 30.71-12.38 18.02-.07 31.14 12.38 12.97 13.35 12.97 31.45t-12.97 31.07l-413.3 413.45q-13.58 13.21-31.63 13.21-18.04 0-31.24-13.21L276.88-432.38q-12.3-12.3-11.97-30.45.34-18.16 12.64-30.84 12.68-12.3 31.12-12.3 18.43 0 30.74 12.3l81.27 81.95Z" />
     </svg>
   )
@@ -29,12 +19,7 @@ export const CheckWithCircleSVG = ({ ...props }) => {
 
 export const ArchitectureSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M480-120q-151 0-255.5-46.5T120-280v-400q0-66 105.5-113T480-840q149 0 254.5 47T840-680v400q0 67-104.5 113.5T480-120Zm0-479q89 0 179-25.5T760-679q-11-29-100.5-55T480-760q-91 0-178.5 25.5T200-679q14 30 101.5 55T480-599Zm0 199q42 0 81-4t74.5-11.5q35.5-7.5 67-18.5t57.5-25v-120q-26 14-57.5 25t-67 18.5Q600-528 561-524t-81 4q-42 0-82-4t-75.5-11.5Q287-543 256-554t-56-25v120q25 14 56 25t66.5 18.5Q358-408 398-404t82 4Zm0 200q46 0 93.5-7t87.5-18.5q40-11.5 67-26t32-29.5v-98q-26 14-57.5 25t-67 18.5Q600-328 561-324t-81 4q-42 0-82-4t-75.5-11.5Q287-343 256-354t-56-25v99q5 15 31.5 29t66.5 25.5q40 11.5 88 18.5t94 7Z" />
     </svg>
   )
@@ -42,12 +27,7 @@ export const ArchitectureSVG = ({ ...props }) => {
 
 export const AuthSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M280-240q-100 0-170-70T40-480q0-100 70-170t170-70q66 0 121 33t87 87h432v240h-80v120H600v-120H488q-32 54-87 87t-121 33Zm0-80q66 0 106-40.5t48-79.5h246v120h80v-120h80v-80H434q-8-39-48-79.5T280-640q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-80q33 0 56.5-23.5T360-480q0-33-23.5-56.5T280-560q-33 0-56.5 23.5T200-480q0 33 23.5 56.5T280-400Zm0-80Z" />
     </svg>
   )
@@ -55,12 +35,7 @@ export const AuthSVG = ({ ...props }) => {
 
 export const CloudSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H260Zm0-80h480q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41Zm220-240Z" />
     </svg>
   )
@@ -68,12 +43,7 @@ export const CloudSVG = ({ ...props }) => {
 
 export const DockerSVG = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      className={styles.svg}
-      viewBox="0 0 640 512"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 0 640 512" {...props}>
       <path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z" />
     </svg>
   )
@@ -81,12 +51,7 @@ export const DockerSVG = ({ ...props }) => {
 
 export const GameDevSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M160-360q-50 0-85-35t-35-85q0-50 35-85t85-35v-80q0-33 23.5-56.5T240-760h120q0-50 35-85t85-35q50 0 85 35t35 85h120q33 0 56.5 23.5T800-680v80q50 0 85 35t35 85q0 50-35 85t-85 35v160q0 33-23.5 56.5T720-120H240q-33 0-56.5-23.5T160-200v-160Zm200-80q25 0 42.5-17.5T420-500q0-25-17.5-42.5T360-560q-25 0-42.5 17.5T300-500q0 25 17.5 42.5T360-440Zm240 0q25 0 42.5-17.5T660-500q0-25-17.5-42.5T600-560q-25 0-42.5 17.5T540-500q0 25 17.5 42.5T600-440ZM320-280h320v-80H320v80Zm-80 80h480v-480H240v480Zm240-240Z" />
     </svg>
   )
@@ -94,25 +59,15 @@ export const GameDevSVG = ({ ...props }) => {
 
 export const WebDevSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      { ...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z" />
     </svg>
   )
 }
 
-export const ChevronRightSVG = ({ className, ...props } : { className?: string }) => {
+export const ChevronRightSVG = ({ className, ...props }: { className?: string }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={clsx(styles.svg, className)}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={clsx(styles.svg, className)} viewBox="0 -960 960 960" {...props}>
       <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
     </svg>
   )
@@ -120,60 +75,35 @@ export const ChevronRightSVG = ({ className, ...props } : { className?: string }
 
 export const ChevronDownSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props }
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M480-371.69 267.69-584 296-612.31l184 184 184-184L692.31-584 480-371.69Z" />
     </svg>
   )
 }
 
 export const DownArrowSVG = ({ ...props }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className={styles.svg}
-    viewBox="0 -960 960 960"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
     <path d="m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
   </svg>
 )
 
 export const ExpandSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M74-74v-376h136v144l444-444H510v-136h376v376H750v-144L306-210h144v136H74Z" />
     </svg>
   )
 }
 
 export const DownsizeSVG = ({ ...props }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="#e8eaed"
-    viewBox="0 -960 960 960"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#e8eaed" viewBox="0 -960 960 960" {...props}>
     <path d="m129-34-95-95 215-215H114v-136h366v366H344v-135L129-34Zm351-446v-366h136v135l215-215 95 95-215 215h135v136H480Z" />
   </svg>
 )
 
 export const KubernetesSVG = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      className={styles.svg}
-      viewBox="0 0 24 24" 
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 0 24 24" {...props}>
       <path d="m10.204 14.35.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.143 5.143 0 0 0-.73 3.255l2.514-.725zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.144 5.144 0 0 0-3.01 1.442l2.147 1.523.004-.002zm.76 2.75.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.188 5.188 0 0 0-2.992-1.442l.148 2.615zm10.876 5.97-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.583 1.583 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.606 1.606 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34zm-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.45 6.45 0 0 0-.105-2.332 6.465 6.465 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736s-.506-.236-.745-.045c-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.545 6.545 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.545.545 0 0 1-.162.258l-.012.211a6.424 6.424 0 0 0-4.166 2.003 8.373 8.373 0 0 1-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349a2.691 2.691 0 0 0-.111-.088.594.594 0 0 0-.348-.132.481.481 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.462 6.462 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.453 6.453 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.499 6.499 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608zM16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.199 5.199 0 0 0-.108-1.674A5.208 5.208 0 0 0 16.4 9.7zm-4.013 5.325a.437.437 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.164 5.164 0 0 0 3.326.003l-1.27-2.296zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44z" />
     </svg>
   )
@@ -181,12 +111,7 @@ export const KubernetesSVG = ({ ...props }) => {
 
 export const EyeSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z" />
     </svg>
   )
@@ -194,12 +119,7 @@ export const EyeSVG = ({ ...props }) => {
 
 export const UndoSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z" />
     </svg>
   )
@@ -207,12 +127,7 @@ export const UndoSVG = ({ ...props }) => {
 
 export const RedoSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z" />
     </svg>
   )
@@ -220,12 +135,7 @@ export const RedoSVG = ({ ...props }) => {
 
 export const BoldSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M272-200v-560h221q65 0 120 40t55 111q0 51-23 78.5T602-491q25 11 55.5 41t30.5 90q0 89-65 124.5T501-200H272Zm121-112h104q48 0 58.5-24.5T566-372q0-11-10.5-35.5T494-432H393v120Zm0-228h93q33 0 48-17t15-38q0-24-17-39t-44-15h-95v109Z" />
     </svg>
   )
@@ -233,12 +143,7 @@ export const BoldSVG = ({ ...props }) => {
 
 export const ItalicSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M200-200v-100h160l120-360H320v-100h400v100H580L460-300h140v100H200Z" />
     </svg>
   )
@@ -246,12 +151,7 @@ export const ItalicSVG = ({ ...props }) => {
 
 export const UnderlineSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M200-120v-80h560v80H200Zm280-160q-101 0-157-63t-56-167v-330h103v336q0 56 28 91t82 35q54 0 82-35t28-91v-336h103v330q0 104-56 167t-157 63Z" />
     </svg>
   )
@@ -259,12 +159,7 @@ export const UnderlineSVG = ({ ...props }) => {
 
 export const StrikeThroughSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M486-160q-76 0-135-45t-85-123l88-38q14 48 48.5 79t85.5 31q42 0 76-20t34-64q0-18-7-33t-19-27h112q5 14 7.5 28.5T694-340q0 86-61.5 133T486-160ZM80-480v-80h800v80H80Zm402-326q66 0 115.5 32.5T674-674l-88 39q-9-29-33.5-52T484-710q-41 0-68 18.5T386-640h-96q2-69 54.5-117.5T482-806Z" />
     </svg>
   )
@@ -272,12 +167,7 @@ export const StrikeThroughSVG = ({ ...props }) => {
 
 export const TextAlignLeftSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M120-120v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Z" />
     </svg>
   )
@@ -285,12 +175,7 @@ export const TextAlignLeftSVG = ({ ...props }) => {
 
 export const TextAlignRightSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M120-760v-80h720v80H120Zm240 160v-80h480v80H360ZM120-440v-80h720v80H120Zm240 160v-80h480v80H360ZM120-120v-80h720v80H120Z" />
     </svg>
   )
@@ -298,12 +183,7 @@ export const TextAlignRightSVG = ({ ...props }) => {
 
 export const TextAlignCenterSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M120-120v-80h720v80H120Zm160-160v-80h400v80H280ZM120-440v-80h720v80H120Zm160-160v-80h400v80H280ZM120-760v-80h720v80H120Z" />
     </svg>
   )
@@ -311,12 +191,7 @@ export const TextAlignCenterSVG = ({ ...props }) => {
 
 export const TextAlignJustifySVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M120-120v-80h720v80H120Zm0-160v-80h720v80H120Zm0-160v-80h720v80H120Zm0-160v-80h720v80H120Zm0-160v-80h720v80H120Z" />
     </svg>
   )
@@ -324,25 +199,15 @@ export const TextAlignJustifySVG = ({ ...props }) => {
 
 export const InsertLinkSVG = ({ ...props }) => {
   return (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className={styles.svg}
-    viewBox="0 -960 960 960"
-    {...props}
-  >
-    <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z" />
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
+      <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z" />
+    </svg>
   )
 }
-  
+
 export const DragHandleSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M345.28-129q-39.71 0-68-28.28-28.28-28.29-28.28-68 0-39.72 28.28-67.22 28.29-27.5 68-27.5 39.72 0 67.22 27.5t27.5 67.22q0 39.71-27.5 68Q385-129 345.28-129Zm270.14 0Q576-129 548-157.28q-28-28.29-28-68 0-39.72 27.91-67.22Q575.81-320 615-320q39.6 0 67.8 27.5Q711-265 711-225.28q0 39.71-28.08 68Q654.85-129 615.42-129ZM345.28-385q-39.71 0-68-27.91Q249-440.81 249-480q0-40 28.28-67.5 28.29-27.5 68-27.5 39.72 0 67.22 27.5t27.5 67q0 39.5-27.5 67.5t-67.22 28Zm270.14 0Q576-385 548-412.91q-28-27.9-28-67.09 0-40 27.91-67.5Q575.81-575 615-575q39.6 0 67.8 27.5 28.2 27.5 28.2 67T682.92-413q-28.07 28-67.5 28ZM345.28-640q-39.71 0-68-27.91Q249-695.81 249-735q0-39.6 28.28-67.8 28.29-28.2 68-28.2 39.72 0 67.22 28.08 27.5 28.07 27.5 67.5Q440-696 412.5-668t-67.22 28Zm270.14 0Q576-640 548-667.91q-28-27.9-28-67.09 0-39.6 27.91-67.8Q575.81-831 615-831q39.6 0 67.8 28.08 28.2 28.07 28.2 67.5Q711-696 682.92-668q-28.07 28-67.5 28Z" />
     </svg>
   )
@@ -350,12 +215,7 @@ export const DragHandleSVG = ({ ...props }) => {
 
 export const CopyContentSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M760-200H320q-33 0-56.5-23.5T240-280v-560q0-33 23.5-56.5T320-920h280l240 240v400q0 33-23.5 56.5T760-200ZM560-640v-200H320v560h440v-360H560ZM160-40q-33 0-56.5-23.5T80-120v-560h80v560h440v80H160Zm160-800v200-200 560-560Z" />
     </svg>
   )
@@ -363,12 +223,7 @@ export const CopyContentSVG = ({ ...props }) => {
 
 export const DeleteSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
     </svg>
   )
@@ -376,12 +231,7 @@ export const DeleteSVG = ({ ...props }) => {
 
 export const CancelSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
     </svg>
   )
@@ -389,12 +239,7 @@ export const CancelSVG = ({ ...props }) => {
 
 export const EditSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
     </svg>
   )
@@ -402,12 +247,7 @@ export const EditSVG = ({ ...props }) => {
 
 export const ClearFormattionSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="m528-546-93-93-121-121h486v120H568l-40 94ZM792-56 460-388l-80 188H249l119-280L56-792l56-56 736 736-56 56Z" />
     </svg>
   )
@@ -415,12 +255,7 @@ export const ClearFormattionSVG = ({ ...props }) => {
 
 export const AvatarSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
     </svg>
   )
@@ -428,12 +263,7 @@ export const AvatarSVG = ({ ...props }) => {
 
 export const CloseSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 0 24 24" {...props}>
       <path d="M12 10.586l-4.293-4.293-1.414 1.414 4.293 4.293-4.293 4.293 1.414 1.414 4.293-4.293 4.293 4.293 1.414-1.414-4.293-4.293 4.293-4.293-1.414-1.414-4.293 4.293z" />
     </svg>
   )
@@ -441,13 +271,14 @@ export const CloseSVG = ({ ...props }) => {
 
 export const DarkModeSVG = ({ ...props }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.svg}
-      viewBox="0 -960 960 960"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
       <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z" />
     </svg>
   )
 }
+
+export const ImageSVG = ({ ...props }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} viewBox="0 -960 960 960" {...props}>
+    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z" />
+  </svg>
+)
