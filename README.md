@@ -52,6 +52,7 @@ k rollout restart deployment myhtra-deployment
 - ImagePlugin development nearly complete
 - Working on drag and drop functionality improvements
 - Tabs component added
+- File Input improved
 
 ### June 18, 2025
 
