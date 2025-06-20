@@ -5,29 +5,57 @@
   text-overflow: clip;
 }
 
-.text[data-display="inline"] { display: inline; }
-
-.text[data-size="xs"] { font-size: var(--font-size-xs); }
-.text[data-size="s"] { font-size: var(--font-size-s); }
-.text[data-size="m"] { font-size: var(--font-size-m); }
-.text[data-size="l"] { font-size: var(--font-size-l); }
-.text[data-size="xl"] { font-size: var(--font-size-xl); }
-.text[data-size="xxl"] { font-size: var(--font-size-xxl); }
-.text[data-size="xxxl"] { font-size: var(--font-size-xxxl); }
-.text[data-size="xxxxl"] { font-size: var(--font-size-xxxxl); }
-
-.text[data-font-weight="light"] { font-weight: var(--font-weight-light); }
-.text[data-font-weight="regular"] { font-weight: var(--font-weight-regular); }
-.text[data-font-weight="medium"] { font-weight: var(--font-weight-medium); }
-.text[data-font-weight="bold"] { font-weight: var(--font-weight-bold); }
-.text[data-font-weight="black"] { font-weight: var(--font-weight-black); }
-
-.text[data-type="link"] { 
-  color: var(--action-color); 
-  transition: color var(--transition-duration) ease-in-out; 
+.text[data-display='inline'] {
+  display: inline;
 }
 
-.text:hover[data-type="link"], 
-.text:focus[data-type="link"] { 
-  color: var(--action-color-transition); 
+.text[data-size='xs'] {
+  font-size: var(--font-size-xs);
+}
+.text[data-size='s'] {
+  font-size: var(--font-size-s);
+}
+.text[data-size='m'] {
+  font-size: var(--font-size-m);
+}
+.text[data-size='l'] {
+  font-size: var(--font-size-l);
+}
+.text[data-size='xl'] {
+  font-size: var(--font-size-xl);
+}
+.text[data-size='xxl'] {
+  font-size: var(--font-size-xxl);
+}
+.text[data-size='xxxl'] {
+  font-size: var(--font-size-xxxl);
+}
+.text[data-size='xxxxl'] {
+  font-size: var(--font-size-xxxxl);
+}
+
+.text[data-font-weight='light'] {
+  font-weight: var(--font-weight-light);
+}
+.text[data-font-weight='regular'] {
+  font-weight: var(--font-weight-regular);
+}
+.text[data-font-weight='medium'] {
+  font-weight: var(--font-weight-medium);
+}
+.text[data-font-weight='bold'] {
+  font-weight: var(--font-weight-bold);
+}
+.text[data-font-weight='black'] {
+  font-weight: var(--font-weight-black);
+}
+
+.text[data-type='link'] {
+  color: var(--action-color);
+  transition: color var(--transition-duration) ease-in-out;
+}
+
+.text:hover[data-type='link'],
+.text:focus[data-type='link'] {
+  color: var(--action-color-transition);
 }

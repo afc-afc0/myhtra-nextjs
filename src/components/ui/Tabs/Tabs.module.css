@@ -1,0 +1,100 @@
+.baseTabList {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: inset 0 -1px 0 0 var(--border-color);
+
+  scrollbar-width: none;
+}
+
+.baseTabList::-webkit-scrollbar {
+  display: none;
+}
+
+.baseTabListTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  user-select: none;
+  box-sizing: border-box;
+  height: var(--border-box-height-l);
+  padding: var(--padding-xs);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+.baseTabListTrigger:hover {
+  color: var(--text-color-secondary);
+}
+
+.baseTabListTrigger:hover .baseTabListTriggerInner {
+  background-color: var(--action-color-transition);
+}
+
+.baseTabListTrigger[data-state='active'] {
+  color: var(--text-color);
+}
+
+.baseTabListTrigger[data-state='active']:hover {
+  color: var(--text-color-secondary);
+}
+
+.baseTabListTrigger:focus-visible .baseTabListTriggerInner {
+  outline: 2px solid var(--focus-border-color);
+  outline-offset: -2px;
+}
+
+.baseTabListTrigger::before {
+  box-sizing: border-box;
+  content: '';
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--action-color-transition);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.baseTabListTrigger[data-state='active']::before {
+  transform: scaleX(1);
+}
+
+.baseTabListTriggerInner,
+.baseTabListTriggerInnerHidden {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: var(--padding-xs) var(--padding-s);
+  border-radius: var(--border-radius-s);
+  transition: all var(--transition-duration) ease;
+}
+
+.baseTabListTriggerInner {
+  position: absolute;
+}
+
+.baseTabListTrigger[data-state='active'] .baseTabListTriggerInner {
+  font-weight: var(--font-weight-medium);
+}
+
+.baseTabListTriggerInnerHidden {
+  visibility: hidden;
+  font-weight: var(--font-weight-medium);
+}
+
+.tabsContent {
+  position: relative;
+  outline: 0;
+}
+
+.tabsContent:focus-visible {
+  outline: 2px solid var(--focus-border-color);
+}

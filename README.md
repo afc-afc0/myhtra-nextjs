@@ -1,12 +1,75 @@
-To Do:
+# Myhtra Next.js
 
-1. Lexical Rich extent it with Image, Select, Code, Points, Header(BlockFormatDropdown in )
+A Next.js application with rich text editing capabilities using Lexical editor.
 
-For Updating the site for now, should create a script for this:
+## 🚀 Features
 
-1. sudo docker build . -t icanjump/myhtra-nextjs
-2. sudo docker push icanjump/myhtra-nextjs
-3. k rollout restart deployment myhtra-deployment
+- Rich text editor with Lexical
+- Image upload and management
+- Tab-based interface for better UX
+- Docker deployment ready
 
-Jun 16: Updated next.config because there was an issue with CSS order on deployment: https://github.com/vercel/next.js/issues/64921
-For resolving this issue I updated the shared styles of that component and carried to globals.css which I didn't wanted to do.
+## 📝 To Do
+
+- Add Tabs component to ui-components
+
+### High Priority
+
+- [ ] **Lexical Rich Text Extensions**
+  - [ ] Image support
+  - [ ] Select components
+  - [ ] Code blocks
+  - [ ] Bullet points
+  - [ ] Header formatting (BlockFormatDropdown)
+
+### UI/UX Improvements
+
+- [ ] Standardize border radius across components
+- [ ] Update Tabs component styling
+- [ ] Complete ImagePlugin drag and drop functionality
+
+## 🚀 Deployment
+
+To update the site, run the following commands:
+
+```bash
+# Build Docker image
+sudo docker build . -t icanjump/myhtra-nextjs
+
+# Push to registry
+sudo docker push icanjump/myhtra-nextjs
+
+# Restart Kubernetes deployment
+k rollout restart deployment myhtra-deployment
+```
+
+> **Note**: Consider creating a deployment script to automate these steps.
+
+## 📅 Development Log
+
+### June 19, 2025
+
+- ImagePlugin development nearly complete
+- Working on drag and drop functionality improvements
+- Tabs component added
+
+### June 18, 2025
+
+- Added Tabs component for better image handling
+- Identified styling updates needed
+
+### June 17, 2025
+
+- Lexical Image component needs customization
+- Planning to remove unused features
+
+### June 16, 2025
+
+- Fixed CSS order issue on deployment ([Next.js Issue #64921](https://github.com/vercel/next.js/issues/64921))
+- Updated next.config.js
+- Moved shared component styles to globals.css
+
+## 🔧 Technical Notes
+
+- CSS order issues resolved by updating shared styles location
+- Deployment uses Docker containerization with Kubernetes

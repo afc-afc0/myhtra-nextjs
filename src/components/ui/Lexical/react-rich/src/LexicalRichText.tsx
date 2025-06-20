@@ -31,33 +31,49 @@ import LexicalAutoLinkPlugin from './plugins/AutoLinkPlugin/AutoLinkPlugin'
 import FloatingLinkEditorPlugin from './plugins/FloatingLinkEditorPlugin/FloatingLinkEditorPlugin'
 import CodeActionMenuPlugin from './plugins/CodeActionMenuPlugin/CodeActionMenuPlugin'
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
+import ShortcutsPlugin from './plugins/ShortcutsPlugin/ShortcutsPlugin'
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
+import { ToolbarContext } from './context/ToolbarContext'
+import ImagesPlugin from './plugins/ImagesPlugin/ImagesPlugin'
+import { ImageNode } from './nodes/ImageNode/ImageNode'
 
-export const LexicalRichText = ({ onChange, readonly = false, initialContent = undefined }: { onChange?: any, readonly?: boolean, initialContent?: any }) => {
-  
+export const LexicalRichText = ({
+  onChange,
+  readonly = false,
+  initialContent = undefined
+}: {
+  onChange?: any
+  readonly?: boolean
+  initialContent?: any
+}) => {
   const editorConfig = {
     namespace: 'Myhtra Editor',
-    nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode],
+    nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode, ImageNode],
     onError(error: Error) {
       throw error
     },
     theme: LexicalStyles,
     editorState: initialContent,
-    editable: !readonly,
+    editable: !readonly
   }
-  
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <Editor onChange={onChange} readonly={readonly} />
+      <ToolbarContext>
+        <Editor onChange={onChange} readonly={readonly} />
+      </ToolbarContext>
     </LexicalComposer>
   )
 }
 
-const Editor = ({ onChange, readonly }: { onChange?: any, readonly?: boolean }) => {
+const Editor = ({ onChange, readonly }: { onChange?: any; readonly?: boolean }) => {
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false)
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null)
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false)
+  const [editor] = useLexicalComposerContext()
+  const [activeEditor, setActiveEditor] = useState(editor)
   const isEditable = useLexicalEditable()
-  
+
   const onRef = (_floatingAnchorElem: HTMLDivElement) => {
     if (_floatingAnchorElem !== null) {
       setFloatingAnchorElem(_floatingAnchorElem)
@@ -66,8 +82,7 @@ const Editor = ({ onChange, readonly }: { onChange?: any, readonly?: boolean }) 
 
   useEffect(() => {
     const updateViewPortWidth = () => {
-      const isNextSmallWidthViewport =
-        CAN_USE_DOM && window.matchMedia('(max-width: 1025px)').matches
+      const isNextSmallWidthViewport = CAN_USE_DOM && window.matchMedia('(max-width: 1025px)').matches
 
       if (isNextSmallWidthViewport !== isSmallWidthViewport) {
         setIsSmallWidthViewport(isNextSmallWidthViewport)
@@ -82,15 +97,13 @@ const Editor = ({ onChange, readonly }: { onChange?: any, readonly?: boolean }) 
   }, [isSmallWidthViewport])
 
   return (
-    <FlexContainer width='100%' borderWidth='m' borderRadius='m'>
+    <FlexContainer width="100%" borderWidth="m" borderRadius="m">
       <ConditionalDisplay condition={readonly == false}>
         <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
       </ConditionalDisplay>
-      <FlexContainer width='100%'>
-        <RichTextPlugin
-          contentEditable={<Content ref={onRef} />}
-          ErrorBoundary={LexicalErrorBoundary}
-        />
+      <FlexContainer width="100%">
+        <RichTextPlugin contentEditable={<Content ref={onRef} />} ErrorBoundary={LexicalErrorBoundary} />
+        <ShortcutsPlugin editor={activeEditor} setIsLinkEditMode={setIsLinkEditMode} />
         <OnChangePlugin onChange={onChange} />
         <ClearEditorPlugin />
         <HistoryPlugin />
@@ -108,22 +121,22 @@ const Editor = ({ onChange, readonly }: { onChange?: any, readonly?: boolean }) 
             setIsLinkEditMode={setIsLinkEditMode}
           />
         </ConditionalDisplay>
+        <ImagesPlugin />
+        <ShortcutsPlugin editor={activeEditor} setIsLinkEditMode={setIsLinkEditMode} />
         {/* <AutoFocusPlugin /> */}
       </FlexContainer>
     </FlexContainer>
   )
 }
 
-type ContentRef = HTMLDivElement 
+type ContentRef = HTMLDivElement
 
 interface ContentProps {}
 
 const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement => {
   return (
-    <FlexContainer position='relative' ref={ref} width='100%'>
-      <ContentEditable
-        className={styles['editor-input']}
-      />
+    <FlexContainer position="relative" ref={ref} width="100%">
+      <ContentEditable className={styles['editor-input']} />
     </FlexContainer>
   )
 })

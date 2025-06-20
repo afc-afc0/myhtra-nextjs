@@ -1,36 +1,48 @@
 .input {
-  
 }
 
-.input:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
+.input[type='file'] {
+  border: none;
+  height: auto;
+  padding: 0;
 }
 
+.input[type='file']::file-selector-button {
+  height: var(--border-box-height-m);
+  background-color: var(--action-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
 
-.input[data-size="xs"] {
+.input[type='file']::file-selector-button:hover {
+  color: var(--text-color-secondary);
+  background-color: var(--action-color-transition);
+}
+
+.input[data-size='xs'] {
   font-size: var(--font-size-xs);
   height: var(--border-box-height-xs);
 }
 
-.input[data-size="s"] {
+.input[data-size='s'] {
   font-size: var(--font-size-s);
   height: var(--border-box-height-s);
 }
 
-.input[data-size="m"] {
+.input[data-size='m'] {
   font-size: var(--font-size-m);
   height: var(--border-box-height-m);
 }
 
-.input[data-size="l"] {
+.input[data-size='l'] {
   font-size: var(--font-size-l);
   height: var(--border-box-height-l);
 }
 
-.input[data-size="xl"] {
+.input[data-size='xl'] {
   font-size: var(--font-size-xl);
   height: var(--border-box-height-xl);
 }
-
-

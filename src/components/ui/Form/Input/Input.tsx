@@ -3,7 +3,7 @@ import styles from './Input.module.css'
 import clsx from 'clsx'
 
 interface InputTextProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  value: string
+  value?: string
   id?: string
   autoComplete?: string
   className?: string
