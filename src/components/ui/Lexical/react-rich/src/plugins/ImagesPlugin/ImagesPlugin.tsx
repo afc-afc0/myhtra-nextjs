@@ -43,14 +43,13 @@ import { PopoverTrigger } from '@radix-ui/react-popover'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/Tabs/Tabs'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import styles from './ImagesPlugin.module.css'
-import lexicalStyles from '../../Lexical.module.css'
 
 export type InsertImagePayload = Readonly<ImagePayload>
 
 export const INSERT_IMAGE_COMMAND: LexicalCommand<InsertImagePayload> = createCommand('INSERT_IMAGE_COMMAND')
 
 // No need to seperate the functionality for upload in this case we can just use one component letting us upload both
-export function InsertImageDialog({ activeEditor }: { activeEditor: LexicalEditor }): JSX.Element {
+export function InsertImageDialog({ activeEditor, maxWidth }: { activeEditor: LexicalEditor; maxWidth?: number }): JSX.Element {
   const [url, setUrl] = useState('')
   const [file, setFile] = useState<string>('')
   const [open, setOpen] = useState(false)
@@ -76,7 +75,8 @@ export function InsertImageDialog({ activeEditor }: { activeEditor: LexicalEdito
 
         activeEditor.dispatchCommand(INSERT_IMAGE_COMMAND, {
           altText: new Date().toISOString(),
-          src: reader.result
+          src: reader.result,
+          maxWidth: maxWidth || 700
         })
 
         // Close the popover after uploading
@@ -93,7 +93,8 @@ export function InsertImageDialog({ activeEditor }: { activeEditor: LexicalEdito
     if (url) {
       activeEditor.dispatchCommand(INSERT_IMAGE_COMMAND, {
         altText: new Date().toISOString(),
-        src: url
+        src: url,
+        maxWidth: maxWidth || 700
       })
 
       // Close the popover and reset URL
@@ -141,7 +142,7 @@ const TabContentContainer = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles.tabContentContainer}>{children}</div>
 }
 
-export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: boolean }): JSX.Element | null {
+export default function ImagesPlugin({ captionsEnabled, maxWidth }: { captionsEnabled?: boolean; maxWidth?: number }): JSX.Element | null {
   const [editor] = useLexicalComposerContext()
 
   useEffect(() => {
@@ -153,7 +154,10 @@ export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: bo
       editor.registerCommand<InsertImagePayload>(
         INSERT_IMAGE_COMMAND,
         (payload) => {
-          const imageNode = $createImageNode(payload)
+          const imageNode = $createImageNode({
+            ...payload,
+            maxWidth: payload.maxWidth || maxWidth || 700
+          })
           $insertNodes([imageNode])
           if ($isRootOrShadowRoot(imageNode.getParentOrThrow())) {
             $wrapNodeInElement(imageNode, $createParagraphNode).selectEnd()
@@ -185,7 +189,7 @@ export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: bo
         COMMAND_PRIORITY_HIGH
       )
     )
-  }, [captionsEnabled, editor])
+  }, [captionsEnabled, editor, maxWidth])
 
   return null
 }

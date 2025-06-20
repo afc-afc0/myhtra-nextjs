@@ -15,7 +15,7 @@ import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer
 import { HeadingNode, QuoteNode } from '@lexical/rich-text'
 import { ListNode, ListItemNode } from '@lexical/list'
 import { CodeNode, CodeHighlightNode } from '@lexical/code'
-import { forwardRef, ReactElement, useEffect, useState } from 'react'
+import { forwardRef, ReactElement, useEffect, useRef, useState } from 'react'
 import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
 import { CAN_USE_DOM } from './plugins/shared/canUseDOM'
 import { useLexicalEditable } from '@lexical/react/useLexicalEditable'
@@ -40,11 +40,13 @@ import { ImageNode } from './nodes/ImageNode/ImageNode'
 export const LexicalRichText = ({
   onChange,
   readonly = false,
-  initialContent = undefined
+  initialContent = undefined,
+  id
 }: {
   onChange?: any
   readonly?: boolean
   initialContent?: any
+  id?: string
 }) => {
   const editorConfig = {
     namespace: 'Myhtra Editor',
@@ -60,19 +62,20 @@ export const LexicalRichText = ({
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <ToolbarContext>
-        <Editor onChange={onChange} readonly={readonly} />
+        <Editor onChange={onChange} readonly={readonly} id={id} />
       </ToolbarContext>
     </LexicalComposer>
   )
 }
 
-const Editor = ({ onChange, readonly }: { onChange?: any; readonly?: boolean }) => {
+const Editor = ({ onChange, readonly, id }: { onChange?: any; readonly?: boolean; id?: string }) => {
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false)
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null)
   const [isSmallWidthViewport, setIsSmallWidthViewport] = useState<boolean>(false)
   const [editor] = useLexicalComposerContext()
   const [activeEditor, setActiveEditor] = useState(editor)
   const isEditable = useLexicalEditable()
+  const flexContainerRef = useRef<HTMLDivElement>(null)
 
   const onRef = (_floatingAnchorElem: HTMLDivElement) => {
     if (_floatingAnchorElem !== null) {
@@ -96,13 +99,21 @@ const Editor = ({ onChange, readonly }: { onChange?: any; readonly?: boolean }) 
     }
   }, [isSmallWidthViewport])
 
+  const getMaxWidth = () => {
+    if (flexContainerRef.current) {
+      // Subtracting to account for padding or other elements
+      return flexContainerRef.current.offsetWidth - 16
+    }
+    return undefined
+  }
+
   return (
-    <FlexContainer width="100%" borderWidth="m" borderRadius="m">
+    <FlexContainer ref={flexContainerRef} width="100%" borderWidth="m" borderRadius="m">
       <ConditionalDisplay condition={readonly == false}>
-        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} />
+        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} maxWidth={getMaxWidth()} />
       </ConditionalDisplay>
       <FlexContainer width="100%">
-        <RichTextPlugin contentEditable={<Content ref={onRef} />} ErrorBoundary={LexicalErrorBoundary} />
+        <RichTextPlugin contentEditable={<Content ref={onRef} id={id} />} ErrorBoundary={LexicalErrorBoundary} />
         <ShortcutsPlugin editor={activeEditor} setIsLinkEditMode={setIsLinkEditMode} />
         <OnChangePlugin onChange={onChange} />
         <ClearEditorPlugin />
@@ -131,12 +142,14 @@ const Editor = ({ onChange, readonly }: { onChange?: any; readonly?: boolean }) 
 
 type ContentRef = HTMLDivElement
 
-interface ContentProps {}
+interface ContentProps {
+  id?: string
+}
 
-const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement => {
+const Content = forwardRef<ContentRef, ContentProps>(({ id }, ref): ReactElement => {
   return (
     <FlexContainer position="relative" ref={ref} width="100%">
-      <ContentEditable className={styles['editor-input']} />
+      <ContentEditable id={id} className={styles['editor-input']} />
     </FlexContainer>
   )
 })

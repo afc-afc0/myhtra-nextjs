@@ -59,7 +59,7 @@ export default function Home() {
             {/* While using lexical inly initial data is important */}
             <FlexContainer width="100%">
               <Label label="Post content" htmlFor="lexicalContent" />
-              <LexicalRichText initialContent={post?.content} onChange={onChangeLexical} />
+              <LexicalRichText id="updatePostLexical" initialContent={post?.content} onChange={onChangeLexical} />
             </FlexContainer>
             <FlexContainer width="100%" height="auto" alignItems="flex-end">
               <Button

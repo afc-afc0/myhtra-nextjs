@@ -71,7 +71,13 @@ function Divider() {
   return <div className={styles['divider']} />
 }
 
-export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode: Dispatch<boolean> }): JSX.Element {
+export default function ToolbarPlugin({
+  setIsLinkEditMode,
+  maxWidth
+}: {
+  setIsLinkEditMode: Dispatch<boolean>
+  maxWidth?: number
+}): JSX.Element {
   const [editor] = useLexicalComposerContext()
   const [activeEditor, setActiveEditor] = useState(editor)
   const [blockType, setBlockType] = useState<keyof typeof blockTypeToBlockName>(blockTypes.paragraph.value)
@@ -473,7 +479,7 @@ export default function ToolbarPlugin({ setIsLinkEditMode }: { setIsLinkEditMode
         <Button icon={<ClearFormattionSVG />} onClick={clearFormatting} aria-label="Clear Formatting" size="xs" />
       </ConditionalDisplay>
       <ConditionalDisplay condition={true}>
-        <InsertImageDialog activeEditor={activeEditor} />
+        <InsertImageDialog activeEditor={activeEditor} maxWidth={maxWidth} />
       </ConditionalDisplay>
     </Container>
   )

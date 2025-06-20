@@ -82,6 +82,7 @@ const Context = createContext<ContextShape | undefined>(undefined)
 
 export const ToolbarContext = ({ children }: { children: ReactNode }): JSX.Element => {
   const [toolbarState, setToolbarState] = useState(INITIAL_TOOLBAR_STATE)
+
   const selectionFontSize = toolbarState.fontSize
 
   const updateToolbarState = useCallback(<Key extends ToolbarStateKey>(key: Key, value: ToolbarStateValue<Key>) => {

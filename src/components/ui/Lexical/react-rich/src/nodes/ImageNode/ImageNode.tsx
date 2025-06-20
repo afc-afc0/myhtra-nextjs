@@ -171,7 +171,7 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
   }
 }
 
-export function $createImageNode({ altText, height, maxWidth = 500, src, width, key }: ImagePayload): ImageNode {
+export function $createImageNode({ altText, height, maxWidth = 700, src, width, key }: ImagePayload): ImageNode {
   return $applyNodeReplacement(new ImageNode(src, altText, maxWidth, width, height, key))
 }
 
