@@ -308,6 +308,7 @@ export default function ImageComponent({
       editor.registerCommand(
         DRAGSTART_COMMAND,
         (event) => {
+          console.log('ImageComponent: DRAGSTART_COMMAND', event)
           if (event.target === imageRef.current) {
             // TODO This is just a temporary workaround for FF to behave like other browsers.
             // Ideally, this handles drag & drop too (and all browsers).

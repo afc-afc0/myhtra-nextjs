@@ -43,6 +43,7 @@ import { PopoverTrigger } from '@radix-ui/react-popover'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/Tabs/Tabs'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import styles from './ImagesPlugin.module.css'
+import lexicalStyles from '../../Lexical.module.css'
 
 export type InsertImagePayload = Readonly<ImagePayload>
 
@@ -205,6 +206,7 @@ function getTransparentImage(): HTMLImageElement | null {
 }
 
 function $onDragStart(event: DragEvent): boolean {
+  console.log('onDragStart', event)
   const transparentImg = getTransparentImage()
   if (transparentImg) {
     // Use transparentImg here
@@ -245,6 +247,7 @@ function $onDragover(event: DragEvent): boolean {
     return false
   }
   if (!canDropImage(event)) {
+    console.warn('Cannot drop image here')
     event.preventDefault()
   }
   return true
@@ -307,9 +310,9 @@ function canDropImage(event: DragEvent): boolean {
   const target = event.target
   return !!(
     isHTMLElement(target) &&
-    !target.closest('code, span.editor-image') &&
+    !target.closest(`code, span.${styles['editor-image']}`) &&
     isHTMLElement(target.parentElement) &&
-    target.parentElement.closest('div.ContentEditable__root')
+    target.parentElement.closest(`${styles['editor-input']}`) === null
   )
 }
 

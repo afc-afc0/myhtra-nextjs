@@ -121,7 +121,7 @@ const Editor = ({ onChange, readonly }: { onChange?: any; readonly?: boolean }) 
             setIsLinkEditMode={setIsLinkEditMode}
           />
         </ConditionalDisplay>
-        <ImagesPlugin />
+        <ImagesPlugin captionsEnabled={false} />
         <ShortcutsPlugin editor={activeEditor} setIsLinkEditMode={setIsLinkEditMode} />
         {/* <AutoFocusPlugin /> */}
       </FlexContainer>
@@ -141,6 +141,6 @@ const Content = forwardRef<ContentRef, ContentProps>((props, ref): ReactElement 
   )
 })
 
-Content.displayName = 'Content' // This helps with debugging
+Content.displayName = 'Content'
 
 export default Content
