@@ -24,34 +24,16 @@ export function ThemeSwitch() {
   return (
     <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
       <PopoverTrigger asChild>
-        <Toggle 
-          isPressed={isPopoverOpen}
-          icon={<DarkModeSVG />}
-          size='m'
-          aria-label='Theme'
-        />
+        <Toggle isPressed={isPopoverOpen} icon={<DarkModeSVG />} size="m" aria-label="Theme" />
       </PopoverTrigger>
       <PopoverContent>
-        <FlexContainer flexDirection='column' gapSize='s'>
-          <Button
-            text='System'
-            onClick={() => setTheme('system')}
-            size='m'
-          />
-          <Button
-            text='Dark'
-            onClick={() => setTheme('dark')}
-            size='m'
-          />
-          <Button
-            text='Light'
-            onClick={() => setTheme('light')}
-            size='m'
-          />
+        <FlexContainer flexDirection="column" gapSize="s">
+          <Button text="System" onClick={() => setTheme('system')} size="m" />
+          <Button text="Dark" onClick={() => setTheme('dark')} size="m" />
+          <Button text="Light" onClick={() => setTheme('light')} size="m" />
         </FlexContainer>
       </PopoverContent>
     </Popover>
-
 
     // <select value={theme} onChange={e => setTheme(e.target.value)}>
     //   <option value="system">System</option>

@@ -17,27 +17,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ text, className, loading, icon, size = 'm', onClick, asChild = false, disabled = false, active, ...props }: ButtonProps, ref) => {
     return (
-      <button 
-        className={clsx(styles.button, active && styles.active, loading && styles.loading, className)} 
+      <button
+        className={clsx(styles.button, active && styles.active, loading && styles.loading, className)}
         disabled={disabled || loading}
-        onClick={onClick} 
+        onClick={onClick}
         data-size={size}
         data-icon-only={icon != null && text == null}
         ref={ref}
         {...props}
       >
         <ConditionalDisplay condition={text != null}>
-          <span className={clsx(
-            text && styles.text, 
-            icon && text && styles.marginRight
-          )}
-          >
-            {text}
-          </span>
+          <span className={clsx(text && styles.text, icon && text && styles.marginRight)}>{text}</span>
         </ConditionalDisplay>
-        <ConditionalDisplay condition={icon != null}>
-          {icon}
-        </ConditionalDisplay>
+        <ConditionalDisplay condition={icon != null}>{icon}</ConditionalDisplay>
       </button>
     )
   }

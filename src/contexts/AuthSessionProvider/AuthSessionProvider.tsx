@@ -1,8 +1,8 @@
 'use client'
 
 import React, { createContext, useContext, useEffect } from 'react'
-import { SessionProvider, useSession, signOut } from "next-auth/react"
-import { useQuery } from "@tanstack/react-query"
+import { SessionProvider, useSession, signOut } from 'next-auth/react'
+import { useQuery } from '@tanstack/react-query'
 import { keycloakSessionLogOut } from '@components/ui/Auth/AuthController/AuthController'
 
 const UserInfoContext = createContext<any>(null)
@@ -10,9 +10,7 @@ const UserInfoContext = createContext<any>(null)
 export const AuthSessionProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <SessionProvider refetchInterval={12 * 60} refetchOnWindowFocus>
-      <GlobalSessionHandler>
-        {children}
-      </GlobalSessionHandler>
+      <GlobalSessionHandler>{children}</GlobalSessionHandler>
     </SessionProvider>
   )
 }
@@ -22,7 +20,7 @@ const GlobalSessionHandler = ({ children }: { children: React.ReactNode }) => {
 
   const fetchUserInfo = async () => {
     const response = await fetch('/api/user')
-    
+
     if (!response.ok) {
       throw new Error('Failed to fetch user info')
     }
@@ -31,10 +29,10 @@ const GlobalSessionHandler = ({ children }: { children: React.ReactNode }) => {
     return data
   }
 
-  const { data: userInfo } = useQuery({ 
-    queryKey: ['userInfo', session?.user?.id], 
+  const { data: userInfo } = useQuery({
+    enabled: status === 'authenticated',
     queryFn: fetchUserInfo,
-    enabled: status === 'authenticated'
+    queryKey: ['userInfo', session?.user?.id]
   })
 
   useEffect(() => {
@@ -48,11 +46,7 @@ const GlobalSessionHandler = ({ children }: { children: React.ReactNode }) => {
     }
   }, [session, status])
 
-  return (
-    <UserInfoContext.Provider value={userInfo}>
-      {children}
-    </UserInfoContext.Provider>
-  )
+  return <UserInfoContext.Provider value={userInfo}>{children}</UserInfoContext.Provider>
 }
 
 // Custom hook to use the user info

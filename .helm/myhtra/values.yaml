@@ -2,13 +2,13 @@ image:
   containerName: nextjs
   repository: icanjump/myhtra-nextjs
   pullPolicy: Always
-  tag: "latest"  
+  tag: 'latest'
   containerPort: 3000
   secretName: myhtra-nextjs-environment
-  
+
 service:
   name: myhtra-service
-  type: LoadBalancer 
+  type: LoadBalancer
   port: 80
 
 resources: {}
@@ -28,7 +28,7 @@ ingress:
 
 # For TLS
 podLabels:
-  azure.workload.identity/use: "true"
+  azure.workload.identity/use: 'true'
 serviceAccount:
   labels:
-    azure.workload.identity/use: "true"
+    azure.workload.identity/use: 'true'

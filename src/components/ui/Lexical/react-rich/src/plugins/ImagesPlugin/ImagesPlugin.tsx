@@ -75,8 +75,8 @@ export function InsertImageDialog({ activeEditor, maxWidth }: { activeEditor: Le
 
         activeEditor.dispatchCommand(INSERT_IMAGE_COMMAND, {
           altText: new Date().toISOString(),
-          src: reader.result,
-          maxWidth: maxWidth || 700
+          maxWidth: maxWidth || 700,
+          src: reader.result
         })
 
         // Close the popover after uploading
@@ -93,8 +93,8 @@ export function InsertImageDialog({ activeEditor, maxWidth }: { activeEditor: Le
     if (url) {
       activeEditor.dispatchCommand(INSERT_IMAGE_COMMAND, {
         altText: new Date().toISOString(),
-        src: url,
-        maxWidth: maxWidth || 700
+        maxWidth: maxWidth || 700,
+        src: url
       })
 
       // Close the popover and reset URL

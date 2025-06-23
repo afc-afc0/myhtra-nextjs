@@ -3,7 +3,7 @@ import styles from './Text.module.css'
 
 export enum TextType {
   TEXT = 'text',
-  LINK = 'link',
+  LINK = 'link'
 }
 
 interface TextProps {
@@ -15,10 +15,10 @@ interface TextProps {
   type?: TextType
 }
 
-export const Text = ({ text, fontSize = 'm', fontWeight = 'medium', type = TextType.TEXT, display = 'block' } : TextProps) => {
+export const Text = ({ text, fontSize = 'm', fontWeight = 'medium', type = TextType.TEXT, display = 'block' }: TextProps) => {
   return (
     <div className={clsx(styles.text)} data-size={fontSize} data-font-weight={fontWeight} data-type={type} data-display={display}>
-      { text }
+      {text}
     </div>
   )
 }

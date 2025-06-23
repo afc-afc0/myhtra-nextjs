@@ -17,7 +17,8 @@
   transition: all var(--transition-duration) ease;
 }
 
-.trigger:hover, .trigger:focus {
+.trigger:hover,
+.trigger:focus {
   text-decoration: underline;
   cursor: pointer;
   background-color: var(--action-color-transition);
@@ -25,24 +26,26 @@
 }
 
 /* For making <Text /> change color */
-.trigger:hover div, .trigger:focus div {
+.trigger:hover div,
+.trigger:focus div {
   color: var(--text-color-secondary);
 }
 
 /* For making <SVG /> component color change */
-.trigger:hover svg, .trigger:focus svg {
+.trigger:hover svg,
+.trigger:focus svg {
   fill: var(--text-color-secondary);
 }
- 
+
 .trigger svg {
   transition: transform var(--transition-duration) ease-in-out;
 }
 
-.trigger[data-state="open"] svg {
+.trigger[data-state='open'] svg {
   animation: rotateDown var(--transition-duration) forwards;
 }
 
-.trigger[data-state="closed"] svg {
+.trigger[data-state='closed'] svg {
   animation: rotateUp var(--transition-duration) forwards;
 }
 
@@ -74,15 +77,15 @@
 
 .content {
   overflow: hidden;
-  font-size: 0.875rem; 
+  font-size: 0.875rem;
   transition: height var(--transition-duration) ease-out;
 }
 
-.content[data-state="open"] {
+.content[data-state='open'] {
   animation: accordionDown var(--transition-duration) ease-out forwards;
 }
 
-.content[data-state="closed"] {
+.content[data-state='closed'] {
   animation: accordionUp var(--transition-duration) ease-out forwards;
 }
 

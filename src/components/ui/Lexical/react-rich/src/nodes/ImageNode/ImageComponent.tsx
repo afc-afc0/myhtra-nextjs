@@ -35,6 +35,7 @@ import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import brokenImage from '@public/svgs/image-broken.svg'
 import { $isImageNode } from './ImageNode'
 import ImageResizer from './ImageResizer'
+import Image from 'next/image'
 
 const imageCache = new Map<string, Promise<boolean> | boolean>()
 
@@ -46,7 +47,7 @@ function useSuspenseImage(src: string) {
     return cached
   } else if (!cached) {
     cached = new Promise<boolean>((resolve) => {
-      const img = new Image()
+      const img = new window.Image()
       img.src = src
       img.onload = () => resolve(false)
       img.onerror = () => resolve(true)
@@ -154,7 +155,7 @@ function LazyImage({
   const imageStyle = calculateDimensions()
 
   return (
-    <img
+    <Image
       className={className || undefined}
       src={src}
       alt={altText}
@@ -177,7 +178,7 @@ function LazyImage({
 
 function BrokenImage(): JSX.Element {
   return (
-    <img
+    <Image
       src={brokenImage}
       style={{
         height: 200,

@@ -1,5 +1,5 @@
-import { Position } from "@components/simpleflow/shared/types"
-import { createContext, useState, Dispatch, SetStateAction } from "react"
+import { Position } from '@components/simpleflow/shared/types'
+import { createContext, useState, Dispatch, SetStateAction } from 'react'
 
 interface Viewport {
   position: Position
@@ -20,10 +20,5 @@ interface CanvasProviderProps {
 export const CanvasProvider: React.FC<CanvasProviderProps> = ({ children }) => {
   const [viewport, setViewport] = useState<Viewport>({ position: { x: 0, y: 0 }, zoom: 1 })
 
-  return (
-    <CanvasContext.Provider value={{ viewport, setViewport }}>
-      { children }
-    </CanvasContext.Provider>
-  )
+  return <CanvasContext.Provider value={{ setViewport, viewport }}>{children}</CanvasContext.Provider>
 }
-

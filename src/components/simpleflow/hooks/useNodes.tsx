@@ -1,11 +1,6 @@
-import { useState } from "react"
+import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { 
-  Position, 
-  BaseNodePayload, 
-  BaseNodeProps,
-  NodeData 
-} from "@components/simpleflow/shared/types"
+import { Position, BaseNodePayload, BaseNodeProps, NodeData } from '@components/simpleflow/shared/types'
 
 export type NodesState<T extends NodeData> = Record<string, BaseNodeProps<T>>
 
@@ -23,14 +18,14 @@ export const useNodes = <T extends NodeData>() => {
       payload
     }
 
-    setNodes(prevNodes => ({
+    setNodes((prevNodes) => ({
       ...prevNodes,
       [newNode.id]: newNode
     }))
   }
 
   const updateNodePosition = ({ id, position }: UpdateNodePositionProps) => {
-    setNodes(prevNodes => {
+    setNodes((prevNodes) => {
       const node = prevNodes[id]
       if (!node) return prevNodes
 
@@ -48,8 +43,8 @@ export const useNodes = <T extends NodeData>() => {
   }
 
   return {
-    nodes,
     addNode,
+    nodes,
     updateNodePosition
   } as const
 }

@@ -17,8 +17,8 @@ export default function Home() {
 
   const { post } = useGetPost({ postId })
   const { loading, updatePostRequest, onChangeLexical, handleUpdate, isSubmittable, handleUpdatePostRequestChange } = useUpdatePost({
-    postId: postId,
-    initialPost: post
+    initialPost: post,
+    postId: postId
   })
 
   return (

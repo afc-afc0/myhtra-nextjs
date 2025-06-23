@@ -1,6 +1,6 @@
-import { agent } from "@utils/http/nodeFetchAgent"
-import { getAccessToken } from "@utils/nextAuth/getAccessToken"
-import fetch from "node-fetch"
+import { agent } from '@utils/http/nodeFetchAgent'
+import { getAccessToken } from '@utils/nextAuth/getAccessToken'
+import fetch from 'node-fetch'
 
 export const dynamic = 'force-dynamic'
 
@@ -11,24 +11,23 @@ export async function GET(req: any) {
     const accessToken = await getAccessToken({ req })
 
     const res = await fetch(`${api}/Post/Me`, {
+      agent: agent,
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
       },
-      method: "GET",
-      agent: agent
+      method: 'GET'
     })
 
     if (!res.ok) {
-      const error = await res.text() 
-      throw new Error("Failed to fetch error: " + error)
+      const error = await res.text()
+      throw new Error('Failed to fetch error: ' + error)
     }
-    
+
     const data = await res.json()
     return Response.json(data, { status: res.status })
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error)
-    return Response.json({ error: "Internal Server Error" }, { status: 500 })
+    return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }

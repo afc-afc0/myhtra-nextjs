@@ -17,11 +17,7 @@ export const SimpleFlow = ({}) => {
 }
 
 const CanvasContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <CanvasProvider>
-      { children }
-    </CanvasProvider>
-  )
+  return <CanvasProvider>{children}</CanvasProvider>
 }
 
 const Canvas = ({ children }: { children?: React.ReactNode }) => {
@@ -38,21 +34,21 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     const { offsetX, offsetY } = e.nativeEvent
-  
+
     if (e.dataTransfer.getData('text/plain') === '') return
-  
+
     try {
       const draggedPayload = JSON.parse(e.dataTransfer.getData('text/plain'))
-      
+
       // Ensure the payload has the required structure
       if ('type' in draggedPayload && 'data' in draggedPayload) {
         addNode({
-          type: draggedPayload.type,
+          data: draggedPayload.data,
           position: {
             x: offsetX - viewport.x,
             y: offsetY - viewport.y
           },
-          data: draggedPayload.data
+          type: draggedPayload.type
         } as BaseNodePayload<NodeData>)
       }
     } catch (error) {
@@ -90,8 +86,8 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
     <>
       <CircleDraggable />
       <StartDraggable />
-      <div 
-        ref={ref} 
+      <div
+        ref={ref}
         className={styles.canvas}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
@@ -101,15 +97,14 @@ const Canvas = ({ children }: { children?: React.ReactNode }) => {
         onMouseLeave={handleMouseLeave}
         style={{
           position: 'relative',
-          translate: `translate(${viewport.x}px, ${viewport.y}px)`,
           transition: isDraggingCanvas ? 'none' : 'transform 0.1s ease-out',
+          translate: `translate(${viewport.x}px, ${viewport.y}px)`,
           zIndex: 1
         }}
       >
         <Nodes nodes={nodes} />
-        { children }
+        {children}
       </div>
     </>
   )
 }
-

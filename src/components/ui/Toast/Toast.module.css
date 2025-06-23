@@ -50,7 +50,7 @@
   margin-right: auto;
 }
 
-.toast > *:nth-last-child(-n+2) {
+.toast > *:nth-last-child(-n + 2) {
   margin-left: var(--padding-s);
 }
 

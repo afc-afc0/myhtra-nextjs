@@ -9,9 +9,9 @@
 
 .imageContainer {
   width: 30%;
-  border-radius: var(--border-radius); 
+  border-radius: var(--border-radius);
   box-shadow:
-     20px 0px 15px -20px var(--secondary-color),
+    20px 0px 15px -20px var(--secondary-color),
     -20px 0px 15px -20px var(--secondary-color);
   overflow: hidden;
 }
@@ -53,7 +53,7 @@
   }
 
   .imageContainer {
-    display: none;   
- /* width: 100%; */
+    display: none;
+    /* width: 100%; */
   }
 }

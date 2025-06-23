@@ -4,7 +4,7 @@
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
   line-height: normal;
   color: var(--text-color);
@@ -39,11 +39,11 @@
   margin-right: var(--margin-xss);
 }
 
-.text { 
+.text {
   letter-spacing: 0.03em;
 }
 
-.button.loading .text{
+.button.loading .text {
   visibility: hidden;
   opacity: 0;
 }
@@ -54,7 +54,7 @@
 }
 
 .button.loading::after {
-  content: "";
+  content: '';
   position: absolute;
   width: var(--icon-size-s);
   height: var(--icon-size-s);
@@ -71,69 +71,69 @@
 
 @keyframes button-loading-spinner {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-} 
+}
 
-.button[data-icon-only="true"] {
+.button[data-icon-only='true'] {
   aspect-ratio: 1 / 1;
   padding: 0;
 }
 
-.button[data-size="xs"] {
+.button[data-size='xs'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-xs);
   font-size: var(--font-size-xs);
 }
 
-.button[data-size="s"] {
+.button[data-size='s'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-s);
   font-size: var(--font-size-s);
 }
 
-.button[data-size="m"] {
+.button[data-size='m'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-m);
   font-size: var(--font-size-s);
 }
 
-.button[data-size="l"] {
+.button[data-size='l'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-l);
   font-size: var(--font-size-m);
 }
 
-.button[data-size="xl"] {
+.button[data-size='xl'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-xl);
   font-size: var(--font-size-l);
 }
 
-.button[data-size="xs"] svg {
+.button[data-size='xs'] svg {
   width: var(--icon-size-xs);
   height: var(--icon-size-xs);
 }
 
-.button[data-size="s"] svg {
+.button[data-size='s'] svg {
   width: var(--icon-size-s);
   height: var(--icon-size-s);
 }
 
-.button[data-size="m"] svg {
+.button[data-size='m'] svg {
   width: var(--icon-size-m);
   height: var(--icon-size-m);
 }
 
-.button[data-size="l"] svg {
+.button[data-size='l'] svg {
   width: var(--icon-size-l);
   height: var(--icon-size-l);
 }
 
-.button[data-size="xl"] svg {
+.button[data-size='xl'] svg {
   width: var(--icon-size-xl);
   height: var(--icon-size-xl);
 }

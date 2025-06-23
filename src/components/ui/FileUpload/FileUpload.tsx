@@ -3,8 +3,6 @@ import { FlexContainer } from '../Layout/FlexContainer/FlexContainer'
 import styles from './FileUpload.module.css'
 
 export const FileUploadWithLink = () => {
-  
-  
   return (
     <FlexContainer flexDirection="column">
       <Input

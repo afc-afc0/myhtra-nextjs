@@ -157,9 +157,9 @@ export default function Home() {
                 text="Toast"
                 onClick={() =>
                   toast({
-                    title: <Text text="Please sign in to create post" fontSize="xl" />,
+                    action: <Button onClick={() => signIn('keycloak')} />,
                     description: <Text text="description" />,
-                    action: <Button onClick={() => signIn('keycloak')} />
+                    title: <Text text="Please sign in to create post" fontSize="xl" />
                   })
                 }
               />

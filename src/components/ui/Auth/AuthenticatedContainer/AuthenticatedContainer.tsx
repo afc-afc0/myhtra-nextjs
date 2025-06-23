@@ -1,14 +1,22 @@
-import { ConditionalDisplay } from "@components/ui/ConditionalDisplay/ConditionalDisplay"
-import { Text } from "@components/ui/Text/Text"
-import { useSession } from "next-auth/react"
+import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
+import { Text } from '@components/ui/Text/Text'
+import { useSession } from 'next-auth/react'
 
 // Roles pending implementation
-export const AuthenticatedContainer = ({ children, loadingComponent, roles = ['user'] } : { children: React.ReactNode, loadingComponent?: React.ReactNode, roles?: string[] }) => {
+export const AuthenticatedContainer = ({
+  children,
+  loadingComponent,
+  roles = ['user']
+}: {
+  children: React.ReactNode
+  loadingComponent?: React.ReactNode
+  roles?: string[]
+}) => {
   const { status } = useSession({ required: true })
 
   if (status === 'loading') {
     return loadingComponent || <Text text="Loading Profile" />
-  } 
+  }
 
   return children
 }

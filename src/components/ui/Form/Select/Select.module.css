@@ -33,19 +33,19 @@
   background-color: var(--background-color);
 }
 
-.trigger[data-size="xs"] {
+.trigger[data-size='xs'] {
   height: var(--border-box-height-xs);
 }
-.trigger[data-size="s"] {
+.trigger[data-size='s'] {
   height: var(--border-box-height-s);
 }
-.trigger[data-size="m"] {
+.trigger[data-size='m'] {
   height: var(--border-box-height-m);
 }
-.trigger[data-size="l"] {
+.trigger[data-size='l'] {
   height: var(--border-box-height-l);
 }
-.trigger[data-size="xl"] {
+.trigger[data-size='xl'] {
   height: var(--border-box-height-xl);
 }
 
@@ -59,11 +59,11 @@
   min-width: var(--radix-select-trigger-width);
 }
 
-.content[data-state="open"] {
+.content[data-state='open'] {
   animation: enter 0.25s;
 }
 
-.content[data-state="closed"] {
+.content[data-state='closed'] {
   animation: exit 0.25;
 }
 

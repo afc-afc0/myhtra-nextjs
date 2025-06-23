@@ -6,12 +6,10 @@ interface PageContainerProps {
   children: React.ReactNode
 }
 
-export const PageContainer = ({ removeNavbarPadding = false, children } : PageContainerProps) => {
+export const PageContainer = ({ removeNavbarPadding = false, children }: PageContainerProps) => {
   return (
     <main className={clsx(styles.pageContainer, removeNavbarPadding && styles.removePadding)}>
-      <div className={styles.page} >
-        { children }
-      </div>
+      <div className={styles.page}>{children}</div>
     </main>
   )
 }

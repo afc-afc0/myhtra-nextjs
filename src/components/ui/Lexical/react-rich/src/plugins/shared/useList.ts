@@ -6,7 +6,7 @@
  *
  */
 
-import type {LexicalEditor} from 'lexical';
+import type { LexicalEditor } from 'lexical'
 
 import {
   $handleListInsertParagraph,
@@ -14,11 +14,11 @@ import {
   INSERT_UNORDERED_LIST_COMMAND,
   insertList,
   REMOVE_LIST_COMMAND,
-  removeList,
-} from '@lexical/list';
-import {mergeRegister} from '@lexical/utils';
-import {COMMAND_PRIORITY_LOW, INSERT_PARAGRAPH_COMMAND} from 'lexical';
-import {useEffect} from 'react';
+  removeList
+} from '@lexical/list'
+import { mergeRegister } from '@lexical/utils'
+import { COMMAND_PRIORITY_LOW, INSERT_PARAGRAPH_COMMAND } from 'lexical'
+import { useEffect } from 'react'
 
 export function useList(editor: LexicalEditor): void {
   useEffect(() => {
@@ -26,40 +26,40 @@ export function useList(editor: LexicalEditor): void {
       editor.registerCommand(
         INSERT_ORDERED_LIST_COMMAND,
         () => {
-          insertList(editor, 'number');
-          return true;
+          insertList(editor, 'number')
+          return true
         },
-        COMMAND_PRIORITY_LOW,
+        COMMAND_PRIORITY_LOW
       ),
       editor.registerCommand(
         INSERT_UNORDERED_LIST_COMMAND,
         () => {
-          insertList(editor, 'bullet');
-          return true;
+          insertList(editor, 'bullet')
+          return true
         },
-        COMMAND_PRIORITY_LOW,
+        COMMAND_PRIORITY_LOW
       ),
       editor.registerCommand(
         REMOVE_LIST_COMMAND,
         () => {
-          removeList(editor);
-          return true;
+          removeList(editor)
+          return true
         },
-        COMMAND_PRIORITY_LOW,
+        COMMAND_PRIORITY_LOW
       ),
       editor.registerCommand(
         INSERT_PARAGRAPH_COMMAND,
         () => {
-          const hasHandledInsertParagraph = $handleListInsertParagraph();
+          const hasHandledInsertParagraph = $handleListInsertParagraph()
 
           if (hasHandledInsertParagraph) {
-            return true;
+            return true
           }
 
-          return false;
+          return false
         },
-        COMMAND_PRIORITY_LOW,
-      ),
-    );
-  }, [editor]);
+        COMMAND_PRIORITY_LOW
+      )
+    )
+  }, [editor])
 }

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from "next/navigation";
-import { useOnChange } from "@components/ui/Lexical/react-rich/src/plugins/shared/useOnChange";
+import { useEffect, useState } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+import { useOnChange } from '@components/ui/Lexical/react-rich/src/plugins/shared/useOnChange'
 
 interface Post {
   id: string
@@ -24,23 +24,23 @@ export const useCreatePost = () => {
   const [createPostRequest, setCreatePostRequest] = useState<CreatePostRequest>({ name: '' })
 
   const redirectToPost = (postId: string) => {
-    router.push(`/blog/update/${postId}`)      
+    router.push(`/blog/update/${postId}`)
   }
 
-  const createPost = async (post: CreatePostRequest) => {  
+  const createPost = async (post: CreatePostRequest) => {
     const response = await fetch(`/api/post`, {
-      method: 'POST',
+      body: JSON.stringify(createPostRequest),
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(createPostRequest)
+      method: 'POST'
     })
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Network response was not ok')
     }
 
-    return await response.json() as Post
+    return (await response.json()) as Post
   }
 
   const mutation = useMutation({
@@ -51,14 +51,14 @@ export const useCreatePost = () => {
     onSuccess: (data: Post) => {
       queryClient.setQueryData(['post', data.id], data)
       redirectToPost(data.id)
-    },
+    }
   })
 
   const handleCreatePost = () => {
     mutation.mutate(createPostRequest)
   }
 
-  return { loading: mutation.isPending, createPostRequest, setCreatePostRequest, handleCreatePost }
+  return { createPostRequest, handleCreatePost, loading: mutation.isPending, setCreatePostRequest }
 }
 
 interface UpdatePostRequest {
@@ -67,9 +67,9 @@ interface UpdatePostRequest {
   isPublished: boolean
 }
 
-const defaultUpdatePostRequest : UpdatePostRequest = { name: '', content: undefined, isPublished: false }
+const defaultUpdatePostRequest: UpdatePostRequest = { content: undefined, isPublished: false, name: '' }
 
-export const useUpdatePost = ({ postId, initialPost }: { postId: string | string[], initialPost?: UpdatePostRequest }) => {
+export const useUpdatePost = ({ postId, initialPost }: { postId: string | string[]; initialPost?: UpdatePostRequest }) => {
   const queryClient = useQueryClient()
   const [isLexicalEmpty, setLexicalEmpty] = useState<boolean>(false)
   const [updatePostRequest, setUpdatePostRequest] = useState<UpdatePostRequest>(initialPost ?? defaultUpdatePostRequest)
@@ -79,32 +79,32 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
     if (initialPost && initialPost !== updatePostRequest) {
       setUpdatePostRequest(initialPost)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPost])
 
   const onChangeLexical = useOnChange(
     (content: string) => {
-      handleUpdatePostRequestChange({ content });
+      handleUpdatePostRequestChange({ content })
     },
     (canSubmit: boolean) => {
-      setLexicalEmpty(!canSubmit);
+      setLexicalEmpty(!canSubmit)
     }
   )
 
   const updatePost = async (post: UpdatePostRequest) => {
     const response = await fetch(`/api/post/${postId}`, {
-      method: 'PUT',
+      body: JSON.stringify(post),
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(post)
+      method: 'PUT'
     })
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Network response was not ok')
     }
 
-    return await response.json() as Post
+    return (await response.json()) as Post
   }
 
   const mutation = useMutation({
@@ -114,7 +114,7 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
     },
     onSuccess: (data: Post) => {
       queryClient.setQueryData(['post', data.id], data)
-    },
+    }
   })
 
   const handleUpdate = (post: UpdatePostRequest) => {
@@ -122,27 +122,26 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
   }
 
   const handleUpdatePostRequestChange = (postUpdate: Partial<UpdatePostRequest>) => {
-    setUpdatePostRequest(prev => ({ ...prev, ...postUpdate }))
+    setUpdatePostRequest((prev) => ({ ...prev, ...postUpdate }))
   }
 
-  return { 
-    loading: mutation.isPending, 
-    updatePostRequest, 
+  return {
+    handleUpdate,
     handleUpdatePostRequestChange,
+    isSubmittable: !isLexicalEmpty && updatePostRequest.name,
+    loading: mutation.isPending,
     onChangeLexical,
-    handleUpdate, 
-    isSubmittable: !isLexicalEmpty && updatePostRequest.name
+    updatePostRequest
   }
 }
 
-export const useGetPost = ({ postId } : { postId: string | string[] }) => {
-  
+export const useGetPost = ({ postId }: { postId: string | string[] }) => {
   const fetchPost = async () => {
     const response = await fetch(`/api/post/${postId}`, {
-      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-      }
+        'Content-Type': 'application/json'
+      },
+      method: 'GET'
     })
 
     if (!response.ok) {
@@ -153,7 +152,7 @@ export const useGetPost = ({ postId } : { postId: string | string[] }) => {
     return data ?? []
   }
 
-  const { data: post } = useQuery({ queryKey: ['post', postId], queryFn: fetchPost })
-  
+  const { data: post } = useQuery({ queryFn: fetchPost, queryKey: ['post', postId] })
+
   return { post }
 }

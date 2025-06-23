@@ -1,15 +1,14 @@
 'use client'
 
-import * as React from "react"
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-import clsx from "clsx"
+import * as React from 'react'
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
+import clsx from 'clsx'
 
 import styles from './DropdownMenu.module.css'
-import { ChevronRightSVG } from "../SVG/SVG"
-import { Button } from "../Button/Button"
+import { ChevronRightSVG } from '../SVG/SVG'
+import { Button } from '../Button/Button'
 
 // This component is not completed
-
 
 export const DropdownMenu = DropdownMenuPrimitive.Root
 
@@ -34,7 +33,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
     className={clsx(
       styles.subTrigger,
       // "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
-      inset && "pl-8",
+      inset && 'pl-8',
       className
     )}
     {...props}
@@ -43,7 +42,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
     <ChevronRightSVG />
   </DropdownMenuPrimitive.SubTrigger>
 ))
-DropdownMenuSubTrigger.displayName = "DropdownMenuSubTrigger"
+DropdownMenuSubTrigger.displayName = 'DropdownMenuSubTrigger'
 
 export const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -59,7 +58,7 @@ export const DropdownMenuSubContent = React.forwardRef<
     {...props}
   />
 ))
-DropdownMenuSubContent.displayName = "DropdownMenuSubContent"
+DropdownMenuSubContent.displayName = 'DropdownMenuSubContent'
 
 export const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
@@ -69,11 +68,10 @@ export const DropdownMenuContent = React.forwardRef<
     <DropdownMenuPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
-
       className={clsx(
         styles.menuContent,
-        // "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md 
-        // data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 
+        // "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md
+        // data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2
         // data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
@@ -89,15 +87,7 @@ export const DropdownMenuItem = React.forwardRef<
     inset?: boolean
   }
 >(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Item
-    ref={ref}
-    className={clsx(
-      styles.menuItem,
-      inset && styles.inset,
-      className
-    )}
-    {...props}
-  />
+  <DropdownMenuPrimitive.Item ref={ref} className={clsx(styles.menuItem, inset && styles.inset, className)} {...props} />
 ))
 DropdownMenuItem.displayName = 'DropdownMenuItem'
 
@@ -123,7 +113,6 @@ DropdownMenuItem.displayName = 'DropdownMenuItem'
 //   </DropdownMenuPrimitive.CheckboxItem>
 // ))
 // DropdownMenuCheckboxItem.displayName = 'DropdownMenuCheckboxItem'
-
 
 // const DropdownMenuRadioItem = React.forwardRef<
 //   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
@@ -153,15 +142,7 @@ export const DropdownMenuLabel = React.forwardRef<
     inset?: boolean
   }
 >(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Label
-    ref={ref}
-    className={clsx(
-      styles.menuLabel,
-      inset && styles.inset,
-      className
-    )}
-    {...props}
-  />
+  <DropdownMenuPrimitive.Label ref={ref} className={clsx(styles.menuLabel, inset && styles.inset, className)} {...props} />
 ))
 DropdownMenuLabel.displayName = 'DropdownMenuLabel'
 
@@ -169,23 +150,11 @@ export const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <DropdownMenuPrimitive.Separator
-    ref={ref}
-    className={clsx(styles.menuSeparator, className)}
-    {...props}
-  />
+  <DropdownMenuPrimitive.Separator ref={ref} className={clsx(styles.menuSeparator, className)} {...props} />
 ))
 DropdownMenuSeparator.displayName = 'DropdownMenuSeparator'
 
-export const DropdownMenuShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
-    <span
-      className={clsx(styles.menuShortcut, className)}
-      {...props}
-    />
-  )
+export const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+  return <span className={clsx(styles.menuShortcut, className)} {...props} />
 }
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
+DropdownMenuShortcut.displayName = 'DropdownMenuShortcut'

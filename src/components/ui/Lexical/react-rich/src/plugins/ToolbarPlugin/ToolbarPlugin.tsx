@@ -12,15 +12,11 @@ import {
   CAN_REDO_COMMAND,
   CAN_UNDO_COMMAND,
   COMMAND_PRIORITY_CRITICAL,
-  COMMAND_PRIORITY_NORMAL,
   ElementFormatType,
   FORMAT_ELEMENT_COMMAND,
   FORMAT_TEXT_COMMAND,
-  INDENT_CONTENT_COMMAND,
-  KEY_MODIFIER_COMMAND,
   LexicalEditor,
   NodeKey,
-  OUTDENT_CONTENT_COMMAND,
   REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND
@@ -29,11 +25,11 @@ import { Dispatch, JSX, useCallback, useEffect, useRef, useState } from 'react'
 
 import styles from '../../Lexical.module.css'
 
-import { $createCodeNode, $isCodeNode, CODE_LANGUAGE_FRIENDLY_NAME_MAP, CODE_LANGUAGE_MAP, getLanguageFriendlyName } from '@lexical/code'
+import { $isCodeNode, CODE_LANGUAGE_FRIENDLY_NAME_MAP, CODE_LANGUAGE_MAP } from '@lexical/code'
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link'
 import { $isTableNode, $isTableSelection } from '@lexical/table'
-import { $createHeadingNode, $createQuoteNode, $isHeadingNode, $isQuoteNode, HeadingTagType } from '@lexical/rich-text'
-import { $getSelectionStyleValueForProperty, $isParentElementRTL, $patchStyleText, $setBlocksType } from '@lexical/selection'
+import { $isHeadingNode, $isQuoteNode, HeadingTagType } from '@lexical/rich-text'
+import { $getSelectionStyleValueForProperty, $isParentElementRTL, $patchStyleText } from '@lexical/selection'
 import {
   $findMatchingParent,
   $getNearestBlockElementAncestorOrThrow,
@@ -58,7 +54,7 @@ import {
   UndoSVG
 } from '@components/ui/SVG/SVG'
 import { Toggle } from '@components/ui/Toggle/Toggle'
-import { $isListNode, INSERT_CHECK_LIST_COMMAND, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND, ListNode } from '@lexical/list'
+import { $isListNode, ListNode } from '@lexical/list'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@components/ui/Form/Select/Select'
 import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
 import { $isDecoratorBlockNode } from '@lexical/react/LexicalDecoratorBlockNode'
@@ -244,31 +240,6 @@ export default function ToolbarPlugin({
       )
     )
   }, [$updateToolbar, activeEditor, editor])
-
-  useEffect(() => {
-    return activeEditor.registerCommand(
-      KEY_MODIFIER_COMMAND,
-      (payload) => {
-        const event: KeyboardEvent = payload
-        const { code, ctrlKey, metaKey } = event
-
-        if (code === 'KeyK' && (ctrlKey || metaKey)) {
-          event.preventDefault()
-          let url: string | null
-          if (!isLink) {
-            setIsLinkEditMode(true)
-            url = sanitizeUrl('https://')
-          } else {
-            setIsLinkEditMode(false)
-            url = null
-          }
-          return activeEditor.dispatchCommand(TOGGLE_LINK_COMMAND, url)
-        }
-        return false
-      },
-      COMMAND_PRIORITY_NORMAL
-    )
-  }, [activeEditor, isLink, setIsLinkEditMode])
 
   const applyStyleText = useCallback(
     (styles: Record<string, string>, skipHistoryStack?: boolean) => {
@@ -477,8 +448,6 @@ export default function ToolbarPlugin({
         />
         <Toggle icon={<InsertLinkSVG />} isPressed={isLink} onClick={insertLink} aria-label="Insert Link" size="xs" />
         <Button icon={<ClearFormattionSVG />} onClick={clearFormatting} aria-label="Clear Formatting" size="xs" />
-      </ConditionalDisplay>
-      <ConditionalDisplay condition={true}>
         <InsertImageDialog activeEditor={activeEditor} maxWidth={maxWidth} />
       </ConditionalDisplay>
     </Container>

@@ -20,7 +20,7 @@ export const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimiti
         {...props}
       >
         <CheckboxPrimitive.Indicator className={styles.indicator}>
-          <CheckSVG style={{ width: '20px', height: '20px' }} />
+          <CheckSVG style={{ height: '20px', width: '20px' }} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
     )

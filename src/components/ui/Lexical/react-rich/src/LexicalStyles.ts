@@ -1,5 +1,5 @@
-import editorStyles from './themes/EditorTheme.module.css';
-import styles from './Lexical.module.css';
+import editorStyles from './themes/EditorTheme.module.css'
+import styles from './Lexical.module.css'
 
 export const LexicalStyles = {
   autocomplete: editorStyles['PlaygroundEditorTheme__autocomplete'],
@@ -36,11 +36,11 @@ export const LexicalStyles = {
     symbol: editorStyles['PlaygroundEditorTheme__tokenProperty'],
     tag: editorStyles['PlaygroundEditorTheme__tokenProperty'],
     url: editorStyles['PlaygroundEditorTheme__tokenOperator'],
-    variable: editorStyles['PlaygroundEditorTheme__tokenVariable'],
+    variable: editorStyles['PlaygroundEditorTheme__tokenVariable']
   },
   embedBlock: {
     base: editorStyles['PlaygroundEditorTheme__embedBlock'],
-    focus: editorStyles['PlaygroundEditorTheme__embedBlockFocus'],
+    focus: editorStyles['PlaygroundEditorTheme__embedBlockFocus']
   },
   hashtag: editorStyles['PlaygroundEditorTheme__hashtag'],
   heading: {
@@ -49,7 +49,7 @@ export const LexicalStyles = {
     h3: editorStyles['PlaygroundEditorTheme__h3'],
     h4: editorStyles['PlaygroundEditorTheme__h4'],
     h5: editorStyles['PlaygroundEditorTheme__h5'],
-    h6: editorStyles['PlaygroundEditorTheme__h6'],
+    h6: editorStyles['PlaygroundEditorTheme__h6']
   },
   hr: editorStyles['PlaygroundEditorTheme__hr'],
   image: styles['editor-image'],
@@ -64,16 +64,16 @@ export const LexicalStyles = {
     listitemChecked: editorStyles['PlaygroundEditorTheme__listItemChecked'],
     listitemUnchecked: editorStyles['PlaygroundEditorTheme__listItemUnchecked'],
     nested: {
-      listitem: editorStyles['PlaygroundEditorTheme__nestedListItem'],
+      listitem: editorStyles['PlaygroundEditorTheme__nestedListItem']
     },
     olDepth: [
       editorStyles['PlaygroundEditorTheme__ol1'],
       editorStyles['PlaygroundEditorTheme__ol2'],
       editorStyles['PlaygroundEditorTheme__ol3'],
       editorStyles['PlaygroundEditorTheme__ol4'],
-      editorStyles['PlaygroundEditorTheme__ol5'],
+      editorStyles['PlaygroundEditorTheme__ol5']
     ],
-    ul: editorStyles['PlaygroundEditorTheme__ul'],
+    ul: editorStyles['PlaygroundEditorTheme__ul']
   },
   ltr: editorStyles['PlaygroundEditorTheme__ltr'],
   mark: editorStyles['PlaygroundEditorTheme__mark'],
@@ -103,6 +103,6 @@ export const LexicalStyles = {
     subscript: editorStyles['PlaygroundEditorTheme__textSubscript'],
     superscript: editorStyles['PlaygroundEditorTheme__textSuperscript'],
     underline: editorStyles['PlaygroundEditorTheme__textUnderline'],
-    underlineStrikethrough: editorStyles['PlaygroundEditorTheme__textUnderlineStrikethrough'],
-  },
-};
+    underlineStrikethrough: editorStyles['PlaygroundEditorTheme__textUnderlineStrikethrough']
+  }
+}

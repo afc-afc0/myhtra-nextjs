@@ -13,7 +13,7 @@
   background-color: var(--action-color);
 }
 
-.subTrigger[data-state="open"] {
+.subTrigger[data-state='open'] {
   background-color: var(--action-color);
 }
 
@@ -32,27 +32,95 @@
   color: var(--text-color);
 }
 
-.subContent[data-state="open"] {
-  animation: fadeIn 150ms ease-out, zoomIn 150ms ease-out;
+.subContent[data-state='open'] {
+  animation:
+    fadeIn 150ms ease-out,
+    zoomIn 150ms ease-out;
 }
 
-.subContent[data-state="closed"] {
-  animation: fadeOut 150ms ease-in, zoomOut 150ms ease-in;
+.subContent[data-state='closed'] {
+  animation:
+    fadeOut 150ms ease-in,
+    zoomOut 150ms ease-in;
 }
 
-.subContent[data-side="bottom"] { animation: slideFromTop 150ms ease-out; }
-.subContent[data-side="left"] { animation: slideFromRight 150ms ease-out; }
-.subContent[data-side="right"] { animation: slideFromLeft 150ms ease-out; }
-.subContent[data-side="top"] { animation: slideFromBottom 150ms ease-out; }
+.subContent[data-side='bottom'] {
+  animation: slideFromTop 150ms ease-out;
+}
+.subContent[data-side='left'] {
+  animation: slideFromRight 150ms ease-out;
+}
+.subContent[data-side='right'] {
+  animation: slideFromLeft 150ms ease-out;
+}
+.subContent[data-side='top'] {
+  animation: slideFromBottom 150ms ease-out;
+}
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-@keyframes zoomIn { from { transform: scale(0.95); } to { transform: scale(1); } }
-@keyframes zoomOut { from { transform: scale(1); } to { transform: scale(0.95); } }
-@keyframes slideFromTop { from { transform: translateY(-0.5rem); } to { transform: translateY(0); } }
-@keyframes slideFromRight { from { transform: translateX(0.5rem); } to { transform: translateX(0); } }
-@keyframes slideFromLeft { from { transform: translateX(-0.5rem); } to { transform: translateX(0); } }
-@keyframes slideFromBottom { from { transform: translateY(0.5rem); } to { transform: translateY(0); } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideFromRight {
+  from {
+    transform: translateX(0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 .menuContent {
   z-index: 50;
@@ -65,11 +133,11 @@
   color: var(--text-color);
 }
 
-.menuContent[data-state="open"] {
+.menuContent[data-state='open'] {
   animation: enter 0.25s ease-out;
 }
 
-.menuContent[data-state="closed"] {
+.menuContent[data-state='closed'] {
   animation: exit 0.25s ease-in;
 }
 

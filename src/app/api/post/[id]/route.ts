@@ -11,12 +11,12 @@ export async function GET(request: Request, { params }: { params: any }) {
     const accessToken = await getTokenIfExist({ req: request })
 
     const res = await fetch(`${api}/Post/${id}`, {
+      agent: agent,
       headers: {
         'Content-Type': 'application/json',
         ...(accessToken && { Authorization: `Bearer ${accessToken}` })
       },
-      method: 'GET',
-      agent: agent
+      method: 'GET'
     })
 
     if (!res.ok) {
@@ -40,13 +40,13 @@ export async function PUT(request: Request, { params }: { params: any }) {
     const jsonBody = await request.json()
 
     const res = await fetch(`${api}/Post/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`
-      },
-      method: 'PUT',
+      agent: agent,
       body: JSON.stringify(jsonBody),
-      agent: agent
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      },
+      method: 'PUT'
     })
 
     if (!res.ok) {

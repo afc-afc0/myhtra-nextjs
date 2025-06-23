@@ -1,5 +1,4 @@
 'use client'
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
 import { LexicalComposer } from '@lexical/react/LexicalComposer'
 import { ContentEditable } from '@lexical/react/LexicalContentEditable'
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
@@ -21,7 +20,6 @@ import { CAN_USE_DOM } from './plugins/shared/canUseDOM'
 import { useLexicalEditable } from '@lexical/react/useLexicalEditable'
 
 import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin/ListMaxIndentLevelPlugin'
-import TreeViewPlugin from './plugins/TreeViewPlugin/TreeViewPlugin'
 import ToolbarPlugin from './plugins/ToolbarPlugin/ToolbarPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
 
@@ -49,14 +47,14 @@ export const LexicalRichText = ({
   id?: string
 }) => {
   const editorConfig = {
+    editable: !readonly,
+    editorState: initialContent,
     namespace: 'Myhtra Editor',
     nodes: [HeadingNode, QuoteNode, ListNode, ListItemNode, CodeNode, CodeHighlightNode, LinkNode, AutoLinkNode, ImageNode],
     onError(error: Error) {
       throw error
     },
-    theme: LexicalStyles,
-    editorState: initialContent,
-    editable: !readonly
+    theme: LexicalStyles
   }
 
   return (

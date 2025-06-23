@@ -1,5 +1,5 @@
-import { CircleData } from "@simpleflow/components/DragDropElements/Circle/Circle"
-import { StartData } from "../components/DragDropElements/Start/Start"
+import { CircleData } from '@simpleflow/components/DragDropElements/Circle/Circle'
+import { StartData } from '../components/DragDropElements/Start/Start'
 
 export interface Position {
   x: number

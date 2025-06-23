@@ -1,19 +1,17 @@
-import React from "react"
+import React from 'react'
 
 import styles from './page.module.css'
-import { FlexContainer } from "@components/ui/Layout/FlexContainer/FlexContainer"
-import { Text, TextType } from "@components/ui/Text/Text"
-import Link from "next/link"
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { Text, TextType } from '@components/ui/Text/Text'
+import Link from 'next/link'
 
 export const metadata = {
-  title: 'Myhtra',
-  description: 'Myhtra Studios Blog'
+  description: 'Myhtra Studios Blog',
+  title: 'Myhtra'
 }
 
 export default function Home() {
-  return (
-    <></>
-  )
+  return <></>
 }
 
 // const Post = () => {
@@ -22,56 +20,56 @@ export default function Home() {
 //       <PostContainer>
 //         <FlexContainer width='inherit' height='auto' flexDirection='column' paddingSize='m' borderRadius='s' borderWidth='s' gapSize='s'>
 //           <Text text="Deploying Next.js on Azure Kubernetes Services with Custom DNS" fontSize='l' fontWeight='bold' />
-//           <Text 
+//           <Text
 //             text='Deploying a Next.js application on Kubernetes Cluster with a custom domain name on Azure'
 //             fontSize='s'
 //             fontWeight='light'
 //           />
 //           <FlexContainer flexDirection='column'>
-//             <Text 
+//             <Text
 //               text='Prerequisites'
-//               fontSize='l' 
-//               fontWeight='medium' 
+//               fontSize='l'
+//               fontWeight='medium'
 //             />
 //             <div>
-//               <Text 
+//               <Text
 //                 text='&#x2022; Azure Kubernetes Services (AKS) cluster deployed otherwise follow this '
-//                 fontSize='s' 
-//                 fontWeight='light' 
+//                 fontSize='s'
+//                 fontWeight='light'
 //                 display='inline'
 //               />
 //               <Link target='_blank' href='https://learn.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli'>
-//                 <Text 
-//                   type={TextType.LINK} 
+//                 <Text
+//                   type={TextType.LINK}
 //                   fontSize='s'
-//                   text='guide' 
-//                   fontWeight='medium' 
-//                   display='inline' 
+//                   text='guide'
+//                   fontWeight='medium'
+//                   display='inline'
 //                 />
 //               </Link>
 //             </div>
 //             <div>
-//               <Text 
+//               <Text
 //                 text='&#x2022; You have a Next.js application ready, I will use Next.js 14 for this tutorial. If not for creating Next.js application follow this '
-//                 fontSize='s' 
-//                 fontWeight='light' 
+//                 fontSize='s'
+//                 fontWeight='light'
 //                 display='inline'
 //               />
 //               <Link target='_blank' href='https://nextjs.org/docs/getting-started/installation'>
-//                 <Text 
-//                   type={TextType.LINK} 
+//                 <Text
+//                   type={TextType.LINK}
 //                   fontSize='s'
-//                   text='guide' 
-//                   fontWeight='medium' 
-//                   display='inline' 
+//                   text='guide'
+//                   fontWeight='medium'
+//                   display='inline'
 //                 />
 //               </Link>
 //             </div>
 //             <div>
-//               <Text 
+//               <Text
 //                 text='&#x2022; Custom domain name, I will use myhtra.co for this tutorial'
-//                 fontSize='s' 
-//                 fontWeight='light' 
+//                 fontSize='s'
+//                 fontWeight='light'
 //                 display='inline'
 //               />
 //             </div>
@@ -104,7 +102,7 @@ export default function Home() {
 //             <Text
 //               text='Create a Dockerfile in the root of your Next.js application'
 //               fontSize='s'
-//               fontWeight='light'  
+//               fontWeight='light'
 //             />
 //             <Text
 //               text='
@@ -124,7 +122,6 @@ export default function Home() {
 //                   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
 //                   else echo "Lockfile not found." && exit 1; \
 //                   fi
-
 
 //                 # Rebuild the source code only when needed
 //                 FROM base AS builder

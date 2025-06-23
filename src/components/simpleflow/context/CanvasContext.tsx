@@ -26,27 +26,23 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
   const { nodes, addNode, updateNodePosition } = useNodes<NodeData>()
   const [viewport, setViewport] = useState<Viewport>({ x: 0, y: 0, zoom: 1 })
 
-  const value: CanvasContextType<NodeData> = { 
-    viewport,
-    setViewport,
-    nodes,
+  const value: CanvasContextType<NodeData> = {
     addNode,
-    updateNodePosition
+    nodes,
+    setViewport,
+    updateNodePosition,
+    viewport
   }
 
-  return (
-    <CanvasContext.Provider value={value}>
-      {children}
-    </CanvasContext.Provider>
-  )
+  return <CanvasContext.Provider value={value}>{children}</CanvasContext.Provider>
 }
 
 export function useCanvas(): CanvasContextType<NodeData> {
   const context = useContext(CanvasContext)
-  
+
   if (context === undefined) {
     throw new Error('useCanvas must be used within a CanvasProvider')
   }
-  
+
   return context
 }

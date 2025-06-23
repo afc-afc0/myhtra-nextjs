@@ -14,13 +14,7 @@ export const ToastProvider = ToastPrimitives.Provider
 export const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
->(({ className, ...props }, ref) => (
-  <ToastPrimitives.Viewport
-    ref={ref}
-    className={clsx(styles.viewport, className)}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => <ToastPrimitives.Viewport ref={ref} className={clsx(styles.viewport, className)} {...props} />)
 ToastViewport.displayName = 'ToastViewport'
 
 // export const toastVariants = cva(
@@ -40,20 +34,14 @@ ToastViewport.displayName = 'ToastViewport'
 // )
 
 export type ToastProps = {
-  variant?: 'default' | 'destructive';
+  variant?: 'default' | 'destructive'
 }
 
 export const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & ToastProps
 >(({ className, variant, ...props }, ref) => {
-  return (
-    <ToastPrimitives.Root
-      ref={ref}
-      className={clsx(styles.toast, className)}
-      {...props}
-    />
-  )
+  return <ToastPrimitives.Root ref={ref} className={clsx(styles.toast, className)} {...props} />
 })
 Toast.displayName = 'Toast'
 
@@ -61,15 +49,7 @@ export const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
 >(({ className, ...props }, ref) => (
-  <ToastPrimitives.Action
-    ref={ref}
-    className={clsx(
-      styles.actionButton,
-      className
-    )}
-    asChild
-    {...props}
-  />
+  <ToastPrimitives.Action ref={ref} className={clsx(styles.actionButton, className)} asChild {...props} />
 ))
 ToastAction.displayName = 'ToastAction'
 
@@ -77,12 +57,8 @@ export const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
 >(({ className, ...props }, ref) => (
-  <ToastPrimitives.Close
-    ref={ref}
-    asChild
-    {...props}
-  >
-    <Button className={className} icon={<CloseSVG />}/>
+  <ToastPrimitives.Close ref={ref} asChild {...props}>
+    <Button className={className} icon={<CloseSVG />} />
   </ToastPrimitives.Close>
 ))
 ToastClose.displayName = 'ToastClose'
@@ -91,13 +67,7 @@ export const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
 >(({ className, ...props }, ref) => {
-    return (
-    <ToastPrimitives.Title
-      ref={ref}
-      className={clsx(styles.title, className)}
-      {...props}
-    />
-  )
+  return <ToastPrimitives.Title ref={ref} className={clsx(styles.title, className)} {...props} />
 })
 ToastTitle.displayName = 'ToastTitle'
 
@@ -109,13 +79,7 @@ export const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> & ToastDescriptionProps
 >(({ className, ...props }, ref) => {
-  return (
-    <ToastPrimitives.Description
-      ref={ref}
-      className={clsx(styles.description, className)}
-      {...props} 
-    />
-  )
+  return <ToastPrimitives.Description ref={ref} className={clsx(styles.description, className)} {...props} />
 })
 ToastDescription.displayName = 'ToastDescription'
 

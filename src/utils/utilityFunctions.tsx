@@ -1,4 +1,4 @@
-export const focusOnView = ({ event, elementId }: { event: React.MouseEvent, elementId: string }) => {
+export const focusOnView = ({ event, elementId }: { event: React.MouseEvent; elementId: string }) => {
   event.preventDefault()
   const element = document.getElementById(elementId)
 
@@ -7,7 +7,7 @@ export const focusOnView = ({ event, elementId }: { event: React.MouseEvent, ele
     return
   }
 
-  element.scrollIntoView({ 
+  element.scrollIntoView({
     behavior: 'smooth'
   })
 }

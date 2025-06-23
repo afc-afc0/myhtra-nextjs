@@ -17,57 +17,57 @@
   pointer-events: none;
 }
 
-.toggle[data-size="xs"] {
+.toggle[data-size='xs'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-xs);
   width: var(--border-box-height-xs);
 }
 
-.toggle[data-size="s"] {
+.toggle[data-size='s'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-s);
   width: var(--border-box-height-s);
 }
 
-.toggle[data-size="m"] {
+.toggle[data-size='m'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-m);
   width: var(--border-box-height-m);
 }
 
-.toggle[data-size="l"] {
+.toggle[data-size='l'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-l);
   width: var(--border-box-height-l);
 }
 
-.toggle[data-size="xl"] {
+.toggle[data-size='xl'] {
   padding: var(--padding-xss);
   height: var(--border-box-height-xl);
   width: var(--border-box-height-xl);
 }
 
-.toggle[data-size="xs"] svg {
+.toggle[data-size='xs'] svg {
   width: var(--icon-size-xs);
   height: var(--icon-size-xs);
 }
 
-.toggle[data-size="s"] svg {
+.toggle[data-size='s'] svg {
   width: var(--icon-size-s);
   height: var(--icon-size-s);
 }
 
-.toggle[data-size="m"] svg {
+.toggle[data-size='m'] svg {
   width: var(--icon-size-m);
   height: var(--icon-size-m);
 }
 
-.toggle[data-size="l"] svg {
+.toggle[data-size='l'] svg {
   width: var(--icon-size-l);
   height: var(--icon-size-l);
 }
 
-.toggle[data-size="xl"] svg {
+.toggle[data-size='xl'] svg {
   width: var(--icon-size-xl);
   height: var(--icon-size-xl);
 }

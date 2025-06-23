@@ -1,8 +1,8 @@
 'use client'
 
-import { useCanvas } from "@components/simpleflow/context/CanvasContext"
-import { Position } from "@components/simpleflow/shared/types"
-import { useState, useRef } from "react"
+import { useCanvas } from '@components/simpleflow/context/CanvasContext'
+import { Position } from '@components/simpleflow/shared/types'
+import { useState, useRef } from 'react'
 
 import styles from './Node.module.css'
 
@@ -13,7 +13,6 @@ interface NodeProps {
 }
 
 export const Node = ({ id, position, children }: NodeProps) => {
-
   const { viewport, updateNodePosition } = useCanvas()
   const [isDragging, setIsDragging] = useState(false)
   const dragStartRef = useRef<Position>({ x: 0, y: 0 })
@@ -22,10 +21,10 @@ export const Node = ({ id, position, children }: NodeProps) => {
   const handlePointerDown = (e: React.PointerEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     // Capture the pointer to receive events outside the element
     ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
-    
+
     setIsDragging(true)
     dragStartRef.current = {
       x: e.clientX,
@@ -56,10 +55,10 @@ export const Node = ({ id, position, children }: NodeProps) => {
   const handlePointerUp = (e: React.PointerEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     // Release pointer capture
     ;(e.target as HTMLElement).releasePointerCapture(e.pointerId)
-    
+
     setIsDragging(false)
   }
 
@@ -73,13 +72,14 @@ export const Node = ({ id, position, children }: NodeProps) => {
     <div
       className={styles.node}
       style={{
+        cursor: isDragging ? 'grabbing' : 'grab',
         position: 'absolute',
+        touchAction: 'none',
         transform: getTransform(),
         transformOrigin: '0 0',
-        zIndex: isDragging ? 100 : 1000,
-        cursor: isDragging ? 'grabbing' : 'grab',
-        touchAction: 'none', // Prevent browser handling of all panning and zooming gestures
-        userSelect: 'none'
+        // Prevent browser handling of all panning and zooming gestures
+        userSelect: 'none',
+        zIndex: isDragging ? 100 : 1000
       }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}

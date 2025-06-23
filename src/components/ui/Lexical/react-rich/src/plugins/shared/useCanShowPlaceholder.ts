@@ -6,44 +6,37 @@
  *
  */
 
-import type {LexicalEditor} from 'lexical';
+import type { LexicalEditor } from 'lexical'
 
-import {$canShowPlaceholderCurry} from '@lexical/text';
-import {mergeRegister} from '@lexical/utils';
-import {useState} from 'react';
-import useLayoutEffect from './useLayoutEffect';
+import { $canShowPlaceholderCurry } from '@lexical/text'
+import { mergeRegister } from '@lexical/utils'
+import { useState } from 'react'
+import useLayoutEffect from './useLayoutEffect'
 
-function canShowPlaceholderFromCurrentEditorState(
-  editor: LexicalEditor,
-): boolean {
-  const currentCanShowPlaceholder = editor
-    .getEditorState()
-    .read($canShowPlaceholderCurry(editor.isComposing()));
+function canShowPlaceholderFromCurrentEditorState(editor: LexicalEditor): boolean {
+  const currentCanShowPlaceholder = editor.getEditorState().read($canShowPlaceholderCurry(editor.isComposing()))
 
-  return currentCanShowPlaceholder;
+  return currentCanShowPlaceholder
 }
 
 export function useCanShowPlaceholder(editor: LexicalEditor): boolean {
-  const [canShowPlaceholder, setCanShowPlaceholder] = useState(() =>
-    canShowPlaceholderFromCurrentEditorState(editor),
-  );
+  const [canShowPlaceholder, setCanShowPlaceholder] = useState(() => canShowPlaceholderFromCurrentEditorState(editor))
 
   useLayoutEffect(() => {
     function resetCanShowPlaceholder() {
-      const currentCanShowPlaceholder =
-        canShowPlaceholderFromCurrentEditorState(editor);
-      setCanShowPlaceholder(currentCanShowPlaceholder);
+      const currentCanShowPlaceholder = canShowPlaceholderFromCurrentEditorState(editor)
+      setCanShowPlaceholder(currentCanShowPlaceholder)
     }
-    resetCanShowPlaceholder();
+    resetCanShowPlaceholder()
     return mergeRegister(
       editor.registerUpdateListener(() => {
-        resetCanShowPlaceholder();
+        resetCanShowPlaceholder()
       }),
       editor.registerEditableListener(() => {
-        resetCanShowPlaceholder();
-      }),
-    );
-  }, [editor]);
+        resetCanShowPlaceholder()
+      })
+    )
+  }, [editor])
 
-  return canShowPlaceholder;
+  return canShowPlaceholder
 }

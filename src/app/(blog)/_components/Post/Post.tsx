@@ -9,22 +9,21 @@ import { Text } from '@components/ui/Text/Text'
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
 const defaultPost = {
-  id: '',
   content: undefined,
+  createdAtUtc: new Date().toISOString(),
+  id: '',
   name: '',
   userDisplayName: '',
-  userId: '',
-  createdAtUtc: new Date().toISOString(),
+  userId: ''
 }
 
-export const Post = ({ postId }: { postId: string | string[]}) => {
-
+export const Post = ({ postId }: { postId: string | string[] }) => {
   const fetchPost = async () => {
     const response = await fetch(`/api/post/${postId}`, {
-      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-      }
+        'Content-Type': 'application/json'
+      },
+      method: 'GET'
     })
 
     if (!response.ok) {
@@ -35,13 +34,13 @@ export const Post = ({ postId }: { postId: string | string[]}) => {
     return data ?? []
   }
 
-  const { data: post } = useQuery({ queryKey: ['post', postId], queryFn: fetchPost, initialData: defaultPost })
-  
+  const { data: post } = useQuery({ initialData: defaultPost, queryFn: fetchPost, queryKey: ['post', postId] })
+
   return (
     <PostContainer>
-      <FlexContainer paddingSize='s' gapSize='s' height='auto' justifyContent='flex-start' alignItems='flex-start'>
-        <FlexContainer width='100%' justifyContent='center' alignItems='center'>
-          <Text fontSize='xl' text={post.name} />
+      <FlexContainer paddingSize="s" gapSize="s" height="auto" justifyContent="flex-start" alignItems="flex-start">
+        <FlexContainer width="100%" justifyContent="center" alignItems="center">
+          <Text fontSize="xl" text={post.name} />
         </FlexContainer>
         <ConditionalDisplay condition={post?.content}>
           <LexicalRichText readonly={true} initialContent={post.content} />
@@ -52,9 +51,5 @@ export const Post = ({ postId }: { postId: string | string[]}) => {
 }
 
 const PostContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className={styles.postContainer}>
-      {children}
-    </div>
-  )
+  return <div className={styles.postContainer}>{children}</div>
 }
