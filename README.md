@@ -12,6 +12,7 @@ A Next.js application with rich text editing capabilities using Lexical editor.
 ## 📝 To Do
 
 - Add Tabs component to ui-components
+- Check if Input component is broken after changing the classname order
 
 ### High Priority
 
@@ -46,6 +47,10 @@ k rollout restart deployment myhtra-deployment
 > **Note**: Consider creating a deployment script to automate these steps.
 
 ## 📅 Development Log
+
+### June 26, 2025
+
+- Started using turbopack
 
 ### June 19, 2025
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { clsx } from 'clsx'
+import { CheckSVG } from '@components/ui/SVG/SVG'
 
+import sharedStyles from '../Shared/Shared.module.css'
 import styles from './Checkbox.module.css'
-import { CheckSVG, CheckWithCircleSVG } from '@components/ui/SVG/SVG'
 
 type CheckboxProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'

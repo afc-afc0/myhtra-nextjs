@@ -17,7 +17,7 @@ interface SelectTriggerProps extends React.ComponentPropsWithoutRef<typeof Selec
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
-export const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
+export const SelectTrigger = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
   ({ children, size = 'm', ...props }, ref) => {
     return (
       <SelectPrimitive.Trigger ref={ref} className={clsx('sharedFormComponent', styles.trigger)} data-size={size} {...props}>
@@ -33,7 +33,7 @@ export const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrim
 SelectTrigger.displayName = 'SelectTrigger'
 
 export const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
 >(({ className, children, position = 'popper', ...props }, ref) => {
   return (
@@ -54,7 +54,7 @@ export const SelectContent = React.forwardRef<
 SelectContent.displayName = 'SelectContent'
 
 export const SelectLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(({ children, ...props }, ref) => {
   return (
@@ -66,7 +66,7 @@ export const SelectLabel = React.forwardRef<
 SelectLabel.displayName = 'SelectLabel'
 
 export const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ children, ...props }, ref) => {
   return (
@@ -78,7 +78,7 @@ export const SelectItem = React.forwardRef<
 SelectItem.displayName = 'SelectItem'
 
 export const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentRef<typeof SelectPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >((props, ref) => {
   return <SelectPrimitive.Separator ref={ref} className={styles.separator} {...props} />

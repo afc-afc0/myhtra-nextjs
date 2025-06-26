@@ -2,6 +2,8 @@ import React, { forwardRef } from 'react'
 import styles from './Input.module.css'
 import clsx from 'clsx'
 
+import sharedStyles from '../Shared/Shared.module.css'
+
 interface InputTextProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   value?: string
   id?: string
@@ -19,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputTextProps>(
         ref={ref}
         id={id}
         disabled={disabled}
-        className={clsx(styles.input, 'sharedFormComponent', className)}
+        className={clsx('sharedFormComponent', styles.input, className)}
         autoComplete={autoComplete}
         value={value}
         onChange={onChange}
