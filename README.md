@@ -51,6 +51,7 @@ k rollout restart deployment myhtra-deployment
 ### June 26, 2025
 
 - Started using turbopack
+- Seems like URL image upload is not working, which I didn't test before
 
 ### June 19, 2025
 
