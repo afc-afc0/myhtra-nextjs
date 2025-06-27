@@ -45,11 +45,6 @@ export const DialogContent = React.forwardRef<
 })
 DialogContent.displayName = 'DialogContent'
 
-export const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-  return <div className={clsx(styles.header, className)} {...props} />
-}
-DialogHeader.displayName = 'DeialogHeader'
-
 export const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return <div className={clsx(styles.footer, className)} {...props} />
 }
@@ -61,7 +56,6 @@ export const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return <DialogPrimitive.Title ref={ref} className={clsx(styles.title, className)} {...props} />
 })
-
 DialogTitle.displayName = 'DialogTitle'
 
 export const DialogDescription = React.forwardRef<
@@ -74,7 +68,7 @@ DialogDescription.displayName = 'DialogDescription'
 
 export const DialogBody = ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <FlexContainer paddingTop="s" height="auto" width="100%" flexDirection="column" gapSize="xs" {...props}>
+    <FlexContainer paddingTop="s" paddingBottom="s" height="auto" width="100%" flexDirection="column" gapSize="xs" {...props}>
       {children}
     </FlexContainer>
   )

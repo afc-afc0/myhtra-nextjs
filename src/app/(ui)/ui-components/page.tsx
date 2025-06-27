@@ -24,14 +24,13 @@ import { ChevronRightSVG } from '@components/ui/SVG/SVG'
 import { Text } from '@components/ui/Text/Text'
 import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/Popover/Popover'
 import { AuthController } from '@components/ui/Auth/AuthController/AuthController'
-import { DialogHeader, DialogContent, Dialog, DialogTrigger, DialogFooter, DialogBody } from '@components/ui/Dialog/Dialog'
+import { DialogContent, Dialog, DialogTrigger, DialogFooter, DialogBody, DialogTitle } from '@components/ui/Dialog/Dialog'
 import { signIn } from 'next-auth/react'
-
-import styles from './page.module.css'
 import { PageContainer } from '@components/ui/PageContainer/PageContainer'
 import { Checkbox } from '@components/ui/Form/Checkbox/Checkbox'
 import { useToast } from '@hooks/useToast'
-import { ToastAction } from '@components/ui/Toast/Toast'
+
+import styles from './page.module.css'
 
 export default function Home() {
   const [inputTextValue, setInputTextValue] = useState<string>('')
@@ -79,19 +78,17 @@ export default function Home() {
                   <Button text="Open Dialog" />
                 </DialogTrigger>
                 <DialogContent>
-                  <DialogHeader>
-                    <Text text="Dialog Header" />
-                  </DialogHeader>
+                  <DialogTitle>Dialog Title</DialogTitle>
                   <DialogBody>
                     <Text text="Dialog Content" />
                     <Text text="Dialog Content" />
                     <Text text="Dialog Content" />
                     <Text text="Dialog Content" />
                   </DialogBody>
+                  <DialogFooter>
+                    <Button text="Submit">Save changes</Button>
+                  </DialogFooter>
                 </DialogContent>
-                <DialogFooter>
-                  <Button text="Submit">Save changes</Button>
-                </DialogFooter>
               </Dialog>
             </FlexContainer>
             <FlexContainer width="100%" height="auto">

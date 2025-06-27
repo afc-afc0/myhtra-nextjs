@@ -11,13 +11,13 @@ A Next.js application with rich text editing capabilities using Lexical editor.
 
 ## 📝 To Do
 
+- Continue implementing more radix components
 - Add Tabs component to ui-components
 - Check if Input component is broken after changing the classname order
 
 ### High Priority
 
 - [ ] **Lexical Rich Text Extensions**
-  - [ ] Image support
   - [ ] Select components
   - [ ] Code blocks
   - [ ] Bullet points
@@ -52,6 +52,7 @@ k rollout restart deployment myhtra-deployment
 
 - Started using turbopack
 - Seems like URL image upload is not working, which I didn't test before
+- Tested and fixed the issue can't use Next/Image instead we need to use native image, I tried my chances
 
 ### June 19, 2025
 
