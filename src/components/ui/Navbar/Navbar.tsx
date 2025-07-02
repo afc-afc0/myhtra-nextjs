@@ -13,7 +13,7 @@ import styles from './Navbar.module.css'
 
 export const Navbar = ({}) => {
   const { status } = useSession()
-  
+
   return (
     <div className={styles.navbarContainer}>
       <nav className={styles.navbar}>

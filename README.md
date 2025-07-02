@@ -11,6 +11,7 @@ A Next.js application with rich text editing capabilities using Lexical editor.
 
 ## 📝 To Do
 
+- Update UI-components page to show the available components, and how to use them, with light + dark themes
 - Continue implementing more radix components
 - Add Tabs component to ui-components
 - Check if Input component is broken after changing the classname order
@@ -47,6 +48,10 @@ k rollout restart deployment myhtra-deployment
 > **Note**: Consider creating a deployment script to automate these steps.
 
 ## 📅 Development Log
+
+### June 27, 2025
+
+- Updated dialog component
 
 ### June 26, 2025
 

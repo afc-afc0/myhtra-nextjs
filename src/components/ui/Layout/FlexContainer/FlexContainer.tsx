@@ -31,6 +31,8 @@ interface FlexContainerProps {
   borderRadius?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
   borderTopRadius?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
   shadowSize?: 'none' | 's' | 'm' | 'l'
+  theme?: 'light' | 'dark'
+  backgroundColor?: 'transparent'
 }
 
 export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps>(
@@ -60,7 +62,9 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
       borderRadius = 'none',
       borderTopRadius = 'none',
       shadowSize = 'none',
+      backgroundColor,
       position,
+      theme,
       style,
       ...props
     },
@@ -93,6 +97,8 @@ export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps
         data-box-sizing={boxSizing}
         data-responsive-flex-direction={responsiveFlexDirection}
         data-position={position}
+        data-theme={theme}
+        data-background-color={backgroundColor}
         style={style}
         {...props}
       >

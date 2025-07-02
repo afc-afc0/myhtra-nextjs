@@ -109,7 +109,7 @@ export function InsertImageDialog({ activeEditor, maxWidth }: { activeEditor: Le
         <Button icon={<ImageSVG />} aria-label="Insert Image" size="xs" />
       </PopoverTrigger>
       <PopoverContent>
-        <Tabs>
+        <Tabs defaultValue="file">
           <TabsList>
             <TabsTrigger value="file">File</TabsTrigger>
             <TabsTrigger value="url">Url</TabsTrigger>

@@ -2,6 +2,11 @@
   display: flex;
   border-style: solid;
   border-color: var(--border-color);
+  background-color: var(--background-color);
+}
+
+.flexContainer[data-background-color='transparent'] {
+  background-color: transparent;
 }
 
 .flexContainer[data-padding-size='xs'] {

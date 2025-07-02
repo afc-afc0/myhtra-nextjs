@@ -19,7 +19,17 @@
   align-items: center;
   width: 100%;
   padding: var(--padding-xs) var(--padding-xs);
-  cursor: default;
+}
+
+.item:focus,
+.item[data-highlighted] {
+  background-color: var(--background-tertiary);
+  border-radius: var(--border-radius-s);
+}
+
+.item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .content {

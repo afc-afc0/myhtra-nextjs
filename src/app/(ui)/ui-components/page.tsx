@@ -20,7 +20,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@components/ui/DropdownMenu/DropdownMenu'
-import { ChevronRightSVG } from '@components/ui/SVG/SVG'
+import { AuthSVG, CheckSVG, ChevronRightSVG } from '@components/ui/SVG/SVG'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/Tabs/Tabs'
 import { Text } from '@components/ui/Text/Text'
 import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/Popover/Popover'
 import { AuthController } from '@components/ui/Auth/AuthController/AuthController'
@@ -41,7 +42,8 @@ export default function Home() {
     <PageContainer>
       <FlexContainer width="100%" alignItems="center" paddingSize="l">
         <Container>
-          <FlexContainer width="inherit" height="auto" borderRadius="m" borderWidth="m" paddingSize="s" gapSize="s">
+          <FlexContainer width="inherit" height="auto" paddingSize="s" gapSize="s">
+            <ButtonSection />
             <FlexContainer width="100%" flexDirection="row" flexGrow={1} flexBasis="%0" gapSize="s">
               <FlexContainer width="50%">
                 <Label label="Input text" htmlFor="inputText" />
@@ -161,10 +163,99 @@ export default function Home() {
                 }
               />
             </FlexContainer>
+            <FlexContainer width="100%" height="auto">
+              <Tabs defaultValue="tab1">
+                <TabsList>
+                  <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+                  <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+                  <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+                </TabsList>
+                <TabsContent value="tab1" defaultChecked>
+                  <SectionLabelContainer text="Tab 1 Content" />
+                  <FlexContainer width="100%" height="auto" paddingSize="s">
+                    <Text text="This is the content of Tab 1." />
+                  </FlexContainer>
+                </TabsContent>
+                <TabsContent value="tab2">
+                  <SectionLabelContainer text="Tab 2 Content" />
+                  <FlexContainer width="100%" height="auto" paddingSize="s">
+                    <Text text="This is the content of Tab 2." />
+                  </FlexContainer>
+                </TabsContent>
+                <TabsContent value="tab3">
+                  <SectionLabelContainer text="Tab 3 Content" />
+                  <FlexContainer width="100%" height="auto" paddingSize="s">
+                    <Text text="This is the content of Tab 3." />
+                  </FlexContainer>
+                </TabsContent>
+              </Tabs>
+            </FlexContainer>
           </FlexContainer>
         </Container>
       </FlexContainer>
     </PageContainer>
+  )
+}
+
+const ButtonSection = () => {
+  return (
+    <SectionContainer>
+      <Text fontSize="m" text="Button" />
+      <FlexContainer flexDirection="row" width="100%" height="auto" gapSize="s">
+        <FlexContainer width="50%" gapSize="s" flexDirection="column" borderRadius="s" theme="dark" paddingSize="s">
+          <FlexContainer width="100%" gapSize="s" flexDirection="row" borderRadius="s">
+            <Text fontSize="s" text="Text" />
+            <Button text="Click Me" />
+            <Button text="Click Me" loading />
+            <Button text="Click Me" disabled />
+          </FlexContainer>
+          <FlexContainer width="100%" gapSize="s" flexDirection="row" borderRadius="s">
+            <Text fontSize="s" text="Icon" />
+            <Button icon={<CheckSVG />} />
+            <Button icon={<CheckSVG />} loading />
+            <Button icon={<CheckSVG />} disabled />
+          </FlexContainer>
+          <FlexContainer width="100%" gapSize="s" flexDirection="row" borderRadius="s">
+            <Text fontSize="s" text="Icon + Text" />
+            <Button icon={<AuthSVG />} text="Text" />
+            <Button icon={<AuthSVG />} text="Text" loading />
+            <Button icon={<AuthSVG />} text="Text" disabled />
+          </FlexContainer>
+          <FlexContainer width="100%" gapSize="s" flexDirection="row" borderRadius="s">
+            <Text fontSize="s" text="Size" />
+            <Button size="xs" icon={<AuthSVG />} text="Text" />
+            <Button size="s" icon={<AuthSVG />} text="Text" />
+            <Button size="m" icon={<AuthSVG />} text="Text" />
+            <Button size="l" icon={<AuthSVG />} text="Text" />
+            <Button size="xl" icon={<AuthSVG />} text="Text" />
+          </FlexContainer>
+        </FlexContainer>
+        <FlexContainer width="50%" gapSize="s" flexDirection="row" borderRadius="s" theme="light">
+          <Button text="Click Me" />
+          <Button text="Click Me" loading />
+          <Button text="Click Me" disabled />
+          <Button icon={<CheckSVG />} />
+          <Button icon={<CheckSVG />} disabled />
+          <Button icon={<CheckSVG />} loading />
+        </FlexContainer>
+      </FlexContainer>
+    </SectionContainer>
+  )
+}
+
+const SectionLabelContainer = ({ text }: { text: string }) => {
+  return (
+    <FlexContainer width="100%" height="auto" paddingSize="s" borderRadius="s" backgroundColor="transparent">
+      <Text text={text} fontSize="m" />
+    </FlexContainer>
+  )
+}
+
+const SectionContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <FlexContainer flexDirection="column" width="100%" height="auto" borderRadius="m" borderWidth="m" paddingSize="s" gapSize="s">
+      {children}
+    </FlexContainer>
   )
 }
 

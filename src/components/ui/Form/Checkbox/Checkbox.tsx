@@ -3,14 +3,13 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { clsx } from 'clsx'
 import { CheckSVG } from '@components/ui/SVG/SVG'
 
-import sharedStyles from '../Shared/Shared.module.css'
 import styles from './Checkbox.module.css'
 
 type CheckboxProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
 }
 
-export const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, CheckboxProps>(
+export const Checkbox = React.forwardRef<React.ComponentRef<typeof CheckboxPrimitive.Root>, CheckboxProps>(
   ({ id, size = 'xs', className, ...props }, ref) => {
     return (
       <CheckboxPrimitive.Root

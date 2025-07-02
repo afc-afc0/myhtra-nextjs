@@ -62,41 +62,41 @@
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
-  --background-color: hsl(0, 0%, 0%);
-  --primary-color: hsl(230, 73%, 30%);
-
-  --action-color: hsl(231, 58%, 50%);
-  --action-color-transition: hsl(51, 58%, 50%);
-
-  --border-color: hsl(0, 0%, 44%);
-  --focus-border-color: var(--primary-color);
-
-  --shadow-color: rgba(189, 189, 189, 0.5);
-
   --shadow-size-s: 0 0 10px 0px var(--shadow-color);
   --shadow-size-m: 0 0 15px 1px var(--shadow-color);
   --shadow-size-l: 0 0 15px 2px var(--shadow-color);
 
-  --text-color: hsl(0, 0%, 78%);
-  --text-color-secondary: hsl(0, 0%, 0%);
-
   --navbar-height: 5.2rem;
 
   --transition-duration: 0.25s;
+  --input-background-color: --input-background-color-hover: var(--background-tertiary);
+}
+
+[data-theme='dark'] {
+  --background-color: hsl(0, 0%, 0%);
+  --background-secondary: hsl(0, 0%, 8%);
+  --background-tertiary: hsl(0, 0%, 12%);
+  --primary-color: hsl(230, 73%, 30%);
+  --action-color: hsl(231, 58%, 50%);
+  --action-color-transition: hsl(51, 58%, 50%);
+  --border-color: hsl(0, 0%, 44%);
+  --text-color: hsl(0, 0%, 78%);
+  --text-color-secondary: hsl(0, 0%, 0%);
+  --focus-border-color: var(--action-color);
+  --shadow-color: rgba(189, 189, 189, 0.5);
 }
 
 [data-theme='light'] {
   --background-color: hsl(0, 0%, 100%);
+  --background-secondary: hsl(0, 0%, 96%);
+  --background-tertiary: hsl(0, 0%, 92%);
   --primary-color: hsl(203, 66%, 46%);
   --action-color: hsl(204, 84%, 72%);
   --action-color-transition: hsl(204, 84%, 42%);
-
-  --font-weight-light: 400;
+  --border-color: hsl(240 1.8% 15.9%);
   --text-color: hsl(0, 0%, 0%);
   --text-color-secondary: hsl(0, 0%, 100%);
-
-  --border-color: hsl(240 1.8% 15.9%);
-  --focus-border-color: var(--primary-color);
+  --focus-border-color: var(--action-color);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -152,14 +152,15 @@ div::selection {
   box-sizing: border-box;
   position: relative;
   padding: var(--padding-s);
-  border: var(--border-width-m) solid var(--border-color);
+  border: var(--border-width-s) solid var(--border-color);
   border-radius: var(--border-radius-s);
-  background-color: var(--background-color);
+  background-color: var(--background-secondary);
   font-size: var(--font-size-s);
   width: 100%;
   height: var(--border-box-height-m);
 }
 
 .sharedFormComponent:focus {
-  border-color: var(--action-color);
+  border-color: var(--focus-border-color);
+  background-color: var(--background-tertiary);
 }
