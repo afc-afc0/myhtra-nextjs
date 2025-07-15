@@ -12,7 +12,7 @@ import styles from './Toast.module.css'
 export const ToastProvider = ToastPrimitives.Provider
 
 export const ToastViewport = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
 >(({ className, ...props }, ref) => <ToastPrimitives.Viewport ref={ref} className={clsx(styles.viewport, className)} {...props} />)
 ToastViewport.displayName = 'ToastViewport'
@@ -38,7 +38,7 @@ export type ToastProps = {
 }
 
 export const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & ToastProps
 >(({ className, variant, ...props }, ref) => {
   return <ToastPrimitives.Root ref={ref} className={clsx(styles.toast, className)} {...props} />
@@ -46,7 +46,7 @@ export const Toast = React.forwardRef<
 Toast.displayName = 'Toast'
 
 export const ToastAction = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentRef<typeof ToastPrimitives.Action>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Action ref={ref} className={clsx(styles.actionButton, className)} asChild {...props} />
@@ -54,7 +54,7 @@ export const ToastAction = React.forwardRef<
 ToastAction.displayName = 'ToastAction'
 
 export const ToastClose = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentRef<typeof ToastPrimitives.Close>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Close ref={ref} asChild {...props}>
@@ -64,7 +64,7 @@ export const ToastClose = React.forwardRef<
 ToastClose.displayName = 'ToastClose'
 
 export const ToastTitle = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentRef<typeof ToastPrimitives.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
 >(({ className, ...props }, ref) => {
   return <ToastPrimitives.Title ref={ref} className={clsx(styles.title, className)} {...props} />
@@ -76,7 +76,7 @@ interface ToastDescriptionProps {
 }
 
 export const ToastDescription = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentRef<typeof ToastPrimitives.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> & ToastDescriptionProps
 >(({ className, ...props }, ref) => {
   return <ToastPrimitives.Description ref={ref} className={clsx(styles.description, className)} {...props} />

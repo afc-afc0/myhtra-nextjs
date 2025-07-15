@@ -12,7 +12,7 @@ interface ToggleProps {
 }
 
 export const Toggle = React.forwardRef<
-  React.ElementRef<typeof TogglePrimitive.Root>,
+  React.ComponentRef<typeof TogglePrimitive.Root>,
   ToggleProps & React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>
 >(({ className, disabled, size = 'm', icon, isPressed, onClick, ...props }, ref) => (
   <TogglePrimitive.Root
