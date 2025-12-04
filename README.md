@@ -86,3 +86,7 @@ k rollout restart deployment myhtra-deployment
 
 - CSS order issues resolved by updating shared styles location
 - Deployment uses Docker containerization with Kubernetes
+
+
+## Oct 23, 2025 
+- Need to update next-auth to v5, updated next to 16
