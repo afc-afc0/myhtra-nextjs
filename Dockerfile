@@ -1,6 +1,6 @@
 # Next. js is built on top of React and runs on top of Node.js, 
 # hence we will use the Node.js image as the base image.
-FROM node:18-alpine AS base
+FROM node:24-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
