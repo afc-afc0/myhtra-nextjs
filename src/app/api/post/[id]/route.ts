@@ -1,5 +1,5 @@
 import { agent } from '@utils/http/nodeFetchAgent'
-import { getAccessToken, getTokenIfExist } from '@utils/nextAuth/getAccessToken'
+import { UnauthorizedError, getAccessToken, getTokenIfExist, unauthorizedResponse } from '@utils/nextAuth/getAccessToken'
 import fetch from 'node-fetch'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
@@ -27,6 +27,9 @@ export async function GET(request: Request, { params }: { params: any }) {
     const data = await res.json()
     return Response.json(data, { status: res.status })
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return unauthorizedResponse()
+    }
     console.error(error)
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }
@@ -57,6 +60,9 @@ export async function PUT(request: Request, { params }: { params: any }) {
     const data = await res.json()
     return Response.json(data, { status: res.status })
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return unauthorizedResponse()
+    }
     console.error(error)
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }
