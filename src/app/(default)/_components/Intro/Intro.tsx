@@ -19,9 +19,9 @@ export const Intro = () => {
       flexDirection="row"
       responsiveFlexDirection="column"
       gapSize="m"
-      borderWidth="s"
-      borderRadius="s"
-      paddingSize="s"
+      backgroundColor="secondary"
+      borderRadius="m"
+      paddingSize="m"
     >
       <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet Cengiz" width={120} height={120} preload />
       <FlexContainer gapSize="s">

@@ -9,6 +9,15 @@
   background-color: transparent;
 }
 
+/* A filled surface; containers nested inside it let the fill show through */
+.flexContainer[data-background-color='secondary'] {
+  background-color: var(--background-secondary);
+}
+
+.flexContainer[data-background-color='secondary'] .flexContainer:not([data-background-color]) {
+  background-color: transparent;
+}
+
 .flexContainer[data-padding-size='xs'] {
   padding: var(--padding-xs);
 }

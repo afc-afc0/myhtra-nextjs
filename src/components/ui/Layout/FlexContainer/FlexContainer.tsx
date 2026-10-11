@@ -32,7 +32,7 @@ interface FlexContainerProps {
   borderTopRadius?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
   shadowSize?: 'none' | 's' | 'm' | 'l'
   theme?: 'light' | 'dark'
-  backgroundColor?: 'transparent'
+  backgroundColor?: 'transparent' | 'secondary'
 }
 
 export const FlexContainer = React.forwardRef<HTMLDivElement, FlexContainerProps>(

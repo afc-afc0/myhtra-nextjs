@@ -38,9 +38,9 @@ export const Post = ({ post, isForUpdate = false }: { post: any; isForUpdate?: b
   return (
     <PostContainer postId={post.id} isForUpdate={isForUpdate}>
       <FlexContainer
-        borderWidth="s"
-        borderRadius="s"
-        paddingSize="s"
+        backgroundColor="secondary"
+        borderRadius="m"
+        paddingSize="m"
         gapSize="s"
         height="auto"
         justifyContent="flex-start"
