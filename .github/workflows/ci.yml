@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install
+        run: yarn --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn tsc --noEmit
+
+      - name: Build
+        run: yarn build
+
+      # Production dependencies only: dev tooling is not shipped in the image.
+      # yarn audit's exit code is a bitmask of severities found (8 = high, 16 = critical).
+      - name: Audit (fail on high or critical)
+        run: |
+          set +e
+          yarn audit --groups dependencies --level high
+          code=$?
+          set -e
+          if [ $((code & 24)) -ne 0 ]; then
+            echo "High or critical advisories in production dependencies"
+            exit 1
+          fi
