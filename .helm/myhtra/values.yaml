@@ -49,10 +49,10 @@ deployment:
 ingress:
   name: myhtra-ingress
   secretName: www-tls
-  # Serve www.myhtra.co as a redirect to the apex (needs DNS: www CNAME myhtra.co).
-  # Keep false until the duplicate Certificates on www-tls (hand-made "www" + ingress-shim
-  # "www-tls") are merged, or the two will fight over the secret and re-issue in a loop.
-  wwwRedirect: false
+  # Serve www.myhtra.co as a redirect to the apex (DNS: www CNAME myhtra.co).
+  # The ingress annotation (ingress-shim) is the only owner of the www-tls Certificate;
+  # don't add a hand-made Certificate for the same secret or they fight over it.
+  wwwRedirect: true
 
 # For TLS
 podLabels:
