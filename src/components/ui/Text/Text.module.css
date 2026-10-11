@@ -50,8 +50,12 @@
   font-weight: var(--font-weight-black);
 }
 
+.text[data-type='highlight'] {
+  color: var(--highlight-color);
+}
+
 .text[data-type='link'] {
-  color: var(--action-color);
+  color: var(--highlight-color);
   transition: color var(--transition-duration) ease-in-out;
 }
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AhmetImage from '@public/pngs/profileImages/Ahmet.jpeg'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { Text, TextType } from '@components/ui/Text/Text'
+import { RichText } from '@components/ui/Text/RichText'
 
 import styles from './Intro.module.css'
 
@@ -26,9 +27,13 @@ export const Intro = () => {
       <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet Cengiz" width={120} height={120} preload />
       <FlexContainer gapSize="s">
         <Text text="Ahmet Cengiz" fontSize="xxl" fontWeight="bold" />
-        <Text text="Senior Software Developer, PwC Canada · Toronto, ON" fontSize="m" fontWeight="medium" />
-        <Text text="7+ years building web APIs, cloud infrastructure and agentic AI platforms." fontWeight="light" />
-        <Text text="Founder, Myhtra Studios." fontWeight="light" />
+        <div>
+          <Text text="Senior Software Developer, " fontWeight="medium" display="inline" />
+          <Text text="PwC Canada" type={TextType.HIGHLIGHT} fontWeight="bold" display="inline" />
+          <Text text=" · Toronto, ON" fontWeight="medium" display="inline" />
+        </div>
+        <RichText text="**7+ years** building web APIs, cloud infrastructure and agentic AI platforms." />
+        <RichText text="Founder, **Myhtra Studios**." />
         <FlexContainer flexDirection="row" gapSize="s">
           {links.map((l) => (
             <Link key={l.text} href={l.href} target="_blank" rel="noopener noreferrer">

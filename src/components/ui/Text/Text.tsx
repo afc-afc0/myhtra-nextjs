@@ -3,7 +3,8 @@ import styles from './Text.module.css'
 
 export enum TextType {
   TEXT = 'text',
-  LINK = 'link'
+  LINK = 'link',
+  HIGHLIGHT = 'highlight'
 }
 
 interface TextProps {

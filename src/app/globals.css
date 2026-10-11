@@ -84,6 +84,7 @@
   --text-color-secondary: hsl(0, 0%, 0%);
   --focus-border-color: var(--action-color);
   --shadow-color: rgba(189, 189, 189, 0.5);
+  --highlight-color: hsl(204, 84%, 72%);
 }
 
 [data-theme='light'] {
@@ -98,6 +99,7 @@
   --text-color-secondary: hsl(0, 0%, 100%);
   --focus-border-color: var(--action-color);
   --shadow-color: rgba(0, 0, 0, 0.15);
+  --highlight-color: hsl(203, 66%, 36%);
 }
 
 * {

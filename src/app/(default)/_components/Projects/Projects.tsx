@@ -1,5 +1,6 @@
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
-import { Text } from '@components/ui/Text/Text'
+import { Text, TextType } from '@components/ui/Text/Text'
+import { RichText } from '@components/ui/Text/RichText'
 import { projects } from '../../_content/profile'
 import { Card } from '../Card/Card'
 
@@ -11,9 +12,9 @@ export const Projects = () => {
         <Card key={p.name}>
           <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="center">
             <Text text={p.name} fontSize="l" fontWeight="medium" />
-            <Text text={p.status} fontSize="s" fontWeight="light" />
+            <Text text={p.status} type={TextType.HIGHLIGHT} fontSize="s" fontWeight="medium" />
           </FlexContainer>
-          <Text text={p.summary} fontSize="s" fontWeight="light" />
+          <RichText text={p.summary} fontSize="s" />
         </Card>
       ))}
     </FlexContainer>
