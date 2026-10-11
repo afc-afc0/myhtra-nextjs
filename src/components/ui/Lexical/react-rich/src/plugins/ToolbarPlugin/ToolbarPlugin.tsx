@@ -25,7 +25,8 @@ import { Dispatch, JSX, useCallback, useEffect, useRef, useState } from 'react'
 
 import styles from '../../Lexical.module.css'
 
-import { $isCodeNode, CODE_LANGUAGE_FRIENDLY_NAME_MAP, CODE_LANGUAGE_MAP } from '@lexical/code'
+import { $isCodeNode } from '@lexical/code'
+import { CODE_LANGUAGE_FRIENDLY_NAME_MAP, CODE_LANGUAGE_MAP } from '@lexical/code-prism'
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link'
 import { $isTableNode, $isTableSelection } from '@lexical/table'
 import { $isHeadingNode, $isQuoteNode, HeadingTagType } from '@lexical/rich-text'
@@ -164,7 +165,7 @@ export default function ToolbarPlugin({
             setBlockType(type as keyof typeof blockTypeToBlockName)
           }
           if ($isCodeNode(element)) {
-            const language = element.getLanguage() as keyof typeof CODE_LANGUAGE_MAP
+            const language = element.getLanguage()
             setCodeLanguage(language ? CODE_LANGUAGE_MAP[language] || language : '')
             return
           }
@@ -207,9 +208,12 @@ export default function ToolbarPlugin({
   }, [editor, $updateToolbar])
 
   useEffect(() => {
-    activeEditor.getEditorState().read(() => {
-      $updateToolbar()
-    })
+    activeEditor.getEditorState().read(
+      () => {
+        $updateToolbar()
+      },
+      { editor: activeEditor }
+    )
   }, [activeEditor, $updateToolbar])
 
   useEffect(() => {
@@ -218,9 +222,12 @@ export default function ToolbarPlugin({
         setIsEditable(editable)
       }),
       activeEditor.registerUpdateListener(({ editorState }) => {
-        editorState.read(() => {
-          $updateToolbar()
-        })
+        editorState.read(
+          () => {
+            $updateToolbar()
+          },
+          { editor: activeEditor }
+        )
       }),
       activeEditor.registerCommand<boolean>(
         CAN_UNDO_COMMAND,

@@ -109,9 +109,12 @@ function FloatingLinkEditor({
     const scrollerElem = anchorElem.parentElement
 
     const update = () => {
-      editor.getEditorState().read(() => {
-        $updateLinkEditor()
-      })
+      editor.getEditorState().read(
+        () => {
+          $updateLinkEditor()
+        },
+        { editor }
+      )
     }
 
     window.addEventListener('resize', update)
@@ -132,9 +135,12 @@ function FloatingLinkEditor({
   useEffect(() => {
     return mergeRegister(
       editor.registerUpdateListener(({ editorState }) => {
-        editorState.read(() => {
-          $updateLinkEditor()
-        })
+        editorState.read(
+          () => {
+            $updateLinkEditor()
+          },
+          { editor }
+        )
       }),
 
       editor.registerCommand(
@@ -160,9 +166,12 @@ function FloatingLinkEditor({
   }, [editor, $updateLinkEditor, setIsLink, isLink])
 
   useEffect(() => {
-    editor.getEditorState().read(() => {
-      $updateLinkEditor()
-    })
+    editor.getEditorState().read(
+      () => {
+        $updateLinkEditor()
+      },
+      { editor }
+    )
   }, [editor, $updateLinkEditor])
 
   useEffect(() => {
@@ -314,9 +323,12 @@ function useFloatingLinkEditorToolbar(
     }
     return mergeRegister(
       editor.registerUpdateListener(({ editorState }) => {
-        editorState.read(() => {
-          $updateToolbar()
-        })
+        editorState.read(
+          () => {
+            $updateToolbar()
+          },
+          { editor }
+        )
       }),
       editor.registerCommand(
         SELECTION_CHANGE_COMMAND,

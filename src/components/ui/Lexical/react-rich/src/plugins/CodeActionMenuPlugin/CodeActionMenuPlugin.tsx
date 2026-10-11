@@ -1,5 +1,6 @@
 'use client'
-import { $isCodeNode, CodeNode, getLanguageFriendlyName, normalizeCodeLang } from '@lexical/code'
+import { $isCodeNode, CodeNode } from '@lexical/code'
+import { getLanguageFriendlyName, normalizeCodeLanguage } from '@lexical/code-prism'
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext'
 import { $getNearestNodeFromDOMNode } from 'lexical'
 import { useEffect, useRef, useState } from 'react'
@@ -116,7 +117,7 @@ function CodeActionMenuContainer({ anchorElem }: { anchorElem: HTMLElement }): R
     )
   }, [editor])
 
-  const normalizedLang = normalizeCodeLang(lang)
+  const normalizedLang = normalizeCodeLanguage(lang)
   const codeFriendlyName = getLanguageFriendlyName(lang)
 
   return (
