@@ -13,3 +13,8 @@ LICENSE
 /scripts
 
 .env*.local
+.claude
+.github
+.helm
+certificates
+*.tsbuildinfo

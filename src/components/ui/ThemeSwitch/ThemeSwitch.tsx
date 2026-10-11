@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import { useTheme } from 'next-themes'
 import { Popover, PopoverContent, PopoverTrigger } from '@components/ui/Popover/Popover'
 import { Toggle } from '@components/ui/Toggle/Toggle'
@@ -8,14 +8,17 @@ import { DarkModeSVG } from '@components/ui/SVG/SVG'
 import { Button } from '@components/ui/Button/Button'
 import { FlexContainer } from '../Layout/FlexContainer/FlexContainer'
 
+const subscribeNoop = () => () => {}
+
 export function ThemeSwitch() {
-  const [mounted, setMounted] = useState(false)
+  // false during SSR and hydration, true afterwards (theme is only known on the client)
+  const mounted = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false
+  )
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   if (!mounted) {
     return null

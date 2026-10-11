@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useOnChange } from '@components/ui/Lexical/react-rich/src/plugins/shared/useOnChange'
@@ -74,13 +74,21 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
   const [isLexicalEmpty, setLexicalEmpty] = useState<boolean>(false)
   const [updatePostRequest, setUpdatePostRequest] = useState<UpdatePostRequest>(initialPost ?? defaultUpdatePostRequest)
 
-  // Could use react query mongoQuery.setQueryData instead of useEffect but I don't want to desync the cache
-  useEffect(() => {
-    if (initialPost && initialPost !== updatePostRequest) {
+  const [prevInitialPost, setPrevInitialPost] = useState(initialPost)
+
+  // Reset the form when a new initialPost arrives. Done during render rather than in an effect
+  // (https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes).
+  // Could use react query setQueryData instead, but I don't want to desync the cache.
+  if (initialPost !== prevInitialPost) {
+    setPrevInitialPost(initialPost)
+    if (initialPost) {
       setUpdatePostRequest(initialPost)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialPost])
+  }
+
+  const handleUpdatePostRequestChange = (postUpdate: Partial<UpdatePostRequest>) => {
+    setUpdatePostRequest((prev) => ({ ...prev, ...postUpdate }))
+  }
 
   const onChangeLexical = useOnChange(
     (content: string) => {
@@ -119,10 +127,6 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
 
   const handleUpdate = (post: UpdatePostRequest) => {
     mutation.mutate(post)
-  }
-
-  const handleUpdatePostRequestChange = (postUpdate: Partial<UpdatePostRequest>) => {
-    setUpdatePostRequest((prev) => ({ ...prev, ...postUpdate }))
   }
 
   return {

@@ -1,4 +1,4 @@
-import { getAccessToken } from '@utils/nextAuth/getAccessToken'
+import { UnauthorizedError, getAccessToken, unauthorizedResponse } from '@utils/nextAuth/getAccessToken'
 
 const keycloakUrl = process.env.KEYCLOAK_REALM_URL
 
@@ -22,6 +22,10 @@ export async function GET(req: any) {
     let data = await res.json()
     return Response.json(data, { status: res.status })
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return unauthorizedResponse()
+    }
+    console.error(error)
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }

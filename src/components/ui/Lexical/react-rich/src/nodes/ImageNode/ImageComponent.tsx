@@ -155,6 +155,8 @@ function LazyImage({
   const imageStyle = calculateDimensions()
 
   return (
+    // Editor images are user-supplied data:/blob: URLs sized by the resizer; next/image can't optimize them
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className || undefined}
       src={src}
@@ -218,12 +220,12 @@ export default function ImageComponent({
   const isEditable = useLexicalEditable()
 
   const $onEnter = useCallback(
-    (event: KeyboardEvent) => {
+    (event: KeyboardEvent | null) => {
       const latestSelection = $getSelection()
       const buttonElem = buttonRef.current
       if (isSelected && $isNodeSelection(latestSelection) && latestSelection.getNodes().length === 1) {
         if (buttonElem !== null && buttonElem !== document.activeElement) {
-          event.preventDefault()
+          event?.preventDefault()
           buttonElem.focus()
           return true
         }
@@ -275,13 +277,16 @@ export default function ImageComponent({
 
   const onRightClick = useCallback(
     (event: MouseEvent): void => {
-      editor.getEditorState().read(() => {
-        const latestSelection = $getSelection()
-        const domElement = event.target as HTMLElement
-        if (domElement.tagName === 'IMG' && $isRangeSelection(latestSelection) && latestSelection.getNodes().length === 1) {
-          editor.dispatchCommand(RIGHT_CLICK_IMAGE_COMMAND, event as MouseEvent)
-        }
-      })
+      editor.getEditorState().read(
+        () => {
+          const latestSelection = $getSelection()
+          const domElement = event.target as HTMLElement
+          if (domElement.tagName === 'IMG' && $isRangeSelection(latestSelection) && latestSelection.getNodes().length === 1) {
+            editor.dispatchCommand(RIGHT_CLICK_IMAGE_COMMAND, event as MouseEvent)
+          }
+        },
+        { editor }
+      )
     },
     [editor]
   )
@@ -290,7 +295,7 @@ export default function ImageComponent({
     const rootElement = editor.getRootElement()
     const unregister = mergeRegister(
       editor.registerUpdateListener(({ editorState }) => {
-        const updatedSelection = editorState.read(() => $getSelection())
+        const updatedSelection = editorState.read(() => $getSelection(), { editor })
         if ($isNodeSelection(updatedSelection)) {
           setSelection(updatedSelection)
         } else {

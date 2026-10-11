@@ -2,7 +2,8 @@ image:
   containerName: nextjs
   repository: icanjump/myhtra-nextjs
   pullPolicy: Always
-  tag: 'latest'
+  # Set by deploy.sh to the commit's short SHA; rendering fails if it is missing
+  tag: ''
   containerPort: 3000
   secretName: myhtra-nextjs-environment
 
@@ -11,7 +12,29 @@ service:
   type: LoadBalancer
   port: 80
 
-resources: {}
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    # Generous headroom: ~60Mi idle in a local hardened run, but real traffic is unmeasured
+    memory: 1Gi
+
+# Matches the nextjs user (uid 1001) / nodejs group (gid 1001) in the Dockerfile
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1001
+  runAsGroup: 1001
+  fsGroup: 1001
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
 
 deployment:
   replicas: 1

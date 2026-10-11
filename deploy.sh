@@ -1,43 +1,42 @@
 #!/bin/bash
 
 # Deployment script for Myhtra Next.js application
-# This script builds the Docker image, pushes it to the registry, and restarts the Kubernetes deployment
+# Builds the Docker image tagged with the current commit, pushes it, and points
+# the Kubernetes deployment at that exact tag (so a rollback is just the previous SHA)
 
-set -e  # Exit on any error
+set -euo pipefail  # Exit on any error, unset variable or failed pipe
 
-echo "🚀 Starting deployment process for Myhtra Next.js..."
+IMAGE="icanjump/myhtra-nextjs"
+DEPLOYMENT="myhtra-deployment"
+CONTAINER="nextjs"  # must match image.containerName in .helm/myhtra/values.yaml
 
-# Build Docker image
+# Only deploy committed code, so the image tag really identifies what is running
+if [ -n "$(git status --porcelain)" ]; then
+    echo "❌ Working tree has uncommitted changes. Commit or discard them before deploying."
+    exit 1
+fi
+
+TAG="$(git rev-parse --short HEAD)"
+
+echo "🚀 Starting deployment of Myhtra Next.js at ${TAG}..."
+
 echo "📦 Building Docker image..."
-sudo docker build . -t icanjump/myhtra-nextjs
+sudo docker build . -t "${IMAGE}:${TAG}" -t "${IMAGE}:latest"
+echo "✅ Docker image built successfully"
 
-if [ $? -eq 0 ]; then
-    echo "✅ Docker image built successfully"
-else
-    echo "❌ Failed to build Docker image"
-    exit 1
-fi
-
-# Push to registry
 echo "📤 Pushing image to Docker registry..."
-sudo docker push icanjump/myhtra-nextjs
+sudo docker push "${IMAGE}:${TAG}"
+sudo docker push "${IMAGE}:latest"
+echo "✅ Image pushed successfully"
 
-if [ $? -eq 0 ]; then
-    echo "✅ Image pushed successfully"
-else
-    echo "❌ Failed to push image to registry"
-    exit 1
+echo "🔄 Rolling out ${IMAGE}:${TAG}..."
+# If the live deployment's container isn't named ${CONTAINER}, fall back to the old
+# behaviour: restart and pull :latest (pushed above), so a deploy never gets stuck
+if ! kubectl set image "deployment/${DEPLOYMENT}" "${CONTAINER}=${IMAGE}:${TAG}"; then
+    echo "⚠️  Could not set image on container '${CONTAINER}'; falling back to rollout restart with :latest"
+    kubectl rollout restart "deployment/${DEPLOYMENT}"
 fi
+kubectl rollout status "deployment/${DEPLOYMENT}" --timeout=5m
+echo "✅ Kubernetes deployment rolled out successfully"
 
-# Restart Kubernetes deployment
-echo "🔄 Restarting Kubernetes deployment..."
-kubectl rollout restart deployment myhtra-deployment
-
-if [ $? -eq 0 ]; then
-    echo "✅ Kubernetes deployment restarted successfully"
-else
-    echo "❌ Failed to restart Kubernetes deployment"
-    exit 1
-fi
-
-echo "🎉 Deployment completed successfully!"
+echo "🎉 Deployment of ${TAG} completed successfully!"

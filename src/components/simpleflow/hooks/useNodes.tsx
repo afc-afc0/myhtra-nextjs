@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { Position, BaseNodePayload, BaseNodeProps, NodeData } from '@components/simpleflow/shared/types'
 
 export type NodesState<T extends NodeData> = Record<string, BaseNodeProps<T>>
@@ -14,7 +13,7 @@ export const useNodes = <T extends NodeData>() => {
 
   const addNode = (payload: BaseNodePayload<T>) => {
     const newNode: BaseNodeProps<T> = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       payload
     }
 

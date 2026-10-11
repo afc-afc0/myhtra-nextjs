@@ -1,6 +1,5 @@
-import { agent } from '@utils/http/nodeFetchAgent'
-import { getAccessToken, getTokenIfExist } from '@utils/nextAuth/getAccessToken'
-import fetch from 'node-fetch'
+import { backendFetch } from '@utils/http/backendFetch'
+import { UnauthorizedError, getAccessToken, getTokenIfExist, unauthorizedResponse } from '@utils/nextAuth/getAccessToken'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
@@ -10,8 +9,7 @@ export async function GET(request: Request, { params }: { params: any }) {
 
     const accessToken = await getTokenIfExist({ req: request })
 
-    const res = await fetch(`${api}/Post/${id}`, {
-      agent: agent,
+    const res = await backendFetch(`${api}/Post/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         ...(accessToken && { Authorization: `Bearer ${accessToken}` })
@@ -27,6 +25,9 @@ export async function GET(request: Request, { params }: { params: any }) {
     const data = await res.json()
     return Response.json(data, { status: res.status })
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return unauthorizedResponse()
+    }
     console.error(error)
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }
@@ -39,8 +40,7 @@ export async function PUT(request: Request, { params }: { params: any }) {
 
     const jsonBody = await request.json()
 
-    const res = await fetch(`${api}/Post/${id}`, {
-      agent: agent,
+    const res = await backendFetch(`${api}/Post/${id}`, {
       body: JSON.stringify(jsonBody),
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -57,6 +57,9 @@ export async function PUT(request: Request, { params }: { params: any }) {
     const data = await res.json()
     return Response.json(data, { status: res.status })
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      return unauthorizedResponse()
+    }
     console.error(error)
     return Response.json({ error: 'Internal Server Error' }, { status: 500 })
   }

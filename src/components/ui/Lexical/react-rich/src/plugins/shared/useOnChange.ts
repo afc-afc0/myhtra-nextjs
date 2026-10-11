@@ -5,10 +5,13 @@ import { $isRootTextContentEmpty } from '@lexical/text'
 export const useOnChange = (setContent: (text: string) => void, setCanSubmit: (canSubmit: boolean) => void) => {
   return useCallback(
     (editorState: EditorState, _editor: LexicalEditor) => {
-      editorState.read(() => {
-        setContent(JSON.stringify(editorState.toJSON()))
-        setCanSubmit(!$isRootTextContentEmpty(_editor.isComposing(), true))
-      })
+      editorState.read(
+        () => {
+          setContent(JSON.stringify(editorState.toJSON()))
+          setCanSubmit(!$isRootTextContentEmpty(_editor.isComposing(), true))
+        },
+        { editor: _editor }
+      )
     },
     [setCanSubmit, setContent]
   )

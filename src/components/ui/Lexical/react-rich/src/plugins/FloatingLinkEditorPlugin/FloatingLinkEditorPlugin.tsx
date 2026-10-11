@@ -28,7 +28,6 @@ import lexicalStyles from '../../Lexical.module.css'
 import { Input } from '@components/ui/Form/Input/Input'
 import { Button } from '@components/ui/Button/Button'
 import { CancelSVG, CheckWithCircleSVG, DeleteSVG, EditSVG } from '@components/ui/SVG/SVG'
-import { size } from '../../../../../../../../node_modules/lib0/object.d'
 import Link from 'next/link'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { ConditionalDisplay } from '@components/ui/ConditionalDisplay/ConditionalDisplay'
@@ -110,9 +109,12 @@ function FloatingLinkEditor({
     const scrollerElem = anchorElem.parentElement
 
     const update = () => {
-      editor.getEditorState().read(() => {
-        $updateLinkEditor()
-      })
+      editor.getEditorState().read(
+        () => {
+          $updateLinkEditor()
+        },
+        { editor }
+      )
     }
 
     window.addEventListener('resize', update)
@@ -133,9 +135,12 @@ function FloatingLinkEditor({
   useEffect(() => {
     return mergeRegister(
       editor.registerUpdateListener(({ editorState }) => {
-        editorState.read(() => {
-          $updateLinkEditor()
-        })
+        editorState.read(
+          () => {
+            $updateLinkEditor()
+          },
+          { editor }
+        )
       }),
 
       editor.registerCommand(
@@ -161,9 +166,12 @@ function FloatingLinkEditor({
   }, [editor, $updateLinkEditor, setIsLink, isLink])
 
   useEffect(() => {
-    editor.getEditorState().read(() => {
-      $updateLinkEditor()
-    })
+    editor.getEditorState().read(
+      () => {
+        $updateLinkEditor()
+      },
+      { editor }
+    )
   }, [editor, $updateLinkEditor])
 
   useEffect(() => {
@@ -315,9 +323,12 @@ function useFloatingLinkEditorToolbar(
     }
     return mergeRegister(
       editor.registerUpdateListener(({ editorState }) => {
-        editorState.read(() => {
-          $updateToolbar()
-        })
+        editorState.read(
+          () => {
+            $updateToolbar()
+          },
+          { editor }
+        )
       }),
       editor.registerCommand(
         SELECTION_CHANGE_COMMAND,
