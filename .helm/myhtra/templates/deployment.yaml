@@ -2,42 +2,62 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: { { .Values.deployment.labels.app } }
-    type: { { .Values.deployment.labels.type } }
-  name: { { .Values.deployment.name } }
+    app: {{ .Values.deployment.labels.app }}
+    type: {{ .Values.deployment.labels.type }}
+  name: {{ .Values.deployment.name }}
 spec:
-  replicas: { { .Values.deployment.replicas } }
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      app: { { .Values.deployment.labels.app } }
+      app: {{ .Values.deployment.labels.app }}
   strategy:
-    type: { { .Values.deployment.strategy } }
+    type: {{ .Values.deployment.strategy }}
   template:
     metadata:
       labels:
-        app: { { .Values.deployment.labels.app } }
-        type: { { .Values.deployment.labels.type } }
+        app: {{ .Values.deployment.labels.app }}
+        type: {{ .Values.deployment.labels.type }}
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
-          imagePullPolicy: { { .Values.image.pullPolicy } }
-          name: { { .Values.image.containerName } }
+        - image: '{{ .Values.image.repository }}:{{ required "image.tag is required: deploy with --set image.tag=<commit sha>" .Values.image.tag }}'
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: {{ .Values.image.containerName }}
           ports:
-            - containerPort: { { .Values.image.containerPort } }
+            - containerPort: {{ .Values.image.containerPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: { { .Values.image.containerPort } }
+              port: {{ .Values.image.containerPort }}
             initialDelaySeconds: 30
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /
-              port: { { .Values.image.containerPort } }
+              port: {{ .Values.image.containerPort }}
             initialDelaySeconds: 5
             timeoutSeconds: 3
           envFrom:
             - secretRef:
-                name: { { .Values.image.secretName } }
+                name: {{ .Values.image.secretName }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          volumeMounts:
+            # Root filesystem is read-only; Next.js writes its image/ISR cache here
+            - name: next-cache
+              mountPath: /app/.next/cache
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: next-cache
+          emptyDir:
+            sizeLimit: 512Mi
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
       restartPolicy: Always

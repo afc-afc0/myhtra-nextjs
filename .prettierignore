@@ -1,0 +1,2 @@
+# Helm templates use Go {{ }} syntax that Prettier mangles
+.helm
