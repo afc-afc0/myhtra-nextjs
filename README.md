@@ -30,22 +30,21 @@ A Next.js application with rich text editing capabilities using Lexical editor.
 - [ ] Update Tabs component styling
 - [ ] Complete ImagePlugin drag and drop functionality
 
-## 🚀 Deployment
+## 🛠 Development
 
-To update the site, run the following commands:
+Uses pnpm (version pinned in `package.json`), installed through corepack:
 
 ```bash
-# Build Docker image
-sudo docker build . -t icanjump/myhtra-nextjs
-
-# Push to registry
-sudo docker push icanjump/myhtra-nextjs
-
-# Restart Kubernetes deployment
-k rollout restart deployment myhtra-deployment
+corepack enable pnpm
+pnpm install
+pnpm dev     # https://localhost:3000
+pnpm lint
+pnpm build
 ```
 
-> **Note**: Consider creating a deployment script to automate these steps.
+## 🚀 Deployment
+
+Run `./deploy.sh` from a clean working tree. It builds the image, tags it with the git commit SHA (plus `latest`), pushes both, and rolls the Kubernetes deployment to that exact tag.
 
 ## 📅 Development Log
 

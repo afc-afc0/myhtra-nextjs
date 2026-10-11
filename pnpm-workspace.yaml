@@ -1,0 +1,4 @@
+# Dependency install scripts are blocked unless listed here as true.
+# unrs-resolver's postinstall only re-checks native bindings; the binary already comes from its optional deps.
+allowBuilds:
+  unrs-resolver: false

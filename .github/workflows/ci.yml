@@ -14,33 +14,27 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Uses the pnpm version pinned in package.json (packageManager)
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v5
         with:
           node-version: 24
-          cache: yarn
+          cache: pnpm
 
       - name: Install
-        run: yarn --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       # Build first: it generates next-env.d.ts (gitignored), which tsc needs
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Typecheck
-        run: yarn tsc --noEmit
+        run: pnpm exec tsc --noEmit
 
       # Production dependencies only: dev tooling is not shipped in the image.
-      # yarn audit's exit code is a bitmask of severities found (8 = high, 16 = critical).
       - name: Audit (fail on high or critical)
-        run: |
-          set +e
-          yarn audit --groups dependencies --level high
-          code=$?
-          set -e
-          if [ $((code & 24)) -ne 0 ]; then
-            echo "High or critical advisories in production dependencies"
-            exit 1
-          fi
+        run: pnpm audit --prod --audit-level high
