@@ -9,7 +9,8 @@ image:
 
 service:
   name: myhtra-service
-  type: LoadBalancer
+  # Internal only: traffic enters through the HTTPS ingress, which targets the cluster IP
+  type: ClusterIP
   port: 80
 
 resources:
@@ -48,6 +49,10 @@ deployment:
 ingress:
   name: myhtra-ingress
   secretName: www-tls
+  # Serve www.myhtra.co as a redirect to the apex (needs DNS: www CNAME myhtra.co).
+  # Keep false until the duplicate Certificates on www-tls (hand-made "www" + ingress-shim
+  # "www-tls") are merged, or the two will fight over the secret and re-issue in a loop.
+  wwwRedirect: false
 
 # For TLS
 podLabels:

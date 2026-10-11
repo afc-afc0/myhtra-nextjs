@@ -12,4 +12,4 @@ spec:
   selector:
     app: {{ .Values.deployment.labels.app }}
   sessionAffinity: None
-  type: LoadBalancer
+  type: {{ .Values.service.type }}

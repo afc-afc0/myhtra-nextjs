@@ -5,6 +5,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
     nginx.ingress.kubernetes.io/proxy-buffer-size: '128k'
+    {{- if .Values.ingress.wwwRedirect }}
+    # Redirects www.myhtra.co -> myhtra.co; the cert below covers both names
+    nginx.ingress.kubernetes.io/from-to-www-redirect: 'true'
+    {{- end }}
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   rules:
@@ -21,4 +25,7 @@ spec:
   tls:
     - hosts:
         - myhtra.co
+        {{- if .Values.ingress.wwwRedirect }}
+        - www.myhtra.co
+        {{- end }}
       secretName: {{ .Values.ingress.secretName }}
