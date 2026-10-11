@@ -14,6 +14,8 @@
 }
 .PlaygroundEditorTheme__paragraph {
   position: relative;
+  margin: 0 0 12px;
+  line-height: 1.65;
 }
 .PlaygroundEditorTheme__quote {
   margin: 0;
@@ -27,22 +29,25 @@
   padding-left: 16px;
 }
 .PlaygroundEditorTheme__h1 {
-  font-size: 24px;
-  color: var(--text-color);
-  font-weight: 400;
-  margin: 0;
-}
-.PlaygroundEditorTheme__h2 {
-  font-size: 15px;
+  font-size: 30px;
   color: var(--text-color);
   font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
+  line-height: 1.25;
+  margin: 0 0 16px;
+}
+.PlaygroundEditorTheme__h2 {
+  font-size: 22px;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 32px 0 12px;
 }
 .PlaygroundEditorTheme__h3 {
-  font-size: 12px;
-  margin: 0;
-  text-transform: uppercase;
+  font-size: 17px;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 24px 0 8px;
 }
 .PlaygroundEditorTheme__indent {
   --lexical-indent-base-value: 40px;
@@ -71,10 +76,13 @@
   vertical-align: super;
 }
 .PlaygroundEditorTheme__textCode {
-  background-color: rgb(240, 242, 245);
-  padding: 1px 0.25rem;
+  /* Mixed from the text colour so inline code stays readable in both themes. */
+  background-color: color-mix(in srgb, var(--text-color) 14%, transparent);
+  color: inherit;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
   font-family: Menlo, Consolas, Monaco, monospace;
-  font-size: 94%;
+  font-size: 88%;
 }
 .PlaygroundEditorTheme__hashtag {
   background-color: rgba(88, 144, 255, 0.15);
@@ -89,16 +97,16 @@
   cursor: pointer;
 }
 .PlaygroundEditorTheme__code {
-  background-color: var(--background-color);
+  background-color: color-mix(in srgb, var(--text-color) 6%, var(--background-color));
+  border: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent);
+  border-radius: 6px;
   font-family: Menlo, Consolas, Monaco, monospace;
   display: block;
-  padding: 8px 8px 8px 52px;
+  padding: 12px 12px 12px 56px;
   line-height: 1.53;
   font-size: 13px;
   color: var(--text-color);
-  margin: 0;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin: 16px 0;
   overflow-x: auto;
   position: relative;
   tab-size: 2;
@@ -106,12 +114,12 @@
 .PlaygroundEditorTheme__code:before {
   content: attr(data-gutter);
   position: absolute;
-  background-color: var(--background-color);
+  background-color: transparent;
   left: 0;
   top: 0;
-  border-right: 1px solid #ccc;
-  padding: 8px;
-  color: var(--text-color);
+  border-right: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent);
+  padding: 12px 8px;
+  color: color-mix(in srgb, var(--text-color) 45%, transparent);
   white-space: pre-wrap;
   text-align: right;
   min-width: 25px;
@@ -276,40 +284,41 @@
 }
 .PlaygroundEditorTheme__ol1 {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__ol2 {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-type: upper-alpha;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__ol3 {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-type: lower-alpha;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__ol4 {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-type: upper-roman;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__ol5 {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-type: lower-roman;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__ul {
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
   list-style-position: outside;
 }
 .PlaygroundEditorTheme__listItem {
-  margin: 0 32px;
+  margin: 0 32px 6px;
+  line-height: 1.6;
 }
 .PlaygroundEditorTheme__listItemChecked,
 .PlaygroundEditorTheme__listItemUnchecked {
@@ -374,6 +383,10 @@
 .PlaygroundEditorTheme__nestedListItem {
   list-style-type: none;
 }
+.PlaygroundEditorTheme__nestedListItem > ul,
+.PlaygroundEditorTheme__nestedListItem > ol {
+  margin: 6px 0 0;
+}
 .PlaygroundEditorTheme__nestedListItem:before,
 .PlaygroundEditorTheme__nestedListItem:after {
   display: none;
@@ -401,6 +414,30 @@
 }
 .PlaygroundEditorTheme__tokenFunction {
   color: #dd4a68;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenComment {
+  color: #8b949e;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenProperty {
+  color: #ff7b9c;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenSelector {
+  color: #a5d66f;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenOperator {
+  color: #e3b27a;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenAttr {
+  color: #6cb6ff;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenVariable {
+  color: #ffb454;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__tokenFunction {
+  color: #ff8fa3;
+}
+:global([data-theme='dark']) .PlaygroundEditorTheme__link {
+  color: #6cb6ff;
 }
 .PlaygroundEditorTheme__mark {
   background: rgba(255, 212, 0, 0.14);

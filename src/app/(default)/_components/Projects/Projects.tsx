@@ -14,7 +14,7 @@ export const Projects = () => {
           <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="center">
             {p.href ? (
               <Link href={p.href} target="_blank" rel="noopener noreferrer">
-                <Text text={`${p.name} ↗`} type={TextType.LINK} fontSize="l" fontWeight="medium" />
+                <Text text={p.name} type={TextType.LINK} fontSize="l" fontWeight="medium" />
               </Link>
             ) : (
               <Text text={p.name} fontSize="l" fontWeight="medium" />
