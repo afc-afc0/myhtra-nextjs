@@ -25,11 +25,12 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Typecheck
-        run: yarn tsc --noEmit
-
+      # Build first: it generates next-env.d.ts (gitignored), which tsc needs
       - name: Build
         run: yarn build
+
+      - name: Typecheck
+        run: yarn tsc --noEmit
 
       # Production dependencies only: dev tooling is not shipped in the image.
       # yarn audit's exit code is a bitmask of severities found (8 = high, 16 = critical).
