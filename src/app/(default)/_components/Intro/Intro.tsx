@@ -24,7 +24,7 @@ export const Intro = () => {
       borderRadius="m"
       paddingSize="m"
     >
-      <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet Cengiz" width={120} height={120} preload />
+      <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet Cengiz" width={200} height={200} preload />
       <FlexContainer gapSize="s">
         <Text text="Ahmet Cengiz" fontSize="xxl" fontWeight="bold" />
         <div>
