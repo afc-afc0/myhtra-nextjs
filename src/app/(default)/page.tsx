@@ -3,11 +3,6 @@ import { Hero } from './_components/Hero/Hero'
 import { ProofBar } from './_components/ProofBar/ProofBar'
 import { Services } from './_components/Services/Services'
 import { SelectedWork } from './_components/SelectedWork/SelectedWork'
-import { TrackRecord } from './_components/TrackRecord/TrackRecord'
-import { Process } from './_components/Process/Process'
-import { BuiltHere } from './_components/BuiltHere/BuiltHere'
-import { Studio } from './_components/Studio/Studio'
-import { Writing } from './_components/Writing/Writing'
 import { ClosingCta } from './_components/ClosingCta/ClosingCta'
 import { Footer } from '@components/ui/Footer/Footer'
 import { founder, motto } from './_content/site'
@@ -55,11 +50,6 @@ export default function Home() {
         <ProofBar />
         <Services />
         <SelectedWork />
-        <TrackRecord />
-        <Process />
-        <BuiltHere />
-        <Studio />
-        <Writing />
         <ClosingCta />
       </main>
       <Footer />

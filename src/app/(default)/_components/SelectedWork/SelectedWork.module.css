@@ -1,53 +1,38 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  min-height: 17rem;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: var(--border-radius-xl);
   border: 1px solid var(--line-color);
-  background: var(--background-color);
+  background: var(--surface-color);
   transition:
     transform var(--transition-duration) ease,
-    box-shadow var(--transition-duration) ease,
     border-color var(--transition-duration) ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--brand-sky) 50%, transparent);
-  box-shadow: 0 20px 40px -24px color-mix(in srgb, var(--brand-blue) 55%, transparent);
-}
-
-.top {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  font-size: var(--font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .kind {
-  color: var(--brand-sky);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-}
-
-.status {
-  color: var(--text-muted);
-  text-align: right;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-sky);
 }
 
 .name {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-medium);
-  letter-spacing: -0.01em;
 }
 
 .summary {
@@ -58,54 +43,16 @@
   color: var(--text-muted);
 }
 
-.bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
+.metric {
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line-color);
-}
-
-.metric {
   font-size: var(--font-size-s);
-  color: var(--text-muted);
+  font-weight: var(--font-weight-medium);
 }
 
-.metric strong {
-  font-size: var(--font-size-l);
-  color: var(--text-color);
-  font-weight: var(--font-weight-bold);
-  margin-right: 0.25rem;
-}
-
-.stack {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.stack li {
-  padding: 0.15rem 0.55rem;
-  border-radius: 999px;
-  background: var(--surface-color);
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-}
-
-@media screen and (max-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 700px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .card {
-    min-height: 0;
   }
 }

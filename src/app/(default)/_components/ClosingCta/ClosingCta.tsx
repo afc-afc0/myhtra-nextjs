@@ -12,12 +12,13 @@ export const ClosingCta = () => {
           <a className={styles.primary} href={contactHref}>
             {closing.cta}
           </a>
-          {founder.links.slice(1).map((l) => (
+          {founder.links.map((l) => (
             <a key={l.label} className={styles.secondary} href={l.href} target="_blank" rel="noopener noreferrer">
               {l.label}
             </a>
           ))}
         </div>
+        <p className={styles.studio}>{closing.studio}</p>
       </div>
     </section>
   )

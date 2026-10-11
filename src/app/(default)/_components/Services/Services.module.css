@@ -1,100 +1,46 @@
 .grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 1rem;
-}
-
-.tile {
-  display: flex;
-  flex-direction: column;
-  padding: 1.75rem;
-  border-radius: var(--border-radius-xl);
-  border: 1px solid var(--line-color);
-  background: var(--surface-color);
-  transition:
-    border-color var(--transition-duration) ease,
-    transform var(--transition-duration) ease;
-}
-
-.tile:hover {
-  border-color: color-mix(in srgb, var(--brand-sky) 60%, transparent);
-  transform: translateY(-3px);
-}
-
-.featured {
-  grid-row: span 3;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--brand-blue) 24%, transparent), transparent 60%),
-    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--brand-gold) 12%, transparent), transparent 55%), var(--surface-color);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
 }
 
 .icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: grid;
   place-items: center;
   border-radius: var(--border-radius-l);
   background: color-mix(in srgb, var(--brand-sky) 14%, transparent);
-  margin-bottom: 1.25rem;
-}
-
-.featured .icon {
-  margin-bottom: auto;
 }
 
 .icon svg {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: var(--brand-sky);
 }
 
 .title {
-  font-size: var(--font-size-xl);
+  margin-top: 1rem;
+  font-size: var(--font-size-l);
   font-weight: var(--font-weight-medium);
-  margin-bottom: 0.5rem;
-}
-
-.featured .title {
-  margin-top: 4rem;
-  font-size: var(--font-size-xxl);
 }
 
 .text {
-  color: var(--text-muted);
+  margin-top: 0.4rem;
   font-weight: var(--font-weight-light);
   line-height: 1.6;
-}
-
-.featured .text {
-  font-size: var(--font-size-l);
-}
-
-.tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-}
-
-.tags li {
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--line-color);
-  font-size: var(--font-size-xs);
   color: var(--text-muted);
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 520px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .featured {
-    grid-row: auto;
-  }
-
-  .featured .title {
-    margin-top: 1rem;
+    gap: 1.5rem;
   }
 }

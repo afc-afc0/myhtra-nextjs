@@ -12,7 +12,7 @@ import styles from './Navbar.module.css'
 const sections = [
   { href: '/#services', label: 'Services' },
   { href: '/#work', label: 'Work' },
-  { href: '/#studio', label: 'Studio' },
+  { href: '/#contact', label: 'Contact' },
   { href: '/blog', label: 'Blog' }
 ]
 

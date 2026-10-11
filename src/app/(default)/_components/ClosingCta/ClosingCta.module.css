@@ -66,6 +66,12 @@
   background: rgba(255, 255, 255, 0.28);
 }
 
+.studio {
+  margin-top: 2rem;
+  font-size: var(--font-size-s);
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 640px) {
   .wrap {
     padding: 1rem 1rem 3.5rem;
