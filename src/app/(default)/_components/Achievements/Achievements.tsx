@@ -1,0 +1,17 @@
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { Text } from '@components/ui/Text/Text'
+import { achievements } from '../../_content/profile'
+import { Card } from '../Card/Card'
+
+export const Achievements = () => {
+  return (
+    <FlexContainer width="100%" gapSize="s">
+      <Text text="Key achievements" fontSize="l" fontWeight="bold" />
+      <Card>
+        {achievements.map((a) => (
+          <Text key={a} text={`▪ ${a}`} fontSize="s" fontWeight="light" />
+        ))}
+      </Card>
+    </FlexContainer>
+  )
+}

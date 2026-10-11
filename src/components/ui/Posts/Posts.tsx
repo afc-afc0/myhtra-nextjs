@@ -47,11 +47,11 @@ export const Post = ({ post, isForUpdate = false }: { post: any; isForUpdate?: b
         alignItems="flex-start"
       >
         <FlexContainer width="100%">
-          <Text text={post.name} fontSize="xl" />
+          <Text text={post.name} fontSize="l" fontWeight="medium" />
         </FlexContainer>
         <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="flex-start">
-          <Text text={post.userDisplayName} fontWeight="light" />
-          <Text text={formatDate(post.createdAtUtc)} fontWeight="light" />
+          <Text text={post.userDisplayName} fontSize="s" fontWeight="light" />
+          <Text text={formatDate(post.createdAtUtc)} fontSize="s" fontWeight="light" />
         </FlexContainer>
       </FlexContainer>
     </PostContainer>

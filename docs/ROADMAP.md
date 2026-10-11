@@ -7,15 +7,16 @@ Status: ✅ done · ⏳ next · 💡 later
 
 ## Phase 1 — Simple homepage (branch `feature/brand-refresh`)
 
-|     | Item                          | Notes                                                                          |
-| --- | ----------------------------- | ------------------------------------------------------------------------------ |
-| ✅  | Intro — facts only            | Photo, name, title, years of experience, founder of Myhtra Studios, links      |
-| ✅  | GitHub contributions graph    | Last year from GitHub's public calendar, refreshed hourly, site theme colours  |
-| ✅  | Blog on the homepage          | Existing `Posts` component                                                     |
-| ✅  | Navbar, footer, global styles | Back to the originals — no new styling                                         |
-| ✅  | SEO basics                    | Title, description, Open Graph image, sitemap, robots, JSON-LD (all invisible) |
-| ✅  | `PageContainer` on mobile     | `max-width: 100%` + side padding (also fixes `/blog` on phones)                |
-| ⏳  | Review on screen, then merge  | Light and dark mode, phone width                                               |
+|     | Item                                   | Notes                                                                          |
+| --- | -------------------------------------- | ------------------------------------------------------------------------------ |
+| ✅  | Intro — facts only                     | Photo, name, title, years of experience, founder of Myhtra Studios, links      |
+| ✅  | GitHub contributions graph             | Last year from GitHub's public calendar, refreshed hourly, site theme colours  |
+| ✅  | Experience, key achievements, projects | Ahmet's own wording; two columns on desktop, stacked on phones                 |
+| ✅  | Blog on the homepage                   | Existing `Posts` component                                                     |
+| ✅  | Navbar, footer, global styles          | Back to the originals — no new styling                                         |
+| ✅  | SEO basics                             | Title, description, Open Graph image, sitemap, robots, JSON-LD (all invisible) |
+| ✅  | `PageContainer` on mobile              | `max-width: 100%` + side padding (also fixes `/blog` on phones)                |
+| ⏳  | Review on screen, then merge           | Light and dark mode, phone width                                               |
 
 ## Later — only if it earns its place
 
@@ -33,4 +34,6 @@ Status: ✅ done · ⏳ next · 💡 later
   Research from that round stays in `docs/brand/` for reference.
 - **2026-10-11** — Repo list replaced by the contribution graph; one card style, one width, small section labels;
   navbar aligned to the 60rem content width. Checked by screenshot (desktop, phone, dark).
+- **2026-10-11** — Page felt empty: added experience, key achievements and projects next to each other.
+  One `Card` for every block; blog cards use the same text sizes (also on `/blog`).
 - **2026-10-11** — Prototypes kept on branch `prototype/homepage-ui`, not on main.

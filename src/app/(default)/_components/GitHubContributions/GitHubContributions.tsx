@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { Text, TextType } from '@components/ui/Text/Text'
+import { Card } from '../Card/Card'
 
 import styles from './GitHubContributions.module.css'
 
@@ -44,7 +45,7 @@ export const GitHubContributions = async () => {
   if (days.length === 0) return null
 
   return (
-    <FlexContainer width="100%" borderWidth="s" borderRadius="s" paddingSize="s" gapSize="s">
+    <Card>
       {total && <Text text={`${total} contributions in the last year`} fontWeight="light" />}
       <div className={styles.scroll}>
         <div className={styles.grid} role="grid" aria-label="GitHub contributions in the last year">
@@ -73,6 +74,6 @@ export const GitHubContributions = async () => {
           <Text text="More" fontSize="xs" fontWeight="light" />
         </div>
       </FlexContainer>
-    </FlexContainer>
+    </Card>
   )
 }
