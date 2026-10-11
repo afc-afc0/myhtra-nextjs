@@ -82,6 +82,10 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPost])
 
+  const handleUpdatePostRequestChange = (postUpdate: Partial<UpdatePostRequest>) => {
+    setUpdatePostRequest((prev) => ({ ...prev, ...postUpdate }))
+  }
+
   const onChangeLexical = useOnChange(
     (content: string) => {
       handleUpdatePostRequestChange({ content })
@@ -119,10 +123,6 @@ export const useUpdatePost = ({ postId, initialPost }: { postId: string | string
 
   const handleUpdate = (post: UpdatePostRequest) => {
     mutation.mutate(post)
-  }
-
-  const handleUpdatePostRequestChange = (postUpdate: Partial<UpdatePostRequest>) => {
-    setUpdatePostRequest((prev) => ({ ...prev, ...postUpdate }))
   }
 
   return {

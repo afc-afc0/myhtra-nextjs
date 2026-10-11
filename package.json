@@ -6,7 +6,7 @@
         "dev": "next dev --experimental-https --turbopack",
         "build": "next build --turbopack",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "eslint ."
     },
     "dependencies": {
         "@lexical/react": "^0.33.1",
