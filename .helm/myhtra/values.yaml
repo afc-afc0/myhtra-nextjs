@@ -17,7 +17,8 @@ resources:
     cpu: 100m
     memory: 256Mi
   limits:
-    memory: 512Mi
+    # Generous headroom: ~60Mi idle in a local hardened run, but real traffic is unmeasured
+    memory: 1Gi
 
 # Matches the nextjs user (uid 1001) / nodejs group (gid 1001) in the Dockerfile
 podSecurityContext:

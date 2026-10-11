@@ -30,7 +30,12 @@ sudo docker push "${IMAGE}:latest"
 echo "✅ Image pushed successfully"
 
 echo "🔄 Rolling out ${IMAGE}:${TAG}..."
-kubectl set image "deployment/${DEPLOYMENT}" "${CONTAINER}=${IMAGE}:${TAG}"
+# If the live deployment's container isn't named ${CONTAINER}, fall back to the old
+# behaviour: restart and pull :latest (pushed above), so a deploy never gets stuck
+if ! kubectl set image "deployment/${DEPLOYMENT}" "${CONTAINER}=${IMAGE}:${TAG}"; then
+    echo "⚠️  Could not set image on container '${CONTAINER}'; falling back to rollout restart with :latest"
+    kubectl rollout restart "deployment/${DEPLOYMENT}"
+fi
 kubectl rollout status "deployment/${DEPLOYMENT}" --timeout=5m
 echo "✅ Kubernetes deployment rolled out successfully"
 
