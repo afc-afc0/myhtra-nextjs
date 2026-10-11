@@ -24,10 +24,10 @@ export const ProfileCards = () => {
           <ConditionalDisplay condition={!isExpanded}>
             <Card
               name="Ahmet Cengiz"
-              position="Full Stack Developer"
-              info="Passionate developer with over half a decade of diverse experience, 
-              creating secure web APIs and user-centric applications. 
-              Proven ability to develop scalable, well-tested apps used by 100,000+ users."
+              position="Senior Software Developer"
+              info="Senior developer with 7+ years of experience building secure web APIs,
+              cloud infrastructure and agentic AI platforms.
+              Proven ability to ship scalable, well-tested apps used by 100,000+ users."
               isExpanded={isExpanded}
               toggleExpanded={toggle}
             />
@@ -76,6 +76,74 @@ const ProfileImage = ({}: {}) => {
   return <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet" width={200} height={200} />
 }
 
+const experience = [
+  {
+    company: 'PwC Canada',
+    dates: 'Feb 2026 – Present · Toronto, ON',
+    highlights: [
+      'Building an agentic AI platform that automates cloud migration and Azure resource management through natural-language workflows, replacing manual Terraform Enterprise operations.',
+      'Contributed to ~$2–3M in annual savings by retiring Terraform Enterprise licensing in favour of an open-source toolchain with Azure-native state.',
+      'Cut per-request LLM spend with multi-tier caching on Claude via Amazon Bedrock, using Langfuse traces to drive few-shot selection and prompt refinement.',
+      'Shipped a conversational Azure provisioning agent: intent capture, Terraform plan generation, security remediation and policy advisory, gated by human approval.'
+    ],
+    title: 'Senior Software Developer'
+  },
+  {
+    company: 'Synoptek',
+    dates: 'Apr 2022 – Nov 2025 · Toronto, ON',
+    highlights: [
+      'Directed the move of 20 legacy .NET Framework apps to .NET 6/8 and Node.js, with a Next.js frontend and a shared React component library.',
+      'Implemented IAM patterns (JWT lifecycle, PKCE, refresh token rotation) and CI/CD to Azure App Service, IIS and Kubernetes with Helm.',
+      'Led an Agile team shipping an AI-powered CRM, and drove remediation of 20+ security vulnerabilities to pass a third-party audit.'
+    ],
+    title: 'Developer II–III'
+  },
+  {
+    company: 'Deop Inc.',
+    dates: 'Apr 2019 – Mar 2022 · Toronto, ON',
+    highlights: [
+      'Built client projects in Java (Spring) and Node.js, running on Kubernetes with RabbitMQ-based microservices.',
+      'Deployed Keycloak on Kubernetes with MFA, and secured Node.js, Spring and React apps with OpenID Connect and OAuth.'
+    ],
+    title: 'Developer I–II'
+  }
+]
+
+const projects = [
+  {
+    highlights: [
+      'A multi-tenant authentication server in Go that keeps each user’s data in the region the law requires, with open-source SDKs and a Terraform provider.',
+      'Built so far: tenants, organizations and roles, the full OpenID Connect sign-in flow, token refresh and revocation, and OpenTelemetry dashboards in Grafana.'
+    ],
+    name: 'DreamAuth',
+    status: 'Ongoing'
+  },
+  {
+    highlights: [
+      'A day planner for developers. A small agent on each machine notes what actually happened — calls, meetings, the plan they broke — so the planner does the bookkeeping, and asks before it acts.',
+      'Built with Next.js, Express, a Python desktop agent and Terraform.'
+    ],
+    name: 'DailyFlow',
+    status: 'Ongoing'
+  },
+  {
+    highlights: [
+      'An AI-assisted writing studio for my first novel, a grounded revenge thriller set in 2026.',
+      'Custom Claude Code skills keep the story bible, draft scene by scene and check the manuscript for continuity. I approve every line.'
+    ],
+    name: 'Book',
+    status: 'Ongoing'
+  },
+  {
+    highlights: [
+      'A HIPAA-compliant telehealth platform. I led the team building it on Next.js, Node.js and Azure.',
+      'Terraform infrastructure with Zero Trust networking, FHIR and SNOMED CT clinical data, Claude for health assessments, Stripe billing and Daily.co video calls.'
+    ],
+    name: 'Healtify',
+    status: 'Nov 2025 – Feb 2026'
+  }
+]
+
 interface CardExpendedProps {}
 
 const CardExpended = ({}: CardExpendedProps) => {
@@ -86,7 +154,7 @@ const CardExpended = ({}: CardExpendedProps) => {
       </FlexContainer>
       <FlexContainer width="100%">
         <Text text="Ahmet Cengiz" fontSize="l" fontWeight="bold" />
-        <Text text="Software Developer" fontSize="m" fontWeight="medium" />
+        <Text text="Senior Software Developer" fontSize="m" fontWeight="medium" />
         <Text text="Toronto, ON" fontSize="m" fontWeight="medium" />
         <FlexContainer marginBottom="s" flexDirection="row">
           <ExpendedCardSocialLinks text="Email" href="mailto:ahmet_fatih_cengiz@hotmail.com" />
@@ -103,14 +171,13 @@ const CardExpended = ({}: CardExpendedProps) => {
               </AccordionTrigger>
               <AccordionContent>
                 <Text
-                  text="Passionate software developer with more than half a decade of experience, 
-                  dedicated to building secure web APIs and user-centric applications while 
-                  demonstrating a proven ability to develop scalable and well-tested applications 
-                  used by over 100,000+ users across the US by ensuring comprehensive authentication, 
-                  authorization, efficient cloud environments, and automated CI/CD processes for 
-                  seamless software delivery, additionally creating a production system 
-                  for scanning and identifying vulnerabilities in hundreds of Kubernetes 
-                  pods enhancing overall security and reliability."
+                  text="Senior software developer with 7+ years of experience building secure web APIs,
+                  cloud infrastructure and user-centric applications. Currently building an agentic AI
+                  platform at PwC Canada that automates cloud migration and Azure resource management.
+                  Proven ability to develop scalable, well-tested applications used by over 100,000 users
+                  across the US, with comprehensive authentication and authorization, infrastructure as code,
+                  and automated CI/CD for seamless software delivery, plus a production system for scanning
+                  and isolating vulnerable Kubernetes pods."
                   fontSize="s"
                   fontWeight="light"
                 />
@@ -162,22 +229,51 @@ const CardExpended = ({}: CardExpendedProps) => {
                   <Text display="inline" text={'Kubernetes '} fontSize="s" fontWeight="medium" />
                   <Text
                     display="inline"
-                    text="clusters for a leading Canadian professional services firm. The system scanned over "
+                    text="clusters for a leading Canadian professional services firm. The system scanned "
                     fontSize="s"
                     fontWeight="light"
                   />
-                  <Text display="inline" text={'1000 '} fontSize="s" fontWeight="medium" />
+                  <Text display="inline" text={'1000+ '} fontSize="s" fontWeight="medium" />
                   <Text
                     display="inline"
-                    text="pods, identified and prioritized vulnerabilities by severity, automated alert notifications, and isolated over "
+                    text="pods, identified and prioritized vulnerabilities by severity, automated notifications, and isolated "
                     fontSize="s"
                     fontWeight="light"
                   />
-                  <Text display="inline" text={'200 '} fontSize="s" fontWeight="medium" />
-                  <Text display="inline" text="critical-risk pods, resulting in a " fontSize="s" fontWeight="light" />
-                  <Text display="inline" text={'30% '} fontSize="s" fontWeight="medium" />
-                  <Text display="inline" text="increase in security incident response efficiency." fontSize="s" fontWeight="light" />
+                  <Text display="inline" text={'100+ '} fontSize="s" fontWeight="medium" />
+                  <Text display="inline" text="critical-risk pods and counting." fontSize="s" fontWeight="light" />
                 </InlineTextContainer>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Experience">
+              <AccordionTrigger>
+                <Text text="Experience" />
+              </AccordionTrigger>
+              <AccordionContent>
+                {experience.map((job) => (
+                  <InlineTextContainer key={job.company}>
+                    <Text text={`${job.title} · ${job.company}`} fontSize="s" fontWeight="medium" />
+                    <Text text={job.dates} fontSize="xs" fontWeight="light" />
+                    {job.highlights.map((highlight) => (
+                      <Text key={highlight} text={`▪${highlight}`} fontSize="s" fontWeight="light" />
+                    ))}
+                  </InlineTextContainer>
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="Projects">
+              <AccordionTrigger>
+                <Text text="Projects" />
+              </AccordionTrigger>
+              <AccordionContent>
+                {projects.map((project) => (
+                  <InlineTextContainer key={project.name}>
+                    <Text text={`${project.name} · ${project.status}`} fontSize="s" fontWeight="medium" />
+                    {project.highlights.map((highlight) => (
+                      <Text key={highlight} text={`▪${highlight}`} fontSize="s" fontWeight="light" />
+                    ))}
+                  </InlineTextContainer>
+                ))}
               </AccordionContent>
             </AccordionItem>
           </Accordion>
