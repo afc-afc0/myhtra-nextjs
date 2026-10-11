@@ -18,8 +18,11 @@ spec:
         app: {{ .Values.deployment.labels.app }}
         type: {{ .Values.deployment.labels.type }}
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+        - image: '{{ .Values.image.repository }}:{{ required "image.tag is required: deploy with --set image.tag=<commit sha>" .Values.image.tag }}'
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: {{ .Values.image.containerName }}
           ports:
@@ -40,4 +43,21 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.image.secretName }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          volumeMounts:
+            # Root filesystem is read-only; Next.js writes its image/ISR cache here
+            - name: next-cache
+              mountPath: /app/.next/cache
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: next-cache
+          emptyDir:
+            sizeLimit: 512Mi
+        - name: tmp
+          emptyDir:
+            sizeLimit: 64Mi
       restartPolicy: Always
