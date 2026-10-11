@@ -2,103 +2,47 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  margin-bottom: var(--padding-s);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: var(--navbar-height);
-  background: color-mix(in srgb, var(--background-color) 72%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* For Safari support */
-  border-bottom: 1px solid var(--line-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  box-shadow: 0 1px 16px 0 var(--border-color);
 }
 
 .navbar {
-  width: 100%;
-  max-width: var(--content-width);
-  padding: 0 1.5rem;
+  width: 72rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
 }
 
-.navbarLeft,
-.navbarMiddle,
 .navbarRight {
   display: flex;
   align-items: center;
 }
 
 .navbarMiddle {
-  gap: 1.75rem;
-}
-
-.navbarRight {
-  gap: 0.6rem;
-}
-
-.logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-size: 32px;
   color: var(--text-color);
+  font-weight: 700;
 }
 
-.wordmark {
-  font-size: var(--font-size-l);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: -0.02em;
-}
-
-.wordmark span {
-  margin-left: 0.3rem;
-  font-weight: var(--font-weight-light);
-  color: var(--text-muted);
-}
-
-.navLink {
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-medium);
-  color: var(--text-muted);
-  transition: color var(--transition-duration) ease;
-}
-
-.navLink:hover {
-  color: var(--text-color);
-}
-
-.cta {
-  padding: 0.55rem 1.1rem;
-  border-radius: 999px;
-  background: var(--brand-gradient);
-  color: #fff;
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-medium);
-  white-space: nowrap;
-  transition: transform var(--transition-duration) ease;
-}
-
-.cta:hover {
-  transform: translateY(-1px);
-}
-
-@media screen and (max-width: 900px) {
-  .navbarMiddle {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 768px) {
   .navbar {
-    padding: 0 1rem;
-  }
-
-  .wordmark span {
-    display: none;
-  }
-
-  .cta {
-    padding: 0.5rem 0.85rem;
+    width: 100%;
+    padding: 0 var(--padding-m);
   }
 }

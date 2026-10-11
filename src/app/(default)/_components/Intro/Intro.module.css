@@ -1,0 +1,4 @@
+.profileImage {
+  border-radius: var(--padding-s);
+  object-fit: cover;
+}

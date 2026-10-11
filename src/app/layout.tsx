@@ -8,7 +8,7 @@ import { Toaster } from '@components/ui/Toast/Toaster/Toaster'
 const rubik = Rubik({ subsets: ['latin'] })
 
 const description =
-  'Founder-led software studio in Toronto. We design, build and run AI agents, Azure and Kubernetes platforms, and web apps that hold up in production.'
+  'Ahmet Cengiz, senior software developer in Toronto. Web apps, cloud infrastructure and AI agents — projects, GitHub and blog.'
 
 // No canonical / openGraph.url here: children would inherit them. Each page sets its own canonical.
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   robots: { follow: true, googleBot: { follow: true, index: true, 'max-image-preview': 'large' }, index: true },
   title: {
-    default: 'Myhtra Studios | AI agents, cloud & web apps, Toronto',
+    default: 'Ahmet Cengiz | Myhtra Studios',
     template: '%s | Myhtra Studios'
   },
   twitter: { card: 'summary_large_image' }

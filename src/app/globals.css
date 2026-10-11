@@ -68,17 +68,6 @@
 
   --navbar-height: 5.2rem;
 
-  /* Brand — taken from the logo */
-  --brand-blue: #364cc9;
-  --brand-sky: #1390d3;
-  --brand-gold: #c9b336;
-  --brand-gradient: linear-gradient(100deg, var(--brand-blue), var(--brand-sky));
-
-  --text-muted: color-mix(in srgb, var(--text-color) 62%, transparent);
-  --line-color: color-mix(in srgb, var(--text-color) 12%, transparent);
-  --surface-color: color-mix(in srgb, var(--text-color) 4%, var(--background-color));
-  --content-width: 72rem;
-
   --transition-duration: 0.25s;
   --input-background-color: --input-background-color-hover: var(--background-tertiary);
 }

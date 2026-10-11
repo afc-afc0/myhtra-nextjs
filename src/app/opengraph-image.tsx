@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 // Site-wide social preview. Uses the built-in font; to brand it with Rubik, commit a TTF and pass it via `fonts`.
-export const alt = 'Myhtra Studios — AI agents and cloud platforms you can put in production'
+export const alt = 'Ahmet Cengiz — Senior Software Developer, Myhtra Studios'
 export const size = { height: 630, width: 1200 }
 export const contentType = 'image/png'
 
@@ -22,14 +22,12 @@ export default async function Image() {
     >
       <div style={{ display: 'flex', fontSize: 30, letterSpacing: 4, opacity: 0.8, textTransform: 'uppercase' }}>Myhtra Studios</div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ display: 'flex', fontSize: 76, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>
-          AI agents and cloud platforms
-        </div>
+        <div style={{ display: 'flex', fontSize: 76, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>Ahmet Cengiz</div>
         <div style={{ color: '#e8d96a', display: 'flex', fontSize: 76, fontWeight: 700, letterSpacing: -2, lineHeight: 1.05 }}>
-          you can put in production.
+          Senior Software Developer
         </div>
       </div>
-      <div style={{ display: 'flex', fontSize: 28, opacity: 0.85 }}>Founder-led engineering studio · Toronto · myhtra.co</div>
+      <div style={{ display: 'flex', fontSize: 28, opacity: 0.85 }}>Web apps · Cloud · AI agents · Toronto · myhtra.co</div>
     </div>,
     size
   )

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Hero } from './_components/Hero/Hero'
-import { ProofBar } from './_components/ProofBar/ProofBar'
-import { Services } from './_components/Services/Services'
-import { SelectedWork } from './_components/SelectedWork/SelectedWork'
-import { ClosingCta } from './_components/ClosingCta/ClosingCta'
+import { PageContainer } from '@components/ui/PageContainer/PageContainer'
+import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { Text } from '@components/ui/Text/Text'
+import { Posts } from '@components/ui/Posts/Posts'
 import { Footer } from '@components/ui/Footer/Footer'
-import { founder, motto } from './_content/site'
+import { Intro } from './_components/Intro/Intro'
+import { GitHubRepos } from './_components/GitHubRepos/GitHubRepos'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' }
@@ -13,46 +13,30 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@id': 'https://myhtra.co/#studio',
-      '@type': 'ProfessionalService',
-      address: { '@type': 'PostalAddress', addressCountry: 'CA', addressLocality: 'Toronto' },
-      founder: { '@id': 'https://myhtra.co/#founder' },
-      name: 'Myhtra Studios',
-      slogan: motto,
-      url: 'https://myhtra.co'
-    },
-    {
-      '@id': 'https://myhtra.co/#founder',
-      '@type': 'Person',
-      jobTitle: founder.role,
-      name: founder.name,
-      sameAs: founder.links.filter((l) => l.href.startsWith('https')).map((l) => l.href),
-      worksFor: { '@id': 'https://myhtra.co/#studio' }
-    },
-    {
-      '@id': 'https://myhtra.co/#website',
-      '@type': 'WebSite',
-      name: 'Myhtra Studios',
-      publisher: { '@id': 'https://myhtra.co/#studio' },
-      url: 'https://myhtra.co'
-    }
-  ]
+  '@type': 'Person',
+  jobTitle: 'Senior Software Developer',
+  name: 'Ahmet Cengiz',
+  sameAs: ['https://github.com/afc-afc0', 'https://www.linkedin.com/in/ahmet-fatih-cengiz'],
+  url: 'https://myhtra.co',
+  worksFor: { '@type': 'Organization', name: 'Myhtra Studios', url: 'https://myhtra.co' }
 }
 
 export default function Home() {
   return (
-    <>
+    <PageContainer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
-      <main>
-        <Hero />
-        <ProofBar />
-        <Services />
-        <SelectedWork />
-        <ClosingCta />
-      </main>
-      <Footer />
-    </>
+      <FlexContainer gapSize="l" paddingTop="m">
+        <Intro />
+        <FlexContainer id="github" gapSize="s">
+          <Text text="GitHub" fontSize="xxxl" fontWeight="medium" />
+          <GitHubRepos />
+        </FlexContainer>
+        <FlexContainer id="blog" gapSize="s">
+          <Text text="Blog" fontSize="xxxl" fontWeight="medium" />
+          <Posts />
+        </FlexContainer>
+        <Footer />
+      </FlexContainer>
+    </PageContainer>
   )
 }
