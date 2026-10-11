@@ -3,6 +3,7 @@
 export const experience = [
   {
     company: 'PwC Canada',
+    companyHref: 'https://www.pwc.com/ca/en.html',
     dates: 'Feb 2026 – Present · Toronto, ON',
     highlights: [
       'Building an **agentic AI platform** that automates cloud migration and Azure resource management through natural-language workflows, replacing manual Terraform Enterprise operations.',
@@ -14,6 +15,7 @@ export const experience = [
   },
   {
     company: 'Synoptek',
+    companyHref: 'https://synoptek.com/',
     dates: 'Apr 2022 – Nov 2025 · Toronto, ON',
     highlights: [
       'Directed the move of **20 legacy .NET Framework apps** to .NET 6/8 and Node.js, with a Next.js frontend and a shared React component library.',
@@ -24,6 +26,7 @@ export const experience = [
   },
   {
     company: 'Deop Inc.',
+    companyHref: 'https://www.deop.ca/',
     dates: 'Apr 2019 – Mar 2022 · Toronto, ON',
     highlights: [
       'Built client projects in Java (Spring) and Node.js, running on **Kubernetes** with RabbitMQ-based microservices.',
@@ -39,7 +42,7 @@ export const achievements = [
   'Built a vulnerability detection system for Kubernetes clusters at a leading Canadian professional services firm: **1000+ pods scanned**, **100+ critical-risk pods isolated**.'
 ]
 
-export const projects = [
+export const projects: { name: string; status: string; summary: string; href?: string }[] = [
   {
     name: 'DreamAuth',
     status: 'Ongoing',
@@ -57,6 +60,7 @@ export const projects = [
     summary: 'An AI-assisted writing studio for my first novel, built on **custom Claude Code skills**. I approve every line.'
   },
   {
+    href: 'https://healtify.co/',
     name: 'Healtify',
     status: 'Nov 2025 – Feb 2026',
     summary: 'A **HIPAA-compliant telehealth platform**. **I led the team** building it on Next.js, Node.js and Azure.'

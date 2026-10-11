@@ -29,7 +29,9 @@ export const Intro = () => {
         <Text text="Ahmet Cengiz" fontSize="xxl" fontWeight="bold" />
         <div>
           <Text text="Senior Software Developer, " fontWeight="medium" display="inline" />
-          <Text text="PwC Canada" type={TextType.HIGHLIGHT} fontWeight="bold" display="inline" />
+          <Link href="https://www.pwc.com/ca/en.html" target="_blank" rel="noopener noreferrer">
+            <Text text="PwC Canada" type={TextType.LINK} fontWeight="bold" display="inline" />
+          </Link>
           <Text text=" · Toronto, ON" fontWeight="medium" display="inline" />
         </div>
         <RichText text="**7+ years** building web APIs, cloud infrastructure and agentic AI platforms." />

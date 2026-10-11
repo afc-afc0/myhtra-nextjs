@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { Text, TextType } from '@components/ui/Text/Text'
 import { RichText } from '@components/ui/Text/RichText'
@@ -13,7 +14,9 @@ export const Experience = () => {
           <FlexContainer>
             <div>
               <Text text={`${job.title} · `} fontSize="l" fontWeight="medium" display="inline" />
-              <Text text={job.company} type={TextType.HIGHLIGHT} fontSize="l" fontWeight="bold" display="inline" />
+              <Link href={job.companyHref} target="_blank" rel="noopener noreferrer">
+                <Text text={job.company} type={TextType.LINK} fontSize="l" fontWeight="bold" display="inline" />
+              </Link>
             </div>
             <Text text={job.dates} fontSize="s" fontWeight="light" />
           </FlexContainer>
