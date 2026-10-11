@@ -21,7 +21,7 @@
         "next-auth/uuid": "^11.1.1",
         "postcss": "8.5.28",
         "preact": ">=10.28.2",
-        "sharp": "^0.35.4",
+        "sharp": "^0.35.5",
         "tinyglobby/picomatch": "4.0.4"
     },
     "dependencies": {
@@ -40,14 +40,14 @@
         "clsx": "^2.1.1",
         "lexical": "^0.33.1",
         "lodash-es": "^4.17.23",
-        "next": "^16.3.4",
+        "next": "^16.4.0",
         "next-auth": "^4.24.15",
         "next-themes": "^0.4.6",
         "node-fetch": "^3.3.2",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-error-boundary": "^6.0.0",
-        "sharp": "^0.35.4",
+        "sharp": "^0.35.5",
         "uuid": "^11.1.1",
         "yjs": "^13.6.27"
     },
@@ -57,7 +57,7 @@
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
         "eslint": "^9.39.1",
-        "eslint-config-next": "16.3.4",
+        "eslint-config-next": "16.4.0",
         "eslint-plugin-sort-keys-fix": "^1.1.2",
         "prettier": "^3.6.2",
         "typescript": "^5.8.3"
