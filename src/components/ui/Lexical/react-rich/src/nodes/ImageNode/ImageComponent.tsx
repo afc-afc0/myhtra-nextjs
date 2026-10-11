@@ -155,6 +155,8 @@ function LazyImage({
   const imageStyle = calculateDimensions()
 
   return (
+    // Editor images are user-supplied data:/blob: URLs sized by the resizer; next/image can't optimize them
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className || undefined}
       src={src}

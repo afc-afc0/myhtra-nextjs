@@ -74,6 +74,7 @@ const Editor = ({ onChange, readonly, id }: { onChange?: any; readonly?: boolean
   const [activeEditor, setActiveEditor] = useState(editor)
   const isEditable = useLexicalEditable()
   const flexContainerRef = useRef<HTMLDivElement>(null)
+  const [maxWidth, setMaxWidth] = useState<number | undefined>(undefined)
 
   const onRef = (_floatingAnchorElem: HTMLDivElement) => {
     if (_floatingAnchorElem !== null) {
@@ -97,18 +98,22 @@ const Editor = ({ onChange, readonly, id }: { onChange?: any; readonly?: boolean
     }
   }, [isSmallWidthViewport])
 
-  const getMaxWidth = () => {
-    if (flexContainerRef.current) {
-      // Subtracting to account for padding or other elements
-      return flexContainerRef.current.offsetWidth - 16
+  useEffect(() => {
+    const container = flexContainerRef.current
+    if (!container) {
+      return
     }
-    return undefined
-  }
+    // Subtracting to account for padding or other elements
+    const observer = new ResizeObserver(() => setMaxWidth(container.offsetWidth - 16))
+    observer.observe(container)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <FlexContainer ref={flexContainerRef} width="100%" borderWidth="m" borderRadius="m">
       <ConditionalDisplay condition={readonly == false}>
-        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} maxWidth={getMaxWidth()} />
+        <ToolbarPlugin setIsLinkEditMode={setIsLinkEditMode} maxWidth={maxWidth} />
       </ConditionalDisplay>
       <FlexContainer width="100%">
         <RichTextPlugin contentEditable={<Content ref={onRef} id={id} />} ErrorBoundary={LexicalErrorBoundary} />

@@ -9,7 +9,7 @@
 import type { JSX } from 'react'
 
 import { ElementFormatType } from 'lexical'
-import React, { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react'
 
 export const MIN_ALLOWED_FONT_SIZE = 8
 export const MAX_ALLOWED_FONT_SIZE = 72
@@ -83,18 +83,14 @@ const Context = createContext<ContextShape | undefined>(undefined)
 export const ToolbarContext = ({ children }: { children: ReactNode }): JSX.Element => {
   const [toolbarState, setToolbarState] = useState(INITIAL_TOOLBAR_STATE)
 
-  const selectionFontSize = toolbarState.fontSize
-
   const updateToolbarState = useCallback(<Key extends ToolbarStateKey>(key: Key, value: ToolbarStateValue<Key>) => {
     setToolbarState((prev) => ({
       ...prev,
-      [key]: value
+      [key]: value,
+      // Keep the font size input in sync with the selection's font size ("15px" -> "15")
+      ...(key === 'fontSize' ? { fontSizeInputValue: (value as string).slice(0, -2) } : {})
     }))
   }, [])
-
-  useEffect(() => {
-    updateToolbarState('fontSizeInputValue', selectionFontSize.slice(0, -2))
-  }, [selectionFontSize, updateToolbarState])
 
   const contextValue = useMemo(() => {
     return {
