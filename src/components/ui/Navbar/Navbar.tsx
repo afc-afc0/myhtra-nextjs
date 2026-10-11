@@ -3,13 +3,20 @@
 import Image from 'next/image'
 import { AuthController } from '../Auth/AuthController/AuthController'
 import MyhtraLogo from '@public/svgs/Logo.svg'
-import { Text } from '@components/ui/Text/Text'
 import Link from 'next/link'
-import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { ThemeSwitch } from '@components/ui/ThemeSwitch/ThemeSwitch'
 import { useSession } from 'next-auth/react'
 
 import styles from './Navbar.module.css'
+
+const sections = [
+  { href: '/#services', label: 'Services' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#studio', label: 'Studio' },
+  { href: '/blog', label: 'Blog' }
+]
+
+const contactHref = `mailto:ahmet_fatih_cengiz@hotmail.com?subject=${encodeURIComponent('New project — Myhtra Studios')}`
 
 export const Navbar = ({}) => {
   const { status } = useSession()
@@ -20,17 +27,24 @@ export const Navbar = ({}) => {
         <div className={styles.navbarLeft}>
           <Logo />
         </div>
-        <div className={styles.navbarMiddle}></div>
+        <div className={styles.navbarMiddle}>
+          {sections.map((s) => (
+            <Link key={s.href} href={s.href} className={styles.navLink}>
+              {s.label}
+            </Link>
+          ))}
+          {status === 'authenticated' && (
+            <Link href="/blog/myPosts" className={styles.navLink}>
+              My Posts
+            </Link>
+          )}
+        </div>
         <div className={styles.navbarRight}>
-          <FlexContainer flexDirection="row" alignItems="center" gapSize="xs">
-            {status === 'authenticated' && (
-              <Link href="/blog/myPosts">
-                <Text fontWeight="medium" fontSize="m" text="My Posts" />
-              </Link>
-            )}
-            <AuthController />
-            <ThemeSwitch />
-          </FlexContainer>
+          <a className={styles.cta} href={contactHref}>
+            Start a project
+          </a>
+          <AuthController />
+          <ThemeSwitch />
         </div>
       </nav>
     </div>
@@ -39,8 +53,11 @@ export const Navbar = ({}) => {
 
 export const Logo = () => {
   return (
-    <Link href="/">
-      <Image alt="Myhtra Logo" src={MyhtraLogo} width={44} height={56} />
+    <Link href="/" className={styles.logo}>
+      <Image alt="Myhtra Studios" src={MyhtraLogo} width={30} height={40} />
+      <span className={styles.wordmark}>
+        Myhtra<span>Studios</span>
+      </span>
     </Link>
   )
 }

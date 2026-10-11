@@ -1,0 +1,96 @@
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--line-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+
+.photo {
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 3px;
+}
+
+.name {
+  margin-top: 1.1rem;
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-medium);
+}
+
+.role {
+  margin-top: 0.25rem;
+  font-size: var(--font-size-s);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  gap: 0.9rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: var(--font-size-s);
+}
+
+.links a {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--brand-gold);
+}
+
+.seat {
+  border-style: dashed;
+  background: transparent;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--line-color);
+  font-size: 2rem;
+  font-weight: var(--font-weight-light);
+  color: var(--text-muted);
+}
+
+.join {
+  justify-content: flex-end;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--brand-gold) 22%, transparent), transparent 60%), var(--brand-gradient);
+  border: none;
+  color: #fff;
+  transition: transform var(--transition-duration) ease;
+}
+
+.join .role {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.join:hover {
+  transform: translateY(-3px);
+}
+
+@media screen and (max-width: 960px) {
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .team {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
