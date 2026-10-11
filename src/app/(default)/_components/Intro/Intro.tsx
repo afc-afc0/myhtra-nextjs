@@ -35,7 +35,7 @@ export const Intro = () => {
           <Text text=" · Toronto, ON" fontWeight="medium" display="inline" />
         </div>
         <RichText text="**7+ years** building web APIs, cloud infrastructure and agentic AI platforms." />
-        <RichText text="Founder, **Myhtra Studios**." />
+        <RichText text="I run **Myhtra Studios**." />
         <FlexContainer flexDirection="row" gapSize="s">
           {links.map((l) => (
             <Link key={l.text} href={l.href} target="_blank" rel="noopener noreferrer">
