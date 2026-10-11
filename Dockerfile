@@ -1,6 +1,6 @@
 # Next. js is built on top of React and runs on top of Node.js, 
 # hence we will use the Node.js image as the base image.
-FROM node:24-alpine AS base
+FROM node:25-alpine AS base
 # Let corepack fetch the pinned pnpm without an interactive prompt
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
