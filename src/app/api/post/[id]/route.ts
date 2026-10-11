@@ -1,6 +1,5 @@
-import { agent } from '@utils/http/nodeFetchAgent'
+import { backendFetch } from '@utils/http/backendFetch'
 import { UnauthorizedError, getAccessToken, getTokenIfExist, unauthorizedResponse } from '@utils/nextAuth/getAccessToken'
-import fetch from 'node-fetch'
 
 const api = process.env.NEXT_PUBLIC_MYHTRA_API
 
@@ -10,8 +9,7 @@ export async function GET(request: Request, { params }: { params: any }) {
 
     const accessToken = await getTokenIfExist({ req: request })
 
-    const res = await fetch(`${api}/Post/${id}`, {
-      agent: agent,
+    const res = await backendFetch(`${api}/Post/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         ...(accessToken && { Authorization: `Bearer ${accessToken}` })
@@ -42,8 +40,7 @@ export async function PUT(request: Request, { params }: { params: any }) {
 
     const jsonBody = await request.json()
 
-    const res = await fetch(`${api}/Post/${id}`, {
-      agent: agent,
+    const res = await backendFetch(`${api}/Post/${id}`, {
       body: JSON.stringify(jsonBody),
       headers: {
         Authorization: `Bearer ${accessToken}`,

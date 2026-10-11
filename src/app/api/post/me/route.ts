@@ -1,6 +1,5 @@
-import { agent } from '@utils/http/nodeFetchAgent'
+import { backendFetch } from '@utils/http/backendFetch'
 import { UnauthorizedError, getAccessToken, unauthorizedResponse } from '@utils/nextAuth/getAccessToken'
-import fetch from 'node-fetch'
 
 export const dynamic = 'force-dynamic'
 
@@ -10,8 +9,7 @@ export async function GET(req: any) {
   try {
     const accessToken = await getAccessToken({ req })
 
-    const res = await fetch(`${api}/Post/Me`, {
-      agent: agent,
+    const res = await backendFetch(`${api}/Post/Me`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json'
