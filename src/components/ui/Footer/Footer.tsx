@@ -4,7 +4,7 @@ import { Text } from '@components/ui/Text/Text'
 
 export const Footer = ({}) => {
   return (
-    <FlexContainer width="100%" paddingSize="m">
+    <FlexContainer width="100%" paddingTop="m">
       <Text fontSize="s" fontWeight="light" text="Powered by Next.js 16, deployed on Azure Kubernetes Service | Myhtra Studios" />
     </FlexContainer>
   )

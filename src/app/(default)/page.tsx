@@ -5,7 +5,7 @@ import { Text } from '@components/ui/Text/Text'
 import { Posts } from '@components/ui/Posts/Posts'
 import { Footer } from '@components/ui/Footer/Footer'
 import { Intro } from './_components/Intro/Intro'
-import { GitHubRepos } from './_components/GitHubRepos/GitHubRepos'
+import { GitHubContributions } from './_components/GitHubContributions/GitHubContributions'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' }
@@ -25,14 +25,14 @@ export default function Home() {
   return (
     <PageContainer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
-      <FlexContainer gapSize="l" paddingTop="m">
+      <FlexContainer width="100%" gapSize="l" paddingTop="m" paddingBottom="m">
         <Intro />
-        <FlexContainer id="github" gapSize="s">
-          <Text text="GitHub" fontSize="xxxl" fontWeight="medium" />
-          <GitHubRepos />
+        <FlexContainer id="github" width="100%" gapSize="s">
+          <Text text="GitHub contributions" fontSize="l" fontWeight="bold" />
+          <GitHubContributions />
         </FlexContainer>
-        <FlexContainer id="blog" gapSize="s">
-          <Text text="Blog" fontSize="xxxl" fontWeight="medium" />
+        <FlexContainer id="blog" width="100%" gapSize="s">
+          <Text text="Blog" fontSize="l" fontWeight="bold" />
           <Posts />
         </FlexContainer>
         <Footer />

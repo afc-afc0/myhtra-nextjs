@@ -47,7 +47,7 @@ export const Post = ({ post, isForUpdate = false }: { post: any; isForUpdate?: b
         alignItems="flex-start"
       >
         <FlexContainer width="100%">
-          <Text text={post.name} fontSize="xxl" />
+          <Text text={post.name} fontSize="xl" />
         </FlexContainer>
         <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="flex-start">
           <Text text={post.userDisplayName} fontWeight="light" />

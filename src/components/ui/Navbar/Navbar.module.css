@@ -14,7 +14,9 @@
 }
 
 .navbar {
-  width: 72rem;
+  width: 60rem;
+  max-width: 100%;
+  padding: 0 var(--padding-s);
   display: flex;
   justify-content: space-between;
 }
@@ -43,6 +45,6 @@
 @media screen and (max-width: 768px) {
   .navbar {
     width: 100%;
-    padding: 0 var(--padding-m);
+    padding: 0 var(--padding-s);
   }
 }

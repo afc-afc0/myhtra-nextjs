@@ -14,16 +14,21 @@ const links = [
 
 export const Intro = () => {
   return (
-    <FlexContainer flexDirection="row" responsiveFlexDirection="column" gapSize="m" borderWidth="l" borderRadius="m" paddingSize="s">
+    <FlexContainer
+      width="100%"
+      flexDirection="row"
+      responsiveFlexDirection="column"
+      gapSize="m"
+      borderWidth="s"
+      borderRadius="s"
+      paddingSize="s"
+    >
       <Image className={styles.profileImage} src={AhmetImage} alt="Ahmet Cengiz" width={120} height={120} preload />
       <FlexContainer gapSize="s">
         <Text text="Ahmet Cengiz" fontSize="xxl" fontWeight="bold" />
-        <Text text="Senior Software Developer · Myhtra Studios · Toronto" fontSize="m" fontWeight="medium" />
-        <Text
-          text="I build web apps, cloud infrastructure and AI agents. Currently building an agentic AI platform at PwC Canada."
-          fontWeight="light"
-        />
-        <Text text="Myhtra Studios is just me for now — new members are joining soon." fontSize="s" fontWeight="light" />
+        <Text text="Senior Software Developer, PwC Canada · Toronto, ON" fontSize="m" fontWeight="medium" />
+        <Text text="7+ years building web APIs, cloud infrastructure and agentic AI platforms." fontWeight="light" />
+        <Text text="Founder, Myhtra Studios." fontWeight="light" />
         <FlexContainer flexDirection="row" gapSize="s">
           {links.map((l) => (
             <Link key={l.text} href={l.href} target="_blank" rel="noopener noreferrer">
