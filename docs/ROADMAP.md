@@ -13,7 +13,7 @@ Status: ✅ done · ⏳ next · 💡 later
 | ✅  | GitHub contributions graph             | Last year from GitHub's public calendar, refreshed hourly, site theme colours  |
 | ✅  | Experience, key achievements, projects | Ahmet's own wording; two columns on desktop, stacked on phones                 |
 | ✅  | Blog on the homepage                   | Existing `Posts` component                                                     |
-| ✅  | Navbar, footer, global styles          | Back to the originals — no new styling                                         |
+| ✅  | Navbar, footer, global styles          | Originals, except the changes in the decisions log (60rem, highlights, links)  |
 | ✅  | SEO basics                             | Title, description, Open Graph image, sitemap, robots, JSON-LD (all invisible) |
 | ✅  | `PageContainer` on mobile              | `max-width: 100%` + side padding (also fixes `/blog` on phones)                |
 | ⏳  | Review on screen, then merge           | Light and dark mode, phone width                                               |
@@ -36,4 +36,15 @@ Status: ✅ done · ⏳ next · 💡 later
   navbar aligned to the 60rem content width. Checked by screenshot (desktop, phone, dark).
 - **2026-10-11** — Page felt empty: added experience, key achievements and projects next to each other.
   One `Card` for every block; blog cards use the same text sizes (also on `/blog`).
-- **2026-10-11** — Prototypes kept on branch `prototype/homepage-ui`, not on main.
+- **2026-10-11** — Prototypes kept on branch `prototype/homepage-ui`, not on main. (Commit 6986428 did land on main
+  before being removed; it stays in history because main is already pushed.)
+- **2026-10-11** — Bold blue highlights (`--highlight-color`) for what matters; every link is underlined in that colour
+  so links and highlights stay distinct. Footer padding trimmed to sit under the content.
+- **2026-10-11** — Blog shows as a tile grid, newest first, without the author name (also on `/blog`).
+  Blog moved above the GitHub graph. The GitHub section hides entirely if GitHub can't be reached.
+- **2026-10-11** — `Card` moved to `components/ui` so blog cards share it. Site URL, profile links and current role
+  each live in one place (`utils/site`, `_content/profile.ts`).
+- **2026-10-11** — Editor: pasted content is cleaned of inline styles (`PasteCleanupPlugin`). CSP `img-src` allows
+  `https:` so images inserted by URL in posts load.
+- **2026-10-11** — Helm: Service type is configurable (default ClusterIP, so there is no public IP bypassing the HTTPS ingress) and `www.myhtra.co` redirects.
+  This supersedes PR #2's "Service type unchanged (`LoadBalancer`)".

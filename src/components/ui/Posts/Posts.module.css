@@ -12,6 +12,7 @@
 
 .postContainer > * {
   min-height: 8rem;
+  transition: background-color var(--transition-duration) ease;
 }
 
 .date {
@@ -19,11 +20,7 @@
   white-space: nowrap;
 }
 
-/* Simple hover: the card surface steps one shade, so it's clear the whole row is clickable */
-.postContainer > * {
-  transition: background-color var(--transition-duration) ease;
-}
-
+/* Simple hover: the card surface steps one shade, so it's clear the whole card is clickable */
 .postContainer:hover > *,
 .postContainer:focus-visible > * {
   background-color: var(--background-tertiary);

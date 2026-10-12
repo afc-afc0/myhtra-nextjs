@@ -1,6 +1,6 @@
 'use client'
 
-import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
+import { Card } from '@components/ui/Card/Card'
 import { Text } from '@components/ui/Text/Text'
 import { formatDate } from '@utils/format/format'
 import Link from 'next/link'
@@ -39,12 +39,12 @@ const sortNewestFirst = (posts: any[]) => [...posts].sort((a, b) => new Date(b.c
 export const Post = ({ post, isForUpdate = false }: { post: any; isForUpdate?: boolean }) => {
   return (
     <PostContainer postId={post.id} isForUpdate={isForUpdate}>
-      <FlexContainer backgroundColor="secondary" borderRadius="m" paddingSize="m" gapSize="m" height="100%" justifyContent="space-between">
+      <Card gapSize="m" height="100%" justifyContent="space-between">
         <Text text={post.name} fontSize="l" fontWeight="medium" />
         <span className={styles.date}>
           <Text text={formatDate(post.createdAtUtc)} fontSize="s" fontWeight="light" />
         </span>
-      </FlexContainer>
+      </Card>
     </PostContainer>
   )
 }

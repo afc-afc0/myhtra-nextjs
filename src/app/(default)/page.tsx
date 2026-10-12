@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { PageContainer } from '@components/ui/PageContainer/PageContainer'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
-import { Text } from '@components/ui/Text/Text'
 import { Posts } from '@components/ui/Posts/Posts'
 import { Footer } from '@components/ui/Footer/Footer'
 import { Intro } from './_components/Intro/Intro'
@@ -9,6 +8,9 @@ import { Experience } from './_components/Experience/Experience'
 import { Achievements } from './_components/Achievements/Achievements'
 import { Projects } from './_components/Projects/Projects'
 import { GitHubContributions } from './_components/GitHubContributions/GitHubContributions'
+import { Section } from './_components/Section/Section'
+import { currentRole, links } from './_content/profile'
+import { siteUrl } from '@utils/site/site'
 
 import styles from './page.module.css'
 
@@ -19,11 +21,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  jobTitle: 'Senior Software Developer',
+  jobTitle: currentRole.title,
   name: 'Ahmet Cengiz',
-  sameAs: ['https://github.com/afc-afc0', 'https://www.linkedin.com/in/ahmet-fatih-cengiz'],
-  url: 'https://myhtra.co',
-  worksFor: { '@type': 'Organization', name: 'Myhtra Studios', url: 'https://myhtra.co' }
+  sameAs: [links.github, links.linkedin],
+  url: siteUrl,
+  worksFor: { '@type': 'Organization', name: currentRole.company, url: currentRole.companyHref }
 }
 
 export default function Home() {
@@ -39,14 +41,10 @@ export default function Home() {
             <Projects />
           </FlexContainer>
         </div>
-        <FlexContainer id="blog" width="100%" gapSize="s">
-          <Text text="Blog" fontSize="l" fontWeight="bold" />
+        <Section id="blog" title="Blog">
           <Posts />
-        </FlexContainer>
-        <FlexContainer id="github" width="100%" gapSize="s">
-          <Text text="GitHub contributions" fontSize="l" fontWeight="bold" />
-          <GitHubContributions />
-        </FlexContainer>
+        </Section>
+        <GitHubContributions />
         <Footer />
       </FlexContainer>
     </PageContainer>

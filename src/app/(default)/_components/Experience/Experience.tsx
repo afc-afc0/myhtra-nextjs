@@ -1,22 +1,22 @@
-import Link from 'next/link'
+import { Card } from '@components/ui/Card/Card'
 import { FlexContainer } from '@components/ui/Layout/FlexContainer/FlexContainer'
 import { Text, TextType } from '@components/ui/Text/Text'
 import { RichText } from '@components/ui/Text/RichText'
 import { experience } from '../../_content/profile'
-import { Card } from '../Card/Card'
+import { ExternalLink } from '../ExternalLink/ExternalLink'
+import { Section } from '../Section/Section'
 
 export const Experience = () => {
   return (
-    <FlexContainer width="100%" gapSize="s">
-      <Text text="Experience" fontSize="l" fontWeight="bold" />
+    <Section title="Experience">
       {experience.map((job) => (
         <Card key={job.company}>
           <FlexContainer>
             <div>
               <Text text={`${job.title} · `} fontSize="l" fontWeight="medium" display="inline" />
-              <Link href={job.companyHref} target="_blank" rel="noopener noreferrer">
+              <ExternalLink href={job.companyHref}>
                 <Text text={job.company} type={TextType.LINK} fontSize="l" fontWeight="bold" display="inline" />
-              </Link>
+              </ExternalLink>
             </div>
             <Text text={job.dates} fontSize="s" fontWeight="light" />
           </FlexContainer>
@@ -25,6 +25,6 @@ export const Experience = () => {
           ))}
         </Card>
       ))}
-    </FlexContainer>
+    </Section>
   )
 }

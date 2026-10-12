@@ -4,6 +4,7 @@ import { Rubik } from 'next/font/google'
 import { Navbar } from '@components/ui/Navbar/Navbar'
 import { ClientSideContextProviders } from '@contexts/ClientSideContextProviders/ClientSideContextProviders'
 import { Toaster } from '@components/ui/Toast/Toaster/Toaster'
+import { siteUrl } from '@utils/site/site'
 
 const rubik = Rubik({ subsets: ['latin'] })
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.ico'
   },
-  metadataBase: new URL('https://myhtra.co'),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     description,
     locale: 'en_CA',

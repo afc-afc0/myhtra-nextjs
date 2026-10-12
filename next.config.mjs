@@ -3,11 +3,12 @@ const isDev = process.env.NODE_ENV === 'development'
 // Static CSP: Next's App Router and next-themes inject inline scripts, so script-src needs 'unsafe-inline'.
 // A nonce-based CSP would remove that, but forces every page to render dynamically.
 // All browser fetches go to our own /api routes and Keycloak sign-in is a top-level redirect, so 'self' is enough.
+// img-src allows any https: host because blog posts can embed images by URL (ImagesPlugin "Insert by URL").
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https:",
   "font-src 'self'",
   "connect-src 'self'",
   "object-src 'none'",

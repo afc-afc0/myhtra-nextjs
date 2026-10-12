@@ -36,6 +36,16 @@ export const experience = [
   }
 ]
 
+export const currentRole = experience[0]
+
+export const githubUsername = 'afc-afc0'
+
+export const links = {
+  email: 'mailto:ahmet_fatih_cengiz@hotmail.com',
+  github: `https://github.com/${githubUsername}`,
+  linkedin: 'https://www.linkedin.com/in/ahmet-fatih-cengiz'
+}
+
 export const achievements = [
   'Created and maintained a custom form and workflow management application used by **100,000+ students and faculty members** across US colleges.',
   'Directed the transition of **20+ .NET Framework applications** to .NET 6/8 and Node.js APIs with a Next.js UI, deployed to Kubernetes and Azure App Service.',
@@ -55,7 +65,8 @@ export const projects: { name: string; status: string; summary: string; href?: s
     summary: 'A day planner for developers with a **desktop agent** that records what actually happened and asks before it acts.'
   },
   {
-    name: 'Book',
+    href: 'https://book.myhtra.co/',
+    name: 'Michael Novak, MD',
     status: 'Ongoing',
     summary: 'An AI-assisted writing studio for my first novel, built on **custom Claude Code skills**. I approve every line.'
   },
