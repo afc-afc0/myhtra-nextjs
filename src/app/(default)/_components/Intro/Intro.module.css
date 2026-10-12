@@ -2,3 +2,9 @@
   border-radius: var(--padding-s);
   object-fit: cover;
 }
+
+/* Standalone links get a 32px-tall tap area on phones without changing their look */
+.tapTarget {
+  display: inline-block;
+  padding: 0.375rem 0;
+}

@@ -22,6 +22,7 @@ import { useLexicalEditable } from '@lexical/react/useLexicalEditable'
 import ListMaxIndentLevelPlugin from './plugins/ListMaxIndentLevelPlugin/ListMaxIndentLevelPlugin'
 import ToolbarPlugin from './plugins/ToolbarPlugin/ToolbarPlugin'
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin'
+import PasteCleanupPlugin from './plugins/PasteCleanupPlugin'
 
 import styles from './Lexical.module.css'
 import LinkPlugin from './plugins/LinkPlugin/LinkPlugin'
@@ -122,6 +123,7 @@ const Editor = ({ onChange, readonly, id }: { onChange?: any; readonly?: boolean
         <ClearEditorPlugin />
         <HistoryPlugin />
         <CodeHighlightPlugin />
+        <PasteCleanupPlugin />
         <ListPlugin />
         <CheckListPlugin />
         <ListMaxIndentLevelPlugin maxDepth={7} />

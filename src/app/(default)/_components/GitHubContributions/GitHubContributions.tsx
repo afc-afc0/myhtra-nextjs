@@ -64,7 +64,7 @@ export const GitHubContributions = async () => {
         </div>
       </div>
       <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="center">
-        <Link href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer">
+        <Link href={`https://github.com/${username}`} target="_blank" rel="noopener noreferrer" className={styles.tapTarget}>
           <Text type={TextType.LINK} text={`github.com/${username}`} fontSize="s" />
         </Link>
         <div className={styles.legend} aria-hidden>

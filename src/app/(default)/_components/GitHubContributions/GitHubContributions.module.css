@@ -57,3 +57,8 @@
 .day[data-level='4'] {
   background-color: var(--contribution-color);
 }
+
+.tapTarget {
+  display: inline-block;
+  padding: 0.375rem 0;
+}

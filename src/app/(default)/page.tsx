@@ -39,13 +39,13 @@ export default function Home() {
             <Projects />
           </FlexContainer>
         </div>
-        <FlexContainer id="github" width="100%" gapSize="s">
-          <Text text="GitHub contributions" fontSize="l" fontWeight="bold" />
-          <GitHubContributions />
-        </FlexContainer>
         <FlexContainer id="blog" width="100%" gapSize="s">
           <Text text="Blog" fontSize="l" fontWeight="bold" />
           <Posts />
+        </FlexContainer>
+        <FlexContainer id="github" width="100%" gapSize="s">
+          <Text text="GitHub contributions" fontSize="l" fontWeight="bold" />
+          <GitHubContributions />
         </FlexContainer>
         <Footer />
       </FlexContainer>

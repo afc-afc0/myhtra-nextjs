@@ -28,31 +28,22 @@ export const Posts = () => {
   const { data: posts } = useQuery({ initialData: [], queryFn: fetchAllPosts, queryKey: ['posts'] })
 
   return (
-    <FlexContainer width="100%" height="auto" gapSize="s">
-      {posts && Array.isArray(posts) ? posts.map((post: any) => <Post key={post.id} post={post} />) : null}
-    </FlexContainer>
+    <div className={styles.tiles}>
+      {Array.isArray(posts) ? sortNewestFirst(posts).map((post: any) => <Post key={post.id} post={post} />) : null}
+    </div>
   )
 }
+
+const sortNewestFirst = (posts: any[]) => [...posts].sort((a, b) => new Date(b.createdAtUtc).getTime() - new Date(a.createdAtUtc).getTime())
 
 export const Post = ({ post, isForUpdate = false }: { post: any; isForUpdate?: boolean }) => {
   return (
     <PostContainer postId={post.id} isForUpdate={isForUpdate}>
-      <FlexContainer
-        backgroundColor="secondary"
-        borderRadius="m"
-        paddingSize="m"
-        gapSize="s"
-        height="auto"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <FlexContainer width="100%">
-          <Text text={post.name} fontSize="l" fontWeight="medium" />
-        </FlexContainer>
-        <FlexContainer flexDirection="row" width="100%" justifyContent="space-between" alignItems="flex-start">
-          <Text text={post.userDisplayName} fontSize="s" fontWeight="light" />
+      <FlexContainer backgroundColor="secondary" borderRadius="m" paddingSize="m" gapSize="m" height="100%" justifyContent="space-between">
+        <Text text={post.name} fontSize="l" fontWeight="medium" />
+        <span className={styles.date}>
           <Text text={formatDate(post.createdAtUtc)} fontSize="s" fontWeight="light" />
-        </FlexContainer>
+        </span>
       </FlexContainer>
     </PostContainer>
   )

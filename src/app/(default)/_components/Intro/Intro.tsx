@@ -38,7 +38,7 @@ export const Intro = () => {
         <RichText text="I run **Myhtra Studios**." />
         <FlexContainer flexDirection="row" gapSize="s">
           {links.map((l) => (
-            <Link key={l.text} href={l.href} target="_blank" rel="noopener noreferrer">
+            <Link key={l.text} href={l.href} target="_blank" rel="noopener noreferrer" className={styles.tapTarget}>
               <Text type={TextType.LINK} text={l.text} fontWeight="medium" />
             </Link>
           ))}

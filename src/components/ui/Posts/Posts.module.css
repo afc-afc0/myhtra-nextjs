@@ -1,3 +1,30 @@
-.postContainer {
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--padding-s);
   width: 100%;
+}
+
+.postContainer {
+  display: block;
+  width: 100%;
+}
+
+.postContainer > * {
+  min-height: 8rem;
+}
+
+.date {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Simple hover: the card surface steps one shade, so it's clear the whole row is clickable */
+.postContainer > * {
+  transition: background-color var(--transition-duration) ease;
+}
+
+.postContainer:hover > *,
+.postContainer:focus-visible > * {
+  background-color: var(--background-tertiary);
 }
