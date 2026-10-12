@@ -166,3 +166,36 @@ div::selection {
   border-color: var(--focus-border-color);
   background-color: var(--background-tertiary);
 }
+
+/* Printing /resume: show only the sheet. CSS modules can't hold these global selectors.
+   A zero page margin leaves Chrome no room for its own header and footer (date, title, URL, page number);
+   the sheet's padding is the margin instead, cloned onto every page. */
+@page {
+  size: letter;
+  margin: 0;
+}
+
+@media print {
+  body:has([data-print-sheet]) * {
+    visibility: hidden;
+  }
+
+  body:has([data-print-sheet]) {
+    background: #fff;
+  }
+
+  article[data-print-sheet],
+  article[data-print-sheet] * {
+    visibility: visible;
+  }
+
+  article[data-print-sheet] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: none;
+    padding: 0.5in 0.6in;
+    box-shadow: none;
+    box-decoration-break: clone;
+  }
+}

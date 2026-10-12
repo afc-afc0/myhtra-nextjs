@@ -12,7 +12,8 @@ import styles from './Intro.module.css'
 const contactLinks = [
   { href: links.email, text: 'Email' },
   { href: links.github, text: 'GitHub' },
-  { href: links.linkedin, text: 'LinkedIn' }
+  { href: links.linkedin, text: 'LinkedIn' },
+  { href: '/resume', text: 'Resume' }
 ]
 
 export const Intro = () => {

@@ -1,0 +1,97 @@
+/* Headless Headhunter template: Arial, black and white (links may be blue), one column,
+   name 14pt bold, contact 12pt, body 10.5pt. We use 1.15 spacing throughout (the template asks 1.5 for the body)
+   to keep it compact. The sheet is paper in both themes. Print rules live in globals.css. */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--padding-m);
+  padding: var(--padding-m);
+}
+
+.toolbar {
+  width: 100%;
+  max-width: 8.5in;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sheet {
+  --blank-line: 8pt;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 8.5in;
+  padding: 0.5in 0.6in;
+  background: #fff;
+  color: #000;
+  font-family: Arial, 'Liberation Sans', Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.15;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.25);
+  overflow-wrap: anywhere;
+}
+
+.sheet h1,
+.sheet h2,
+.sheet p,
+.sheet ul {
+  margin: 0;
+}
+
+.sheet h1 {
+  font-size: 14pt;
+}
+
+.sheet h2 {
+  font-size: 10.5pt;
+  break-after: avoid;
+}
+
+.sheet section {
+  margin-top: var(--blank-line);
+}
+
+.sheet ul {
+  padding-left: 0.3in;
+}
+
+.sheet li {
+  break-inside: avoid;
+}
+
+.sheet a {
+  color: #1155cc;
+  text-decoration: underline;
+}
+
+.header {
+  font-size: 12pt;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.entry + .entry {
+  margin-top: var(--blank-line);
+}
+
+.entry > p {
+  break-after: avoid;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 1em;
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    padding: var(--padding-m);
+  }
+
+  .sheet ul {
+    padding-left: 1.25em;
+  }
+}
