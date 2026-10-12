@@ -68,7 +68,7 @@ export const projects: { name: string; status: string; summary: string; href?: s
     href: 'https://book.myhtra.co/',
     name: 'Michael Novak, MD',
     status: 'Ongoing',
-    summary: 'An AI-assisted writing studio for my first novel, built on **custom Claude Code skills**. I approve every line.'
+    summary: 'My first novel, written in an AI-assisted studio built on **custom Claude Code skills**. I approve every line.'
   },
   {
     href: 'https://healtify.co/',
