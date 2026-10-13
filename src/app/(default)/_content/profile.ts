@@ -150,6 +150,7 @@ export const resume = {
   education: 'Computer Engineering at Ankara University',
   location: 'Toronto, ON',
   name: 'Ahmet Cengiz',
+  phone: '(647) 857-1072',
   // Exact terms recruiters search for literally ("AWS" doesn't match "Amazon Bedrock"). Bullets carry the rest.
   skills: 'C#, TypeScript, JavaScript, Python, Go, Java, SQL | React, Next.js, Node.js, .NET, REST APIs | AWS, Azure, GCP, Kubernetes, Docker, Terraform | Agile'
 }

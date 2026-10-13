@@ -9,12 +9,8 @@ export const metadata: Metadata = {
   title: 'Resume'
 }
 
-// The phone number lives only in .env.local (kept out of git and the Docker build), so it shows on
-// locally printed PDFs and never on the public page.
-const phone = process.env.RESUME_PHONE
-
 const contacts = [
-  ...(phone ? [{ href: `tel:${phone.replace(/[^+\d]/g, '')}`, text: phone }] : []),
+  { href: `tel:${resume.phone.replace(/[^+\d]/g, '')}`, text: resume.phone },
   { href: links.email, text: links.email.replace('mailto:', '') },
   { href: links.linkedin, text: 'LinkedIn' },
   { href: links.github, text: 'GitHub' }

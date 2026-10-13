@@ -14,7 +14,7 @@ The resume follows the Headless Headhunter template (headlessheadhunter.org/how-
 - `experience`: reverse chronological. `experience[0]` is the current role (the home page intro and JSON-LD read it). `highlights` is the short home-page copy with `**bold**`; `resume.bullets` and `resume.dates` are the resume copy.
 - `projects`: a project with `resume` bullets also appears on `/resume`, in array order (most relevant first).
 - `resume`: header, Education and Certificates.
-- Phone: `RESUME_PHONE` in `.env.local`, which stays out of git and the Docker build. The repo is public, so the phone number and job-specific versions stay out of it.
+- Phone: `resume.phone` in `profile.ts`, shown on the public `/resume` page. Job-specific resume versions still stay out of the repo.
 
 ## Template rules
 
