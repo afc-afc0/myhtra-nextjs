@@ -30,7 +30,6 @@ export const Intro = () => {
           <Text text=" · Toronto, ON" fontWeight="medium" display="inline" />
         </div>
         <RichText text="**7+ years** building web APIs, cloud infrastructure and IAM. Now focused on **agentic AI** platforms." />
-        <RichText text="I run **Myhtra Studios**." />
         <FlexContainer flexDirection="row" gapSize="s">
           {contactLinks.map((l) => (
             <ExternalLink key={l.text} href={l.href} tapTarget>
