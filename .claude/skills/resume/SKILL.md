@@ -18,7 +18,7 @@ The resume follows the Headless Headhunter template (headlessheadhunter.org/how-
 
 ## Template rules
 
-- Sections, in order: Work History, Projects, Skills, Education & Certificates. Education & Certificates sits at the bottom (the template's rule when a degree isn't the selling point; this one was not completed), and names the field of study only. No summary section. Keywords live inside bullets; the one-line Skills section (a deliberate break from the template) only holds exact terms recruiters search literally, such as AWS or C#, and only skills that are true.
+- Sections, in order: Work History, Projects, Education & Certificates. Education & Certificates sits at the bottom (the template's rule when a degree isn't the selling point; this one was not completed), and names the field of study only. No summary section. Keywords live inside bullets, spelled the way recruiters search literally ("AWS" doesn't match "Amazon Bedrock"), and only for skills that are true. There is no Skills section.
 - Each job: 3 to 8 bullets. Bullet 1 is a **summary** of the role that an 8-year-old could follow, with 1–2 keywords. Every other bullet is **keyword + how it was used + result or reason**.
 - Projects: 3 bullets max, no dates. Paid by a company means Work History; unpaid means Project. Only finished work goes on the resume.
 - Every bullet: past tense (current job too), one sentence, 2 lines max, plain text with no bold.

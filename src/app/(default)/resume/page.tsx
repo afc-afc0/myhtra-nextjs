@@ -77,11 +77,6 @@ export default function Resume() {
         </section>
 
         <section>
-          <h2>Skills</h2>
-          <p>{resume.skills}</p>
-        </section>
-
-        <section>
           <h2>Education &amp; Certificates</h2>
           <ul>
             <li>{resume.education}</li>

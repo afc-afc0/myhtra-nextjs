@@ -20,7 +20,7 @@ export const experience = [
         'Led the team’s repository standards for AI coding agents (Claude Code), with a PRD, ADRs, spec-first tickets and a CI gate that checks every reference, so features shipped faster and more consistently.',
         'Shipped a conversational Azure provisioning agent for Terraform plan generation, security remediation and Azure Policy advice, gated by human approval.',
         'Ran evals on agent trajectories in Langfuse to pick few-shot examples and refine prompts.',
-        'Cut LLM spend on Claude via Amazon Bedrock with multi-tier caching of prompts and tool outputs.',
+        'Cut LLM spend on Claude via Amazon Bedrock on AWS with multi-tier caching of prompts and tool outputs.',
         'Moved infrastructure from Terraform Enterprise to an open-source toolchain with Azure-native state management, contributing to about $2–3M in annual licensing savings.'
       ],
       dates: 'December 2025 to Current'
@@ -50,7 +50,7 @@ export const experience = [
     ],
     resume: {
       bullets: [
-        'Built and modernized full-stack web apps for clients with React, TypeScript and .NET on Azure and Kubernetes.',
+        'Built and modernized full-stack web apps for clients with C#, .NET, React and TypeScript on Azure and Kubernetes.',
         'Built and maintained a form and workflow app used by 100,000+ students and faculty at US colleges.',
         'Migrated 20 legacy .NET Framework applications to .NET 6/8 and Node.js REST APIs documented with Swagger, with a Next.js frontend, improving performance and maintainability.',
         'Built a shared React component library in TypeScript to keep every interface on brand.',
@@ -73,7 +73,7 @@ export const experience = [
     ],
     resume: {
       bullets: [
-        'Built and secured web applications for clients with Java Spring and Node.js on Kubernetes.',
+        'Built and secured web applications for clients with Java Spring and JavaScript on Node.js and Kubernetes.',
         'Deployed Keycloak on Kubernetes with Docker to give client applications central identity management with Multi-Factor Authentication (MFA).',
         'Implemented OpenID Connect and OAuth across Node.js, Java Spring and React applications to secure both frontend and backend.',
         'Ran Node.js microservices on Kubernetes with RabbitMQ for reliable messaging between services.'
@@ -150,7 +150,5 @@ export const resume = {
   education: 'Computer Engineering at Ankara University',
   location: 'Toronto, ON',
   name: 'Ahmet Cengiz',
-  phone: '(647) 857-1072',
-  // Exact terms recruiters search for literally ("AWS" doesn't match "Amazon Bedrock"). Bullets carry the rest.
-  skills: 'C#, TypeScript, JavaScript, Python, Go, Java, SQL | React, Next.js, Node.js, .NET, REST APIs | AWS, Azure, GCP, Kubernetes, Docker, Terraform | Agile'
+  phone: '(647) 857-1072'
 }
