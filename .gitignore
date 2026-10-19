@@ -38,3 +38,6 @@ next-env.d.ts
 certificates
 # claude code agent worktrees
 .claude/worktrees/
+
+# job applications: resumes, saved answers, log (personal data, repo is public)
+/applications/
